@@ -7,13 +7,13 @@ const useStyles = makeStyles(() => ({
     },
     title: {
         textAlign: 'center',
-        fontSize: '14vw',
+        fontSize: '12vw',
         marginTop: '20vh',
         marginBottom: 0,
     },
     subtitle: {
         textAlign: 'center',
-        fontSize: '3vw',
+        fontSize: '2vw',
         marginTop: 0,
         marginBottom: 0,
     },
