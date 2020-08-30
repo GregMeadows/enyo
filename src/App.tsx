@@ -4,11 +4,11 @@ import { Homepage } from './pages/Homepage';
 import ElevatedAppBar from './components/ElevatedAppBar';
 
 export const App: FunctionComponent = () => {
-    return (
-        <>
-            <CssBaseline />
-            <ElevatedAppBar />
-            <Homepage />
-        </>
-    );
+  return (
+    <>
+      <CssBaseline />
+      <ElevatedAppBar />
+      <Homepage />
+    </>
+  );
 };
