@@ -1,0 +1,6 @@
+# Artifacts
+build
+coverage
+
+# IDE Files
+.vscode
