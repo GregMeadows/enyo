@@ -1,8 +1,10 @@
 import React from 'react';
-import AppBar from '@material-ui/core/AppBar';
-import Toolbar from '@material-ui/core/Toolbar';
-import Typography from '@material-ui/core/Typography';
-import useScrollTrigger from '@material-ui/core/useScrollTrigger';
+import {
+  AppBar,
+  Toolbar,
+  Typography,
+  useScrollTrigger,
+} from '@material-ui/core';
 
 interface ElevationScrollProps {
   children: React.ReactElement;
@@ -20,7 +22,7 @@ function ElevationScroll(props: ElevationScrollProps) {
   });
 }
 
-export default function ElevatedAppBar() {
+export default function ElevatedAppBar(): JSX.Element {
   return (
     <>
       <ElevationScroll>

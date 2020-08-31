@@ -12,7 +12,7 @@ const useStyles = makeStyles(
   }
 );
 
-export const Homepage: FunctionComponent = () => {
+const Homepage: FunctionComponent = () => {
   const classes = useStyles();
 
   return (
@@ -77,3 +77,4 @@ export const Homepage: FunctionComponent = () => {
     </section>
   );
 };
+export default Homepage;
