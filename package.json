@@ -38,7 +38,9 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "test:deploy": "CI=true react-scripts test",
-    "lint": "eslint --ext js,ts,tsx src"
+    "lint": "eslint --ext js,ts,tsx src",
+    "prettier": "prettier --write src/**",
+    "prettier-check": "prettier --check src/**"
   },
   "browserslist": {
     "production": [
