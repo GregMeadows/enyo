@@ -5,6 +5,7 @@ import {
   Typography,
   useScrollTrigger,
 } from '@material-ui/core';
+import { useTranslation } from 'react-i18next';
 
 interface ElevationScrollProps {
   children: React.ReactElement;
@@ -23,12 +24,14 @@ function ElevationScroll(props: ElevationScrollProps) {
 }
 
 export default function ElevatedAppBar(): JSX.Element {
+  const { t } = useTranslation();
+
   return (
     <>
       <ElevationScroll>
         <AppBar>
           <Toolbar>
-            <Typography variant="h6">ENYO</Typography>
+            <Typography variant="h6">{t('ENYO')}</Typography>
           </Toolbar>
         </AppBar>
       </ElevationScroll>

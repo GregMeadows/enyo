@@ -20,7 +20,7 @@
     "ecmaVersion": 2020,
     "sourceType": "module"
   },
-  "plugins": ["react", "@typescript-eslint", "react-hooks"],
+  "plugins": ["react", "@typescript-eslint", "react-hooks", "i18next"],
   "rules": {
     "import/extensions": ["error", { "ts": "never", "tsx": "never" }],
     "import/no-extraneous-dependencies": ["error", { "devDependencies": true }],
@@ -29,7 +29,11 @@
       { "extensions": [".ts", ".tsx"] }
     ],
     "react-hooks/rules-of-hooks": "error",
-    "react-hooks/exhaustive-deps": "warn"
+    "react-hooks/exhaustive-deps": "warn",
+    "i18next/no-literal-string": [
+      "error",
+      { "markupOnly": true, "ignoreAttribute": ["variant"] }
+    ]
   },
   "settings": {
     "import/resolver": {
