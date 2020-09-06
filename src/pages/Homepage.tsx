@@ -1,5 +1,6 @@
 import React, { FunctionComponent } from 'react';
 import { makeStyles } from '@material-ui/styles';
+import { useTranslation } from 'react-i18next';
 
 const useStyles = makeStyles(
   () => ({
@@ -14,9 +15,12 @@ const useStyles = makeStyles(
 
 const Homepage: FunctionComponent = () => {
   const classes = useStyles();
+  const { t } = useTranslation();
 
   return (
     <section className={classes.root}>
+      <h1>{t('Welcome')}</h1>
+      <h2>{t('This is a missing translation')}</h2>
       <p>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec
         odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla
