@@ -12,6 +12,10 @@ i18n
     interpolation: {
       escapeValue: false, // not needed for react as it escapes by default
     },
+    returnEmptyString: false,
+    parseMissingKeyHandler: (key) => {
+      return `MISSING_TRANSLATION: ${key}`;
+    },
   });
 
 export default i18n;
