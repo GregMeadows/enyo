@@ -34,7 +34,13 @@
       "error",
       {
         "markupOnly": true,
-        "ignoreAttribute": ["variant", "align", "justify", "alignItems"]
+        "ignoreAttribute": [
+          "variant",
+          "align",
+          "justify",
+          "alignItems",
+          "color"
+        ]
       }
     ]
   },
