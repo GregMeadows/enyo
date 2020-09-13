@@ -32,7 +32,10 @@
     "react-hooks/exhaustive-deps": "warn",
     "i18next/no-literal-string": [
       "error",
-      { "markupOnly": true, "ignoreAttribute": ["variant"] }
+      {
+        "markupOnly": true,
+        "ignoreAttribute": ["variant", "align", "justify", "alignItems"]
+      }
     ]
   },
   "settings": {

@@ -31,7 +31,7 @@ export default function ElevatedAppBar(): JSX.Element {
       <ElevationScroll>
         <AppBar>
           <Toolbar>
-            <Typography variant="h6">{t('enyo')}</Typography>
+            <Typography variant="h6">{t('company.name')}</Typography>
           </Toolbar>
         </AppBar>
       </ElevationScroll>
