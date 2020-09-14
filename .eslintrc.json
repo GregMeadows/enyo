@@ -39,7 +39,8 @@
           "align",
           "justify",
           "alignItems",
-          "color"
+          "color",
+          "component"
         ]
       }
     ]

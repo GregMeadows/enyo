@@ -1,7 +1,9 @@
 import React, { FunctionComponent } from 'react';
 import { makeStyles } from '@material-ui/styles';
-import { Typography, Theme, Grid } from '@material-ui/core';
+import { Typography, Theme, Grid, Button } from '@material-ui/core';
 import { useTranslation } from 'react-i18next';
+import { observer } from 'mobx-react-lite';
+import { isLightMode, switchThemeType } from '../stores/settings';
 
 const useStyles = makeStyles(
   (theme: Theme) => ({
@@ -33,7 +35,7 @@ const useStyles = makeStyles(
   }
 );
 
-const Footer: FunctionComponent = () => {
+const Footer: FunctionComponent = observer(() => {
   const classes = useStyles();
   const { t } = useTranslation();
 
@@ -45,7 +47,11 @@ const Footer: FunctionComponent = () => {
         justify="space-around"
         className={classes.grid}
       >
-        <Grid item className={classes.item} />
+        <Grid item className={classes.item}>
+          <Button onClick={switchThemeType}>
+            {isLightMode() ? t('theme.dark') : t('theme.light')}
+          </Button>
+        </Grid>
         <Grid item>
           <Typography variant="h6">{t('company.name')}</Typography>
         </Grid>
@@ -55,10 +61,13 @@ const Footer: FunctionComponent = () => {
         align="center"
         className={classes.copyright}
       >
-        {t('copyright', { date: new Date().getFullYear() })}
+        {t('copyright', {
+          year: new Date().getFullYear(),
+          company: t('company.long'),
+        })}
       </Typography>
     </footer>
   );
-};
+});
 
 export default Footer;

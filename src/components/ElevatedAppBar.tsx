@@ -29,7 +29,7 @@ export default function ElevatedAppBar(): JSX.Element {
   return (
     <>
       <ElevationScroll>
-        <AppBar color="inherit">
+        <AppBar>
           <Toolbar>
             <Typography variant="h6">{t('company.name')}</Typography>
           </Toolbar>

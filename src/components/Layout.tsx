@@ -7,7 +7,7 @@ import { BREAKPOINT_MOBILE } from '../assets/consts';
 const useStyles = makeStyles(
   (theme: Theme) => ({
     root: {
-      background: theme.palette.background.paper,
+      background: theme.palette.background.default,
       width: '100%',
       overflowX: 'hidden',
       minHeight: '100%',
