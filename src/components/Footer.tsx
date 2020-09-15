@@ -1,6 +1,6 @@
 import React, { FunctionComponent } from 'react';
-import { makeStyles } from '@material-ui/styles';
-import { Typography, Theme, Grid, Button } from '@material-ui/core';
+import { makeStyles, Theme } from '@material-ui/core/styles';
+import { Typography, Grid, Button } from '@material-ui/core';
 import { useTranslation } from 'react-i18next';
 import { observer } from 'mobx-react-lite';
 import { isLightMode, switchThemeType } from '../stores/settings';

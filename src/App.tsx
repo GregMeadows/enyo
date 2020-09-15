@@ -1,6 +1,7 @@
 import React, { FunctionComponent, Suspense } from 'react';
 import { observer } from 'mobx-react-lite';
-import { CssBaseline, ThemeProvider } from '@material-ui/core';
+import { CssBaseline } from '@material-ui/core';
+import { ThemeProvider } from '@material-ui/core/styles';
 import Homepage from './pages/Homepage';
 import Footer from './components/Footer';
 import Layout from './components/Layout';

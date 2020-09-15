@@ -1,4 +1,4 @@
-import { ThemeOptions } from '@material-ui/core';
+import { ThemeOptions } from '@material-ui/core/styles';
 
 const root: ThemeOptions = {
   overrides: {

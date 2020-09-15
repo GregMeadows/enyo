@@ -1,6 +1,6 @@
 import { createContext } from 'react';
 import { observable } from 'mobx';
-import { Theme } from '@material-ui/core';
+import { Theme } from '@material-ui/core/styles';
 import themes, { ThemeType } from '../themes';
 
 const settings = observable.object({

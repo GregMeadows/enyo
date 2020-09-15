@@ -1,7 +1,6 @@
 import React, { FunctionComponent } from 'react';
 import PropTypes from 'prop-types';
-import { makeStyles } from '@material-ui/styles';
-import { Theme } from '@material-ui/core';
+import { makeStyles, Theme } from '@material-ui/core/styles';
 import { BREAKPOINT_MOBILE } from '../assets/consts';
 
 const useStyles = makeStyles(
