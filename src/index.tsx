@@ -4,9 +4,4 @@ import './baseStyling.css';
 import App from './App';
 import './i18n';
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
-);
+ReactDOM.render(<App />, document.getElementById('root'));
