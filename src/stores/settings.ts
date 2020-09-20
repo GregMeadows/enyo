@@ -3,13 +3,18 @@ import { observable } from 'mobx';
 import { Theme } from '@material-ui/core/styles';
 import themes, { ThemeType } from '../themes';
 
-const settings = observable.object({
-  theme: themes.default,
+interface settingsTypes {
+  theme: string;
+  themeType: ThemeType;
+}
+
+const settings: settingsTypes = observable.object({
+  theme: 'default',
   themeType: ThemeType.LIGHT,
 });
 
 export function getTheme(): Theme {
-  return settings.theme[settings.themeType];
+  return themes[settings.theme][settings.themeType];
 }
 
 export function isLightMode(): boolean {

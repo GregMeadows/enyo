@@ -7,11 +7,13 @@ export enum ThemeType {
   DARK = 'dark',
 }
 
+interface ThemePair {
+  light: Theme;
+  dark: Theme;
+}
+
 interface themesType {
-  [key: string]: {
-    light: Theme;
-    dark: Theme;
-  };
+  [key: string]: ThemePair;
 }
 
 const themes: themesType = {
