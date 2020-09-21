@@ -46,7 +46,8 @@
           "alignItems",
           "color",
           "component",
-          "size"
+          "size",
+          "type"
         ]
       }
     ],

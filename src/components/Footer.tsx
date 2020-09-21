@@ -4,6 +4,7 @@ import { Typography, Grid, Button } from '@material-ui/core';
 import { useTranslation } from 'react-i18next';
 import { observer } from 'mobx-react-lite';
 import { isLightMode, switchThemeType } from '../stores/settings';
+import Logo from './Logo';
 
 const useStyles = makeStyles(
   (theme: Theme) => ({
@@ -48,12 +49,12 @@ const Footer: FunctionComponent = observer(() => {
         className={classes.grid}
       >
         <Grid item className={classes.item}>
-          <Button onClick={switchThemeType}>
+          <Button onClick={switchThemeType} size="small">
             {isLightMode() ? t('theme.dark') : t('theme.light')}
           </Button>
         </Grid>
         <Grid item>
-          <Typography variant="h6">{t('company.name')}</Typography>
+          <Logo type="text" />
         </Grid>
       </Grid>
       <Typography
