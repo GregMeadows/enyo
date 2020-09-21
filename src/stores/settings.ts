@@ -8,9 +8,14 @@ interface settingsTypes {
   themeType: ThemeType;
 }
 
+const storeThemeType = localStorage.getItem(`settings.themeType`);
+const savedThemeType =
+  storeThemeType &&
+  ThemeType[storeThemeType?.toUpperCase() as keyof typeof ThemeType];
+
 const settings: settingsTypes = observable.object({
   theme: 'default',
-  themeType: ThemeType.LIGHT,
+  themeType: savedThemeType || ThemeType.LIGHT,
 });
 
 export function getTheme(): Theme {
@@ -22,7 +27,9 @@ export function isLightMode(): boolean {
 }
 
 export function switchThemeType(): void {
-  settings.themeType = isLightMode() ? ThemeType.DARK : ThemeType.LIGHT;
+  const newType = isLightMode() ? ThemeType.DARK : ThemeType.LIGHT;
+  settings.themeType = newType;
+  localStorage.setItem('settings.themeType', newType);
 }
 
 export default createContext(settings);
