@@ -32,6 +32,7 @@
       "error",
       { "extensions": [".ts", ".tsx"] }
     ],
+    "react/prop-types": "off",
     "react-hooks/rules-of-hooks": "error",
     "react-hooks/exhaustive-deps": "warn",
     "i18next/no-literal-string": [
@@ -44,7 +45,8 @@
           "justify",
           "alignItems",
           "color",
-          "component"
+          "component",
+          "size"
         ]
       }
     ],

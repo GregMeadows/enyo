@@ -1,5 +1,4 @@
 import React, { FunctionComponent } from 'react';
-import PropTypes from 'prop-types';
 import { makeStyles, Theme } from '@material-ui/core/styles';
 import { BREAKPOINT_MOBILE } from '../assets/consts';
 
@@ -27,10 +26,6 @@ const Layout: FunctionComponent = ({ children }) => {
   const classes = useStyles();
 
   return <div className={`${classes.root} mui-fixed`}>{children}</div>;
-};
-
-Layout.propTypes = {
-  children: PropTypes.node.isRequired,
 };
 
 export default Layout;
