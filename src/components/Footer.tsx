@@ -1,15 +1,18 @@
 import React, { FunctionComponent } from 'react';
-import { makeStyles, Theme } from '@material-ui/core/styles';
+import { fade, makeStyles, Theme } from '@material-ui/core/styles';
 import { Typography, Grid, Button } from '@material-ui/core';
 import { useTranslation } from 'react-i18next';
 import { observer } from 'mobx-react-lite';
 import { isLightMode, switchThemeType } from '../stores/settings';
 import Logo from './Logo';
+import LogoRepeat from '../images/logo/repeat.svg';
 
 const useStyles = makeStyles(
   (theme: Theme) => ({
     root: {
-      background: theme.palette.background.paper,
+      background: `url(${LogoRepeat})`,
+      backgroundRepeat: 'repeat',
+      backgroundSize: '140px 28px',
       color: theme.palette.text.primary,
       height: 300,
       zIndex: -1,
@@ -17,8 +20,17 @@ const useStyles = makeStyles(
       position: 'fixed',
       bottom: 0,
     },
+    overlay: {
+      height: '100%',
+      width: '100%',
+      background: `linear-gradient(
+        ${theme.palette.background.default},
+        ${fade(theme.palette.background.default, 0.8)}
+      )`,
+    },
     grid: {
       height: 'calc(100% - 30px)',
+      paddingTop: 30,
     },
     item: {
       minWidth: 400,
@@ -27,7 +39,6 @@ const useStyles = makeStyles(
       },
     },
     copyright: {
-      color: theme.palette.text.secondary,
       userSelect: 'none',
     },
   }),
@@ -42,31 +53,35 @@ const Footer: FunctionComponent = observer(() => {
 
   return (
     <footer className={`${classes.root} mui-fixed`}>
-      <Grid
-        container
-        alignItems="center"
-        justify="space-around"
-        className={classes.grid}
-      >
-        <Grid item className={classes.item}>
-          <Button onClick={switchThemeType} size="small">
-            {isLightMode() ? t('theme.dark') : t('theme.light')}
-          </Button>
+      <div className={classes.overlay}>
+        <Grid
+          container
+          alignItems="center"
+          justify="space-around"
+          className={classes.grid}
+        >
+          <Grid item className={classes.item}>
+            <Button onClick={switchThemeType} size="small">
+              {isLightMode() ? t('theme.dark') : t('theme.light')}
+            </Button>
+          </Grid>
+          <Grid item>
+            <Logo type="text" />
+          </Grid>
         </Grid>
-        <Grid item>
-          <Logo type="text" />
-        </Grid>
-      </Grid>
-      <Typography
-        variant="subtitle2"
-        align="center"
-        className={classes.copyright}
-      >
-        {t('copyright', {
-          year: new Date().getFullYear(),
-          company: t('company.long'),
-        })}
-      </Typography>
+        <Typography
+          variant="subtitle2"
+          align="center"
+          className={classes.copyright}
+        >
+          <strong>
+            {t('copyright', {
+              year: new Date().getFullYear(),
+              company: t('company.long'),
+            })}
+          </strong>
+        </Typography>
+      </div>
     </footer>
   );
 });
