@@ -11,9 +11,8 @@ const useStyles = makeStyles(
   (theme: Theme) => ({
     root: {
       background: `url(${LogoRepeat})`,
-      backgroundRepeat: 'repeat',
-      backgroundSize: '140px 28px',
-      color: theme.palette.text.primary,
+      backgroundRepeat: 'space',
+      backgroundSize: '130px 30px',
       height: 300,
       zIndex: -1,
       width: '100%',
