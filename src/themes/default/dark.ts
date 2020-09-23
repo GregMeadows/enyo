@@ -5,6 +5,7 @@ const dark = createMuiTheme(
   {
     palette: {
       type: 'dark',
+      border: '#444',
     },
   },
   root

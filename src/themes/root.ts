@@ -11,3 +11,13 @@ const root: ThemeOptions = {
 };
 
 export default root;
+
+// Extend MUI Palette
+declare module '@material-ui/core/styles/createPalette' {
+  interface Palette {
+    border: string;
+  }
+  interface PaletteOptions {
+    border: string;
+  }
+}

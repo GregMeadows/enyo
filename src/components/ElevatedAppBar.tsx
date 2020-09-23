@@ -11,7 +11,7 @@ const useStyles = makeStyles(
   (theme: Theme) => ({
     root: {
       background: theme.palette.background.default,
-      borderBottom: `1px solid ${theme.palette.background.paper}`,
+      borderBottom: `1px solid ${theme.palette.border}`,
     },
     logo: {
       height: '100%',
