@@ -1,7 +1,9 @@
-import React from 'react';
+import React, { useRef, useState } from 'react';
 import {
   AppBar,
   IconButton,
+  Menu,
+  MenuItem,
   Toolbar,
   Tooltip,
   useScrollTrigger,
@@ -9,6 +11,7 @@ import {
 import { makeStyles, Theme } from '@material-ui/core/styles';
 import { useTranslation } from 'react-i18next';
 import Brightness4Icon from '@material-ui/icons/Brightness4';
+import TranslateIcon from '@material-ui/icons/Translate';
 import { isLightMode, switchThemeType } from '../stores/settings';
 import Logo from './Logo';
 
@@ -51,7 +54,15 @@ function ElevationScroll(props: ElevationScrollProps) {
 export default function ElevatedAppBar(): JSX.Element {
   const classes = useStyles();
   const { t } = useTranslation();
+  const translateRef = useRef(null);
+  const [translateMenuOpen, setTranslateMenuOpen] = useState(false);
+
   const themeTypeLabel = isLightMode() ? t('theme.dark') : t('theme.light');
+  const translateLabel = t('translate.title');
+
+  const handleClose = () => {
+    setTranslateMenuOpen(false);
+  };
 
   return (
     <>
@@ -60,6 +71,32 @@ export default function ElevatedAppBar(): JSX.Element {
           <Toolbar>
             <Logo />
             <div className={classes.spacer} />
+            <Tooltip title={translateLabel}>
+              <IconButton
+                onClick={() => setTranslateMenuOpen(!translateMenuOpen)}
+                aria-label={translateLabel}
+                ref={translateRef}
+              >
+                <TranslateIcon />
+              </IconButton>
+            </Tooltip>
+            <Menu
+              anchorEl={translateRef.current}
+              getContentAnchorEl={null}
+              anchorOrigin={{
+                vertical: 'bottom',
+                horizontal: 'right',
+              }}
+              transformOrigin={{
+                vertical: 'top',
+                horizontal: 'right',
+              }}
+              open={translateMenuOpen}
+              onClose={handleClose}
+            >
+              <MenuItem onClick={handleClose}>{t('translate.en')}</MenuItem>
+              <MenuItem onClick={handleClose}>{t('translate.help')}</MenuItem>
+            </Menu>
             <Tooltip title={themeTypeLabel}>
               <IconButton onClick={switchThemeType} aria-label={themeTypeLabel}>
                 <Brightness4Icon />

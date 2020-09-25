@@ -21,11 +21,11 @@ const Homepage: FunctionComponent = () => {
   return (
     <section className={classes.root}>
       <Typography variant="h3">{t('welcome')}</Typography>
-      <Typography variant="body1">{t('loremIpsum.1')}</Typography>
-      <Typography variant="body1">{t('loremIpsum.2')}</Typography>
-      <Typography variant="body1">{t('loremIpsum.3')}</Typography>
-      <Typography variant="body1">{t('loremIpsum.4')}</Typography>
-      <Typography variant="body1">{t('loremIpsum.5')}</Typography>
+      <Typography variant="body1">{t('dev:loremIpsum.1')}</Typography>
+      <Typography variant="body1">{t('dev:loremIpsum.2')}</Typography>
+      <Typography variant="body1">{t('dev:loremIpsum.3')}</Typography>
+      <Typography variant="body1">{t('dev:loremIpsum.4')}</Typography>
+      <Typography variant="body1">{t('dev:loremIpsum.5')}</Typography>
     </section>
   );
 };
