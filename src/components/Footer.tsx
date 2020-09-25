@@ -28,14 +28,14 @@ const useStyles = makeStyles(
       )`,
     },
     grid: {
-      height: 'calc(100% - 30px)',
-      padding: '30px 12VW 0',
+      height: '100%',
+      padding: '0.5rem 12vw',
     },
     gridLogo: {
       textAlign: 'right',
     },
-    copyright: {
-      userSelect: 'none',
+    info: {
+      textAlign: 'center',
     },
   }),
   {
@@ -71,34 +71,46 @@ const Footer: FunctionComponent = observer(() => {
   return (
     <footer className={`${classes.root} mui-fixed`}>
       <div className={classes.overlay}>
-        <Grid container className={classes.grid}>
-          <Grid container justify="space-between" item xs={7}>
-            <Grid item xs={3}>
-              <NavList title={t('nav.help.title')} items={itemsHelp} />
+        <Grid
+          container
+          direction="column"
+          justify="space-between"
+          className={classes.grid}
+        >
+          <Grid container justify="space-between">
+            <Grid container justify="space-between" item xs={7}>
+              <Grid item xs={3}>
+                <NavList title={t('nav.help.title')} items={itemsHelp} />
+              </Grid>
+              <Grid item xs={3}>
+                <NavList title={t('nav.about.title')} items={itemsAbout} />
+              </Grid>
+              <Grid item xs={3}>
+                <NavList title={t('nav.social.title')} items={itemsSocial} />
+              </Grid>
             </Grid>
-            <Grid item xs={3}>
-              <NavList title={t('nav.about.title')} items={itemsAbout} />
-            </Grid>
-            <Grid item xs={3}>
-              <NavList title={t('nav.social.title')} items={itemsSocial} />
+            <Grid item className={classes.gridLogo}>
+              <Logo type="text" />
             </Grid>
           </Grid>
-          <Grid item xs className={classes.gridLogo}>
-            <Logo type="text" />
+          <Grid container spacing={3} alignItems="center">
+            <Grid item className={classes.info}>
+              <Typography variant="subtitle2">
+                <strong>
+                  {t('copyright', {
+                    year: new Date().getFullYear(),
+                    company,
+                  })}
+                </strong>
+              </Typography>
+            </Grid>
+            <Grid item>
+              <Typography variant="subtitle2">
+                <strong>{t('company.info')}</strong>
+              </Typography>
+            </Grid>
           </Grid>
         </Grid>
-        <Typography
-          variant="subtitle2"
-          align="center"
-          className={classes.copyright}
-        >
-          <strong>
-            {t('copyright', {
-              year: new Date().getFullYear(),
-              company,
-            })}
-          </strong>
-        </Typography>
       </div>
     </footer>
   );

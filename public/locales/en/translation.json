@@ -1,6 +1,7 @@
 {
   "company": {
-    "long": "Enyo Design Ltd"
+    "long": "Enyo Design Ltd",
+    "info": "Company No. 00000000 | VAT No. GB000000000"
   },
   "copyright": "Copyright © {{year}}. {{company}}.",
   "loremIpsum": {
@@ -33,8 +34,8 @@
     }
   },
   "theme": {
-    "dark": "Dark mode",
-    "light": "Light mode"
+    "dark": "Switch to Dark mode",
+    "light": "Switch to Light mode"
   },
   "welcome": "welcome to Enyo"
 }

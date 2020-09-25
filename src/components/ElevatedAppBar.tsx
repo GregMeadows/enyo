@@ -1,6 +1,15 @@
 import React from 'react';
-import { AppBar, Toolbar, useScrollTrigger } from '@material-ui/core';
+import {
+  AppBar,
+  IconButton,
+  Toolbar,
+  Tooltip,
+  useScrollTrigger,
+} from '@material-ui/core';
 import { makeStyles, Theme } from '@material-ui/core/styles';
+import { useTranslation } from 'react-i18next';
+import Brightness4Icon from '@material-ui/icons/Brightness4';
+import { isLightMode, switchThemeType } from '../stores/settings';
 import Logo from './Logo';
 
 interface ElevationScrollProps {
@@ -16,6 +25,10 @@ const useStyles = makeStyles(
     logo: {
       height: '100%',
       width: '100%',
+    },
+    spacer: {
+      display: 'flex',
+      flexGrow: 1,
     },
   }),
   {
@@ -37,6 +50,8 @@ function ElevationScroll(props: ElevationScrollProps) {
 
 export default function ElevatedAppBar(): JSX.Element {
   const classes = useStyles();
+  const { t } = useTranslation();
+  const themeTypeLabel = isLightMode() ? t('theme.dark') : t('theme.light');
 
   return (
     <>
@@ -44,6 +59,12 @@ export default function ElevatedAppBar(): JSX.Element {
         <AppBar color="transparent" className={classes.root}>
           <Toolbar>
             <Logo />
+            <div className={classes.spacer} />
+            <Tooltip title={themeTypeLabel}>
+              <IconButton onClick={switchThemeType} aria-label={themeTypeLabel}>
+                <Brightness4Icon />
+              </IconButton>
+            </Tooltip>
           </Toolbar>
         </AppBar>
       </ElevationScroll>

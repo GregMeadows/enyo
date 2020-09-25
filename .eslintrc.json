@@ -26,7 +26,7 @@
     "import/no-extraneous-dependencies": ["error", { "devDependencies": true }],
     "import/no-unresolved": [
       "error",
-      { "ignore": ["@material-ui/core/styles"] }
+      { "ignore": ["@material-ui/core/styles", "@material-ui/icons/*"] }
     ],
     "react/jsx-filename-extension": [
       "error",
@@ -47,7 +47,8 @@
           "color",
           "component",
           "size",
-          "type"
+          "type",
+          "direction"
         ]
       }
     ],
