@@ -15,9 +15,15 @@ export default root;
 // Extend MUI Palette
 declare module '@material-ui/core/styles/createPalette' {
   interface Palette {
-    border: string;
+    border: {
+      light: string;
+      dark: string;
+    };
   }
   interface PaletteOptions {
-    border: string;
+    border: {
+      light: string;
+      dark: string;
+    };
   }
 }

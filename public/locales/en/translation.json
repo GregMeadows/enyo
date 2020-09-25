@@ -1,6 +1,5 @@
 {
   "company": {
-    "name": "Enyo",
     "long": "Enyo Design Ltd"
   },
   "copyright": "Copyright © {{year}}. {{company}}.",
@@ -11,9 +10,31 @@
     "4": "Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Donec venenatis elit vel ante scelerisque, tincidunt luctus nibh hendrerit. Fusce semper urna in metus ultricies tempus. Donec ac mi viverra, rutrum elit eu, scelerisque nisl. Pellentesque sed varius nunc, nec pulvinar tortor. Donec quis metus id tortor scelerisque vehicula ac a ligula. Etiam ut odio nisi. Aliquam sed commodo ipsum. Integer magna purus, sodales id volutpat ut, pharetra sed ligula. Proin eu nunc ut urna ornare fermentum. Nulla facilisi. Praesent elementum purus eu tortor faucibus, eu venenatis elit efficitur. Suspendisse volutpat nibh nec facilisis sagittis. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Fusce euismod ultrices nisi eu porta. Vivamus facilisis odio malesuada, efficitur magna ut, cursus massa.",
     "5": "Duis ac dictum sapien, quis dictum massa. Mauris convallis, felis non aliquet convallis, tellus eros porttitor turpis, ut euismod ipsum nisl in ipsum. Aliquam egestas, odio nec ullamcorper pulvinar, massa ligula cursus massa, eget mattis risus est ac nulla. Suspendisse in leo lorem. Aliquam convallis neque risus, sit amet rutrum lorem volutpat at. In non ante nec massa efficitur molestie non eget orci. Nunc a dui congue, facilisis nisl vitae, eleifend quam. Aliquam erat volutpat. Nullam laoreet lectus nisi, quis sodales odio tincidunt eget. Aenean sapien neque, semper et gravida vitae, convallis eget quam. Curabitur nec arcu ullamcorper, fermentum lorem vel, lobortis tortor. Quisque malesuada non nibh ac lobortis. Pellentesque lacinia, nibh luctus fermentum scelerisque, eros est semper orci, et mollis diam nisi venenatis elit. Etiam id mauris sed est convallis scelerisque et at nunc. Quisque ipsum ligula, viverra ac mollis ut, posuere vel lacus. Fusce ut leo cursus, congue nisi nec, accumsan velit"
   },
+  "nav": {
+    "about": {
+      "access": "Accessibility",
+      "about": "About Us",
+      "privacy": "Privacy",
+      "terms": "Terms",
+      "title": "About Us"
+    },
+    "help": {
+      "contact": "Contact Us",
+      "delivery": "Dilivery & Returns",
+      "help": "Help",
+      "faqs": "FAQs",
+      "title": "Help"
+    },
+    "social": {
+      "title": "Find Us",
+      "twitter": "Twitter",
+      "insta": "Instagram",
+      "twitch": "Twitch"
+    }
+  },
   "theme": {
-    "dark": "Switch to dark mode",
-    "light": "Switch to light mode"
+    "dark": "Dark mode",
+    "light": "Light mode"
   },
   "welcome": "welcome to Enyo"
 }
