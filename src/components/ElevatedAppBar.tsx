@@ -1,6 +1,7 @@
 import React, { useRef, useState } from 'react';
 import {
   AppBar,
+  Divider,
   IconButton,
   Menu,
   MenuItem,
@@ -32,6 +33,10 @@ const useStyles = makeStyles(
     spacer: {
       display: 'flex',
       flexGrow: 1,
+    },
+    divider: {
+      marginTop: theme.spacing(1),
+      marginBottom: theme.spacing(1),
     },
   }),
   {
@@ -94,7 +99,10 @@ export default function ElevatedAppBar(): JSX.Element {
               open={translateMenuOpen}
               onClose={handleClose}
             >
-              <MenuItem onClick={handleClose}>{t('translate.en')}</MenuItem>
+              <MenuItem selected onClick={handleClose}>
+                {t('translate.en')}
+              </MenuItem>
+              <Divider className={classes.divider} />
               <MenuItem onClick={handleClose}>{t('translate.help')}</MenuItem>
             </Menu>
             <Tooltip title={themeTypeLabel}>
