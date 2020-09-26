@@ -48,7 +48,8 @@
           "component",
           "size",
           "type",
-          "direction"
+          "direction",
+          "variant"
         ]
       }
     ],

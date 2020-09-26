@@ -21,7 +21,7 @@ const useStyles = makeStyles(
       display: 'inline-flex',
     },
     icon: {
-      height: theme.spacing(7),
+      height: theme.spacing(6),
     },
     text: {
       height: '12vw',

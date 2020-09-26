@@ -11,7 +11,7 @@ const useStyles = makeStyles(
       minHeight: '100%',
       marginTop: 0,
       marginBottom: 300,
-      padding: '3rem 10vw 10rem',
+      padding: '0 10vw 8rem',
       [theme.breakpoints.down(BREAKPOINT_MOBILE)]: {
         padding: '5rem 8vw',
       },

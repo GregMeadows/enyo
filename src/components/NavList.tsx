@@ -3,11 +3,7 @@ import { makeStyles, Theme } from '@material-ui/core/styles';
 import { Typography, List, ListItemText, ListItem } from '@material-ui/core';
 import { observer } from 'mobx-react-lite';
 import { Link } from 'react-router-dom';
-
-export interface LinkedItem {
-  text: string;
-  link: string;
-}
+import { LinkedItem } from './types';
 
 interface NavListType {
   title: string;

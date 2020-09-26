@@ -19,6 +19,11 @@
       "help": "Help",
       "title": "Help"
     },
+    "main": {
+      "about": "About Us",
+      "kits": "Kits",
+      "leagues": "Leagues"
+    },
     "social": {
       "insta": "Instagram",
       "title": "Find Us",
@@ -31,9 +36,8 @@
     "light": "Switch to light mode"
   },
   "translate": {
-    "title": "Change language",
     "en": "English",
-    "help": "Help translate"
-  },
-  "welcome": "welcome to Enyo"
+    "help": "Help translate",
+    "title": "Change language"
+  }
 }
