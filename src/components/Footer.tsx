@@ -5,7 +5,8 @@ import { useTranslation } from 'react-i18next';
 import { observer } from 'mobx-react-lite';
 import Logo from './Logo';
 import LogoRepeat from '../images/logo/repeat.svg';
-import NavList, { LinkedItem } from './NavList';
+import NavList from './NavList';
+import { LinkedItem } from './types';
 
 const useStyles = makeStyles(
   (theme: Theme) => ({
@@ -33,9 +34,6 @@ const useStyles = makeStyles(
     },
     gridLogo: {
       textAlign: 'right',
-    },
-    info: {
-      textAlign: 'center',
     },
   }),
   {
@@ -93,8 +91,8 @@ const Footer: FunctionComponent = observer(() => {
               <Logo type="text" />
             </Grid>
           </Grid>
-          <Grid container spacing={3} alignItems="center">
-            <Grid item className={classes.info}>
+          <Grid container spacing={2} alignItems="center" justify="center">
+            <Grid item>
               <Typography variant="subtitle2">
                 <strong>
                   {t('copyright', {
