@@ -1,13 +1,7 @@
 import { ThemeOptions } from '@material-ui/core/styles';
 
 const root: ThemeOptions = {
-  overrides: {
-    MuiTypography: {
-      gutterBottom: {
-        marginBottom: '0.8rem',
-      },
-    },
-  },
+  overrides: {},
 };
 
 export default root;

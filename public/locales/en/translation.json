@@ -4,6 +4,9 @@
     "long": "Enyo Design Ltd"
   },
   "copyright": "Copyright © {{year}}. {{company}}.",
+  "homepage": {
+    "header": "TeaCF range now out!"
+  },
   "nav": {
     "about": {
       "about": "About Us",
