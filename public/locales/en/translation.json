@@ -21,6 +21,8 @@
     },
     "main": {
       "about": "About Us",
+      "create": "Create",
+      "games": "Games",
       "kits": "Kits",
       "leagues": "Leagues"
     },

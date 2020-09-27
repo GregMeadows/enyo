@@ -26,6 +26,8 @@ const Homepage: FunctionComponent = () => {
   const mainNavItems: LinkedItem[] = [
     { text: t('nav.main.kits'), link: '/' },
     { text: t('nav.main.leagues'), link: '/' },
+    { text: t('nav.main.games'), link: '/' },
+    { text: t('nav.main.create'), link: '/' },
     { text: t('nav.main.about'), link: '/' },
   ];
 
