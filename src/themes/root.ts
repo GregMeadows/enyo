@@ -1,7 +1,17 @@
 import { ThemeOptions } from '@material-ui/core/styles';
 
 const root: ThemeOptions = {
-  overrides: {},
+  typography: {
+    h1: {
+      fontFamily: [
+        '"Cairo"',
+        '"Roboto"',
+        '"Helvetica"',
+        '"Arial"',
+        'sans-serif',
+      ].join(','),
+    },
+  },
 };
 
 export default root;
