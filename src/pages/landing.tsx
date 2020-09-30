@@ -59,11 +59,11 @@ const useStyles = makeStyles(
     },
     top: {
       width: '100%',
-      paddingTop: '1rem',
+      paddingTop: '2rem',
     },
     bottom: {
       width: '100%',
-      paddingBottom: '1rem',
+      paddingBottom: '2rem',
     },
     loading: {
       textTransform: 'uppercase',
