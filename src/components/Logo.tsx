@@ -28,7 +28,7 @@ const useStyles = makeStyles(
       minHeight: 160,
     },
     full: {
-      height: '8vw',
+      height: '12vw',
       minHeight: 140,
     },
   }),

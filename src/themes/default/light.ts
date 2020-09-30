@@ -5,6 +5,9 @@ const light = createMuiTheme(
   {
     palette: {
       type: 'light',
+      primary: {
+        main: '#720f80',
+      },
       border: {
         light: '#eee',
         dark: '#444',
