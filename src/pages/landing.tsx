@@ -1,7 +1,7 @@
 import React, { FunctionComponent } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import { useTranslation } from 'react-i18next';
-import { Typography } from '@material-ui/core';
+import { Grid, Typography } from '@material-ui/core';
 import Backdrop from '../images/backdrop.jpg';
 
 const useStyles = makeStyles(
@@ -9,18 +9,17 @@ const useStyles = makeStyles(
     root: {
       height: '100%',
       width: '100%',
-      background: `url(${Backdrop})`,
-      backgroundPosition: 'center',
+      background: `#222 url(${Backdrop})`,
+      backgroundPosition: 'center -12vh',
       backgroundRepeat: 'no-repeat',
       backgroundSize: 'auto',
       display: 'flex',
       justifyContent: 'center',
       color: '#fff',
+      paddingTop: '72vh',
     },
-    top: {
-      position: 'fixed',
-      top: '1rem',
-      textTransform: 'uppercase',
+    about: {
+      padding: '2rem 20vw',
     },
   }),
   {
@@ -34,9 +33,16 @@ const Landing: FunctionComponent = () => {
 
   return (
     <div className={classes.root}>
-      <div className={classes.top}>
-        <Typography variant="h1">{t('pages.landing.coming')}</Typography>
-      </div>
+      <Grid container direction="column" alignItems="center" spacing={2}>
+        <Grid item>
+          <div className={classes.about}>
+            <Typography variant="body1">{t('dev:loremIpsum.1')}</Typography>
+          </div>
+        </Grid>
+        <Grid item>
+          <div />
+        </Grid>
+      </Grid>
     </div>
   );
 };
