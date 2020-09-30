@@ -36,6 +36,11 @@
       "twitter": "Twitter"
     }
   },
+  "pages": {
+    "landing": {
+      "coming": "Coming Soon"
+    }
+  },
   "theme": {
     "dark": "Switch to dark mode",
     "light": "Switch to light mode"
