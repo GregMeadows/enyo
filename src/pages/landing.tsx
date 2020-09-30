@@ -1,5 +1,5 @@
 import React, { FunctionComponent } from 'react';
-import { makeStyles } from '@material-ui/core/styles';
+import { makeStyles, Theme } from '@material-ui/core/styles';
 import { useTranslation } from 'react-i18next';
 import { Grid, Typography } from '@material-ui/core';
 import Socials from '../components/socials';
@@ -8,7 +8,7 @@ import Logo from '../components/Logo';
 import WingedBorder from '../components/WingedBorder';
 
 const useStyles = makeStyles(
-  () => ({
+  (theme: Theme) => ({
     root: {
       height: '100%',
       width: '100%',
@@ -18,11 +18,34 @@ const useStyles = makeStyles(
       height: '100%',
     },
     content: {
-      padding: '2rem 20vw',
+      padding: '0 18vw',
+    },
+    innerContent: {
+      position: 'relative',
+      padding: '5vw',
       display: 'flex',
       flexDirection: 'column',
       alignItems: 'center',
       justifyContent: 'center',
+      background: theme.palette.background.default,
+      '&:before': {
+        content: '""',
+        position: 'absolute',
+        top: 0,
+        left: 0,
+        borderTop: '4vw solid #000',
+        borderRight: `4vw solid ${theme.palette.background.default}`,
+        width: 0,
+      },
+      '&:after': {
+        content: '""',
+        position: 'absolute',
+        bottom: 0,
+        right: 0,
+        borderBottom: '4vw solid #000',
+        borderLeft: `4vw solid ${theme.palette.background.default}`,
+        width: 0,
+      },
     },
     backdrop: {
       backgroundImage: `url(${Backdrop})`,
@@ -31,7 +54,7 @@ const useStyles = makeStyles(
       backgroundSize: 'auto',
     },
     about: {
-      margin: '3rem 0',
+      margin: '4rem 0',
       textAlign: 'center',
     },
     top: {
@@ -72,11 +95,15 @@ const Landing: FunctionComponent = () => {
           <WingedBorder position="left" direction="down" />
         </Grid>
         <Grid item className={classes.content}>
-          <Logo type="full" />
-          <div className={classes.about}>
-            <Typography variant="body1">{t('pages.landing.about')}</Typography>
+          <div className={classes.innerContent}>
+            <Logo type="full" />
+            <div className={classes.about}>
+              <Typography variant="body1">
+                {t('pages.landing.about')}
+              </Typography>
+            </div>
+            <Socials />
           </div>
-          <Socials />
         </Grid>
         <Grid item className={classes.bottom}>
           <Typography variant="h6" className={classes.loading}>
