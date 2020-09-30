@@ -49,7 +49,8 @@
           "size",
           "type",
           "direction",
-          "variant"
+          "variant",
+          "fontSize"
         ]
       }
     ],
