@@ -3,7 +3,7 @@ import { makeStyles, Theme } from '@material-ui/core/styles';
 import { useTranslation } from 'react-i18next';
 import { Grid, Typography } from '@material-ui/core';
 import Socials from '../components/socials';
-import Backdrop from '../images/backdrop.jpg';
+import Backdrop from '../images/backdrop.svg';
 import Logo from '../components/Logo';
 import WingedBorder from '../components/WingedBorder';
 
@@ -28,13 +28,17 @@ const useStyles = makeStyles(
       alignItems: 'center',
       justifyContent: 'center',
       background: theme.palette.background.default,
+      backgroundImage: `url(${Backdrop})`,
+      backgroundRepeat: 'no-repeat',
+      backgroundSize: 'auto 120%',
+      backgroundPosition: 'center',
       '&:before': {
         content: '""',
         position: 'absolute',
         top: 0,
         left: 0,
         borderTop: '4vw solid #000',
-        borderRight: `4vw solid ${theme.palette.background.default}`,
+        borderRight: '4vw solid transparent',
         width: 0,
       },
       '&:after': {
@@ -43,7 +47,7 @@ const useStyles = makeStyles(
         bottom: 0,
         right: 0,
         borderBottom: '4vw solid #000',
-        borderLeft: `4vw solid ${theme.palette.background.default}`,
+        borderLeft: '4vw solid transparent',
         width: 0,
       },
     },
