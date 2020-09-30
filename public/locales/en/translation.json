@@ -38,7 +38,8 @@
   },
   "pages": {
     "landing": {
-      "about": "As goddess of war, Enyo is responsible for orchestrating the destruction of cities, often accompanying Ares into battle. She is depicted as \"supreme in war\". During the fall of Troy, Enyo inflicted terror and bloodshed in the war, along with Eris, Phobos and Deimos, the latter two being sons of Ares. She, Eris, and the two sons of Ares are depicted on the shield of Achilles."
+      "about": "As goddess of war, Enyo is responsible for orchestrating the destruction of cities, often accompanying Ares into battle. She is depicted as \"supreme in war\". During the fall of Troy, Enyo inflicted terror and bloodshed in the war, along with Eris, Phobos and Deimos, the latter two being sons of Ares. She, Eris, and the two sons of Ares are depicted on the shield of Achilles.",
+      "loading": "Loading..."
     }
   },
   "theme": {

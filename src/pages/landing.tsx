@@ -1,5 +1,5 @@
 import React, { FunctionComponent } from 'react';
-import { makeStyles, Theme } from '@material-ui/core/styles';
+import { makeStyles } from '@material-ui/core/styles';
 import { useTranslation } from 'react-i18next';
 import { Grid, Typography } from '@material-ui/core';
 import Socials from '../components/socials';
@@ -42,6 +42,13 @@ const useStyles = makeStyles(
       width: '100%',
       paddingBottom: '1rem',
     },
+    loading: {
+      textTransform: 'uppercase',
+      fontFamily: ['"Cairo"', '"Roboto"'].join(','),
+      letterSpacing: '0.2rem',
+      textAlign: 'right',
+      margin: '0 calc(2% + 2rem) -1rem 0',
+    },
   }),
   {
     classNamePrefix: 'landing',
@@ -72,6 +79,9 @@ const Landing: FunctionComponent = () => {
           <Socials />
         </Grid>
         <Grid item className={classes.bottom}>
+          <Typography variant="h6" className={classes.loading}>
+            {t('pages.landing.loading')}
+          </Typography>
           <WingedBorder position="right" direction="up" />
         </Grid>
       </Grid>
