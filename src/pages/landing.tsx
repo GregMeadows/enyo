@@ -7,12 +7,14 @@ import Backdrop from '../images/backdrop.svg';
 import Logo from '../components/Logo';
 import WingedBorder from '../components/WingedBorder';
 
+const BACKDROP_CLIP = '4vw';
+
 const useStyles = makeStyles(
   (theme: Theme) => ({
     root: {
       height: '100%',
       width: '100%',
-      background: '#000',
+      background: 'radial-gradient(#222, #000);',
     },
     grid: {
       height: '100%',
@@ -22,36 +24,24 @@ const useStyles = makeStyles(
     },
     backdrop: {
       position: 'relative',
+      clipPath: `
+        polygon(${BACKDROP_CLIP} 0%, 100% 0,
+        100% calc(100% - ${BACKDROP_CLIP}),
+        calc(100% - ${BACKDROP_CLIP}) 100%,
+        0 100%, 0 ${BACKDROP_CLIP})
+      `,
       background: theme.palette.background.default,
       backgroundImage: `url(${Backdrop})`,
       backgroundRepeat: 'no-repeat',
       backgroundSize: 'auto 120%',
       backgroundPosition: 'center',
-      '&:before': {
-        content: '""',
-        position: 'absolute',
-        top: 0,
-        left: 0,
-        borderTop: '4vw solid #000',
-        borderRight: '4vw solid transparent',
-        width: 0,
-      },
-      '&:after': {
-        content: '""',
-        position: 'absolute',
-        bottom: 0,
-        right: 0,
-        borderBottom: '4vw solid #000',
-        borderLeft: '4vw solid transparent',
-        width: 0,
-      },
     },
     contentWingTop: {
-      paddingLeft: '4vw',
+      paddingLeft: BACKDROP_CLIP,
       paddingTop: 18,
     },
     contentWingBottom: {
-      paddingRight: '4vw',
+      paddingRight: BACKDROP_CLIP,
       paddingBottom: 18,
     },
     innerContent: {
