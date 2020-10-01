@@ -1,5 +1,6 @@
 import React, { FunctionComponent } from 'react';
 import { makeStyles, Theme } from '@material-ui/core/styles';
+import clsx from 'clsx';
 
 const WING_SIZE = 15;
 
@@ -11,6 +12,7 @@ interface StyleProps {
 interface WingedBorderType {
   position: 'left' | 'right';
   direction: 'up' | 'down';
+  className?: string;
 }
 
 const useStyles = makeStyles(
@@ -42,6 +44,7 @@ const useStyles = makeStyles(
 const WingedBorder: FunctionComponent<WingedBorderType> = ({
   position,
   direction,
+  className,
 }) => {
   const leftSide = position === 'left';
   const wingDown = direction === 'down';
@@ -64,7 +67,7 @@ const WingedBorder: FunctionComponent<WingedBorderType> = ({
   }
 
   return (
-    <div className={classes.root}>
+    <div className={clsx(classes.root, className)}>
       <div className={classes.line} />
       <svg height={WING_SIZE} width={WING_SIZE}>
         <line x1={0} y1={y1} x2={WING_SIZE} y2={y2} className={classes.wing} />

@@ -20,13 +20,8 @@ const useStyles = makeStyles(
     content: {
       padding: '0 18vw',
     },
-    innerContent: {
+    backdrop: {
       position: 'relative',
-      padding: '5vw',
-      display: 'flex',
-      flexDirection: 'column',
-      alignItems: 'center',
-      justifyContent: 'center',
       background: theme.palette.background.default,
       backgroundImage: `url(${Backdrop})`,
       backgroundRepeat: 'no-repeat',
@@ -51,11 +46,20 @@ const useStyles = makeStyles(
         width: 0,
       },
     },
-    backdrop: {
-      backgroundImage: `url(${Backdrop})`,
-      backgroundPosition: 'center',
-      backgroundRepeat: 'no-repeat',
-      backgroundSize: 'auto',
+    contentWingTop: {
+      paddingLeft: '4vw',
+      paddingTop: 18,
+    },
+    contentWingBottom: {
+      paddingRight: '4vw',
+      paddingBottom: 18,
+    },
+    innerContent: {
+      padding: '5vw',
+      display: 'flex',
+      flexDirection: 'column',
+      alignItems: 'center',
+      justifyContent: 'center',
     },
     about: {
       margin: '4rem 0',
@@ -99,19 +103,31 @@ const Landing: FunctionComponent = () => {
           <WingedBorder position="left" direction="down" />
         </Grid>
         <Grid item className={classes.content}>
-          <div className={classes.innerContent}>
-            <Logo type="full" />
-            <div className={classes.about}>
-              <Typography variant="body1">
-                {t('pages.landing.about')}
-              </Typography>
+          <div className={classes.backdrop}>
+            <WingedBorder
+              position="left"
+              direction="down"
+              className={classes.contentWingTop}
+            />
+            <div className={classes.innerContent}>
+              <Logo type="full" />
+              <div className={classes.about}>
+                <Typography variant="body1">
+                  {t('pages.landing.about')}
+                </Typography>
+              </div>
+              <Socials />
             </div>
-            <Socials />
+            <WingedBorder
+              position="right"
+              direction="up"
+              className={classes.contentWingBottom}
+            />
           </div>
         </Grid>
         <Grid item className={classes.bottom}>
           <Typography variant="h6" className={classes.loading}>
-            {t('pages.landing.loading')}
+            {t('pages.landing.coming')}
           </Typography>
           <WingedBorder position="right" direction="up" />
         </Grid>
