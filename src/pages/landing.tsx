@@ -6,6 +6,11 @@ import Socials from '../components/socials';
 import Backdrop from '../images/backdrop.svg';
 import Logo from '../components/Logo';
 import WingedBorder from '../components/WingedBorder';
+import {
+  BREAKPOINT_LAPTOP,
+  BREAKPOINT_MOBILE,
+  BREAKPOINT_TABLET,
+} from '../assets/consts';
 
 const BACKDROP_CLIP = '4vw';
 
@@ -15,12 +20,22 @@ const useStyles = makeStyles(
       height: '100%',
       width: '100%',
       background: 'radial-gradient(#222, #000);',
+      overflow: 'auto',
     },
     grid: {
       height: '100%',
     },
     content: {
       padding: '0 18vw',
+      [theme.breakpoints.down(BREAKPOINT_LAPTOP)]: {
+        padding: '0 12vw',
+      },
+      [theme.breakpoints.down(BREAKPOINT_TABLET)]: {
+        padding: '0 8vw',
+      },
+      [theme.breakpoints.down(BREAKPOINT_MOBILE)]: {
+        padding: '0 4vw',
+      },
     },
     backdrop: {
       position: 'relative',
@@ -35,6 +50,7 @@ const useStyles = makeStyles(
       backgroundRepeat: 'no-repeat',
       backgroundSize: 'auto 120%',
       backgroundPosition: 'center',
+      maxWidth: 1300,
     },
     contentWingTop: {
       paddingLeft: BACKDROP_CLIP,
@@ -45,7 +61,7 @@ const useStyles = makeStyles(
       paddingBottom: 18,
     },
     innerContent: {
-      padding: '5vw',
+      padding: '5vh 5vw',
       display: 'flex',
       flexDirection: 'column',
       alignItems: 'center',
@@ -57,11 +73,11 @@ const useStyles = makeStyles(
     },
     top: {
       width: '100%',
-      paddingTop: '2rem',
+      paddingTop: '3vh',
     },
     bottom: {
       width: '100%',
-      paddingBottom: '2rem',
+      paddingBottom: '3vh',
     },
     loading: {
       textTransform: 'uppercase',
@@ -88,6 +104,7 @@ const Landing: FunctionComponent = () => {
         alignItems="center"
         justify="space-between"
         className={classes.grid}
+        wrap="nowrap"
       >
         <Grid item className={classes.top}>
           <WingedBorder position="left" direction="down" />
