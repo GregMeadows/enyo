@@ -1,0 +1,58 @@
+{
+  "company": {
+    "info": "Company No. 12918773",
+    "long": "Enyo Design Ltd"
+  },
+  "copyright": "Copyright © {{year}}. {{company}}.",
+  "homepage": {
+    "header": "TeaCF range now out!"
+  },
+  "nav": {
+    "about": {
+      "about": "About Us",
+      "access": "Accessibility",
+      "privacy": "Privacy",
+      "terms": "Terms",
+      "title": "About Us"
+    },
+    "help": {
+      "contact": "Contact Us",
+      "delivery": "Delivery & Returns",
+      "faqs": "FAQs",
+      "help": "Help",
+      "title": "Help"
+    },
+    "main": {
+      "about": "About Us",
+      "create": "Create",
+      "games": "Games",
+      "kits": "Kits",
+      "leagues": "Leagues"
+    },
+    "social": {
+      "insta": "Instagram",
+      "title": "Find Us",
+      "twitch": "Twitch",
+      "twitter": "Twitter"
+    }
+  },
+  "pages": {
+    "landing": {
+      "about": {
+        "1": "ENYO (a trading name of ENYO Design LTD.) was created to bring a new level of performance to esports apparel.",
+        "2": "Our passion is designing and manufacturing premium esports performance apparel and merchandise for esports teams, streamers and individuals.",
+        "3": "Enyo (Ancient Greek: Ἐνυώ Enȳō) was a goddess of conquest in Greek mythology. At ENYO, our conquest is our deep unrelenting commitment to creating the highest quality esports performance wear, without compromising on comfort, innovation and sustainability."
+      },
+      "coming": "Coming Soon..."
+    }
+  },
+  "theme": {
+    "dark": "Switch to dark mode",
+    "light": "Switch to light mode"
+  },
+  "translate": {
+    "en": "English",
+    "help": "Help translate",
+    "title": "Change language"
+  }
+}
