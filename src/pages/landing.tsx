@@ -74,9 +74,11 @@ const useStyles = makeStyles(
     top: {
       width: '100%',
       paddingTop: '3vh',
+      paddingBottom: '2vh',
     },
     bottom: {
       width: '100%',
+      paddingTop: '2vh',
       paddingBottom: '3vh',
     },
     loading: {
