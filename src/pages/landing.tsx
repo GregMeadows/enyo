@@ -97,6 +97,7 @@ const useStyles = makeStyles(
 const Landing: FunctionComponent = () => {
   const classes = useStyles();
   const { t } = useTranslation();
+  const company = `${t('company.long')}. ${t('company.info')}`;
 
   return (
     <div className={classes.root}>
@@ -127,6 +128,12 @@ const Landing: FunctionComponent = () => {
               </div>
               <Socials />
             </div>
+            <Typography variant="body2" color="textSecondary" align="center">
+              {t('copyright', {
+                year: new Date().getFullYear(),
+                company,
+              })}
+            </Typography>
             <WingedBorder
               position="right"
               direction="up"
