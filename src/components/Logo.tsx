@@ -15,6 +15,7 @@ const useStyles = makeStyles(
     svg: {
       transition: 'height 0.5s ease',
       userSelect: 'none',
+      maxHeight: 280,
     },
     container: {
       padding: theme.spacing(0.5),
@@ -28,7 +29,7 @@ const useStyles = makeStyles(
       minHeight: 160,
     },
     full: {
-      height: '8vw',
+      height: '12vw',
       minHeight: 140,
     },
   }),

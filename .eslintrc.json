@@ -49,7 +49,10 @@
           "size",
           "type",
           "direction",
-          "variant"
+          "variant",
+          "fontSize",
+          "position",
+          "wrap"
         ]
       }
     ],

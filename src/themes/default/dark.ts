@@ -5,9 +5,12 @@ const dark = createMuiTheme(
   {
     palette: {
       type: 'dark',
+      primary: {
+        main: '#401763',
+      },
       border: {
-        light: '#444',
-        dark: '#eee',
+        light: '#eee',
+        dark: '#444',
       },
     },
   },
