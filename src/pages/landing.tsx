@@ -61,7 +61,7 @@ const useStyles = makeStyles(
       paddingBottom: 18,
     },
     innerContent: {
-      padding: '5vh 5vw',
+      padding: '5vh 6vw',
       display: 'flex',
       flexDirection: 'column',
       alignItems: 'center',
@@ -122,8 +122,14 @@ const Landing: FunctionComponent = () => {
             <div className={classes.innerContent}>
               <Logo type="full" />
               <div className={classes.about}>
-                <Typography variant="body1">
-                  {t('pages.landing.about')}
+                <Typography variant="body1" paragraph>
+                  {t('pages.landing.about.1')}
+                </Typography>
+                <Typography variant="body1" paragraph>
+                  {t('pages.landing.about.2')}
+                </Typography>
+                <Typography variant="body1" paragraph>
+                  {t('pages.landing.about.3')}
                 </Typography>
               </div>
               <Socials />

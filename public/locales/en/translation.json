@@ -38,7 +38,11 @@
   },
   "pages": {
     "landing": {
-      "about": "As goddess of war, Enyo is responsible for orchestrating the destruction of cities, often accompanying Ares into battle. She is depicted as \"supreme in war\". During the fall of Troy, Enyo inflicted terror and bloodshed in the war, along with Eris, Phobos and Deimos, the latter two being sons of Ares. She, Eris, and the two sons of Ares are depicted on the shield of Achilles.",
+      "about": {
+        "1": "ENYO (a trading name of ENYO Design LTD.) was created to bring a new level of performance to esports apparel.",
+        "2": "Our passion is designing and manufacturing premium esports performance apparel and merchandise for esports teams, streamers and individuals.",
+        "3": "Enyo (Ancient Greek: Ἐνυώ Enȳō) was a goddess of conquest in Greek mythology. At ENYO, our conquest is our deep unrelenting commitment to creating the highest quality esports performance wear, without compromising on comfort, innovation and sustainability."
+      },
       "coming": "Coming Soon..."
     }
   },

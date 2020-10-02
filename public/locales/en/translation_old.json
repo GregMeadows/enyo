@@ -1,11 +1,5 @@
 {
   "company": {
     "name": "Enyo"
-  },
-  "welcome": "welcome to Enyo",
-  "pages": {
-    "landing": {
-      "coming": "Coming Soon"
-    }
   }
 }
