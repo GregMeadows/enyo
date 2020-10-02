@@ -2,7 +2,7 @@ import React, { FunctionComponent } from 'react';
 import { makeStyles, Theme } from '@material-ui/core/styles';
 import TwitterIcon from '@material-ui/icons/Twitter';
 import InstagramIcon from '@material-ui/icons/Instagram';
-import ChatBubbleIcon from '@material-ui/icons/ChatBubble';
+import { ReactComponent as TwitchIcon } from '../images/TwitchGlitchWhite.svg';
 
 const useStyles = makeStyles(
   (theme: Theme) => ({
@@ -12,9 +12,15 @@ const useStyles = makeStyles(
       },
       '& > a': {
         color: theme.palette.text.primary,
-      },
-      '& a:hover': {
-        color: theme.palette.primary.main,
+        display: 'inline-flex',
+        '&:hover': {
+          color: theme.palette.primary.main,
+        },
+        '& > svg': {
+          fontSize: '2.2rem',
+          height: '1em',
+          width: '1em',
+        },
       },
     },
   }),
@@ -28,14 +34,14 @@ const Socials: FunctionComponent = () => {
 
   return (
     <div className={classes.root}>
-      <a href="https://twitter.com/">
+      <a href="https://twitter.com/enyoGG">
         <TwitterIcon fontSize="large" />
       </a>
-      <a href="https://www.instagram.com/">
+      <a href="https://www.instagram.com/enyo.gg/">
         <InstagramIcon fontSize="large" />
       </a>
-      <a href="https://www.twitch.tv/">
-        <ChatBubbleIcon fontSize="large" />
+      <a href="https://www.twitch.tv/enyogg">
+        <TwitchIcon />
       </a>
     </div>
   );
