@@ -18,6 +18,7 @@ const useStyles = makeStyles(
       maxHeight: 280,
     },
     container: {
+      color: theme.palette.text.primary,
       padding: theme.spacing(0.5),
       display: 'inline-flex',
     },
