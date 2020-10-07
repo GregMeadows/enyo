@@ -5,6 +5,8 @@ import { Grid, Typography } from '@material-ui/core';
 import Socials from '../components/socials';
 import Backdrop from '../images/backdrop.svg';
 import Logo from '../components/Logo';
+import DistortText from '../components/DistortText';
+import GlitchText from '../components/GlitchText';
 import WingedBorder from '../components/WingedBorder';
 import {
   BREAKPOINT_LAPTOP,
@@ -122,15 +124,8 @@ const Landing: FunctionComponent = () => {
             <div className={classes.innerContent}>
               <Logo type="full" />
               <div className={classes.about}>
-                <Typography variant="body1" paragraph>
-                  {t('pages.landing.about.1')}
-                </Typography>
-                <Typography variant="body1" paragraph>
-                  {t('pages.landing.about.2')}
-                </Typography>
-                <Typography variant="body1" paragraph>
-                  {t('pages.landing.about.3')}
-                </Typography>
+                <DistortText text="CRT Style" variant="h1" />
+                <GlitchText text="Glitch Style" variant="h1" />
               </div>
               <Socials />
             </div>
