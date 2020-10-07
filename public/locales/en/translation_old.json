@@ -1,5 +1,14 @@
 {
   "company": {
     "name": "Enyo"
+  },
+  "pages": {
+    "landing": {
+      "about": {
+        "1": "ENYO (a trading name of ENYO Design LTD.) was created to bring a new level of performance to esports apparel.",
+        "2": "Our passion is designing and manufacturing premium esports performance apparel and merchandise for esports teams, streamers and individuals.",
+        "3": "Enyo (Ancient Greek: Ἐνυώ Enȳō) was a goddess of conquest in Greek mythology. At ENYO, our conquest is our deep unrelenting commitment to creating the highest quality esports performance wear, without compromising on comfort, innovation and sustainability."
+      }
+    }
   }
 }

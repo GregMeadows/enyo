@@ -124,8 +124,14 @@ const Landing: FunctionComponent = () => {
             <div className={classes.innerContent}>
               <Logo type="full" />
               <div className={classes.about}>
-                <DistortText text="CRT Style" variant="h1" />
-                <GlitchText text="Glitch Style" variant="h1" />
+                <DistortText
+                  text={t('pages.landing.styles.crt')}
+                  variant="h1"
+                />
+                <GlitchText
+                  text={t('pages.landing.styles.glitch')}
+                  variant="h1"
+                />
               </div>
               <Socials />
             </div>
