@@ -21,43 +21,43 @@ const useStyles = makeStyles(
         clipPath:
           'polygon(0 0, 0 0, 100% 0, 100% 0, 0 0, 0 100%, 100% 100%, 100% 0%)',
       },
-      '5%': {
+      '3%': {
         clipPath:
           'polygon(0 0, 0 10%, 100% 10%, 100% 20%, 0 20%, 0 100%, 100% 100%, 100% 0%)',
       },
-      '8%': {
+      '5%': {
         clipPath:
           'polygon(0 0, 0 45%, 100% 45%, 100% 60%, 0 60%, 0 100%, 100% 100%, 100% 0%)',
       },
-      '15%': {
+      '8%': {
         clipPath:
           'polygon(0 0, 0 25%, 100% 25%, 100% 30%, 0 30%, 0 100%, 100% 100%, 100% 0%)',
       },
-      '19%': {
+      '11%': {
         clipPath:
           'polygon(0 0, 0 85%, 100% 85%, 100% 95%, 0 95%, 0 100%, 100% 100%, 100% 0%)',
       },
-      '23%': {
+      '13%': {
         clipPath:
           'polygon(0 0, 0 75%, 100% 75%, 100% 90%, 0 90%, 0 100%, 100% 100%, 100% 0%)',
       },
-      '30%': {
+      '15%': {
         clipPath:
           'polygon(0 0, 0 50%, 100% 50%, 100% 55%, 0 55%, 0 100%, 100% 100%, 100% 0%)',
       },
-      '35%': {
+      '18%': {
         clipPath:
           'polygon(0 0, 0 35%, 100% 35%, 100% 50%, 0 50%, 0 100%, 100% 100%, 100% 0%)',
       },
-      '41%': {
+      '20%': {
         clipPath:
           'polygon(0 0, 0 35%, 100% 35%, 100% 40%, 0 40%, 0 100%, 100% 100%, 100% 0%)',
       },
-      '45%': {
+      '23%': {
         clipPath:
           'polygon(0 0, 0 85%, 100% 85%, 100% 95%, 0 95%, 0 100%, 100% 100%, 100% 0%)',
       },
-      '50%': {
+      '25%': {
         clipPath:
           'polygon(0 0, 0 100%, 100% 100%, 100% 100%, 0 100%, 0 100%, 100% 100%, 100% 0%)',
       },
@@ -70,34 +70,34 @@ const useStyles = makeStyles(
       '0%': {
         clipPath: 'inset(0% 0 100% 0)',
       },
-      '5%': {
+      '3%': {
         clipPath: 'inset(10% 0 80% 0)',
       },
-      '8%': {
+      '5%': {
         clipPath: 'inset(45% 0 40% 0)',
       },
-      '15%': {
+      '8%': {
         clipPath: 'inset(25% 0 70% 0)',
       },
-      '19%': {
+      '11%': {
         clipPath: 'inset(85% 0 5% 0)',
       },
-      '23%': {
+      '13%': {
         clipPath: 'inset(75% 0 10% 0)',
       },
-      '30%': {
+      '15%': {
         clipPath: 'inset(50% 0 45% 0)',
       },
-      '35%': {
+      '18%': {
         clipPath: 'inset(35% 0 50% 0)',
       },
-      '41%': {
+      '20%': {
         clipPath: 'inset(35% 0 60% 0)',
       },
-      '45%': {
+      '23%': {
         clipPath: 'inset(85% 0 5% 0)',
       },
-      '50%': {
+      '25%': {
         clipPath: 'inset(100% 0 0% 0)',
       },
       '100%': {
@@ -118,13 +118,13 @@ const useStyles = makeStyles(
       '&::before': {
         color: 'white',
         textShadow: '-1px 0 black',
-        animation: '$distort-before 2s infinite linear alternate',
+        animation: '$distort-before 5s infinite linear alternate',
       },
       '&::after': {
         left: -2,
         color: 'white',
         textShadow: '1px 0 red, -1px 0 blue',
-        animation: '$distort-after 2s infinite linear alternate',
+        animation: '$distort-after 5s infinite linear alternate',
       },
     },
   }),
