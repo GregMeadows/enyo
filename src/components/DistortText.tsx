@@ -1,11 +1,16 @@
 import React, { FunctionComponent } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 
+interface StyleProps {
+  duration: string;
+}
+
 const useStyles = makeStyles(
   () => ({
     root: {
       position: 'relative',
-      animation: '$distort 200s infinite linear',
+      animation: (props: StyleProps) =>
+        `$distort ${props.duration}s infinite linear`,
     },
     '@keyframes distort': {
       '11%': {
@@ -28,7 +33,10 @@ const useStyles = makeStyles(
 );
 
 const Distort: FunctionComponent = ({ children }) => {
-  const classes = useStyles();
+  const styleProps: StyleProps = {
+    duration: Math.floor(Math.random() * (280 - 180) + 180).toString(),
+  };
+  const classes = useStyles(styleProps);
 
   return <div className={classes.root}>{children}</div>;
 };
