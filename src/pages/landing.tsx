@@ -126,10 +126,15 @@ const Landing: FunctionComponent = () => {
                 <Logo type="full" />
               </Distort>
               <div className={classes.about}>
-                <GlitchText
-                  text={t('pages.landing.styles.glitch')}
-                  variant="h1"
-                />
+                <Typography variant="body1" paragraph>
+                  {t('pages.landing.about.1')}
+                </Typography>
+                <Typography variant="body1" paragraph>
+                  {t('pages.landing.about.2')}
+                </Typography>
+                <Typography variant="body1" paragraph>
+                  {t('pages.landing.about.3')}
+                </Typography>
               </div>
               <Socials />
             </div>
@@ -147,9 +152,11 @@ const Landing: FunctionComponent = () => {
           </div>
         </Grid>
         <Grid item className={classes.bottom}>
-          <Typography variant="h6" className={classes.loading}>
-            {t('pages.landing.coming')}
-          </Typography>
+          <GlitchText
+            text={t('pages.landing.coming')}
+            variant="h6"
+            className={classes.loading}
+          />
           <WingedBorder position="right" direction="up" />
         </Grid>
       </Grid>
