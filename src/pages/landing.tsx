@@ -5,7 +5,7 @@ import { Grid, Typography } from '@material-ui/core';
 import Socials from '../components/socials';
 import Backdrop from '../images/backdrop.svg';
 import Logo from '../components/Logo';
-import DistortText from '../components/DistortText';
+import Distort from '../components/DistortText';
 import GlitchText from '../components/GlitchText';
 import WingedBorder from '../components/WingedBorder';
 import {
@@ -122,12 +122,10 @@ const Landing: FunctionComponent = () => {
               className={classes.contentWingTop}
             />
             <div className={classes.innerContent}>
-              <Logo type="full" />
+              <Distort>
+                <Logo type="full" />
+              </Distort>
               <div className={classes.about}>
-                <DistortText
-                  text={t('pages.landing.styles.crt')}
-                  variant="h1"
-                />
                 <GlitchText
                   text={t('pages.landing.styles.glitch')}
                   variant="h1"
