@@ -1,17 +1,18 @@
-import React, { FunctionComponent } from 'react';
+import React, { FunctionComponent, useEffect } from 'react';
 import { makeStyles, Theme } from '@material-ui/core/styles';
 import { useTranslation } from 'react-i18next';
 import { Grid, Typography } from '@material-ui/core';
+import { useDencrypt } from "use-dencrypt-effect";
 import Socials from '../components/socials';
 import Backdrop from '../images/backdrop.svg';
 import Logo from '../components/Logo';
-import Distort from '../components/DistortText';
 import GlitchText from '../components/GlitchText';
 import WingedBorder from '../components/WingedBorder';
 import {
   BREAKPOINT_LAPTOP,
   BREAKPOINT_MOBILE,
   BREAKPOINT_TABLET,
+  DECRYPT_OPTIONS,
 } from '../assets/consts';
 
 const BACKDROP_CLIP = '4vw';
@@ -99,7 +100,15 @@ const useStyles = makeStyles(
 const Landing: FunctionComponent = () => {
   const classes = useStyles();
   const { t } = useTranslation();
+  const { result, dencrypt } = useDencrypt(DECRYPT_OPTIONS);
+
   const company = `${t('company.long')}. ${t('company.info')}`;
+
+  useEffect(() => {
+    setTimeout(() => {
+      dencrypt(t('pages.landing.coming'));
+    }, 1000)
+  }, [dencrypt, t]);
 
   return (
     <div className={classes.root}>
@@ -122,9 +131,7 @@ const Landing: FunctionComponent = () => {
               className={classes.contentWingTop}
             />
             <div className={classes.innerContent}>
-              <Distort>
-                <Logo type="full" />
-              </Distort>
+              <Logo type="full" />
               <div className={classes.about}>
                 <Typography variant="body1" paragraph>
                   {t('pages.landing.about.1')}
@@ -153,7 +160,7 @@ const Landing: FunctionComponent = () => {
         </Grid>
         <Grid item className={classes.bottom}>
           <GlitchText
-            text={t('pages.landing.coming')}
+            text={result}
             variant="h6"
             className={classes.loading}
           />
