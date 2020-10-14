@@ -1,5 +1,13 @@
 {
   "company": {
     "name": "Enyo"
+  },
+  "pages": {
+    "landing": {
+      "styles": {
+        "crt": "CRT Style",
+        "glitch": "Glitch Style"
+      }
+    }
   }
 }

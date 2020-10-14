@@ -1,16 +1,20 @@
-import React, { FunctionComponent } from 'react';
+import React, { FunctionComponent, useEffect, useRef } from 'react';
 import { makeStyles, Theme } from '@material-ui/core/styles';
 import { useTranslation } from 'react-i18next';
 import { Grid, Typography } from '@material-ui/core';
+import { useDencrypt } from 'use-dencrypt-effect';
 import Socials from '../components/socials';
 import Backdrop from '../images/backdrop.svg';
 import Logo from '../components/Logo';
+import GlitchText from '../components/GlitchText';
 import WingedBorder from '../components/WingedBorder';
 import {
   BREAKPOINT_LAPTOP,
   BREAKPOINT_MOBILE,
   BREAKPOINT_TABLET,
+  DECRYPT_OPTIONS,
 } from '../assets/consts';
+import checkIfInView from '../assets/Utils';
 
 const BACKDROP_CLIP = '4vw';
 
@@ -80,13 +84,17 @@ const useStyles = makeStyles(
       width: '100%',
       paddingTop: '2vh',
       paddingBottom: '3vh',
+      position: 'relative',
     },
     loading: {
       textTransform: 'uppercase',
       fontFamily: ['"Cairo"', '"Roboto"'].join(','),
       letterSpacing: '0.2rem',
-      textAlign: 'right',
-      margin: '0 calc(2% + 2rem) -1rem 0',
+    },
+    coming: {
+      position: 'absolute',
+      right: 'calc(2% + 2rem)',
+      top: '0.2rem',
     },
   }),
   {
@@ -97,7 +105,37 @@ const useStyles = makeStyles(
 const Landing: FunctionComponent = () => {
   const classes = useStyles();
   const { t } = useTranslation();
+  const { result, dencrypt } = useDencrypt(DECRYPT_OPTIONS);
+  const backgroundRef = useRef<HTMLDivElement>(null);
+
   const company = `${t('company.long')}. ${t('company.info')}`;
+
+  useEffect(() => {
+    setTimeout(() => {
+      dencrypt(t('pages.landing.coming'));
+    }, 1000);
+  }, [dencrypt, t]);
+
+  useEffect(() => {
+    const handleMove = (e: MouseEvent) => {
+      if (backgroundRef.current) {
+        // Only animate if image is on screen
+        if (checkIfInView(backgroundRef)) {
+          backgroundRef.current.style.backgroundPositionX = `calc(50% - ${
+            e.pageX / 50
+          }px)`;
+          backgroundRef.current.style.backgroundPositionY = `calc(50% - ${
+            e.pageY / 30
+          }px)`;
+        }
+      }
+    };
+
+    window.addEventListener('mousemove', handleMove);
+    return () => {
+      window.removeEventListener('mousemove', handleMove);
+    };
+  }, []);
 
   return (
     <div className={classes.root}>
@@ -113,7 +151,7 @@ const Landing: FunctionComponent = () => {
           <WingedBorder position="left" direction="down" />
         </Grid>
         <Grid item className={classes.content}>
-          <div className={classes.backdrop}>
+          <div className={classes.backdrop} ref={backgroundRef}>
             <WingedBorder
               position="left"
               direction="down"
@@ -148,9 +186,15 @@ const Landing: FunctionComponent = () => {
           </div>
         </Grid>
         <Grid item className={classes.bottom}>
-          <Typography variant="h6" className={classes.loading}>
-            {t('pages.landing.coming')}
-          </Typography>
+          <GlitchText
+            text={result}
+            variant="h6"
+            delay={3}
+            className={classes.coming}
+            classes={{
+              text: classes.loading,
+            }}
+          />
           <WingedBorder position="right" direction="up" />
         </Grid>
       </Grid>
