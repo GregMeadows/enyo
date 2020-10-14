@@ -83,13 +83,17 @@ const useStyles = makeStyles(
       width: '100%',
       paddingTop: '2vh',
       paddingBottom: '3vh',
+      position: 'relative',
     },
     loading: {
       textTransform: 'uppercase',
       fontFamily: ['"Cairo"', '"Roboto"'].join(','),
       letterSpacing: '0.2rem',
-      textAlign: 'right',
-      margin: '0 calc(2% + 2rem) -1rem 0',
+    },
+    coming: {
+      position: 'absolute',
+      right: 'calc(2% + 2rem)',
+      top: '0.2rem',
     },
   }),
   {
@@ -162,7 +166,10 @@ const Landing: FunctionComponent = () => {
           <GlitchText
             text={result}
             variant="h6"
-            className={classes.loading}
+            className={classes.coming}
+            classes={{
+              text: classes.loading
+            }}
           />
           <WingedBorder position="right" direction="up" />
         </Grid>

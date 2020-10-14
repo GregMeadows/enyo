@@ -9,6 +9,9 @@ interface GlitchTextType {
   text: string;
   variant?: Variant;
   className?: string;
+  classes?: {
+    text?: string;
+  }
 }
 
 const useStyles = makeStyles(
@@ -137,15 +140,16 @@ const GlitchText: FunctionComponent<GlitchTextType> = ({
   text,
   variant,
   className,
+  classes,
 }) => {
-  const classes = useStyles();
+  const classesInternal = useStyles();
 
   return (
-    <div className={classes.root}>
+    <div className={clsx(classesInternal.root, className)}>
       <Typography
         variant={variant || 'body1'}
         data-text={text}
-        className={clsx(classes.text, className)}
+        className={clsx(classesInternal.text, classes?.text)}
       >
         {text}
       </Typography>
