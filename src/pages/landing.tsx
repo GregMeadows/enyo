@@ -2,7 +2,7 @@ import React, { FunctionComponent, useEffect, useRef } from 'react';
 import { makeStyles, Theme } from '@material-ui/core/styles';
 import { useTranslation } from 'react-i18next';
 import { Grid, Typography } from '@material-ui/core';
-import { useDencrypt } from "use-dencrypt-effect";
+import { useDencrypt } from 'use-dencrypt-effect';
 import Socials from '../components/socials';
 import Backdrop from '../images/backdrop.svg';
 import Logo from '../components/Logo';
@@ -113,7 +113,7 @@ const Landing: FunctionComponent = () => {
   useEffect(() => {
     setTimeout(() => {
       dencrypt(t('pages.landing.coming'));
-    }, 1000)
+    }, 1000);
   }, [dencrypt, t]);
 
   useEffect(() => {
@@ -121,8 +121,12 @@ const Landing: FunctionComponent = () => {
       if (backgroundRef.current) {
         // Only animate if image is on screen
         if (checkIfInView(backgroundRef)) {
-          backgroundRef.current.style.backgroundPositionX = `calc(50% - ${e.pageX / 50}px)`;
-          backgroundRef.current.style.backgroundPositionY = `calc(50% - ${e.pageY / 30}px)`;
+          backgroundRef.current.style.backgroundPositionX = `calc(50% - ${
+            e.pageX / 50
+          }px)`;
+          backgroundRef.current.style.backgroundPositionY = `calc(50% - ${
+            e.pageY / 30
+          }px)`;
         }
       }
     };
@@ -188,7 +192,7 @@ const Landing: FunctionComponent = () => {
             delay={3}
             className={classes.coming}
             classes={{
-              text: classes.loading
+              text: classes.loading,
             }}
           />
           <WingedBorder position="right" direction="up" />

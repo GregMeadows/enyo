@@ -129,7 +129,8 @@ const useStyles = makeStyles(
       '&::before': {
         color: 'white',
         textShadow: '-1px 0 black',
-        clipPath: 'polygon(0 0, 0 0, 100% 0, 100% 0, 0 0, 0 100%, 100% 100%, 100% 0%)',
+        clipPath:
+          'polygon(0 0, 0 0, 100% 0, 100% 0, 0 0, 0 100%, 100% 100%, 100% 0%)',
         animation: `$glitch-before 1.5s infinite linear alternate`,
       },
       '&::after': {
@@ -161,9 +162,9 @@ const GlitchText: FunctionComponent<GlitchTextType> = ({
       setShow(false);
       setTimeout(() => {
         setShow(true);
-      }, delay * 1000)
+      }, delay * 1000);
     }
-  }, [])
+  }, [delay]);
 
   return (
     <div className={clsx(classesInternal.root, className)}>
