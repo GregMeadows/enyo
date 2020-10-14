@@ -1,4 +1,4 @@
-import React, { FunctionComponent, useEffect } from 'react';
+import React, { FunctionComponent, useEffect, useRef } from 'react';
 import { makeStyles, Theme } from '@material-ui/core/styles';
 import { useTranslation } from 'react-i18next';
 import { Grid, Typography } from '@material-ui/core';
@@ -14,6 +14,7 @@ import {
   BREAKPOINT_TABLET,
   DECRYPT_OPTIONS,
 } from '../assets/consts';
+import checkIfInView from '../assets/Utils';
 
 const BACKDROP_CLIP = '4vw';
 
@@ -105,6 +106,7 @@ const Landing: FunctionComponent = () => {
   const classes = useStyles();
   const { t } = useTranslation();
   const { result, dencrypt } = useDencrypt(DECRYPT_OPTIONS);
+  const backgroundRef = useRef<HTMLDivElement>(null);
 
   const company = `${t('company.long')}. ${t('company.info')}`;
 
@@ -113,6 +115,23 @@ const Landing: FunctionComponent = () => {
       dencrypt(t('pages.landing.coming'));
     }, 1000)
   }, [dencrypt, t]);
+
+  useEffect(() => {
+    const handleMove = (e: MouseEvent) => {
+      if (backgroundRef.current) {
+        // Only animate if image is on screen
+        if (checkIfInView(backgroundRef)) {
+          backgroundRef.current.style.backgroundPositionX = `calc(50% - ${e.pageX / 50}px)`;
+          backgroundRef.current.style.backgroundPositionY = `calc(50% - ${e.pageY / 30}px)`;
+        }
+      }
+    };
+
+    window.addEventListener('mousemove', handleMove);
+    return () => {
+      window.removeEventListener('mousemove', handleMove);
+    };
+  }, []);
 
   return (
     <div className={classes.root}>
@@ -128,7 +147,7 @@ const Landing: FunctionComponent = () => {
           <WingedBorder position="left" direction="down" />
         </Grid>
         <Grid item className={classes.content}>
-          <div className={classes.backdrop}>
+          <div className={classes.backdrop} ref={backgroundRef}>
             <WingedBorder
               position="left"
               direction="down"

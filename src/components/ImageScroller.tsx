@@ -1,6 +1,7 @@
 import React, { FunctionComponent, useEffect, useRef } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import clsx from 'clsx';
+import checkIfInView from '../assets/Utils';
 
 interface ImageScrollerType {
   image: string;
@@ -48,7 +49,8 @@ const ImageScroller: FunctionComponent<ImageScrollerType> = ({
   useEffect(() => {
     const handleScroll = () => {
       if (backgroundRef.current) {
-        if (backgroundRef.current.getBoundingClientRect().bottom > 0) {
+        // Only animate if image is on screen
+        if (checkIfInView(backgroundRef)) {
           backgroundRef.current.style.backgroundPositionY = `${
             startingOffset + Math.round(window.pageYOffset / 6)
           }px`;
