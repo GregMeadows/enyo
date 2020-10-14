@@ -13,7 +13,7 @@ import ScrollToTop from './components/ScrollToTop';
 import Landing from './pages/landing';
 import themes from './themes';
 
-const DISPLAY_LANDING = true;
+const DISPLAY_LANDING = false;
 
 const App: FunctionComponent = observer(() => {
   return (

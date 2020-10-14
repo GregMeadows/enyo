@@ -3,6 +3,6 @@ export const BREAKPOINT_TABLET = 'sm';
 export const BREAKPOINT_LAPTOP = 'md';
 
 export const DECRYPT_OPTIONS = {
-  chars: ['/', '\\', '|'],
+  chars: ['/', '\\'],
   interval: 60,
 };
