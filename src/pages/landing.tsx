@@ -185,6 +185,7 @@ const Landing: FunctionComponent = () => {
           <GlitchText
             text={result}
             variant="h6"
+            delay={3}
             className={classes.coming}
             classes={{
               text: classes.loading
