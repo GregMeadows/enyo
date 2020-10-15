@@ -9,8 +9,15 @@ const useStyles = makeStyles(
       overflowX: 'hidden',
       minHeight: '100%',
       marginTop: 0,
+    },
+    bottom: {
+      width: '100%',
+      height: '8rem',
       marginBottom: 300,
-      paddingBottom: '8rem',
+      background: `linear-gradient(
+        ${theme.palette.background.default},
+        rgba(255,255,255,0)
+      )`,
     },
   }),
   {
@@ -21,7 +28,12 @@ const useStyles = makeStyles(
 const Layout: FunctionComponent = ({ children }) => {
   const classes = useStyles();
 
-  return <div className={`${classes.root} mui-fixed`}>{children}</div>;
+  return (
+    <>
+      <div className={`${classes.root} mui-fixed`}>{children}</div>
+      <div className={classes.bottom} />
+    </>
+  );
 };
 
 export default Layout;
