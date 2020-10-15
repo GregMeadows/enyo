@@ -10,6 +10,7 @@ const light = createMuiTheme(
       },
       border: {
         light: '#eee',
+        main: '#999',
         dark: '#444',
       },
     },

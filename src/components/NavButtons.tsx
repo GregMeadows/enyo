@@ -3,7 +3,7 @@ import { makeStyles, Theme } from '@material-ui/core/styles';
 import { Button } from '@material-ui/core';
 import { observer } from 'mobx-react-lite';
 import { Link } from 'react-router-dom';
-import { LinkedItem } from './types';
+import { LinkedItem } from '../types';
 
 interface NavButtonsType {
   items: LinkedItem[];

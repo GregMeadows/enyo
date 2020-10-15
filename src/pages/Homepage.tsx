@@ -3,7 +3,7 @@ import { fade, makeStyles, Theme } from '@material-ui/core/styles';
 import { Grid, Typography } from '@material-ui/core';
 import { useTranslation } from 'react-i18next';
 import NavButtons from '../components/NavButtons';
-import { LinkedItem } from '../components/types';
+import { LinkedItem } from '../types';
 import ImageScroller from '../components/ImageScroller';
 import bannerImg from '../images/banner.jpg';
 import { ReactComponent as TeeSvg } from '../images/tee.svg';
@@ -55,7 +55,7 @@ const Homepage: FunctionComponent = () => {
     { text: t('nav.main.leagues'), link: '/' },
     { text: t('nav.main.games'), link: '/' },
     { text: t('nav.main.create'), link: '/' },
-    { text: t('nav.main.about'), link: '/' },
+    { text: t('nav.main.about'), link: '/about' },
   ];
 
   return (

@@ -9,8 +9,9 @@ const dark = createMuiTheme(
         main: '#401763',
       },
       border: {
-        light: '#eee',
-        dark: '#444',
+        light: '#444',
+        main: '#999',
+        dark: '#eee',
       },
     },
   },

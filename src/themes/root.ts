@@ -21,12 +21,14 @@ declare module '@material-ui/core/styles/createPalette' {
   interface Palette {
     border: {
       light: string;
+      main: string;
       dark: string;
     };
   }
   interface PaletteOptions {
     border: {
       light: string;
+      main: string;
       dark: string;
     };
   }

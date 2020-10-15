@@ -52,7 +52,8 @@
           "variant",
           "fontSize",
           "position",
-          "wrap"
+          "wrap",
+          "path"
         ]
       }
     ],

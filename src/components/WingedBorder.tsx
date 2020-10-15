@@ -29,11 +29,11 @@ const useStyles = makeStyles(
     line: {
       height: 2,
       flexGrow: 1,
-      background: theme.palette.border.dark,
+      background: theme.palette.border.main,
     },
     wing: {
       strokeWidth: 2,
-      stroke: theme.palette.border.dark,
+      stroke: theme.palette.border.main,
     },
   }),
   {

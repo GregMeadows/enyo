@@ -37,6 +37,9 @@
     }
   },
   "pages": {
+    "info": {
+      "about": "About Us"
+    },
     "landing": {
       "about": {
         "1": "ENYO (a trading name of ENYO Design LTD.) was created to bring a new level of performance to esports apparel.",

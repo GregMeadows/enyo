@@ -12,6 +12,7 @@ import { getTheme } from './stores/settings';
 import ScrollToTop from './components/ScrollToTop';
 import Landing from './pages/landing';
 import themes from './themes';
+import Info from './pages/Info';
 
 const DISPLAY_LANDING = false;
 
@@ -29,6 +30,7 @@ const App: FunctionComponent = observer(() => {
                 <ElevatedAppBar />
                 <Switch>
                   <Route path="/" exact component={Homepage} />
+                  <Route path="/about" exact component={() => <Info />} />
                 </Switch>
               </Layout>
               <Footer />

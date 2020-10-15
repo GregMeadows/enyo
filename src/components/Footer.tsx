@@ -6,7 +6,7 @@ import { observer } from 'mobx-react-lite';
 import Logo from './Logo';
 import LogoRepeat from '../images/logo/repeat.png';
 import NavList from './NavList';
-import { LinkedItem } from './types';
+import { LinkedItem } from '../types';
 
 const useStyles = makeStyles(
   (theme: Theme) => ({
