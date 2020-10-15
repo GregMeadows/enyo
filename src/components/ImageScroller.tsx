@@ -7,6 +7,10 @@ interface ImageScrollerType {
   image: string;
   offset?: number;
   className?: string;
+  classes?: {
+    foreground?: string;
+  };
+  invert?: boolean;
 }
 
 interface StyleProps {
@@ -24,6 +28,10 @@ const useStyles = makeStyles(
       overflow: 'hidden',
       backgroundImage: (props: StyleProps) => `url(${props.image})`,
       backgroundPositionY: (props: StyleProps) => props.offset,
+      transition: 'background-position 0.2s ease-out',
+    },
+    foreground: {
+      transition: 'margin 0.2s ease-out',
     },
   }),
   {
@@ -33,16 +41,17 @@ const useStyles = makeStyles(
 
 const ImageScroller: FunctionComponent<ImageScrollerType> = ({
   image,
-  offset,
+  offset = -50,
   className,
   children,
+  classes,
+  invert,
 }) => {
-  const startingOffset = offset || -50;
   const styleProps: StyleProps = {
     image,
-    offset: startingOffset,
+    offset,
   };
-  const classes = useStyles(styleProps);
+  const classesInternal = useStyles(styleProps);
   const backgroundRef = useRef<HTMLDivElement>(null);
   const foregroundRef = useRef<HTMLDivElement>(null);
 
@@ -52,12 +61,12 @@ const ImageScroller: FunctionComponent<ImageScrollerType> = ({
         // Only animate if image is on screen
         if (checkIfInView(backgroundRef)) {
           backgroundRef.current.style.backgroundPositionY = `${
-            startingOffset + Math.round(window.pageYOffset / 6)
+            offset + (window.pageYOffset * (invert ? 1 : -1)) / 10
           }px`;
           if (foregroundRef.current) {
-            foregroundRef.current.style.marginTop = `${Math.round(
-              window.pageYOffset / 2
-            )}px`;
+            foregroundRef.current.style.marginTop = `${
+              (window.pageYOffset * (invert ? -1 : 1)) / 5
+            }px`;
           }
         }
       }
@@ -67,11 +76,21 @@ const ImageScroller: FunctionComponent<ImageScrollerType> = ({
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
-  }, [startingOffset]);
+  }, [invert, offset]);
 
   return (
-    <div ref={backgroundRef} className={clsx(classes.background, className)}>
-      {children && <div ref={foregroundRef}>{children}</div>}
+    <div
+      ref={backgroundRef}
+      className={clsx(classesInternal.background, className)}
+    >
+      {children && (
+        <div
+          ref={foregroundRef}
+          className={clsx(classesInternal.foreground, classes?.foreground)}
+        >
+          {children}
+        </div>
+      )}
     </div>
   );
 };
