@@ -4,7 +4,7 @@ import { Typography, Grid } from '@material-ui/core';
 import { useTranslation } from 'react-i18next';
 import { observer } from 'mobx-react-lite';
 import Logo from './Logo';
-import LogoRepeat from '../images/logo/repeat.svg';
+import LogoRepeat from '../images/logo/repeat.png';
 import NavList from './NavList';
 import { LinkedItem } from './types';
 
@@ -13,7 +13,7 @@ const useStyles = makeStyles(
     root: {
       background: `url(${LogoRepeat})`,
       backgroundRepeat: 'space',
-      backgroundSize: '130px 30px',
+      backgroundSize: '132px 97px',
       height: 300,
       zIndex: -1,
       width: '100%',
