@@ -1,7 +1,6 @@
 import React, { FunctionComponent } from 'react';
 import { makeStyles, Theme } from '@material-ui/core/styles';
 import { Button } from '@material-ui/core';
-import { observer } from 'mobx-react-lite';
 import { Link } from 'react-router-dom';
 import { LinkedItem } from '../types';
 
@@ -24,7 +23,7 @@ const useStyles = makeStyles(
   }
 );
 
-const NavButtons: FunctionComponent<NavButtonsType> = observer(({ items }) => {
+const NavButtons: FunctionComponent<NavButtonsType> = ({ items }) => {
   const classes = useStyles();
 
   return (
@@ -42,6 +41,6 @@ const NavButtons: FunctionComponent<NavButtonsType> = observer(({ items }) => {
       ))}
     </nav>
   );
-});
+};
 
 export default NavButtons;

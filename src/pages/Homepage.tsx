@@ -2,8 +2,6 @@ import React, { FunctionComponent } from 'react';
 import { fade, makeStyles, Theme } from '@material-ui/core/styles';
 import { Grid, Typography } from '@material-ui/core';
 import { useTranslation } from 'react-i18next';
-import NavButtons from '../components/NavButtons';
-import { LinkedItem } from '../types';
 import ImageScroller from '../components/ImageScroller';
 import bannerImg from '../images/banner.jpg';
 import { ReactComponent as TeeSvg } from '../images/tee.svg';
@@ -13,9 +11,6 @@ const useStyles = makeStyles(
     info: {
       marginTop: '3rem',
       padding: '1rem 8vw',
-    },
-    mainNav: {
-      textAlign: 'center',
     },
     banner: {
       height: '82vh',
@@ -50,19 +45,8 @@ const Homepage: FunctionComponent = () => {
   const classes = useStyles();
   const { t } = useTranslation();
 
-  const mainNavItems: LinkedItem[] = [
-    { text: t('nav.main.kits'), link: '/' },
-    { text: t('nav.main.leagues'), link: '/' },
-    { text: t('nav.main.games'), link: '/' },
-    { text: t('nav.main.create'), link: '/' },
-    { text: t('nav.main.about'), link: '/about' },
-  ];
-
   return (
     <>
-      <section className={classes.mainNav}>
-        <NavButtons items={mainNavItems} />
-      </section>
       <ImageScroller image={bannerImg} className={classes.banner}>
         <Typography variant="h1" className={classes.bannerText}>
           {t('homepage.header')}

@@ -11,9 +11,6 @@ import { ROUTE_ACCESS, ROUTE_PRIVACY, ROUTE_TERMS } from '../../assets/routes';
 
 const useStyles = makeStyles(
   () => ({
-    root: {
-      paddingTop: '2rem',
-    },
     title: {
       marginBottom: '2rem',
     },
@@ -49,7 +46,7 @@ const Info: FunctionComponent = () => {
   }
 
   return (
-    <div className={classes.root}>
+    <>
       <WingedBorder position="left" direction="down" />
       <section className={classes.info}>
         <Typography variant="h1" className={classes.title}>
@@ -58,7 +55,7 @@ const Info: FunctionComponent = () => {
         {page.content}
       </section>
       <WingedBorder position="right" direction="up" />
-    </div>
+    </>
   );
 };
 export default Info;

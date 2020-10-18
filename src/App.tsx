@@ -14,6 +14,7 @@ import Landing from './pages/landing';
 import themes from './themes';
 import Info from './pages/info';
 import { ROUTE_ACCESS, ROUTE_PRIVACY, ROUTE_TERMS } from './assets/routes';
+import MainNav from './components/MainNav';
 
 const DISPLAY_LANDING = false;
 
@@ -29,6 +30,7 @@ const App: FunctionComponent = observer(() => {
             <>
               <Layout>
                 <ElevatedAppBar />
+                <MainNav />
                 <Switch>
                   <Route path="/" exact component={Homepage} />
                   <Route path={ROUTE_TERMS} exact component={Info} />
