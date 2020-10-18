@@ -38,7 +38,15 @@
   },
   "pages": {
     "info": {
-      "about": "About Us"
+      "terms": {
+        "title": "Terms of Service"
+      },
+      "privacy": {
+        "title": "Privacy Policy"
+      },
+      "access": {
+        "title": "Accessibility"
+      }
     },
     "landing": {
       "about": {

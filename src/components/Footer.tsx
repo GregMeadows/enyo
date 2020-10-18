@@ -55,9 +55,9 @@ const Footer: FunctionComponent = observer(() => {
 
   const itemsAbout: LinkedItem[] = [
     { text: t('nav.about.about'), link: '/' },
-    { text: t('nav.about.terms'), link: '/' },
-    { text: t('nav.about.privacy'), link: '/' },
-    { text: t('nav.about.access'), link: '/' },
+    { text: t('nav.about.terms'), link: '/terms' },
+    { text: t('nav.about.privacy'), link: '/privacy' },
+    { text: t('nav.about.access'), link: '/access' },
   ];
 
   const itemsSocial: LinkedItem[] = [

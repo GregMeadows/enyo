@@ -11,6 +11,9 @@ const root: ThemeOptions = {
         'sans-serif',
       ].join(','),
     },
+    body1: {
+      fontSize: '1.1rem',
+    },
   },
 };
 
