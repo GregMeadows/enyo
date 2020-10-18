@@ -1,12 +1,14 @@
-import React, { FunctionComponent } from 'react';
+import React from 'react';
 import { Typography } from '@material-ui/core';
 import { useTranslation } from 'react-i18next';
+import { InfoPage } from './types';
 
-const Access: FunctionComponent = () => {
+const AccessPage = (): InfoPage => {
   const { t } = useTranslation();
 
-  return (
-    <div>
+  const title = t('pages.info.access.title');
+  const content = (
+    <>
       <Typography variant="body1" paragraph>
         {t('dev:loremIpsum.1')}
       </Typography>
@@ -22,7 +24,10 @@ const Access: FunctionComponent = () => {
       <Typography variant="body1" paragraph>
         {t('dev:loremIpsum.5')}
       </Typography>
-    </div>
+    </>
   );
+
+  return { title, content };
 };
-export default Access;
+
+export default AccessPage;

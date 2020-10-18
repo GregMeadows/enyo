@@ -38,14 +38,14 @@
   },
   "pages": {
     "info": {
-      "terms": {
-        "title": "Terms of Service"
+      "access": {
+        "title": "Accessibility"
       },
       "privacy": {
         "title": "Privacy Policy"
       },
-      "access": {
-        "title": "Accessibility"
+      "terms": {
+        "title": "Terms of Service"
       }
     },
     "landing": {

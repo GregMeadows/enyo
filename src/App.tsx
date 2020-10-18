@@ -12,7 +12,8 @@ import { getTheme } from './stores/settings';
 import ScrollToTop from './components/ScrollToTop';
 import Landing from './pages/landing';
 import themes from './themes';
-import Info, { INFO_PAGES } from './pages/info';
+import Info from './pages/info';
+import { ROUTE_ACCESS, ROUTE_PRIVACY, ROUTE_TERMS } from './assets/routes';
 
 const DISPLAY_LANDING = false;
 
@@ -30,15 +31,9 @@ const App: FunctionComponent = observer(() => {
                 <ElevatedAppBar />
                 <Switch>
                   <Route path="/" exact component={Homepage} />
-                  <Route path="/terms" exact>
-                    <Info info={INFO_PAGES.terms} />
-                  </Route>
-                  <Route path="/privacy" exact>
-                    <Info info={INFO_PAGES.privacy} />
-                  </Route>
-                  <Route path="/access" exact>
-                    <Info info={INFO_PAGES.access} />
-                  </Route>
+                  <Route path={ROUTE_TERMS} exact component={Info} />
+                  <Route path={ROUTE_PRIVACY} exact component={Info} />
+                  <Route path={ROUTE_ACCESS} exact component={Info} />
                 </Switch>
               </Layout>
               <Footer />

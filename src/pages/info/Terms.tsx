@@ -1,12 +1,14 @@
-import React, { FunctionComponent } from 'react';
+import React from 'react';
 import { Typography } from '@material-ui/core';
 import { useTranslation } from 'react-i18next';
+import { InfoPage } from './types';
 
-const Terms: FunctionComponent = () => {
+const TermsPage = (): InfoPage => {
   const { t } = useTranslation();
 
-  return (
-    <div>
+  const title = t('pages.info.terms.title');
+  const content = (
+    <>
       <Typography variant="body1" paragraph>
         {t('dev:loremIpsum.1')}
       </Typography>
@@ -22,7 +24,10 @@ const Terms: FunctionComponent = () => {
       <Typography variant="body1" paragraph>
         {t('dev:loremIpsum.5')}
       </Typography>
-    </div>
+    </>
   );
+
+  return { title, content };
 };
-export default Terms;
+
+export default TermsPage;

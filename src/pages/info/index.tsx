@@ -1,39 +1,13 @@
 import React, { FunctionComponent } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import { Typography } from '@material-ui/core';
-import { useTranslation } from 'react-i18next';
+import { useLocation } from 'react-router-dom';
 import WingedBorder from '../../components/WingedBorder';
-import Terms from './Terms';
-import Privacy from './Privacy';
-import Access from './Access';
-
-interface InfoPage {
-  title: string;
-  content: JSX.Element;
-}
-
-interface InfoType {
-  info: InfoPage;
-}
-
-interface InfoPages {
-  [key: string]: InfoPage;
-}
-
-export const INFO_PAGES: InfoPages = {
-  terms: {
-    title: 'pages.info.terms.title',
-    content: <Terms />,
-  },
-  privacy: {
-    title: 'pages.info.privacy.title',
-    content: <Privacy />,
-  },
-  access: {
-    title: 'pages.info.access.title',
-    content: <Access />,
-  },
-};
+import TermsPage from './Terms';
+import PrivacyPage from './Privacy';
+import AccessPage from './Access';
+import { InfoPage } from './types';
+import { ROUTE_ACCESS, ROUTE_PRIVACY, ROUTE_TERMS } from '../../assets/routes';
 
 const useStyles = makeStyles(
   () => ({
@@ -52,18 +26,36 @@ const useStyles = makeStyles(
   }
 );
 
-const Info: FunctionComponent<InfoType> = ({ info }) => {
+function useInfoPage(page: string): InfoPage | null {
+  switch (page) {
+    case ROUTE_TERMS:
+      return TermsPage();
+    case ROUTE_PRIVACY:
+      return PrivacyPage();
+    case ROUTE_ACCESS:
+      return AccessPage();
+    default:
+      return null;
+  }
+}
+
+const Info: FunctionComponent = () => {
   const classes = useStyles();
-  const { t } = useTranslation();
+  const location = useLocation();
+  const page = useInfoPage(location.pathname);
+
+  if (!page) {
+    return null;
+  }
 
   return (
     <div className={classes.root}>
       <WingedBorder position="left" direction="down" />
       <section className={classes.info}>
         <Typography variant="h1" className={classes.title}>
-          {t(info.title)}
+          {page.title}
         </Typography>
-        {info.content}
+        {page.content}
       </section>
       <WingedBorder position="right" direction="up" />
     </div>
