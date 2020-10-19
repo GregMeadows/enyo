@@ -1,6 +1,6 @@
 import React, { FunctionComponent } from 'react';
 import { fade, makeStyles, Theme } from '@material-ui/core/styles';
-import { Grid, Typography } from '@material-ui/core';
+import { Typography } from '@material-ui/core';
 import { useTranslation } from 'react-i18next';
 import ImageScroller from '../components/ImageScroller';
 import bannerImg from '../images/banner.jpg';
@@ -10,7 +10,6 @@ import useTitle from '../hooks/useTitle';
 const useStyles = makeStyles(
   (theme: Theme) => ({
     info: {
-      marginTop: '3rem',
       padding: '1rem 8vw',
     },
     banner: {
@@ -26,15 +25,15 @@ const useStyles = makeStyles(
       background: fade(theme.palette.background.default, 0.4),
       padding: '0.5rem 3rem',
     },
-    teeContainer: {
-      display: 'flex',
-      justifyContent: 'center',
-    },
     tee: {
-      width: '75%',
+      width: '16rem',
     },
     kit: {
-      margin: '10rem 0',
+      margin: '6rem 0',
+      display: 'flex',
+      flexDirection: 'column',
+      alignItems: 'center',
+      justifyContent: 'center',
     },
   }),
   {
@@ -55,45 +54,24 @@ const Homepage: FunctionComponent = () => {
         </Typography>
       </ImageScroller>
       <section className={classes.info}>
-        <Grid container spacing={2}>
-          <Grid item xs={4}>
-            <div className={classes.teeContainer}>
-              <TeeSvg className={classes.tee} />
-            </div>
-          </Grid>
-          <Grid item xs>
-            <div className={classes.kit}>
-              <Typography variant="h3" paragraph>
-                {t('dev:kit', { number: 1 })}
-              </Typography>
-              <Typography variant="body1">{t('dev:loremIpsum.1')}</Typography>
-            </div>
-            <div className={classes.kit}>
-              <Typography variant="h3" paragraph>
-                {t('dev:kit', { number: 2 })}
-              </Typography>
-              <Typography variant="body1">{t('dev:loremIpsum.2')}</Typography>
-            </div>
-            <div className={classes.kit}>
-              <Typography variant="h3" paragraph>
-                {t('dev:kit', { number: 3 })}
-              </Typography>
-              <Typography variant="body1">{t('dev:loremIpsum.3')}</Typography>
-            </div>
-            <div className={classes.kit}>
-              <Typography variant="h3" paragraph>
-                {t('dev:kit', { number: 4 })}
-              </Typography>
-              <Typography variant="body1">{t('dev:loremIpsum.4')}</Typography>
-            </div>
-            <div className={classes.kit}>
-              <Typography variant="h3" paragraph>
-                {t('dev:kit', { number: 5 })}
-              </Typography>
-              <Typography variant="body1">{t('dev:loremIpsum.5')}</Typography>
-            </div>
-          </Grid>
-        </Grid>
+        <div className={classes.kit}>
+          <Typography variant="h3" paragraph>
+            {t('dev:kit', { number: 1 })}
+          </Typography>
+          <TeeSvg className={classes.tee} />
+        </div>
+        <div className={classes.kit}>
+          <Typography variant="h3" paragraph>
+            {t('dev:kit', { number: 2 })}
+          </Typography>
+          <TeeSvg className={classes.tee} />
+        </div>
+        <div className={classes.kit}>
+          <Typography variant="h3" paragraph>
+            {t('dev:kit', { number: 3 })}
+          </Typography>
+          <TeeSvg className={classes.tee} />
+        </div>
       </section>
     </>
   );
