@@ -5,6 +5,7 @@ import { useTranslation } from 'react-i18next';
 import ImageScroller from '../components/ImageScroller';
 import bannerImg from '../images/banner.jpg';
 import { ReactComponent as TeeSvg } from '../images/tee.svg';
+import useTitle from '../hooks/useTitle';
 
 const useStyles = makeStyles(
   (theme: Theme) => ({
@@ -44,6 +45,7 @@ const useStyles = makeStyles(
 const Homepage: FunctionComponent = () => {
   const classes = useStyles();
   const { t } = useTranslation();
+  useTitle();
 
   return (
     <>

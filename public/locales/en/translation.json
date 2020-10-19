@@ -1,7 +1,8 @@
 {
   "company": {
     "info": "Company No. 12918773",
-    "long": "Enyo Design Ltd"
+    "long": "Enyo Design Ltd",
+    "name": "Enyo"
   },
   "copyright": "Copyright © {{year}}. {{company}}.",
   "homepage": {

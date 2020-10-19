@@ -8,6 +8,7 @@ import PrivacyPage from './Privacy';
 import AccessPage from './Access';
 import { InfoPage } from './types';
 import { ROUTE_ACCESS, ROUTE_PRIVACY, ROUTE_TERMS } from '../../assets/routes';
+import useTitle from '../../hooks/useTitle';
 
 const useStyles = makeStyles(
   () => ({
@@ -40,6 +41,7 @@ const Info: FunctionComponent = () => {
   const classes = useStyles();
   const location = useLocation();
   const page = useInfoPage(location.pathname);
+  useTitle(page?.title);
 
   if (!page) {
     return null;
