@@ -6,8 +6,14 @@ import WingedBorder from '../../components/WingedBorder';
 import TermsPage from './Terms';
 import PrivacyPage from './Privacy';
 import AccessPage from './Access';
+import ShippingPage from './Shipping';
 import { InfoPage } from './types';
-import { ROUTE_ACCESS, ROUTE_PRIVACY, ROUTE_TERMS } from '../../assets/routes';
+import {
+  ROUTE_ACCESS,
+  ROUTE_PRIVACY,
+  ROUTE_SHIPPING,
+  ROUTE_TERMS,
+} from '../../assets/routes';
 import useTitle from '../../hooks/useTitle';
 
 const useStyles = makeStyles(
@@ -32,6 +38,8 @@ function useInfoPage(page: string): InfoPage | null {
       return PrivacyPage();
     case ROUTE_ACCESS:
       return AccessPage();
+    case ROUTE_SHIPPING:
+      return ShippingPage();
     default:
       return null;
   }
