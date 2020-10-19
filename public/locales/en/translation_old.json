@@ -55,6 +55,11 @@
         "magentaBG": "\u001b[45mAbout Us\u001b[49m",
         "cyanBG": "\u001b[46mAbout Us\u001b[49m",
         "whiteBG": "\u001b[47mAbout Us\u001b[49m"
+      },
+      "terms": {
+        "gocontractods": {
+          "2": ""
+        }
       }
     }
   }

@@ -13,7 +13,7 @@ import useTitle from '../../hooks/useTitle';
 const useStyles = makeStyles(
   () => ({
     title: {
-      marginBottom: '2rem',
+      marginBottom: '1rem',
     },
     info: {
       padding: '2rem 12vw',
@@ -56,7 +56,6 @@ const Info: FunctionComponent = () => {
         </Typography>
         {page.content}
       </section>
-      <WingedBorder position="right" direction="up" />
     </>
   );
 };

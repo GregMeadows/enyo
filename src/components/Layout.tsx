@@ -9,6 +9,7 @@ const useStyles = makeStyles(
       overflowX: 'hidden',
       minHeight: '100%',
       marginTop: 0,
+      paddingBottom: '2rem',
     },
     bottom: {
       width: '100%',

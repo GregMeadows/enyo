@@ -10,19 +10,52 @@ const TermsPage = (): InfoPage => {
   const content = (
     <>
       <Typography variant="body1" paragraph>
-        {t('dev:loremIpsum.1')}
+        {t('pages.info.terms.main.1')}
       </Typography>
       <Typography variant="body1" paragraph>
-        {t('dev:loremIpsum.2')}
+        {t('pages.info.terms.main.2')}
+      </Typography>
+      <Typography variant="body1">{t('pages.info.terms.main.3')}</Typography>
+      <Typography variant="body1" paragraph>
+        {t('pages.info.terms.main.4')}
+      </Typography>
+      <br />
+      <Typography variant="h4">
+        {t('pages.info.terms.contract.title')}
       </Typography>
       <Typography variant="body1" paragraph>
-        {t('dev:loremIpsum.3')}
+        {t('pages.info.terms.contract.1')}
       </Typography>
       <Typography variant="body1" paragraph>
-        {t('dev:loremIpsum.4')}
+        {t('pages.info.terms.contract.2')}
       </Typography>
       <Typography variant="body1" paragraph>
-        {t('dev:loremIpsum.5')}
+        {t('pages.info.terms.contract.3')}
+      </Typography>
+      <br />
+      <Typography variant="h4">{t('pages.info.terms.goods.title')}</Typography>
+      <Typography variant="body1" paragraph>
+        {t('pages.info.terms.goods.1')}
+      </Typography>
+      <Typography variant="body1" paragraph>
+        {t('pages.info.terms.goods.2')}
+      </Typography>
+      <Typography variant="body1" paragraph>
+        {t('pages.info.terms.goods.3')}
+      </Typography>
+      <br />
+      <Typography variant="h4">
+        {t('pages.info.terms.copyright.title')}
+      </Typography>
+      <Typography variant="body1" paragraph>
+        {t('pages.info.terms.copyright.1')}
+      </Typography>
+      <br />
+      <Typography variant="h4">
+        {t('pages.info.terms.business.title')}
+      </Typography>
+      <Typography variant="body1" paragraph>
+        {t('pages.info.terms.business.1')}
       </Typography>
     </>
   );
