@@ -22,7 +22,7 @@ const useStyles = makeStyles(
       marginBottom: '1rem',
     },
     info: {
-      padding: '2rem 12vw',
+      padding: '2rem 20vw',
     },
   }),
   {
