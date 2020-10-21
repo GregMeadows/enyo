@@ -13,13 +13,7 @@ import ScrollToTop from './components/ScrollToTop';
 import Landing from './pages/landing';
 import themes from './themes';
 import Info from './pages/info';
-import {
-  ROUTE_ACCESS,
-  ROUTE_FAQS,
-  ROUTE_PRIVACY,
-  ROUTE_SHIPPING,
-  ROUTE_TERMS,
-} from './assets/routes';
+import { ROUTES_INFO } from './assets/routes';
 import MainNav from './components/MainNav';
 
 const DISPLAY_LANDING = false;
@@ -39,11 +33,7 @@ const App: FunctionComponent = observer(() => {
                 <MainNav />
                 <Switch>
                   <Route path="/" exact component={Homepage} />
-                  <Route path={ROUTE_TERMS} exact component={Info} />
-                  <Route path={ROUTE_PRIVACY} exact component={Info} />
-                  <Route path={ROUTE_ACCESS} exact component={Info} />
-                  <Route path={ROUTE_SHIPPING} exact component={Info} />
-                  <Route path={ROUTE_FAQS} exact component={Info} />
+                  <Route path={ROUTES_INFO} exact component={Info} />
                 </Switch>
               </Layout>
               <Footer />
