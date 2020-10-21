@@ -53,7 +53,8 @@
           "fontSize",
           "position",
           "wrap",
-          "path"
+          "path",
+          "key"
         ]
       }
     ],
