@@ -5,9 +5,6 @@
     "name": "Enyo"
   },
   "copyright": "Copyright © {{year}}. {{company}}.",
-  "homepage": {
-    "header": "TeaCF range now out!"
-  },
   "nav": {
     "about": {
       "about": "About Us",
@@ -38,6 +35,12 @@
     }
   },
   "pages": {
+    "homepage": {
+      "kit": {
+        "back": "Enyo tee back",
+        "front": "Enyo tee front"
+      }
+    },
     "info": {
       "access": {
         "title": "Accessibility"

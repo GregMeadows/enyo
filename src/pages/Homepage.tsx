@@ -3,9 +3,10 @@ import { fade, makeStyles, Theme } from '@material-ui/core/styles';
 import { Typography } from '@material-ui/core';
 import { useTranslation } from 'react-i18next';
 import ImageScroller from '../components/ImageScroller';
-import bannerImg from '../images/banner.jpg';
-import { ReactComponent as TeeSvg } from '../images/tee.svg';
+import bannerImg from '../images/banner.png';
 import useTitle from '../hooks/useTitle';
+import enyoTeeFront from '../images/tee.enyo.front.png';
+import enyoTeeBack from '../images/tee.enyo.back.png';
 
 const useStyles = makeStyles(
   (theme: Theme) => ({
@@ -49,28 +50,17 @@ const Homepage: FunctionComponent = () => {
   return (
     <>
       <ImageScroller image={bannerImg} className={classes.banner}>
-        <Typography variant="h1" className={classes.bannerText}>
-          {t('homepage.header')}
-        </Typography>
+        <Typography variant="h1" className={classes.bannerText} />
       </ImageScroller>
       <section className={classes.info}>
         <div className={classes.kit}>
-          <Typography variant="h3" paragraph>
-            {t('dev:kit', { number: 1 })}
-          </Typography>
-          <TeeSvg className={classes.tee} />
+          <img src={enyoTeeFront} alt={t('pages.homepage.kit.front')} />
         </div>
         <div className={classes.kit}>
-          <Typography variant="h3" paragraph>
-            {t('dev:kit', { number: 2 })}
-          </Typography>
-          <TeeSvg className={classes.tee} />
+          <img src={enyoTeeBack} alt={t('pages.homepage.kit.back')} />
         </div>
         <div className={classes.kit}>
-          <Typography variant="h3" paragraph>
-            {t('dev:kit', { number: 3 })}
-          </Typography>
-          <TeeSvg className={classes.tee} />
+          <img src={enyoTeeFront} alt={t('pages.homepage.kit.front')} />
         </div>
       </section>
     </>
