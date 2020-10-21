@@ -6,7 +6,6 @@ import { useTranslation } from 'react-i18next';
 import WingedBorder from '../../components/WingedBorder';
 import useTitle from '../../hooks/useTitle';
 import terms from './terms';
-import access from './access';
 import faqs from './faqs';
 import privacy from './privacy';
 import shipping from './shipping';
@@ -38,7 +37,6 @@ interface InfoPages {
 
 const infoPages: InfoPages = {
   terms,
-  access,
   faqs,
   privacy,
   shipping,

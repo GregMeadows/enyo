@@ -8,7 +8,6 @@
   "nav": {
     "about": {
       "about": "About Us",
-      "access": "Accessibility",
       "privacy": "Privacy",
       "terms": "Terms",
       "title": "About Us"
@@ -42,9 +41,6 @@
       }
     },
     "info": {
-      "access": {
-        "title": "Accessibility"
-      },
       "error": "There doesn't seem to be any content here.",
       "faq": {
         "arrive": {
