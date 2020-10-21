@@ -1,5 +1,5 @@
 import React, { FunctionComponent } from 'react';
-import { makeStyles } from '@material-ui/core/styles';
+import { makeStyles, Theme } from '@material-ui/core/styles';
 import { Typography } from '@material-ui/core';
 import { useLocation } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
@@ -9,14 +9,28 @@ import terms from './terms';
 import faqs from './faqs';
 import privacy from './privacy';
 import shipping from './shipping';
+import {
+  BREAKPOINT_LAPTOP,
+  BREAKPOINT_MOBILE,
+  BREAKPOINT_TABLET,
+} from '../../assets/consts';
 
 const useStyles = makeStyles(
-  () => ({
+  (theme: Theme) => ({
     title: {
-      marginBottom: '1rem',
+      marginBottom: '2rem',
     },
     info: {
       padding: '2rem 20vw',
+      [theme.breakpoints.down(BREAKPOINT_LAPTOP)]: {
+        padding: '1.8rem 12vw',
+      },
+      [theme.breakpoints.down(BREAKPOINT_TABLET)]: {
+        padding: '1.5rem 8vw',
+      },
+      [theme.breakpoints.down(BREAKPOINT_MOBILE)]: {
+        padding: '1rem 4vw',
+      },
     },
     header: {
       marginTop: '2rem',
