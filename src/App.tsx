@@ -15,6 +15,7 @@ import themes from './themes';
 import Info from './pages/info';
 import {
   ROUTE_ACCESS,
+  ROUTE_FAQS,
   ROUTE_PRIVACY,
   ROUTE_SHIPPING,
   ROUTE_TERMS,
@@ -42,6 +43,7 @@ const App: FunctionComponent = observer(() => {
                   <Route path={ROUTE_PRIVACY} exact component={Info} />
                   <Route path={ROUTE_ACCESS} exact component={Info} />
                   <Route path={ROUTE_SHIPPING} exact component={Info} />
+                  <Route path={ROUTE_FAQS} exact component={Info} />
                 </Switch>
               </Layout>
               <Footer />

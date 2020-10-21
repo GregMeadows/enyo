@@ -42,6 +42,30 @@
       "access": {
         "title": "Accessibility"
       },
+      "faq": {
+        "arrive": {
+          "1": "As they are custom made to order, our jerseys can take up to 28 days for production and shipping. This may be delayed due to inevitable uncontrollable circumstances.",
+          "2": "If you would like to enquire about your order, please get in touch with us by contacting us.",
+          "title": "When will my order arrive?"
+        },
+        "care": {
+          "1": "You can machine wash (30°C or lower) your jerseys with similar colours. Do not use bleach. Do not tumble dry. Iron on a low heat only.",
+          "title": "How should I care for my jersey?"
+        },
+        "contact": {
+          "1": "If you're still curious about something, get in touch with us by contacting us.",
+          "title": "I have more questions."
+        },
+        "returns": {
+          "1": "You can find our full returns policy on our shipping and returns page.",
+          "title": "What is your Returns Policy?"
+        },
+        "ship": {
+          "1": "We ship worldwide from the UK! Delivery times and prices may vary by location. Your delivery price and estimated time will be shown at checkout.",
+          "title": "Do you ship to my country?"
+        },
+        "title": "FAQs"
+      },
       "privacy": {
         "title": "Privacy Policy"
       },

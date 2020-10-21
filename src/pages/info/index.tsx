@@ -7,9 +7,11 @@ import TermsPage from './Terms';
 import PrivacyPage from './Privacy';
 import AccessPage from './Access';
 import ShippingPage from './Shipping';
+import FAQsPage from './FAQs';
 import { InfoPage } from './types';
 import {
   ROUTE_ACCESS,
+  ROUTE_FAQS,
   ROUTE_PRIVACY,
   ROUTE_SHIPPING,
   ROUTE_TERMS,
@@ -40,6 +42,8 @@ function useInfoPage(page: string): InfoPage | null {
       return AccessPage();
     case ROUTE_SHIPPING:
       return ShippingPage();
+    case ROUTE_FAQS:
+      return FAQsPage();
     default:
       return null;
   }
