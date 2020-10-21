@@ -10,12 +10,14 @@ const root: ThemeOptions = {
         '"Arial"',
         'sans-serif',
       ].join(','),
+      fontWeight: 400,
     },
     body1: {
       fontSize: '1.1rem',
     },
     h4: {
       fontSize: '1.8rem',
+      fontWeight: 500,
     },
   },
 };
