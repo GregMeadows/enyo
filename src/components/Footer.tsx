@@ -4,21 +4,29 @@ import { Typography, Grid } from '@material-ui/core';
 import { useTranslation } from 'react-i18next';
 import { observer } from 'mobx-react-lite';
 import Logo from './Logo';
-import LogoRepeat from '../images/logo/repeat.png';
+import LogoRepeat from '../images/logo/repeat.svg';
 import NavList from './NavList';
 import { LinkedItem } from '../types';
+import {
+  BREAKPOINT_LAPTOP,
+  BREAKPOINT_MOBILE,
+  BREAKPOINT_TABLET,
+} from '../assets/consts';
 
 const useStyles = makeStyles(
   (theme: Theme) => ({
     root: {
       background: `url(${LogoRepeat})`,
-      backgroundRepeat: 'space',
-      backgroundSize: '132px 97px',
-      height: 300,
+      backgroundSize: '146.055px 72.583px',
+      backgroundPosition: 'bottom left',
       zIndex: -1,
       width: '100%',
       position: 'fixed',
       bottom: 0,
+      height: 300,
+      [theme.breakpoints.down(BREAKPOINT_TABLET)]: {
+        height: 360,
+      },
     },
     overlay: {
       height: '100%',
@@ -30,10 +38,28 @@ const useStyles = makeStyles(
     },
     grid: {
       height: '100%',
-      padding: '0.5rem 12vw',
+      padding: '0.5rem 10vw',
+      [theme.breakpoints.down(BREAKPOINT_LAPTOP)]: {
+        padding: '0.5rem 8vw',
+      },
+      [theme.breakpoints.down(BREAKPOINT_TABLET)]: {
+        padding: '0.5rem 6vw',
+      },
+      [theme.breakpoints.down(BREAKPOINT_MOBILE)]: {
+        padding: '0.5rem 4vw',
+      },
     },
     gridLogo: {
       textAlign: 'right',
+      [theme.breakpoints.down(BREAKPOINT_TABLET)]: {
+        textAlign: 'center',
+      },
+    },
+    navList: {
+      maxWidth: '20rem',
+      [theme.breakpoints.down(BREAKPOINT_TABLET)]: {
+        maxWidth: 'none',
+      },
     },
   }),
   {
@@ -59,34 +85,20 @@ const Footer: FunctionComponent = observer(() => {
     { text: t('nav.about.privacy'), link: '/privacy' },
   ];
 
-  const itemsSocial: LinkedItem[] = [
-    { text: t('nav.social.twitter'), link: '/' },
-    { text: t('nav.social.insta'), link: '/' },
-    { text: t('nav.social.twitch'), link: '/' },
-  ];
-
   return (
     <footer className={`${classes.root} mui-fixed`}>
       <div className={classes.overlay}>
-        <Grid
-          container
-          direction="column"
-          justify="space-between"
-          className={classes.grid}
-        >
-          <Grid container justify="space-between">
-            <Grid container justify="space-between" item xs={7}>
-              <Grid item xs={3}>
+        <Grid container direction="column" className={classes.grid}>
+          <Grid container item xs justify="center" alignItems="center">
+            <Grid container item xs={12} sm spacing={4}>
+              <Grid item xs={6} sm className={classes.navList}>
                 <NavList title={t('nav.help.title')} items={itemsHelp} />
               </Grid>
-              <Grid item xs={3}>
+              <Grid item xs={6} sm className={classes.navList}>
                 <NavList title={t('nav.about.title')} items={itemsAbout} />
               </Grid>
-              <Grid item xs={3}>
-                <NavList title={t('nav.social.title')} items={itemsSocial} />
-              </Grid>
             </Grid>
-            <Grid item className={classes.gridLogo}>
+            <Grid item xs={12} md={4} className={classes.gridLogo}>
               <Logo type="text" />
             </Grid>
           </Grid>

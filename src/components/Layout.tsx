@@ -1,5 +1,6 @@
 import React, { FunctionComponent } from 'react';
 import { makeStyles, Theme } from '@material-ui/core/styles';
+import { BREAKPOINT_TABLET } from '../assets/consts';
 
 const useStyles = makeStyles(
   (theme: Theme) => ({
@@ -14,11 +15,14 @@ const useStyles = makeStyles(
     bottom: {
       width: '100%',
       height: '8rem',
-      marginBottom: 300,
       background: `linear-gradient(
         ${theme.palette.background.default},
         rgba(255,255,255,0)
       )`,
+      marginBottom: 300,
+      [theme.breakpoints.down(BREAKPOINT_TABLET)]: {
+        marginBottom: 360,
+      },
     },
   }),
   {
