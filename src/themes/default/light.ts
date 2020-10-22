@@ -14,6 +14,9 @@ const light = responsiveFontSizes(
           main: '#999',
           dark: '#444',
         },
+        text: {
+          primary: '#000',
+        },
       },
     },
     root

@@ -5,9 +5,10 @@ import clsx from 'clsx';
 import { ReactComponent as LogoIconSvg } from '../images/logo/icon.svg';
 import { ReactComponent as LogoTextSvg } from '../images/logo/text.svg';
 import { ReactComponent as LogoFullSvg } from '../images/logo/full.svg';
+import { ReactComponent as LogoBlockSvg } from '../images/logo/block.svg';
 
 interface LogoType {
-  type?: 'icon' | 'text' | 'full';
+  type?: 'icon' | 'text' | 'full' | 'block';
 }
 
 const useStyles = makeStyles(
@@ -15,7 +16,6 @@ const useStyles = makeStyles(
     svg: {
       transition: 'height 0.5s ease',
       userSelect: 'none',
-      maxHeight: 280,
     },
     container: {
       color: theme.palette.text.primary,
@@ -26,12 +26,19 @@ const useStyles = makeStyles(
       height: theme.spacing(6),
     },
     text: {
-      height: '12vw',
-      minHeight: 160,
+      height: '5vw',
+      maxHeight: '5rem',
+      minHeight: '3rem',
     },
     full: {
-      height: '12vw',
-      minHeight: 140,
+      height: '6vw',
+      maxHeight: '6rem',
+      minHeight: '4rem',
+    },
+    block: {
+      height: '5vw',
+      maxHeight: '5rem',
+      minHeight: '3rem',
     },
   }),
   {
@@ -57,6 +64,10 @@ const Logo: FunctionComponent<LogoType> = ({ type }) => {
     }
     case 'full': {
       logo = <LogoFullSvg className={clsx(classes.svg, classes.full)} />;
+      break;
+    }
+    case 'block': {
+      logo = <LogoBlockSvg className={clsx(classes.svg, classes.block)} />;
       break;
     }
     case 'icon':
