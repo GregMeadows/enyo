@@ -26,6 +26,9 @@ const useStyles = makeStyles(
       flexDirection: 'column',
       width: '100%',
     },
+    title: {
+      paddingLeft: '0.5rem',
+    },
     wing: {
       marginTop: '-1rem',
     },
@@ -45,7 +48,9 @@ const NavList: FunctionComponent<NavListType> = observer(
 
     return (
       <div className={clsx(classes.root, className)}>
-        <Typography variant="h6">{title}</Typography>
+        <Typography variant="h6" className={classes.title}>
+          {title}
+        </Typography>
         <WingedBorder
           direction="up"
           position="right"

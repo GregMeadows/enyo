@@ -61,6 +61,10 @@ const useStyles = makeStyles(
         maxWidth: 'none',
       },
     },
+    subtitle: {
+      paddingLeft: '0.5rem',
+      paddingRight: '0.5rem',
+    },
   }),
   {
     classNamePrefix: 'footer',
@@ -102,8 +106,8 @@ const Footer: FunctionComponent = observer(() => {
               <Logo type="text" />
             </Grid>
           </Grid>
-          <Grid container spacing={2} alignItems="center" justify="center">
-            <Grid item>
+          <Grid container alignItems="center" justify="center">
+            <Grid item className={classes.subtitle}>
               <Typography variant="subtitle2">
                 <strong>
                   {t('copyright', {
@@ -113,7 +117,7 @@ const Footer: FunctionComponent = observer(() => {
                 </strong>
               </Typography>
             </Grid>
-            <Grid item>
+            <Grid item className={classes.subtitle}>
               <Typography variant="subtitle2">
                 <strong>{t('company.info')}</strong>
               </Typography>
