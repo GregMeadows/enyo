@@ -15,6 +15,9 @@ const root: ThemeOptions = {
     body1: {
       fontSize: '1.1rem',
     },
+    body2: {
+      fontSize: '1rem',
+    },
     h4: {
       fontSize: '1.8rem',
       fontWeight: 500,

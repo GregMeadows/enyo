@@ -1,9 +1,15 @@
 import React, { FunctionComponent } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import { Typography, List, ListItemText, ListItem } from '@material-ui/core';
+import {
+  Typography,
+  List,
+  ListItemText,
+  ListItem,
+  Link,
+} from '@material-ui/core';
 import clsx from 'clsx';
 import { observer } from 'mobx-react-lite';
-import { Link } from 'react-router-dom';
+import { Link as RouterLink } from 'react-router-dom';
 import { LinkedItem } from '../types';
 import WingedBorder from './WingedBorder';
 
@@ -22,6 +28,10 @@ const useStyles = makeStyles(
     },
     wing: {
       marginTop: '-1rem',
+    },
+    listText: {
+      marginTop: 0,
+      marginBottom: 0,
     },
   }),
   {
@@ -44,8 +54,10 @@ const NavList: FunctionComponent<NavListType> = observer(
         <List dense>
           {items.map((item) => (
             <ListItem key={item.text}>
-              <ListItemText>
-                <Link to={item.link}>{item.text}</Link>
+              <ListItemText className={classes.listText}>
+                <Link component={RouterLink} to={item.link}>
+                  {item.text}
+                </Link>
               </ListItemText>
             </ListItem>
           ))}

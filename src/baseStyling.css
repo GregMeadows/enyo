@@ -23,11 +23,6 @@ section {
   }
 }
 
-a {
-  text-decoration: none;
-  transition: color 0.15s;
-}
-
 img {
   max-width: 100%;
 }
