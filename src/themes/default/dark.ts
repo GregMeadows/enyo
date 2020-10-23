@@ -7,7 +7,7 @@ const dark = responsiveFontSizes(
       palette: {
         type: 'dark',
         primary: {
-          main: '#401763',
+          main: '#944be3',
         },
         border: {
           light: '#444',
