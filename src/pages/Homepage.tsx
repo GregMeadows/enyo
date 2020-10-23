@@ -1,30 +1,26 @@
 import React, { FunctionComponent } from 'react';
-import { fade, makeStyles, Theme } from '@material-ui/core/styles';
-import { Typography } from '@material-ui/core';
+import { makeStyles } from '@material-ui/core/styles';
 import { useTranslation } from 'react-i18next';
 import ImageScroller from '../components/ImageScroller';
 import bannerImg from '../images/banner.png';
 import useTitle from '../hooks/useTitle';
 import enyoTeeFront from '../images/tee.enyo.front.png';
 import enyoTeeBack from '../images/tee.enyo.back.png';
+import bannerTextImg from '../images/banner.text.png';
 
 const useStyles = makeStyles(
-  (theme: Theme) => ({
+  () => ({
     info: {
       padding: '1rem 8vw',
     },
     banner: {
-      height: '82vh',
+      height: 800,
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'center',
     },
     bannerText: {
-      color: theme.palette.text.primary,
-      textTransform: 'uppercase',
-      fontWeight: 400,
-      background: fade(theme.palette.background.default, 0.4),
-      padding: '0.5rem 3rem',
+      height: '12rem',
     },
     tee: {
       width: '16rem',
@@ -49,8 +45,12 @@ const Homepage: FunctionComponent = () => {
 
   return (
     <>
-      <ImageScroller image={bannerImg} className={classes.banner}>
-        <Typography variant="h1" className={classes.bannerText} />
+      <ImageScroller image={bannerImg} className={classes.banner} offset={-100}>
+        <img
+          src={bannerTextImg}
+          alt={t('company.tag')}
+          className={classes.bannerText}
+        />
       </ImageScroller>
       <section className={classes.info}>
         <div className={classes.kit}>

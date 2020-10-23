@@ -23,11 +23,11 @@ const useStyles = makeStyles(
     background: {
       height: '100%',
       width: '100%',
-      backgroundSize: '100% auto',
       backgroundRepeat: 'no-repeat',
       overflow: 'hidden',
       backgroundImage: (props: StyleProps) => `url(${props.image})`,
       backgroundPositionY: (props: StyleProps) => props.offset,
+      backgroundPositionX: 'center',
       transition: 'background-position 0.2s ease-out',
     },
     foreground: {

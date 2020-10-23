@@ -2,7 +2,8 @@
   "company": {
     "info": "Company No. 12918773",
     "long": "Enyo Design Ltd",
-    "name": "Enyo"
+    "name": "Enyo",
+    "tag": "Made to Conquer"
   },
   "copyright": "Copyright © {{year}}. {{company}}.",
   "nav": {
