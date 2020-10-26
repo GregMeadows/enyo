@@ -1,4 +1,5 @@
 export interface InfoPage {
   title: string;
-  content: JSX.Element;
+  updated: Date;
+  content: string[];
 }

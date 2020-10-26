@@ -1,6 +1,7 @@
 const shipping = {
   // t('pages.info.shipping.title')
   title: 'pages.info.shipping.title',
+  updated: new Date(2020, 9, 26),
   content: [
     // t('pages.info.shipping.main.1')
     'pages.info.shipping.main.1',

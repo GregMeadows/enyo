@@ -1,6 +1,7 @@
 const faqs = {
   // t('pages.info.faq.title')
   title: 'pages.info.faq.title',
+  updated: new Date(2020, 9, 26),
   content: [
     // t('pages.info.faq.ship.title')
     'pages.info.faq.ship.title',

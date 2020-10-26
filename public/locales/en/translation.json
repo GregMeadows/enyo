@@ -26,12 +26,6 @@
       "games": "Games",
       "kits": "Kits",
       "leagues": "Leagues"
-    },
-    "social": {
-      "insta": "Instagram",
-      "title": "Find Us",
-      "twitch": "Twitch",
-      "twitter": "Twitter"
     }
   },
   "pages": {
@@ -121,7 +115,8 @@
           "3": "Enyo is a trading name of ENYO Design LTD. Registered in England and Wales. Company number: 12918773."
         },
         "title": "Terms of Service"
-      }
+      },
+      "updated": "Last Updated:"
     },
     "landing": {
       "about": {

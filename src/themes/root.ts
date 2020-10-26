@@ -12,15 +12,15 @@ const root: ThemeOptions = {
       ].join(','),
       fontWeight: 400,
     },
+    h4: {
+      fontSize: '1.6rem',
+      fontWeight: 500,
+    },
     body1: {
       fontSize: '1.1rem',
     },
     body2: {
       fontSize: '1rem',
-    },
-    h4: {
-      fontSize: '1.8rem',
-      fontWeight: 500,
     },
   },
 };

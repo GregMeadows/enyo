@@ -18,6 +18,12 @@
   "nav": {
     "about": {
       "access": "Accessibility"
+    },
+    "social": {
+      "insta": "Instagram",
+      "title": "Find Us",
+      "twitch": "Twitch",
+      "twitter": "Twitter"
     }
   }
 }

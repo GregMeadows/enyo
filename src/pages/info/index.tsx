@@ -14,10 +14,11 @@ import {
   BREAKPOINT_MOBILE,
   BREAKPOINT_TABLET,
 } from '../../assets/consts';
+import { InfoPage } from './types';
 
 const useStyles = makeStyles(
   (theme: Theme) => ({
-    title: {
+    updated: {
       marginBottom: '2rem',
     },
     info: {
@@ -42,14 +43,7 @@ const useStyles = makeStyles(
   }
 );
 
-interface InfoPages {
-  [key: string]: {
-    title: string;
-    content: string[];
-  };
-}
-
-const infoPages: InfoPages = {
+const infoPages: { [key: string]: InfoPage } = {
   terms,
   faqs,
   privacy,
@@ -77,8 +71,10 @@ const Info: FunctionComponent = () => {
     <>
       <WingedBorder position="left" direction="down" />
       <section className={classes.info}>
-        <Typography variant="h1" className={classes.title}>
-          {t(page.title)}
+        <Typography variant="h1">{t(page.title)}</Typography>
+        <Typography variant="subtitle1" className={classes.updated}>
+          <strong>{t('pages.info.updated')}</strong>{' '}
+          {page.updated.toLocaleDateString()}
         </Typography>
         {page.content.map((key) => {
           if (key.endsWith('.title')) {

@@ -1,6 +1,9 @@
-const terms = {
+import { InfoPage } from './types';
+
+const terms: InfoPage = {
   // t('pages.info.terms.title')
   title: 'pages.info.terms.title',
+  updated: new Date(2020, 9, 26),
   content: [
     // t('pages.info.terms.main.1')
     'pages.info.terms.main.1',
