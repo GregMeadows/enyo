@@ -12,6 +12,7 @@ import {
   BREAKPOINT_MOBILE,
   BREAKPOINT_TABLET,
 } from '../assets/consts';
+import Socials from './socials';
 
 const useStyles = makeStyles(
   (theme: Theme) => ({
@@ -24,8 +25,8 @@ const useStyles = makeStyles(
       position: 'fixed',
       bottom: 0,
       height: 300,
-      [theme.breakpoints.down(BREAKPOINT_TABLET)]: {
-        height: 360,
+      [theme.breakpoints.down(BREAKPOINT_MOBILE)]: {
+        height: 380,
       },
     },
     overlay: {
@@ -46,14 +47,24 @@ const useStyles = makeStyles(
         padding: '0.5rem 6vw',
       },
       [theme.breakpoints.down(BREAKPOINT_MOBILE)]: {
-        padding: '0.5rem 4vw',
+        padding: '0.5rem 1vw',
       },
     },
     gridLogo: {
-      textAlign: 'right',
-      [theme.breakpoints.down(BREAKPOINT_TABLET)]: {
-        textAlign: 'center',
-      },
+      textAlign: 'center',
+    },
+    gridSocials: {
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+    },
+    socials: {
+      paddingRight: theme.spacing(2),
+      paddingLeft: theme.spacing(2),
+    },
+    gridRight: {
+      paddingTop: theme.spacing(2),
+      paddingBottom: theme.spacing(2),
     },
     navList: {
       maxWidth: '20rem',
@@ -95,15 +106,30 @@ const Footer: FunctionComponent = observer(() => {
         <Grid container direction="column" className={classes.grid}>
           <Grid container item xs justify="center" alignItems="center">
             <Grid container item xs={12} sm spacing={4}>
-              <Grid item xs={6} sm className={classes.navList}>
+              <Grid item xs className={classes.navList}>
                 <NavList title={t('nav.help.title')} items={itemsHelp} />
               </Grid>
-              <Grid item xs={6} sm className={classes.navList}>
+              <Grid item xs className={classes.navList}>
                 <NavList title={t('nav.about.title')} items={itemsAbout} />
               </Grid>
             </Grid>
-            <Grid item xs={12} md={4} className={classes.gridLogo}>
-              <Logo type="text" />
+            <Grid sm={false} md={1} />
+            <Grid
+              container
+              item
+              xs={12}
+              sm={5}
+              md
+              spacing={1}
+              className={classes.gridRight}
+              justify="flex-end"
+            >
+              <Grid item xs={12} md className={classes.gridSocials}>
+                <Socials />
+              </Grid>
+              <Grid item xs={12} md="auto" className={classes.gridLogo}>
+                <Logo type="text" />
+              </Grid>
             </Grid>
           </Grid>
           <Grid container alignItems="center" justify="center">

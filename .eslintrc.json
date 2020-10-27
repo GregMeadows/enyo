@@ -54,7 +54,8 @@
           "position",
           "wrap",
           "path",
-          "key"
+          "key",
+          "md"
         ]
       }
     ],

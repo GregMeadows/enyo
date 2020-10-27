@@ -36,6 +36,9 @@ const useStyles = makeStyles(
       marginTop: 0,
       marginBottom: 0,
     },
+    listItem: {
+      paddingRight: 0,
+    },
   }),
   {
     classNamePrefix: 'nav-list',
@@ -58,7 +61,7 @@ const NavList: FunctionComponent<NavListType> = observer(
         />
         <List dense>
           {items.map((item) => (
-            <ListItem key={item.text}>
+            <ListItem key={item.text} className={classes.listItem}>
               <ListItemText className={classes.listText}>
                 <Link component={RouterLink} to={item.link}>
                   {item.text}
