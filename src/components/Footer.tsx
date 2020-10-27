@@ -113,7 +113,7 @@ const Footer: FunctionComponent = observer(() => {
                 <NavList title={t('nav.about.title')} items={itemsAbout} />
               </Grid>
             </Grid>
-            <Grid sm={false} md={1} />
+            <Grid item sm={false} md={1} />
             <Grid
               container
               item
