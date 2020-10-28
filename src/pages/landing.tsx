@@ -148,12 +148,12 @@ const Landing: FunctionComponent = () => {
         wrap="nowrap"
       >
         <Grid item className={classes.top}>
-          <WingedBorder position="left" direction="down" />
+          <WingedBorder left direction="down" />
         </Grid>
         <Grid item className={classes.content}>
           <div className={classes.backdrop} ref={backgroundRef}>
             <WingedBorder
-              position="left"
+              left
               direction="down"
               className={classes.contentWingTop}
             />
@@ -179,7 +179,7 @@ const Landing: FunctionComponent = () => {
               })}
             </Typography>
             <WingedBorder
-              position="right"
+              right
               direction="up"
               className={classes.contentWingBottom}
             />
@@ -195,7 +195,7 @@ const Landing: FunctionComponent = () => {
               text: classes.loading,
             }}
           />
-          <WingedBorder position="right" direction="up" />
+          <WingedBorder right direction="up" />
         </Grid>
       </Grid>
     </div>

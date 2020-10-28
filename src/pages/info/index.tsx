@@ -69,7 +69,7 @@ const Info: FunctionComponent = () => {
 
   return (
     <>
-      <WingedBorder position="left" direction="down" />
+      <WingedBorder left direction="down" />
       <section className={classes.info}>
         <Typography variant="h1">{t(page.title)}</Typography>
         <Typography variant="subtitle1" className={classes.updated}>

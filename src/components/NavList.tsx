@@ -54,11 +54,7 @@ const NavList: FunctionComponent<NavListType> = observer(
         <Typography variant="h6" className={classes.title}>
           {title}
         </Typography>
-        <WingedBorder
-          direction="up"
-          position="right"
-          className={classes.wing}
-        />
+        <WingedBorder right direction="up" className={classes.wing} />
         <List dense>
           {items.map((item) => (
             <ListItem key={item.text} className={classes.listItem}>
