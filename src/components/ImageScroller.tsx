@@ -5,7 +5,8 @@ import checkIfInView from '../assets/Utils';
 
 interface ImageScrollerType {
   image: string;
-  offset?: number;
+  offsetX?: number;
+  offsetY?: number;
   className?: string;
   classes?: {
     foreground?: string;
@@ -15,7 +16,8 @@ interface ImageScrollerType {
 
 interface StyleProps {
   image: string;
-  offset?: number;
+  offsetX: number;
+  offsetY: number;
 }
 
 const useStyles = makeStyles(
@@ -26,8 +28,8 @@ const useStyles = makeStyles(
       backgroundRepeat: 'no-repeat',
       overflow: 'hidden',
       backgroundImage: (props: StyleProps) => `url(${props.image})`,
-      backgroundPositionY: (props: StyleProps) => props.offset,
-      backgroundPositionX: 'center',
+      backgroundPositionY: (props: StyleProps) => props.offsetY,
+      backgroundPositionX: (props: StyleProps) => `${props.offsetX}%`,
       transition: 'background-position 0.2s ease-out',
     },
     foreground: {
@@ -41,7 +43,8 @@ const useStyles = makeStyles(
 
 const ImageScroller: FunctionComponent<ImageScrollerType> = ({
   image,
-  offset = -50,
+  offsetY = -50,
+  offsetX = 50,
   className,
   children,
   classes,
@@ -49,7 +52,8 @@ const ImageScroller: FunctionComponent<ImageScrollerType> = ({
 }) => {
   const styleProps: StyleProps = {
     image,
-    offset,
+    offsetY,
+    offsetX,
   };
   const classesInternal = useStyles(styleProps);
   const backgroundRef = useRef<HTMLDivElement>(null);
@@ -61,7 +65,7 @@ const ImageScroller: FunctionComponent<ImageScrollerType> = ({
         // Only animate if image is on screen
         if (checkIfInView(backgroundRef)) {
           backgroundRef.current.style.backgroundPositionY = `${
-            offset + (window.pageYOffset * (invert ? 1 : -1)) / 10
+            offsetY + (window.pageYOffset * (invert ? 1 : -1)) / 10
           }px`;
           if (foregroundRef.current) {
             foregroundRef.current.style.marginTop = `${
@@ -76,7 +80,7 @@ const ImageScroller: FunctionComponent<ImageScrollerType> = ({
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
-  }, [invert, offset]);
+  }, [invert, offsetY]);
 
   return (
     <div
