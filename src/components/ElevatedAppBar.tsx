@@ -15,6 +15,7 @@ import Brightness4Icon from '@material-ui/icons/Brightness4';
 import TranslateIcon from '@material-ui/icons/Translate';
 import { isLightMode, switchThemeType } from '../stores/settings';
 import Logo from './Logo';
+import MainNav from './MainNav';
 
 interface ElevationScrollProps {
   children: React.ReactElement;
@@ -75,6 +76,7 @@ export default function ElevatedAppBar(): JSX.Element {
         <AppBar color="transparent" className={classes.root}>
           <Toolbar>
             <Logo />
+            <MainNav />
             <div className={classes.spacer} />
             <Tooltip title={translateLabel}>
               <IconButton

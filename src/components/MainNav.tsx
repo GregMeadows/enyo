@@ -7,11 +7,11 @@ import { LinkedItem } from '../types';
 const useStyles = makeStyles(
   () => ({
     mainNav: {
-      textAlign: 'center',
+      marginLeft: '3vw',
     },
   }),
   {
-    classNamePrefix: 'nav-buttons',
+    classNamePrefix: 'main-nav',
   }
 );
 
@@ -20,17 +20,14 @@ const MainNav: FunctionComponent = () => {
   const { t } = useTranslation();
 
   const mainNavItems: LinkedItem[] = [
-    { text: t('nav.main.kits'), link: '/' },
-    { text: t('nav.main.leagues'), link: '/' },
-    { text: t('nav.main.games'), link: '/' },
-    { text: t('nav.main.create'), link: '/' },
     { text: t('nav.main.about'), link: '/about' },
+    { text: t('nav.main.contact'), link: '/contact' },
   ];
 
   return (
-    <section className={classes.mainNav}>
+    <div className={classes.mainNav}>
       <NavButtons items={mainNavItems} />
-    </section>
+    </div>
   );
 };
 

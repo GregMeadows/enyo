@@ -14,7 +14,6 @@ import Landing from './pages/landing';
 import themes from './themes';
 import Info from './pages/info';
 import { ROUTES_INFO } from './assets/routes';
-import MainNav from './components/MainNav';
 
 const DISPLAY_LANDING = false;
 
@@ -30,7 +29,6 @@ const App: FunctionComponent = observer(() => {
             <>
               <Layout>
                 <ElevatedAppBar />
-                <MainNav />
                 <Switch>
                   <Route path="/" exact component={Homepage} />
                   <Route path={ROUTES_INFO} exact component={Info} />

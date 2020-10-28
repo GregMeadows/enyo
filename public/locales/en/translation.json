@@ -21,11 +21,8 @@
       "title": "Help"
     },
     "main": {
-      "about": "About Us",
-      "create": "Create",
-      "games": "Games",
-      "kits": "Kits",
-      "leagues": "Leagues"
+      "about": "Who We Are",
+      "contact": "Get In Touch"
     }
   },
   "pages": {

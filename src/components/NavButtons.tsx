@@ -3,6 +3,7 @@ import { makeStyles, Theme } from '@material-ui/core/styles';
 import { Button } from '@material-ui/core';
 import { Link } from 'react-router-dom';
 import { LinkedItem } from '../types';
+import { BREAKPOINT_MOBILE } from '../assets/consts';
 
 interface NavButtonsType {
   items: LinkedItem[];
@@ -12,9 +13,11 @@ const useStyles = makeStyles(
   (theme: Theme) => ({
     root: {
       display: 'inline-flex',
-      padding: theme.spacing(1),
       '& > :not(:last-child)': {
-        marginRight: theme.spacing(2),
+        marginRight: theme.spacing(1),
+        [theme.breakpoints.down(BREAKPOINT_MOBILE)]: {
+          marginRight: 0,
+        },
       },
     },
   }),
