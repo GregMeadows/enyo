@@ -4,9 +4,12 @@ import { useTranslation } from 'react-i18next';
 import ImageScroller from '../components/ImageScroller';
 import bannerImg from '../images/banner.png';
 import useTitle from '../hooks/useTitle';
-import enyoTeeFront from '../images/tee.enyo.front.png';
-import enyoTeeBack from '../images/tee.enyo.back.png';
+import enyoProHomeFrontImg from '../images/clothing/enyo/pro/home.front.png';
+import enyoProHomeBackImg from '../images/clothing/enyo/pro/home.back.png';
+import enyoProAwayFrontImg from '../images/clothing/enyo/pro/away.front.png';
+import enyoProAwayBackImg from '../images/clothing/enyo/pro/away.back.png';
 import bannerTextImg from '../images/banner.text.png';
+import { isLightMode } from '../stores/settings';
 
 const useStyles = makeStyles(
   () => ({
@@ -41,6 +44,7 @@ const useStyles = makeStyles(
 const Homepage: FunctionComponent = () => {
   const classes = useStyles();
   const { t } = useTranslation();
+
   useTitle();
 
   return (
@@ -54,13 +58,22 @@ const Homepage: FunctionComponent = () => {
       </ImageScroller>
       <section className={classes.info}>
         <div className={classes.kit}>
-          <img src={enyoTeeFront} alt={t('pages.homepage.kit.front')} />
+          <img
+            src={isLightMode() ? enyoProHomeFrontImg : enyoProAwayFrontImg}
+            alt={t('pages.homepage.kit.front')}
+          />
         </div>
         <div className={classes.kit}>
-          <img src={enyoTeeBack} alt={t('pages.homepage.kit.back')} />
+          <img
+            src={isLightMode() ? enyoProHomeBackImg : enyoProAwayBackImg}
+            alt={t('pages.homepage.kit.back')}
+          />
         </div>
         <div className={classes.kit}>
-          <img src={enyoTeeFront} alt={t('pages.homepage.kit.front')} />
+          <img
+            src={isLightMode() ? enyoProHomeFrontImg : enyoProAwayFrontImg}
+            alt={t('pages.homepage.kit.front')}
+          />
         </div>
       </section>
     </>
