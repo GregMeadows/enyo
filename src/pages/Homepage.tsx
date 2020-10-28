@@ -1,7 +1,8 @@
 import React, { FunctionComponent } from 'react';
 import { makeStyles, Theme, useTheme } from '@material-ui/core/styles';
-import { useTranslation } from 'react-i18next';
-import { useMediaQuery } from '@material-ui/core';
+import { Trans, useTranslation } from 'react-i18next';
+import { Typography, useMediaQuery } from '@material-ui/core';
+import clsx from 'clsx';
 import ImageScroller from '../components/ImageScroller';
 import bannerImg from '../images/banner.png';
 import useTitle from '../hooks/useTitle';
@@ -42,6 +43,25 @@ const useStyles = makeStyles(
       alignItems: 'center',
       justifyContent: 'center',
     },
+    rotated: {
+      display: 'inline-flex',
+      alignItems: 'baseline',
+      textTransform: 'uppercase',
+      transform: 'rotate(90deg) translate(50%, 0)',
+      position: 'absolute',
+      '& > svg': {
+        marginLeft: '0.4rem',
+        height: '1em',
+        width: '1em',
+        fontSize: '0.7rem',
+      },
+    },
+    rotatedRight: {
+      right: 0,
+    },
+    rotatedLeft: {
+      left: 0,
+    },
   }),
   {
     classNamePrefix: 'homepage',
@@ -70,6 +90,16 @@ const Homepage: FunctionComponent = () => {
       </ImageScroller>
       <section className={classes.info}>
         <WingedBorder left right direction="down" length={90} />
+        <div className={clsx(classes.rotated, classes.rotatedLeft)}>
+          <Typography variant="subtitle1">
+            <Trans key="pages.homepage.decor.loading">
+              Loading <strong>Kit</strong>
+            </Trans>
+          </Typography>
+          <svg viewBox="0 0 10 10" xmlns="http://www.w3.org/2000/svg">
+            <rect width="10" height="10" fill="currentColor" />
+          </svg>
+        </div>
         <div className={classes.kit}>
           <img
             src={isLightMode() ? enyoProHomeFrontImg : enyoProAwayFrontImg}
@@ -84,6 +114,16 @@ const Homepage: FunctionComponent = () => {
           />
         </div>
         <WingedBorder left direction="down" length={80} />
+        <div className={clsx(classes.rotated, classes.rotatedRight)}>
+          <Typography variant="subtitle1">
+            <Trans key="pages.homepage.decor.loading2">
+              Loading <strong>Fabric</strong>
+            </Trans>
+          </Typography>
+          <svg viewBox="0 0 10 10" xmlns="http://www.w3.org/2000/svg">
+            <rect width="10" height="10" fill="currentColor" />
+          </svg>
+        </div>
         <div className={classes.kit}>
           <img
             src={isLightMode() ? enyoProHomeFrontImg : enyoProAwayFrontImg}

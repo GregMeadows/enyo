@@ -27,6 +27,10 @@
   },
   "pages": {
     "homepage": {
+      "decor": {
+        "loading": "Loading <1>Kit</1>",
+        "loading2": "Loading <1>Fabric</1>"
+      },
       "kit": {
         "back": "Enyo tee back",
         "front": "Enyo tee front"
