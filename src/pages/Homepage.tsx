@@ -12,11 +12,12 @@ import enyoProAwayBackImg from '../images/clothing/enyo/pro/away.back.png';
 import bannerTextImg from '../images/banner.text.png';
 import { isLightMode } from '../stores/settings';
 import { BREAKPOINT_MOBILE } from '../assets/consts';
+import WingedBorder from '../components/WingedBorder';
 
 const useStyles = makeStyles(
   (theme: Theme) => ({
     info: {
-      padding: '1rem 8vw',
+      padding: '2rem 0',
     },
     banner: {
       height: 820,
@@ -35,7 +36,7 @@ const useStyles = makeStyles(
       width: '16rem',
     },
     kit: {
-      margin: '6rem 0',
+      margin: '5rem 0',
       display: 'flex',
       flexDirection: 'column',
       alignItems: 'center',
@@ -68,24 +69,28 @@ const Homepage: FunctionComponent = () => {
         <img src={bannerTextImg} alt={t('company.tag')} />
       </ImageScroller>
       <section className={classes.info}>
+        <WingedBorder left right direction="down" length={90} />
         <div className={classes.kit}>
           <img
             src={isLightMode() ? enyoProHomeFrontImg : enyoProAwayFrontImg}
             alt={t('pages.homepage.kit.front')}
           />
         </div>
+        <WingedBorder right direction="up" length={80} />
         <div className={classes.kit}>
           <img
             src={isLightMode() ? enyoProHomeBackImg : enyoProAwayBackImg}
             alt={t('pages.homepage.kit.back')}
           />
         </div>
+        <WingedBorder left direction="down" length={80} />
         <div className={classes.kit}>
           <img
             src={isLightMode() ? enyoProHomeFrontImg : enyoProAwayFrontImg}
             alt={t('pages.homepage.kit.front')}
           />
         </div>
+        <WingedBorder left right direction="up" length={90} />
       </section>
     </>
   );
