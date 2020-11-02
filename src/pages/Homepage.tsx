@@ -19,6 +19,7 @@ const useStyles = makeStyles(
   (theme: Theme) => ({
     info: {
       padding: '2rem 0',
+      position: 'relative',
     },
     banner: {
       height: 820,
@@ -42,6 +43,7 @@ const useStyles = makeStyles(
       flexDirection: 'column',
       alignItems: 'center',
       justifyContent: 'center',
+      position: 'relative',
     },
     rotated: {
       display: 'inline-flex',
@@ -61,6 +63,45 @@ const useStyles = makeStyles(
     },
     rotatedLeft: {
       left: 0,
+    },
+    float: {
+      position: 'absolute',
+      width: '28rem',
+      '& > h6': {
+        textTransform: 'uppercase',
+      },
+    },
+    floatDesign: {
+      top: '3%',
+      right: '16%',
+    },
+    floatFit: {
+      top: '45%',
+      left: '15%',
+      textAlign: 'right',
+    },
+    floatFabric: {
+      bottom: '5%',
+      right: '15%',
+    },
+    floatBody: {
+      marginTop: theme.spacing(1),
+    },
+    line: {
+      position: 'absolute',
+      strokeWidth: 2,
+      stroke: theme.palette.primary.main,
+    },
+    lineDesign: {
+      left: -125,
+    },
+    lineFit: {
+      left: 150,
+      top: -75,
+    },
+    lineFabric: {
+      left: -125,
+      top: -35,
     },
   }),
   {
@@ -105,6 +146,22 @@ const Homepage: FunctionComponent = () => {
             src={isLightMode() ? enyoProHomeFrontImg : enyoProAwayFrontImg}
             alt={t('pages.homepage.kit.front')}
           />
+          <div className={clsx(classes.float, classes.floatDesign)}>
+            <Typography variant="h6">
+              {t('pages.homepage.kit.design.title')}
+            </Typography>
+            <svg
+              height={60}
+              width={420}
+              className={clsx(classes.line, classes.lineDesign)}
+            >
+              <line x1={0} x2={120} y1={60} y2={2} />
+              <line x1={120} x2={420} y1={2} y2={2} />
+            </svg>
+            <Typography variant="body2" className={classes.floatBody}>
+              {t('pages.homepage.kit.design.1')}
+            </Typography>
+          </div>
         </div>
         <WingedBorder right direction="up" length={80} />
         <div className={classes.kit}>
@@ -112,6 +169,22 @@ const Homepage: FunctionComponent = () => {
             src={isLightMode() ? enyoProHomeBackImg : enyoProAwayBackImg}
             alt={t('pages.homepage.kit.back')}
           />
+          <div className={clsx(classes.float, classes.floatFit)}>
+            <Typography variant="h6">
+              {t('pages.homepage.kit.fit.title')}
+            </Typography>
+            <svg
+              height={102}
+              width={420}
+              className={clsx(classes.line, classes.lineFit)}
+            >
+              <line x1={0} x2={300} y1={100} y2={100} />
+              <line x1={300} x2={420} y1={100} y2={2} />
+            </svg>
+            <Typography variant="body2" className={classes.floatBody}>
+              {t('pages.homepage.kit.fit.1')}
+            </Typography>
+          </div>
         </div>
         <WingedBorder left direction="down" length={80} />
         <div className={clsx(classes.rotated, classes.rotatedRight)}>
@@ -129,6 +202,22 @@ const Homepage: FunctionComponent = () => {
             src={isLightMode() ? enyoProHomeFrontImg : enyoProAwayFrontImg}
             alt={t('pages.homepage.kit.front')}
           />
+          <div className={clsx(classes.float, classes.floatFabric)}>
+            <Typography variant="h6">
+              {t('pages.homepage.kit.fabric.title')}
+            </Typography>
+            <svg
+              height={62}
+              width={420}
+              className={clsx(classes.line, classes.lineFabric)}
+            >
+              <line x1={0} x2={120} y1={0} y2={60} />
+              <line x1={120} x2={420} y1={60} y2={60} />
+            </svg>
+            <Typography variant="body2" className={classes.floatBody}>
+              {t('pages.homepage.kit.fabric.1')}
+            </Typography>
+          </div>
         </div>
         <WingedBorder left right direction="up" length={90} />
       </section>

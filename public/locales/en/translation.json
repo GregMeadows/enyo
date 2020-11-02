@@ -33,6 +33,18 @@
       },
       "kit": {
         "back": "Enyo tee back",
+        "design": {
+          "1": "Each design is bespoke to the customers team.",
+          "title": "Design"
+        },
+        "fabric": {
+          "1": "Performance fits cut to help comfort and improve performace over long periods of competing.",
+          "title": "Fabric"
+        },
+        "fit": {
+          "1": "Lightweight, breathable fabric woven for comfort and practicality, helping you stay cool in the heated moments.",
+          "title": "Fit"
+        },
         "front": "Enyo tee front"
       }
     },

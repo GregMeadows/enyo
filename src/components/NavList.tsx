@@ -30,7 +30,7 @@ const useStyles = makeStyles(
       paddingLeft: '0.5rem',
     },
     wing: {
-      marginTop: '-1rem',
+      marginTop: '-0.8rem',
     },
     listText: {
       marginTop: 0,
@@ -51,7 +51,7 @@ const NavList: FunctionComponent<NavListType> = observer(
 
     return (
       <div className={clsx(classes.root, className)}>
-        <Typography variant="h6" className={classes.title}>
+        <Typography variant="h5" className={classes.title}>
           {title}
         </Typography>
         <WingedBorder right direction="up" className={classes.wing} />

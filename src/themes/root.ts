@@ -16,6 +16,12 @@ const root: ThemeOptions = {
       fontSize: '1.6rem',
       fontWeight: 500,
     },
+    h5: {
+      fontSize: '1.3rem',
+    },
+    h6: {
+      fontSize: '1rem',
+    },
     body1: {
       fontSize: '1.1rem',
     },
