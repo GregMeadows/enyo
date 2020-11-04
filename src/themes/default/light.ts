@@ -9,6 +9,9 @@ const light = responsiveFontSizes(
         primary: {
           main: '#401763',
         },
+        background: {
+          paper: '#ddd',
+        },
         border: {
           light: '#eee',
           main: '#bbb',

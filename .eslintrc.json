@@ -55,7 +55,8 @@
           "wrap",
           "path",
           "key",
-          "md"
+          "md",
+          "sm"
         ]
       }
     ],

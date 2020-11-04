@@ -27,8 +27,8 @@ const useStyles = makeStyles(
     },
     text: {
       height: '5vw',
-      maxHeight: '5rem',
-      minHeight: '3rem',
+      maxHeight: '3rem',
+      minHeight: '2.6rem',
     },
     full: {
       height: '6vw',

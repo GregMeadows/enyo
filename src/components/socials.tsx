@@ -4,7 +4,7 @@ import TwitterIcon from '@material-ui/icons/Twitter';
 import InstagramIcon from '@material-ui/icons/Instagram';
 import clsx from 'clsx';
 import { ReactComponent as TwitchIcon } from '../images/TwitchGlitchWhite.svg';
-import { BREAKPOINT_LAPTOP, BREAKPOINT_TABLET } from '../assets/consts';
+import { BREAKPOINT_TABLET } from '../assets/consts';
 
 interface SocialsType {
   className?: string;
@@ -27,15 +27,13 @@ const useStyles = makeStyles(
           color: theme.palette.primary.main,
         },
         '& > svg': {
-          height: '1em',
-          width: '1em',
-          fontSize: '2.8rem',
-          [theme.breakpoints.down(BREAKPOINT_LAPTOP)]: {
-            fontSize: '2.5rem',
-          },
-          [theme.breakpoints.down(BREAKPOINT_TABLET)]: {
-            fontSize: '2.3rem',
-          },
+          transition: 'height 0.5s ease, width 0.5s ease',
+          height: '5vw',
+          maxHeight: '2.5rem',
+          minHeight: '2.2rem',
+          width: '5vw',
+          maxWidth: '2.5rem',
+          minWidth: '2.2rem',
         },
       },
     },

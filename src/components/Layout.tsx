@@ -14,14 +14,14 @@ const useStyles = makeStyles(
     },
     bottom: {
       width: '100%',
-      height: '8rem',
+      height: '2rem',
       background: `linear-gradient(
         ${theme.palette.background.default},
         rgba(255,255,255,0)
       )`,
-      marginBottom: 300,
+      marginBottom: '22rem',
       [theme.breakpoints.down(BREAKPOINT_MOBILE)]: {
-        marginBottom: 380,
+        marginBottom: '27rem',
       },
     },
   }),
