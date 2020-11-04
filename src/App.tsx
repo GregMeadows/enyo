@@ -10,6 +10,7 @@ import ElevatedAppBar from './components/ElevatedAppBar';
 import Loading from './components/Loading';
 import { getTheme } from './stores/settings';
 import ScrollToTop from './components/ScrollToTop';
+import PageTitle from './components/PageTitle';
 import Landing from './pages/landing';
 import themes from './themes';
 import Info from './pages/info';
@@ -29,6 +30,7 @@ const App: FunctionComponent = observer(() => {
             <>
               <Layout>
                 <ElevatedAppBar />
+                <PageTitle />
                 <Switch>
                   <Route path="/" exact component={Homepage} />
                   <Route path={ROUTES_INFO} exact component={Info} />

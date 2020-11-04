@@ -73,7 +73,14 @@ const Info: FunctionComponent = () => {
   const { t } = useTranslation();
   const location = useLocation();
   const page = infoPages[location.pathname.substring(1)];
-  useTitle(page ? t(page.title) : undefined);
+  const title = page ? t(page.title) : undefined;
+  const subtitle = page ? (
+    <>
+      <strong>{t('pages.info.updated')}</strong>{' '}
+      {page.updated.toLocaleDateString()}
+    </>
+  ) : undefined;
+  useTitle(title, subtitle);
 
   if (!page) {
     return (
@@ -86,34 +93,22 @@ const Info: FunctionComponent = () => {
   }
 
   return (
-    <>
-      <section className={classes.titleContainer}>
-        <div className={classes.title}>
-          <Typography variant="h1">{t(page.title)}</Typography>
-          <Typography variant="subtitle1" className={classes.updated}>
-            <strong>{t('pages.info.updated')}</strong>{' '}
-            {page.updated.toLocaleDateString()}
-          </Typography>
-        </div>
-        <WingedBorder left direction="up" length={90} />
-      </section>
-      <section className={classes.info}>
-        {page.content.map((key) => {
-          if (key.endsWith('.title')) {
-            return (
-              <Typography key={key} variant="h4" className={classes.header}>
-                {t(key)}
-              </Typography>
-            );
-          }
+    <section className={classes.info}>
+      {page.content.map((key) => {
+        if (key.endsWith('.title')) {
           return (
-            <Typography key={key} variant="body1" paragraph>
+            <Typography key={key} variant="h4" className={classes.header}>
               {t(key)}
             </Typography>
           );
-        })}
-      </section>
-    </>
+        }
+        return (
+          <Typography key={key} variant="body1" paragraph>
+            {t(key)}
+          </Typography>
+        );
+      })}
+    </section>
   );
 };
 export default Info;
