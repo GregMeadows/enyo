@@ -21,6 +21,24 @@ const useStyles = makeStyles(
     updated: {
       marginBottom: '2rem',
     },
+    titleContainer: {
+      background: theme.palette.background.paper,
+      clipPath: `polygon(100% 0, 100% 100%, 8% 100%, 0 80%, 0 0)`,
+      padding: '0 0 1rem 0',
+    },
+    title: {
+      padding: '4rem 20vw 1rem',
+      [theme.breakpoints.down(BREAKPOINT_LAPTOP)]: {
+        padding: '3.8rem 12vw 1rem',
+      },
+      [theme.breakpoints.down(BREAKPOINT_TABLET)]: {
+        padding: '3.5rem 6vw 0.8rem',
+      },
+      [theme.breakpoints.down(BREAKPOINT_MOBILE)]: {
+        padding: '2.5rem 0 0.5rem',
+        textAlign: 'center',
+      },
+    },
     info: {
       padding: '2rem 20vw',
       [theme.breakpoints.down(BREAKPOINT_LAPTOP)]: {
@@ -69,13 +87,17 @@ const Info: FunctionComponent = () => {
 
   return (
     <>
-      <WingedBorder left direction="down" />
+      <section className={classes.titleContainer}>
+        <div className={classes.title}>
+          <Typography variant="h1">{t(page.title)}</Typography>
+          <Typography variant="subtitle1" className={classes.updated}>
+            <strong>{t('pages.info.updated')}</strong>{' '}
+            {page.updated.toLocaleDateString()}
+          </Typography>
+        </div>
+        <WingedBorder left direction="up" length={90} />
+      </section>
       <section className={classes.info}>
-        <Typography variant="h1">{t(page.title)}</Typography>
-        <Typography variant="subtitle1" className={classes.updated}>
-          <strong>{t('pages.info.updated')}</strong>{' '}
-          {page.updated.toLocaleDateString()}
-        </Typography>
         {page.content.map((key) => {
           if (key.endsWith('.title')) {
             return (
