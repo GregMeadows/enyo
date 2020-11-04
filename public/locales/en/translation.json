@@ -8,13 +8,13 @@
   "copyright": "Copyright © {{year}}. {{company}}.",
   "nav": {
     "about": {
-      "about": "About Us",
+      "about": "Who We Are",
       "privacy": "Privacy",
       "terms": "Terms",
-      "title": "About Us"
+      "title": "About"
     },
     "help": {
-      "contact": "Contact Us",
+      "contact": "Get In Touch",
       "delivery": "Delivery & Returns",
       "faqs": "FAQs",
       "help": "Help",
