@@ -10,6 +10,7 @@ import { LinkedItem } from '../types';
 import { BREAKPOINT_MOBILE } from '../assets/consts';
 import Socials from './socials';
 import WingedBorder from './WingedBorder';
+import { ROUTES_INFO, ROUTE_CONTACT } from '../assets/routes';
 
 const useStyles = makeStyles(
   (theme: Theme) => ({
@@ -95,15 +96,15 @@ const Footer: FunctionComponent = observer(() => {
 
   const itemsHelp: LinkedItem[] = [
     { text: t('nav.help.help'), link: '/' },
-    { text: t('nav.help.faqs'), link: '/faqs' },
-    { text: t('nav.help.delivery'), link: '/shipping' },
-    { text: t('nav.help.contact'), link: '/' },
+    { text: t('nav.help.faqs'), link: ROUTES_INFO[3] },
+    { text: t('nav.help.delivery'), link: ROUTES_INFO[2] },
+    { text: t('nav.help.contact'), link: ROUTE_CONTACT },
   ];
 
   const itemsAbout: LinkedItem[] = [
     { text: t('nav.about.about'), link: '/' },
-    { text: t('nav.about.terms'), link: '/terms' },
-    { text: t('nav.about.privacy'), link: '/privacy' },
+    { text: t('nav.about.terms'), link: ROUTES_INFO[0] },
+    { text: t('nav.about.privacy'), link: ROUTES_INFO[1] },
   ];
 
   return (
