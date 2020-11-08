@@ -26,6 +26,21 @@
     }
   },
   "pages": {
+    "contact": {
+      "form": {
+        "default": "Get in touch with us by filling our the form below. We'll get back to you as soon as possible!",
+        "error": "There was an issue while sending your message.",
+        "retry": "You can try again below.",
+        "sent": "Thanks for the message! We'll get back to you shortly."
+      },
+      "labels": {
+        "email": "Email",
+        "message": "Your Message",
+        "name": "Name"
+      },
+      "send": "Send Message",
+      "title": "Contact Us"
+    },
     "homepage": {
       "decor": {
         "loading": "Loading <1>Kit</1>",

@@ -14,7 +14,8 @@ import PageTitle from './components/PageTitle';
 import Landing from './pages/landing';
 import themes from './themes';
 import Info from './pages/info';
-import { ROUTES_INFO } from './assets/routes';
+import { ROUTES_INFO, ROUTE_CONTACT } from './assets/routes';
+import Contact from './pages/Contact';
 
 const DISPLAY_LANDING = false;
 
@@ -34,6 +35,7 @@ const App: FunctionComponent = observer(() => {
                 <Switch>
                   <Route path="/" exact component={Homepage} />
                   <Route path={ROUTES_INFO} exact component={Info} />
+                  <Route path={ROUTE_CONTACT} exact component={Contact} />
                 </Switch>
               </Layout>
               <Footer />
