@@ -11,6 +11,9 @@ import SendIcon from '@material-ui/icons/Send';
 import useTitle from '../hooks/useTitle';
 import Main from '../components/Main';
 
+const API_URL =
+  'https://hq7mgbj4a6.execute-api.eu-west-1.amazonaws.com/contact';
+
 interface FormElements {
   name: string;
   email: string;
@@ -65,22 +68,14 @@ const Contact: FunctionComponent = () => {
     hasFilledForm ? FormState.sent : FormState.default
   );
 
-  const encode = (data: { [key: string]: string }) => {
-    return Object.keys(data)
-      .map(
-        (key) => `${encodeURIComponent(key)}=${encodeURIComponent(data[key])}`
-      )
-      .join('&');
-  };
-
   function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
     sessionStorage.setItem('contacted', 'true');
 
-    fetch('/', {
+    fetch(API_URL, {
       method: 'POST',
-      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      body: encode({ 'form-name': 'contact', ...values }),
+      headers: { 'Content-Type': 'application/json; charset=utf-8' },
+      body: JSON.stringify(values),
     })
       .then(() => {
         setFormState(FormState.sent);
