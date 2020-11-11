@@ -6,12 +6,19 @@ import React, {
 } from 'react';
 import { makeStyles, Theme } from '@material-ui/core/styles';
 import { useTranslation } from 'react-i18next';
-import { Button, Grid, TextField, Typography } from '@material-ui/core';
+import {
+  Button,
+  CircularProgress,
+  Grid,
+  TextField,
+  Typography,
+} from '@material-ui/core';
 import SendIcon from '@material-ui/icons/Send';
 import useTitle from '../hooks/useTitle';
 import Main from '../components/Main';
 
-const API_URL = 'https://api.enyo.gg/contact';
+const API_URL =
+  'https://dl20cbg609.execute-api.eu-west-1.amazonaws.com/prod/contact';
 
 interface FormElements {
   name: string;
@@ -43,6 +50,10 @@ const useStyles = makeStyles(
     text: {
       marginBottom: '2rem',
     },
+    progress: {
+      marginLeft: '3rem',
+      marginRight: '3rem',
+    },
   }),
   {
     classNamePrefix: 'info',
@@ -66,10 +77,11 @@ const Contact: FunctionComponent = () => {
   const [formState, setFormState] = useState<FormState>(
     hasFilledForm ? FormState.sent : FormState.default
   );
+  const [sending, setSending] = useState(false);
 
   function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    sessionStorage.setItem('contacted', 'true');
+    setSending(true);
 
     fetch(API_URL, {
       method: 'POST',
@@ -77,11 +89,14 @@ const Contact: FunctionComponent = () => {
       body: JSON.stringify(values),
     })
       .then(() => {
+        sessionStorage.setItem('contacted', 'true');
         setFormState(FormState.sent);
+        setSending(false);
       })
       .catch((error) => {
-        setApiErrorText(error);
+        setApiErrorText(error.message);
         setFormState(FormState.error);
+        setSending(false);
       });
   }
 
@@ -105,7 +120,9 @@ const Contact: FunctionComponent = () => {
     mainText = (
       <>
         <Typography variant="body1">{t('pages.contact.form.error')}</Typography>
-        <Typography variant="body1">{apiErrorText}</Typography>
+        <Typography variant="body1" paragraph>
+          <strong>{apiErrorText}</strong>
+        </Typography>
         <Typography variant="body1">{t('pages.contact.form.retry')}</Typography>
       </>
     );
@@ -152,6 +169,7 @@ const Contact: FunctionComponent = () => {
                 variant="outlined"
                 multiline
                 rows="10"
+                error={formState === FormState.error}
                 onChange={(e) => handleChange(e)}
                 inputProps={{
                   minLength: 20,
@@ -169,9 +187,24 @@ const Contact: FunctionComponent = () => {
               />
             </Grid>
             <Grid item xs={12} className={classes.submit}>
-              <Button variant="contained" color="primary" type="submit">
-                <SendIcon className={classes.icon} />
-                {t('pages.contact.send')}
+              <Button
+                variant="contained"
+                color="primary"
+                type="submit"
+                disabled={sending}
+              >
+                {(sending && (
+                  <CircularProgress
+                    color="secondary"
+                    size="1.5rem"
+                    className={classes.progress}
+                  />
+                )) || (
+                  <>
+                    <SendIcon className={classes.icon} />
+                    {t('pages.contact.send')}
+                  </>
+                )}
               </Button>
             </Grid>
           </Grid>
