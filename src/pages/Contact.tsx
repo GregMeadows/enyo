@@ -9,10 +9,12 @@ import { useTranslation } from 'react-i18next';
 import {
   Button,
   CircularProgress,
+  Collapse,
   Grid,
   TextField,
   Typography,
 } from '@material-ui/core';
+import { Alert, AlertTitle } from '@material-ui/lab';
 import SendIcon from '@material-ui/icons/Send';
 import useTitle from '../hooks/useTitle';
 import Main from '../components/Main';
@@ -28,9 +30,9 @@ interface FormElements {
 }
 
 export enum FormState {
-  default,
-  sent,
-  error,
+  default = 'info',
+  sent = 'success',
+  error = 'error',
 }
 
 const useStyles = makeStyles(
@@ -48,11 +50,12 @@ const useStyles = makeStyles(
       textAlign: 'right',
     },
     text: {
+      marginTop: '1rem',
       marginBottom: '2rem',
     },
     progress: {
       marginLeft: '3rem',
-      marginRight: '3rem',
+      marginRight: '4rem',
     },
   }),
   {
@@ -111,105 +114,113 @@ const Contact: FunctionComponent = () => {
     });
   }
 
-  let mainText;
+  let alertText;
   if (formState === FormState.sent) {
-    mainText = (
-      <Typography variant="body1">{t('pages.contact.form.sent')}</Typography>
-    );
-  } else if (formState === FormState.error) {
-    mainText = (
+    alertText = (
       <>
-        <Typography variant="body1">{t('pages.contact.form.error')}</Typography>
-        <Typography variant="body1" paragraph>
-          <strong>{apiErrorText}</strong>
-        </Typography>
-        <Typography variant="body1">{t('pages.contact.form.retry')}</Typography>
+        <AlertTitle>{t('pages.contact.form.sent')}</AlertTitle>
+        <div>{t('pages.contact.form.thanks')}</div>
       </>
     );
-  } else {
-    mainText = (
-      <Typography variant="body1">{t('pages.contact.form.default')}</Typography>
+  } else if (formState === FormState.error) {
+    alertText = (
+      <>
+        <AlertTitle>{t('pages.contact.form.error')}</AlertTitle>
+        <div>
+          {t('pages.contact.form.reason')} <strong>{apiErrorText}</strong>
+        </div>
+      </>
     );
   }
 
+  const disableControls = formState === FormState.sent;
+
   return (
     <Main>
-      <div className={classes.text}>{mainText}</div>
-      {formState !== FormState.sent && (
-        <form name="contact" method="post" onSubmit={handleSubmit}>
-          <Grid container spacing={2}>
-            <Grid item xs={12} sm>
-              <TextField
-                name="name"
-                label={t('pages.contact.labels.name')}
-                variant="outlined"
-                type="text"
-                error={formState === FormState.error}
-                onChange={(e) => handleChange(e)}
-                required
-                className={classes.width}
-              />
-            </Grid>
-            <Grid item xs={12} sm>
-              <TextField
-                name="email"
-                label={t('pages.contact.labels.email')}
-                variant="outlined"
-                type="email"
-                error={formState === FormState.error}
-                onChange={(e) => handleChange(e)}
-                required
-                className={classes.width}
-              />
-            </Grid>
-            <Grid item xs={12}>
-              <TextField
-                name="message"
-                label={t('pages.contact.labels.message')}
-                variant="outlined"
-                multiline
-                rows="10"
-                error={formState === FormState.error}
-                onChange={(e) => handleChange(e)}
-                inputProps={{
-                  minLength: 20,
-                }}
-                required
-                className={classes.width}
-              />
-              <input
-                type="text"
-                name="website"
-                tabIndex={-1}
-                autoComplete="off"
-                onChange={(e) => handleChange(e)}
-                className={classes.honeypot}
-              />
-            </Grid>
-            <Grid item xs={12} className={classes.submit}>
-              <Button
-                variant="contained"
-                color="primary"
-                type="submit"
-                disabled={sending}
-              >
-                {(sending && (
-                  <CircularProgress
-                    color="secondary"
-                    size="1.5rem"
-                    className={classes.progress}
-                  />
-                )) || (
-                  <>
-                    <SendIcon className={classes.icon} />
-                    {t('pages.contact.send')}
-                  </>
-                )}
-              </Button>
-            </Grid>
+      <Collapse in={formState !== FormState.default}>
+        <Alert severity={formState}>{alertText}</Alert>
+      </Collapse>
+      <div className={classes.text}>
+        <Typography variant="body1">
+          {t('pages.contact.form.default')}
+        </Typography>
+      </div>
+      <form name="contact" method="post" onSubmit={handleSubmit}>
+        <Grid container spacing={2}>
+          <Grid item xs={12} sm>
+            <TextField
+              name="name"
+              label={t('pages.contact.labels.name')}
+              variant="outlined"
+              type="text"
+              error={formState === FormState.error}
+              onChange={(e) => handleChange(e)}
+              required
+              disabled={disableControls}
+              className={classes.width}
+            />
           </Grid>
-        </form>
-      )}
+          <Grid item xs={12} sm>
+            <TextField
+              name="email"
+              label={t('pages.contact.labels.email')}
+              variant="outlined"
+              type="email"
+              error={formState === FormState.error}
+              onChange={(e) => handleChange(e)}
+              required
+              disabled={disableControls}
+              className={classes.width}
+            />
+          </Grid>
+          <Grid item xs={12}>
+            <TextField
+              name="message"
+              label={t('pages.contact.labels.message')}
+              variant="outlined"
+              multiline
+              rows="10"
+              error={formState === FormState.error}
+              onChange={(e) => handleChange(e)}
+              inputProps={{
+                minLength: 20,
+              }}
+              required
+              disabled={disableControls}
+              className={classes.width}
+            />
+            <input
+              type="text"
+              name="website"
+              tabIndex={-1}
+              autoComplete="off"
+              onChange={(e) => handleChange(e)}
+              className={classes.honeypot}
+            />
+          </Grid>
+          <Grid item xs={12} className={classes.submit}>
+            <Button
+              variant="contained"
+              color="primary"
+              type="submit"
+              disabled={sending || disableControls}
+            >
+              {(sending && (
+                <CircularProgress
+                  color="secondary"
+                  size="1.5rem"
+                  className={classes.progress}
+                />
+              )) || (
+                <>
+                  <SendIcon className={classes.icon} />
+                  {t('pages.contact.send')}
+                </>
+              )}
+            </Button>
+          </Grid>
+        </Grid>
+      </form>
     </Main>
   );
 };

@@ -29,9 +29,10 @@
     "contact": {
       "form": {
         "default": "Get in touch with us by filling our the form below. We'll get back to you as soon as possible!",
-        "error": "There was an issue while sending your message.",
-        "retry": "You can try again below.",
-        "sent": "Thanks for the message! We'll get back to you shortly."
+        "error": "There was an issue sending your message.",
+        "reason": "Reason:",
+        "sent": "Message Sent!",
+        "thanks": "Thanks for the message! We'll get back to you shortly."
       },
       "labels": {
         "email": "Email",

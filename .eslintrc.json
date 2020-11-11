@@ -57,7 +57,8 @@
           "key",
           "md",
           "sm",
-          "name"
+          "name",
+          "severity"
         ]
       }
     ],
