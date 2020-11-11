@@ -73,7 +73,7 @@ const Contact: FunctionComponent = () => {
 
     fetch(API_URL, {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json; charset=utf-8' },
+      headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(values),
     })
       .then(() => {
@@ -118,70 +118,65 @@ const Contact: FunctionComponent = () => {
   return (
     <Main>
       <div className={classes.text}>{mainText}</div>
-      <form name="contact" method="post" onSubmit={handleSubmit}>
-        <Grid container spacing={2}>
-          <Grid item xs={12} sm>
-            <TextField
-              name="name"
-              label={t('pages.contact.labels.name')}
-              variant="outlined"
-              type="text"
-              error={formState === FormState.error}
-              onChange={(e) => handleChange(e)}
-              required
-              className={classes.width}
-            />
+      {formState !== FormState.sent && (
+        <form name="contact" method="post" onSubmit={handleSubmit}>
+          <Grid container spacing={2}>
+            <Grid item xs={12} sm>
+              <TextField
+                name="name"
+                label={t('pages.contact.labels.name')}
+                variant="outlined"
+                type="text"
+                error={formState === FormState.error}
+                onChange={(e) => handleChange(e)}
+                required
+                className={classes.width}
+              />
+            </Grid>
+            <Grid item xs={12} sm>
+              <TextField
+                name="email"
+                label={t('pages.contact.labels.email')}
+                variant="outlined"
+                type="email"
+                error={formState === FormState.error}
+                onChange={(e) => handleChange(e)}
+                required
+                className={classes.width}
+              />
+            </Grid>
+            <Grid item xs={12}>
+              <TextField
+                name="message"
+                label={t('pages.contact.labels.message')}
+                variant="outlined"
+                multiline
+                rows="10"
+                onChange={(e) => handleChange(e)}
+                inputProps={{
+                  minLength: 20,
+                }}
+                required
+                className={classes.width}
+              />
+              <input
+                type="text"
+                name="website"
+                tabIndex={-1}
+                autoComplete="off"
+                onChange={(e) => handleChange(e)}
+                className={classes.honeypot}
+              />
+            </Grid>
+            <Grid item xs={12} className={classes.submit}>
+              <Button variant="contained" color="primary" type="submit">
+                <SendIcon className={classes.icon} />
+                {t('pages.contact.send')}
+              </Button>
+            </Grid>
           </Grid>
-          <Grid item xs={12} sm>
-            <TextField
-              name="email"
-              label={t('pages.contact.labels.email')}
-              variant="outlined"
-              type="email"
-              error={formState === FormState.error}
-              onChange={(e) => handleChange(e)}
-              required
-              className={classes.width}
-            />
-          </Grid>
-          <Grid item xs={12}>
-            <TextField
-              name="message"
-              label={t('pages.contact.labels.message')}
-              variant="outlined"
-              multiline
-              rows="10"
-              onChange={(e) => handleChange(e)}
-              inputProps={{
-                minLength: 20,
-              }}
-              required
-              className={classes.width}
-            />
-            <input
-              type="text"
-              name="website"
-              tabIndex={-1}
-              autoComplete="off"
-              onChange={(e) => handleChange(e)}
-              className={classes.honeypot}
-            />
-          </Grid>
-          <Grid item xs={12} className={classes.submit}>
-            <Button
-              variant="contained"
-              color="primary"
-              type="submit"
-              disabled={
-                formState !== FormState.default && formState !== FormState.error
-              }
-            >
-              <SendIcon className={classes.icon} />
-              {t('pages.contact.send')}
-            </Button>
-          </Grid>
-        </Grid>
-      </form>
+        </form>
+      )}
     </Main>
   );
 };
