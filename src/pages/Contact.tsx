@@ -11,8 +11,7 @@ import SendIcon from '@material-ui/icons/Send';
 import useTitle from '../hooks/useTitle';
 import Main from '../components/Main';
 
-const API_URL =
-  'https://hq7mgbj4a6.execute-api.eu-west-1.amazonaws.com/contact';
+const API_URL = 'https://api.enyo.gg/contact';
 
 interface FormElements {
   name: string;
