@@ -67,7 +67,14 @@ const Contact: FunctionComponent = () => {
   const { t } = useTranslation();
   useTitle(t('pages.contact.title'));
 
-  const hasFilledForm = sessionStorage.getItem('contacted') === 'true';
+  const storedValues: Partial<FormElements> = {
+    name: sessionStorage.getItem('contact.name') || undefined,
+    email: sessionStorage.getItem('contact.email') || undefined,
+    message: sessionStorage.getItem('contact.message') || undefined,
+  };
+
+  const hasFilledForm =
+    storedValues.name && storedValues.email && storedValues.message;
 
   const [values, setValues] = useState<FormElements>({
     name: '',
@@ -83,23 +90,25 @@ const Contact: FunctionComponent = () => {
 
   function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    setSending(true);
+    if (!hasFilledForm) {
+      setSending(true);
 
-    fetch(API_URL, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(values),
-    })
-      .then(() => {
-        sessionStorage.setItem('contacted', 'true');
-        setFormState(FormState.sent);
-        setSending(false);
+      fetch(API_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(values),
       })
-      .catch((error) => {
-        setApiErrorText(error.message);
-        setFormState(FormState.error);
-        setSending(false);
-      });
+        .then(() => {
+          sessionStorage.setItem('contacted', 'true');
+          setFormState(FormState.sent);
+          setSending(false);
+        })
+        .catch((error) => {
+          setApiErrorText(error.message);
+          setFormState(FormState.error);
+          setSending(false);
+        });
+    }
   }
 
   function handleChange(
@@ -157,6 +166,7 @@ const Contact: FunctionComponent = () => {
               required
               disabled={disableControls}
               className={classes.width}
+              value={storedValues.name}
             />
           </Grid>
           <Grid item xs={12} sm>
@@ -170,6 +180,7 @@ const Contact: FunctionComponent = () => {
               required
               disabled={disableControls}
               className={classes.width}
+              value={storedValues.email}
             />
           </Grid>
           <Grid item xs={12}>
@@ -187,6 +198,7 @@ const Contact: FunctionComponent = () => {
               required
               disabled={disableControls}
               className={classes.width}
+              value={storedValues.message}
             />
             <input
               type="text"
