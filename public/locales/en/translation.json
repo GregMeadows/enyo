@@ -30,6 +30,7 @@
       "form": {
         "default": "Get in touch with us by filling our the form below. We'll get back to you as soon as possible!",
         "error": "There was an issue sending your message.",
+        "honey": "Could not verify request.",
         "reason": "Reason:",
         "sent": "Message Sent!",
         "thanks": "Thanks for the message! We'll get back to you shortly."

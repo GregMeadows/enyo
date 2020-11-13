@@ -93,21 +93,30 @@ const Contact: FunctionComponent = () => {
     if (!hasFilledForm) {
       setSending(true);
 
-      fetch(API_URL, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(values),
-      })
-        .then(() => {
-          sessionStorage.setItem('contacted', 'true');
-          setFormState(FormState.sent);
-          setSending(false);
+      if (values.website !== '') {
+        // Honeypot capture
+        setApiErrorText(t('pages.contact.form.honey'));
+        setFormState(FormState.error);
+        setSending(false);
+      } else {
+        fetch(API_URL, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(values),
         })
-        .catch((error) => {
-          setApiErrorText(error.message);
-          setFormState(FormState.error);
-          setSending(false);
-        });
+          .then(() => {
+            sessionStorage.setItem('contact.name', values.name);
+            sessionStorage.setItem('contact.email', values.email);
+            sessionStorage.setItem('contact.message', values.message);
+            setFormState(FormState.sent);
+            setSending(false);
+          })
+          .catch((error) => {
+            setApiErrorText(error.message);
+            setFormState(FormState.error);
+            setSending(false);
+          });
+      }
     }
   }
 
