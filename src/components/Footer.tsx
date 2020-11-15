@@ -18,10 +18,6 @@ const useStyles = makeStyles(
       background: theme.palette.background.paper,
       clipPath: `polygon(90% 0, 100% 15%, 100% 100%, 0 100%, 0 0)`,
       paddingTop: '1rem',
-      zIndex: -1,
-      width: '100%',
-      position: 'fixed',
-      bottom: 0,
       height: '22rem',
       [theme.breakpoints.down(BREAKPOINT_MOBILE)]: {
         clipPath: `polygon(92% 0, 100% 8%, 100% 100%, 0 100%, 0 0)`,
