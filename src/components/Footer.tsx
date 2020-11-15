@@ -49,10 +49,7 @@ const useStyles = makeStyles(
     },
     top: {
       flexGrow: 1,
-      padding: '2rem 2.5vw 0',
-      [theme.breakpoints.down(BREAKPOINT_MOBILE)]: {
-        padding: '1.8rem 2vw 0',
-      },
+      padding: '1.4rem 2.5vw 0',
     },
     navList: {
       paddingLeft: '1rem',

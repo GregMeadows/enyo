@@ -17,7 +17,7 @@ const root: ThemeOptions = {
       fontWeight: 500,
     },
     h5: {
-      fontSize: '1.3rem',
+      fontSize: '1.45rem',
     },
     h6: {
       fontSize: '1rem',
@@ -26,7 +26,7 @@ const root: ThemeOptions = {
       fontSize: '1.1rem',
     },
     body2: {
-      fontSize: '1rem',
+      fontSize: '1.05rem',
     },
   },
 };

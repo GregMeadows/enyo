@@ -7,7 +7,7 @@ const useStyles = makeStyles(
       width: '100%',
       overflowX: 'hidden',
       minHeight: '100%',
-      paddingBottom: '2rem',
+      paddingBottom: '6rem',
     },
   }),
   {
