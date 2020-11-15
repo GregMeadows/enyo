@@ -1,8 +1,8 @@
 import React, { FunctionComponent } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import { Typography } from '@material-ui/core';
-import { useLocation } from 'react-router-dom';
-import { useTranslation } from 'react-i18next';
+import { Link, Typography } from '@material-ui/core';
+import { useLocation, Link as RouterLink } from 'react-router-dom';
+import { Trans, useTranslation } from 'react-i18next';
 import useTitle from '../../hooks/useTitle';
 import terms from './terms';
 import faqs from './faqs';
@@ -10,6 +10,7 @@ import privacy from './privacy';
 import shipping from './shipping';
 import { InfoPage } from './types';
 import Main from '../../components/Main';
+import { ROUTES_INFO, ROUTE_CONTACT } from '../../assets/routes';
 
 const useStyles = makeStyles(
   () => ({
@@ -66,7 +67,13 @@ const Info: FunctionComponent = () => {
         }
         return (
           <Typography key={key} variant="body1" paragraph>
-            {t(key)}
+            <Trans
+              i18nKey={key}
+              components={[
+                <Link component={RouterLink} to={ROUTE_CONTACT} />,
+                <Link component={RouterLink} to={ROUTES_INFO[2]} />,
+              ]}
+            />
           </Typography>
         );
       })}

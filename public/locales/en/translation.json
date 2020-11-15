@@ -6,6 +6,7 @@
     "tag": "Made to Conquer"
   },
   "copyright": "Copyright © {{year}}. {{company}}.",
+  "key": "",
   "nav": {
     "about": {
       "about": "Who We Are",
@@ -70,7 +71,7 @@
       "faq": {
         "arrive": {
           "1": "As they are custom made to order, our jerseys can take up to 28 days for production and shipping. This may be delayed due to inevitable uncontrollable circumstances.",
-          "2": "If you would like to enquire about your order, please get in touch with us by contacting us.",
+          "2": "If you would like to enquire about your order, please get in touch with us by <0>contacting us</0>.",
           "title": "When will my order arrive?"
         },
         "care": {
@@ -78,11 +79,11 @@
           "title": "How should I care for my jersey?"
         },
         "contact": {
-          "1": "If you're still curious about something, get in touch with us by contacting us.",
+          "1": "If you're still curious about something, get in touch with us by <0>contacting us</0>.",
           "title": "I have more questions."
         },
         "returns": {
-          "1": "You can find our full returns policy on our shipping and returns page.",
+          "1": "You can find our full returns policy on our <1>shipping and returns page</1>.",
           "title": "What is your Returns Policy?"
         },
         "ship": {
@@ -100,7 +101,7 @@
           "title": "Returning Damaged Goods"
         },
         "incorrect": {
-          "1": "If a product has been delivered and the contents are incorrect, please contact us immediately and return the incorrect items to be replaced with correct items (subject to availability).",
+          "1": "If a product has been delivered and the contents are incorrect, please <0>contact us</0> immediately and return the incorrect items to be replaced with correct items (subject to availability).",
           "title": "Returning Incorrect Goods"
         },
         "main": {
@@ -108,7 +109,7 @@
           "2": "You shall be liable for any return delivery charges, and the risk of loss or damage to the goods that you are returning until they have been received by us."
         },
         "returns": {
-          "1": "For all returns, please use our contact page.",
+          "1": "For all returns, please use our <0>contact page</0>.",
           "title": "Returns"
         },
         "title": "Delivery and Returns",
@@ -122,6 +123,10 @@
         "business": {
           "1": "Enyo Design Ltd, Office 2277, 109 Vernon House, Friar Lane, Nottingham, NG1 6DQ.",
           "title": "Business Address"
+        },
+        "contact": {
+          "1": "Please use our <0>contact page</0>.",
+          "title": "Contact Enyo"
         },
         "contract": {
           "1": "By placing an order through our website, you agree that you are legally capable of entering into binding contracts. After placing your order you will receive an automated acknowledgement via the email address provided.",

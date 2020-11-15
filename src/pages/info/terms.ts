@@ -35,6 +35,10 @@ const terms: InfoPage = {
     'pages.info.terms.business.title',
     // t('pages.info.terms.business.1')
     'pages.info.terms.business.1',
+    // t('pages.info.terms.contact.title')
+    'pages.info.terms.contact.title',
+    // t('pages.info.terms.contact.1')
+    'pages.info.terms.contact.1',
   ],
 };
 
