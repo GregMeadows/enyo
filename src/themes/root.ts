@@ -13,7 +13,7 @@ const root: ThemeOptions = {
       fontWeight: 400,
     },
     h4: {
-      fontSize: '1.6rem',
+      fontSize: '1.55rem',
       fontWeight: 500,
     },
     h5: {

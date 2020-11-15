@@ -86,7 +86,7 @@
           "title": "What is your Returns Policy?"
         },
         "ship": {
-          "1": "We ship worldwide from the UK! Delivery times and prices may vary by location. Your delivery price and estimated time will be shown at checkout.",
+          "1": "We ship worldwide! Delivery times and prices may vary by location. Your delivery price and estimated time will be shown at checkout.",
           "title": "Do you ship to my country?"
         },
         "title": "FAQs"
