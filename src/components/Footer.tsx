@@ -7,18 +7,33 @@ import clsx from 'clsx';
 import Logo from './Logo';
 import NavList from './NavList';
 import { LinkedItem } from '../types';
-import { BREAKPOINT_MOBILE } from '../assets/consts';
+import {
+  BREAKPOINT_LAPTOP,
+  BREAKPOINT_MOBILE,
+  BREAKPOINT_TABLET,
+} from '../assets/consts';
 import Socials from './socials';
 import WingedBorder from './WingedBorder';
 import { ROUTES_INFO, ROUTE_CONTACT } from '../assets/routes';
+import enyoOutlineSvg from '../images/enyo.outline.svg';
 
 const useStyles = makeStyles(
   (theme: Theme) => ({
     root: {
       background: theme.palette.background.paper,
+      backgroundImage: `url(${enyoOutlineSvg})`,
+      backgroundRepeat: 'no-repeat',
+      backgroundPosition: 'right top',
+      backgroundSize: '44rem',
       clipPath: `polygon(90% 0, 100% 15%, 100% 100%, 0 100%, 0 0)`,
       paddingTop: '1rem',
       height: '22rem',
+      [theme.breakpoints.down(BREAKPOINT_LAPTOP)]: {
+        backgroundPosition: 'calc(100% + 10rem) top',
+      },
+      [theme.breakpoints.down(BREAKPOINT_TABLET)]: {
+        backgroundImage: 'none',
+      },
       [theme.breakpoints.down(BREAKPOINT_MOBILE)]: {
         clipPath: `polygon(92% 0, 100% 8%, 100% 100%, 0 100%, 0 0)`,
         height: '27rem',

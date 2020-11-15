@@ -14,7 +14,7 @@ const light = responsiveFontSizes(
         },
         border: {
           light: '#eee',
-          main: '#bbb',
+          main: '#ccc',
           dark: '#444',
         },
         text: {
