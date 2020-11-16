@@ -15,13 +15,18 @@ import {
 import Socials from './socials';
 import WingedBorder from './WingedBorder';
 import { ROUTES_INFO, ROUTE_CONTACT } from '../assets/routes';
-import enyoOutlineSvg from '../images/enyo.outline.svg';
+import enyoOutlineLightSvg from '../images/enyo.outline.light.svg';
+import enyoOutlineDarkSvg from '../images/enyo.outline.dark.svg';
 
 const useStyles = makeStyles(
   (theme: Theme) => ({
     root: {
       background: theme.palette.background.paper,
-      backgroundImage: `url(${enyoOutlineSvg})`,
+      backgroundImage: `url(${
+        theme.palette.type === 'light'
+          ? enyoOutlineLightSvg
+          : enyoOutlineDarkSvg
+      })`,
       backgroundRepeat: 'no-repeat',
       backgroundPosition: 'right top',
       backgroundSize: '44rem',
