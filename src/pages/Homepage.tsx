@@ -22,6 +22,7 @@ const useStyles = makeStyles(
       position: 'relative',
     },
     banner: {
+      backgroundColor: '#222',
       height: 820,
       display: 'flex',
       alignItems: 'center',
