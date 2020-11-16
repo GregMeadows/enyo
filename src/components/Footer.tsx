@@ -108,7 +108,6 @@ const Footer: FunctionComponent = observer(() => {
   const company = t('company.long');
 
   const itemsHelp: LinkedItem[] = [
-    { text: t('nav.help.help'), link: '/' },
     { text: t('nav.help.faqs'), link: ROUTES_INFO[3] },
     { text: t('nav.help.delivery'), link: ROUTES_INFO[2] },
     { text: t('nav.help.contact'), link: ROUTE_CONTACT },

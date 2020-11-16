@@ -30,6 +30,9 @@
       "games": "Games",
       "kits": "Kits",
       "leagues": "Leagues"
+    },
+    "help": {
+      "help": "Help"
     }
   }
 }
