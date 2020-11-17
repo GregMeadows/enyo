@@ -134,9 +134,7 @@ const Homepage: FunctionComponent = () => {
         <WingedBorder left right direction="down" length={90} />
         <div className={clsx(classes.rotated, classes.rotatedLeft)}>
           <Typography variant="subtitle1">
-            <Trans key="pages.homepage.decor.loading">
-              Loading <strong>Kit</strong>
-            </Trans>
+            <Trans i18nKey="pages.homepage.decor.loading" />
           </Typography>
           <svg viewBox="0 0 10 10" xmlns="http://www.w3.org/2000/svg">
             <rect width="10" height="10" fill="currentColor" />
@@ -190,9 +188,7 @@ const Homepage: FunctionComponent = () => {
         <WingedBorder left direction="down" length={80} />
         <div className={clsx(classes.rotated, classes.rotatedRight)}>
           <Typography variant="subtitle1">
-            <Trans key="pages.homepage.decor.loading2">
-              Loading <strong>Fabric</strong>
-            </Trans>
+            <Trans i18nKey="pages.homepage.decor.loading2" />
           </Typography>
           <svg viewBox="0 0 10 10" xmlns="http://www.w3.org/2000/svg">
             <rect width="10" height="10" fill="currentColor" />
