@@ -67,7 +67,12 @@
       {
         "patterns": ["@material-ui/*/*/*", "!@material-ui/core/test-utils/*"]
       }
-    ]
+    ],
+    "no-use-before-define": "off",
+    "@typescript-eslint/no-use-before-define": ["error"],
+    "no-undef": "off",
+    "no-shadow": "off",
+    "@typescript-eslint/no-shadow": "error"
   },
   "settings": {
     "import/resolver": {

@@ -28,7 +28,7 @@ interface FormElements {
   website: string; // Honeypot
 }
 
-export enum FormState {
+enum FormState {
   default = 'info',
   sent = 'success',
   error = 'error',
