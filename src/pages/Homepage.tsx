@@ -1,10 +1,8 @@
-import React, { FunctionComponent, useEffect } from 'react';
+import React, { FunctionComponent } from 'react';
 import { makeStyles, Theme, useTheme } from '@material-ui/core/styles';
 import { Trans, useTranslation } from 'react-i18next';
 import { Typography, useMediaQuery } from '@material-ui/core';
 import clsx from 'clsx';
-import { useInView } from 'react-intersection-observer';
-import { motion, useAnimation } from 'framer-motion';
 import ImageScroller from '../components/ImageScroller';
 import bannerImg from '../images/banner.png';
 import useTitle from '../hooks/useTitle';
@@ -16,6 +14,7 @@ import bannerTextImg from '../images/banner.text.png';
 import { isLightMode } from '../stores/settings';
 import { BREAKPOINT_MOBILE } from '../assets/consts';
 import WingedBorder from '../components/WingedBorder';
+import EnterOnView from '../components/EnterOnView';
 
 const useStyles = makeStyles(
   (theme: Theme) => ({
@@ -118,30 +117,6 @@ const Homepage: FunctionComponent = () => {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down(BREAKPOINT_MOBILE));
   useTitle();
-  const animation = useAnimation();
-  const [kit1Ref, kit1InView] = useInView({
-    threshold: 0.5,
-  });
-
-  useEffect(() => {
-    if (kit1InView) {
-      animation.start('visible');
-    } else {
-      animation.start('hidden');
-    }
-  }, [animation, kit1InView]);
-
-  const variants = {
-    visible: {
-      y: 0,
-      opacity: 1,
-      transition: { duration: 0.5, delayChildren: 0.2, staggerChildren: 0.1 },
-    },
-    hidden: {
-      y: 10,
-      opacity: 0,
-    },
-  };
 
   return (
     <>
@@ -167,12 +142,7 @@ const Homepage: FunctionComponent = () => {
           </svg>
         </div>
         <div className={classes.kit}>
-          <motion.div
-            ref={kit1Ref}
-            animate={animation}
-            initial="hidden"
-            variants={variants}
-          >
+          <EnterOnView>
             <img
               src={isLightMode() ? enyoProHomeFrontImg : enyoProAwayFrontImg}
               alt={t('pages.homepage.kit.front')}
@@ -193,7 +163,7 @@ const Homepage: FunctionComponent = () => {
                 {t('pages.homepage.kit.design.1')}
               </Typography>
             </div>
-          </motion.div>
+          </EnterOnView>
         </div>
         <WingedBorder right direction="up" length={80} />
         <div className={classes.kit}>
