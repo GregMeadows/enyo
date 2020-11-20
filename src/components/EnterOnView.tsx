@@ -12,7 +12,7 @@ const EnterOnView: FunctionComponent<EnterOnViewType> = ({
 }) => {
   const animation = useAnimation();
   const [viewRef, inView] = useInView({
-    threshold: 0.8,
+    threshold: 0.6,
   });
 
   useEffect(() => {
@@ -25,11 +25,13 @@ const EnterOnView: FunctionComponent<EnterOnViewType> = ({
     visible: {
       y: 0,
       opacity: 1,
-      transition: { duration: 0.4, delayChildren: 1, staggerChildren: 1 },
+      scale: 1,
+      transition: { duration: 0.4 },
     },
     hidden: {
       y: 40,
       opacity: 0,
+      scale: 0.9,
     },
   };
 

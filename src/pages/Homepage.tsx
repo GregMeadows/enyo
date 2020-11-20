@@ -141,32 +141,30 @@ const Homepage: FunctionComponent = () => {
             <rect width="10" height="10" fill="currentColor" />
           </svg>
         </div>
-        <div className={classes.kit}>
-          <EnterOnView>
-            <img
-              src={isLightMode() ? enyoProHomeFrontImg : enyoProAwayFrontImg}
-              alt={t('pages.homepage.kit.front')}
-            />
-            <div className={clsx(classes.float, classes.floatDesign)}>
-              <Typography variant="h6">
-                {t('pages.homepage.kit.design.title')}
-              </Typography>
-              <svg
-                height={60}
-                width={420}
-                className={clsx(classes.line, classes.lineDesign)}
-              >
-                <line x1={0} x2={120} y1={60} y2={2} />
-                <line x1={120} x2={420} y1={2} y2={2} />
-              </svg>
-              <Typography variant="body2" className={classes.floatBody}>
-                {t('pages.homepage.kit.design.1')}
-              </Typography>
-            </div>
-          </EnterOnView>
-        </div>
+        <EnterOnView className={classes.kit}>
+          <img
+            src={isLightMode() ? enyoProHomeFrontImg : enyoProAwayFrontImg}
+            alt={t('pages.homepage.kit.front')}
+          />
+          <div className={clsx(classes.float, classes.floatDesign)}>
+            <Typography variant="h6">
+              {t('pages.homepage.kit.design.title')}
+            </Typography>
+            <svg
+              height={60}
+              width={420}
+              className={clsx(classes.line, classes.lineDesign)}
+            >
+              <line x1={0} x2={120} y1={60} y2={2} />
+              <line x1={120} x2={420} y1={2} y2={2} />
+            </svg>
+            <Typography variant="body2" className={classes.floatBody}>
+              {t('pages.homepage.kit.design.1')}
+            </Typography>
+          </div>
+        </EnterOnView>
         <WingedBorder right direction="up" length={80} />
-        <div className={classes.kit}>
+        <EnterOnView className={classes.kit}>
           <img
             src={isLightMode() ? enyoProHomeBackImg : enyoProAwayBackImg}
             alt={t('pages.homepage.kit.back')}
@@ -187,7 +185,7 @@ const Homepage: FunctionComponent = () => {
               {t('pages.homepage.kit.fit.1')}
             </Typography>
           </div>
-        </div>
+        </EnterOnView>
         <WingedBorder left direction="down" length={80} />
         <div className={clsx(classes.rotated, classes.rotatedRight)}>
           <Typography variant="subtitle1">
@@ -197,7 +195,7 @@ const Homepage: FunctionComponent = () => {
             <rect width="10" height="10" fill="currentColor" />
           </svg>
         </div>
-        <div className={classes.kit}>
+        <EnterOnView className={classes.kit}>
           <img
             src={isLightMode() ? enyoProHomeFrontImg : enyoProAwayFrontImg}
             alt={t('pages.homepage.kit.front')}
@@ -218,7 +216,7 @@ const Homepage: FunctionComponent = () => {
               {t('pages.homepage.kit.fabric.1')}
             </Typography>
           </div>
-        </div>
+        </EnterOnView>
         <WingedBorder left right direction="up" length={90} />
       </section>
     </>
