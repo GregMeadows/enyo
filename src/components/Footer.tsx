@@ -12,7 +12,7 @@ import {
   BREAKPOINT_MOBILE,
   BREAKPOINT_TABLET,
 } from '../assets/consts';
-import Socials from './socials';
+import Socials from './Socials';
 import WingedBorder from './WingedBorder';
 import { ROUTES_INFO, ROUTE_CONTACT } from '../assets/routes';
 import enyoOutlineLightSvg from '../images/enyo.outline.light.svg';
