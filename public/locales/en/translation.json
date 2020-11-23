@@ -6,7 +6,6 @@
     "tag": "Made to Conquer"
   },
   "copyright": "Copyright © {{year}}. {{company}}.",
-  "key": "",
   "nav": {
     "about": {
       "about": "Who We Are",
@@ -26,6 +25,11 @@
     }
   },
   "pages": {
+    "about": {
+      "1": "At ENYO (a trading name of Enyo Design LTD.), our conquest is our deep unrelenting commitment to designing and manufacturing the highest quality esports performance wear and merchandise for teams, streamers and individuals, without compromising on comfort, innovation and sustainability.",
+      "2": "We collaborate closely with partners to produce marketable products that are unique to their brand, allowing them to diversify your revenue stream, engage with fans and make their mark in the world of esports.",
+      "title": "Who We Are"
+    },
     "contact": {
       "form": {
         "default": "Get in touch with us by filling our the form below. We'll get back to you as soon as possible!",

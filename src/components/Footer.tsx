@@ -14,7 +14,7 @@ import {
 } from '../assets/consts';
 import Socials from './Socials';
 import WingedBorder from './WingedBorder';
-import { ROUTES_INFO, ROUTE_CONTACT } from '../assets/routes';
+import { ROUTES_INFO, ROUTE_ABOUT, ROUTE_CONTACT } from '../assets/routes';
 import enyoOutlineLightSvg from '../images/enyo.outline.light.svg';
 import enyoOutlineDarkSvg from '../images/enyo.outline.dark.svg';
 
@@ -114,7 +114,7 @@ const Footer: FunctionComponent = observer(() => {
   ];
 
   const itemsAbout: LinkedItem[] = [
-    { text: t('nav.about.about'), link: '/' },
+    { text: t('nav.about.about'), link: ROUTE_ABOUT },
     { text: t('nav.about.terms'), link: ROUTES_INFO[0] },
     { text: t('nav.about.privacy'), link: ROUTES_INFO[1] },
   ];

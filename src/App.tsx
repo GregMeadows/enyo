@@ -12,8 +12,9 @@ import { getTheme } from './stores/settings';
 import ScrollToTop from './components/ScrollToTop';
 import PageTitle from './components/PageTitle';
 import Info from './pages/info';
-import { ROUTES_INFO, ROUTE_CONTACT } from './assets/routes';
+import { ROUTES_INFO, ROUTE_ABOUT, ROUTE_CONTACT } from './assets/routes';
 import Contact from './pages/Contact';
+import About from './pages/About';
 
 const App: FunctionComponent = observer(() => {
   return (
@@ -24,11 +25,16 @@ const App: FunctionComponent = observer(() => {
         <Suspense fallback={<Loading />}>
           <Layout>
             <ElevatedAppBar />
-            <PageTitle />
             <Switch>
               <Route path="/" exact component={Homepage} />
-              <Route path={ROUTES_INFO} exact component={Info} />
-              <Route path={ROUTE_CONTACT} exact component={Contact} />
+              <Route path={ROUTE_ABOUT} exact component={About} />
+              <>
+                <PageTitle />
+                <Switch>
+                  <Route path={ROUTES_INFO} exact component={Info} />
+                  <Route path={ROUTE_CONTACT} exact component={Contact} />
+                </Switch>
+              </>
             </Switch>
           </Layout>
           <Footer />
