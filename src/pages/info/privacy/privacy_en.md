@@ -7,7 +7,7 @@ We collect Device Information using the following technologies:
 
 - “Log files” track actions occurring on the Site, and collect data including your IP address, browser type, Internet service provider, referring/exit pages, and date/time stamps.
 
-Additionally, when you make a purchase or attempt to make a purchase through the Site, we collect certain information from you, including your name, billingaddress, shipping address, payment information (including credit card number), email address, and phone number. We refer to this information as “OrderInformation”.
+Additionally, when you make a purchase or attempt to make a purchase through the Site, we collect certain information from you, including your name, billing address, shipping address, payment information (including credit card number), email address, and phone number. We refer to this information as “OrderInformation”.
 
 When we talk about “Personal Information” in this Privacy Policy, we are talking both about Device Information and Order Information.
 
