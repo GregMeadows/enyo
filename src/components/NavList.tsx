@@ -1,5 +1,5 @@
 import React, { FunctionComponent } from 'react';
-import { makeStyles } from '@material-ui/core/styles';
+import { makeStyles, Theme } from '@material-ui/core/styles';
 import {
   Typography,
   List,
@@ -12,6 +12,7 @@ import { observer } from 'mobx-react-lite';
 import { Link as RouterLink } from 'react-router-dom';
 import { LinkedItem } from '../types';
 import WingedBorder from './WingedBorder';
+import { BREAKPOINT_MOBILE } from '../assets/consts';
 
 interface NavListType {
   title: string;
@@ -20,14 +21,14 @@ interface NavListType {
 }
 
 const useStyles = makeStyles(
-  () => ({
+  (theme: Theme) => ({
     root: {
       display: 'inline-flex',
       flexDirection: 'column',
       width: '100%',
     },
     title: {
-      paddingLeft: '0.5rem',
+      paddingLeft: theme.spacing(2),
     },
     wing: {
       marginTop: '-0.8rem',
@@ -36,8 +37,17 @@ const useStyles = makeStyles(
       marginTop: 0,
       marginBottom: 0,
     },
+    listLink: {
+      [theme.breakpoints.down(BREAKPOINT_MOBILE)]: {
+        fontSize: '0.9rem',
+      },
+    },
     listItem: {
       paddingRight: 0,
+      [theme.breakpoints.down(BREAKPOINT_MOBILE)]: {
+        paddingTop: 0,
+        paddingBottom: 0,
+      },
     },
   }),
   {
@@ -59,7 +69,11 @@ const NavList: FunctionComponent<NavListType> = observer(
           {items.map((item) => (
             <ListItem key={item.text} className={classes.listItem}>
               <ListItemText className={classes.listText}>
-                <Link component={RouterLink} to={item.link}>
+                <Link
+                  component={RouterLink}
+                  to={item.link}
+                  className={classes.listLink}
+                >
                   {item.text}
                 </Link>
               </ListItemText>

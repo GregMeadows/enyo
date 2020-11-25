@@ -37,24 +37,22 @@ const useStyles = makeStyles(
         backgroundPosition: 'calc(100% + 10rem) top',
       },
       [theme.breakpoints.down(BREAKPOINT_TABLET)]: {
-        backgroundImage: 'none',
+        backgroundPosition: 'calc(100% + 15rem) 115%',
       },
       [theme.breakpoints.down(BREAKPOINT_MOBILE)]: {
         clipPath: `polygon(92% 0, 100% 8%, 100% 100%, 0 100%, 0 0)`,
-        height: '27rem',
+        height: '31rem',
       },
     },
     grid: {
       height: '100%',
     },
-    wing: {
-      [theme.breakpoints.down(BREAKPOINT_MOBILE)]: {
-        display: 'none',
-      },
-    },
     top: {
       flexGrow: 1,
       padding: '1.4rem 2.5vw 0',
+      [theme.breakpoints.down(BREAKPOINT_MOBILE)]: {
+        padding: '2.5rem 2vw 0',
+      },
     },
     navList: {
       paddingLeft: '1rem',
@@ -70,12 +68,17 @@ const useStyles = makeStyles(
       minHeight: '5rem',
       paddingLeft: '2vw',
       paddingRight: '2vw',
+      [theme.breakpoints.down(BREAKPOINT_MOBILE)]: {
+        background: 'none',
+      },
     },
     bottomItem: {
       display: 'flex',
       flexDirection: 'column',
-      paddingTop: '0.5rem',
-      paddingBottom: '0.5rem',
+      [theme.breakpoints.down(BREAKPOINT_MOBILE)]: {
+        paddingTop: '0.8rem',
+        paddingBottom: '0.8rem',
+      },
     },
     logo: {
       alignItems: 'flex-end',
@@ -92,7 +95,7 @@ const useStyles = makeStyles(
     socials: {
       alignItems: 'flex-start',
       [theme.breakpoints.down(BREAKPOINT_MOBILE)]: {
-        paddingTop: '1rem',
+        paddingTop: '2rem',
         alignItems: 'center',
       },
     },
@@ -122,12 +125,7 @@ const Footer: FunctionComponent = observer(() => {
   return (
     <footer className={`${classes.root} mui-fixed`}>
       <Grid container direction="column" className={classes.grid}>
-        <WingedBorder
-          direction="down"
-          right
-          length={86}
-          className={classes.wing}
-        />
+        <WingedBorder direction="down" right length={86} />
         <Grid container item className={classes.top}>
           <Grid item xs className={classes.navList}>
             <NavList title={t('nav.help.title')} items={itemsHelp} />
