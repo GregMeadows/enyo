@@ -1,38 +1,31 @@
-import React, { FunctionComponent } from 'react';
-import { makeStyles } from '@material-ui/core/styles';
+import React, {
+  FunctionComponent,
+  useContext,
+  useEffect,
+  useState,
+} from 'react';
 import { Typography } from '@material-ui/core';
 import { useLocation } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import useTitle from '../../hooks/useTitle';
 import terms from './terms';
-import faqs from './faqs';
+import faq from './faq/index';
 import privacy from './privacy';
 import shipping from './shipping';
 import { InfoPage } from './types';
 import Main from '../../components/Main';
 import Markdown from '../../components/Markdown';
-
-const useStyles = makeStyles(
-  () => ({
-    header: {
-      marginTop: '2rem',
-      marginBottom: '0.1rem',
-    },
-  }),
-  {
-    classNamePrefix: 'info',
-  }
-);
+import settings from '../../stores/settings';
 
 const infoPages: { [key: string]: InfoPage } = {
   terms,
-  faqs,
+  faq,
   privacy,
   shipping,
 };
 
 const Info: FunctionComponent = () => {
-  const classes = useStyles();
+  const { language } = useContext(settings);
   const { t } = useTranslation();
   const location = useLocation();
   const page = infoPages[location.pathname.substring(1)];
@@ -44,6 +37,17 @@ const Info: FunctionComponent = () => {
     </>
   ) : undefined;
   useTitle(title, subtitle);
+
+  const [markdown, setMarkdown] = useState('');
+  useEffect(() => {
+    if (page) {
+      fetch(page.translations[language] || page.translations.en)
+        .then((res) => res.text())
+        .then((md) => {
+          setMarkdown(md);
+        });
+    }
+  }, [language, page]);
 
   if (!page) {
     return (
@@ -57,20 +61,7 @@ const Info: FunctionComponent = () => {
 
   return (
     <Main>
-      {page.content.map((key) => {
-        if (key.endsWith('.title')) {
-          return (
-            <Typography key={key} variant="h4" className={classes.header}>
-              {t(key)}
-            </Typography>
-          );
-        }
-        return (
-          <Typography key={key} variant="body1" paragraph>
-            <Markdown>{t(key)}</Markdown>
-          </Typography>
-        );
-      })}
+      <Markdown>{markdown}</Markdown>
     </Main>
   );
 };

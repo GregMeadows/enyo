@@ -12,17 +12,6 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-section {
-  padding: 1rem;
-}
-
-@media only screen and (max-width: 600px) {
-  section {
-    margin-top: 0.5rem;
-    padding: 1rem;
-  }
-}
-
 img {
   max-width: 100%;
 }

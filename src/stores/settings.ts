@@ -8,6 +8,7 @@ interface settingsTypes {
   themeType: ThemeType;
   pageTitle: string | null;
   pageSubtitle: JSX.Element | null;
+  language: 'en';
 }
 
 const storeThemeType = localStorage.getItem(`settings.themeType`);
@@ -20,6 +21,7 @@ const settings: settingsTypes = observable.object({
   themeType: savedThemeType || ThemeType.LIGHT,
   pageTitle: null,
   pageSubtitle: null,
+  language: 'en',
 });
 
 export function getTheme(): Theme {
