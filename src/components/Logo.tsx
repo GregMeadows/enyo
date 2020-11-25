@@ -6,6 +6,7 @@ import { ReactComponent as LogoIconSvg } from '../images/logo/icon.svg';
 import { ReactComponent as LogoTextSvg } from '../images/logo/text.svg';
 import { ReactComponent as LogoFullSvg } from '../images/logo/full.svg';
 import { ReactComponent as LogoBlockSvg } from '../images/logo/block.svg';
+import { BREAKPOINT_MOBILE } from '../assets/consts';
 
 interface LogoType {
   type?: 'icon' | 'text' | 'full' | 'block';
@@ -25,6 +26,9 @@ const useStyles = makeStyles(
     },
     icon: {
       height: theme.spacing(6),
+      [theme.breakpoints.down(BREAKPOINT_MOBILE)]: {
+        height: theme.spacing(5),
+      },
       '&.large': {
         height: '8vw',
       },
