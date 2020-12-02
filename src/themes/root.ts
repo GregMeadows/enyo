@@ -4,28 +4,31 @@ const root: ThemeOptions = {
   typography: {
     h1: {
       fontFamily: [
-        '"Cairo"',
+        '"Enyo"',
         '"Roboto"',
         '"Helvetica"',
         '"Arial"',
         'sans-serif',
       ].join(','),
       fontWeight: 400,
+      textTransform: 'uppercase',
+      letterSpacing: 1,
     },
     h4: {
       fontSize: '1.55rem',
       fontWeight: 500,
     },
     h5: {
-      fontSize: '1.3rem',
+      fontSize: '2rem',
       fontFamily: [
-        '"Cairo"',
+        '"Enyo"',
         '"Roboto"',
         '"Helvetica"',
         '"Arial"',
         'sans-serif',
       ].join(','),
       textTransform: 'uppercase',
+      letterSpacing: 0.5,
     },
     h6: {
       fontSize: '1rem',

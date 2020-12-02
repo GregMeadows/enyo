@@ -1,0 +1,8 @@
+@font-face {
+  font-family: 'Enyo';
+  src: url('Enyo-Bold.woff2') format('woff2'),
+    url('Enyo-Bold.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
