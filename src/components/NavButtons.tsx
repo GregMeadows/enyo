@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import { LinkedItem } from '../types';
 import { BREAKPOINT_MOBILE } from '../assets/consts';
 
-interface NavButtonsType {
+interface NavButtonsProps {
   items: LinkedItem[];
 }
 
@@ -26,7 +26,7 @@ const useStyles = makeStyles(
   }
 );
 
-const NavButtons: FunctionComponent<NavButtonsType> = ({ items }) => {
+const NavButtons: FunctionComponent<NavButtonsProps> = ({ items }) => {
   const classes = useStyles();
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down(BREAKPOINT_MOBILE));

@@ -8,7 +8,7 @@ import { ReactComponent as LogoFullSvg } from '../images/logo/full.svg';
 import { ReactComponent as LogoBlockSvg } from '../images/logo/block.svg';
 import { BREAKPOINT_MOBILE } from '../assets/consts';
 
-interface LogoType {
+interface LogoProps {
   type?: 'icon' | 'text' | 'full' | 'block';
   size?: 'small' | 'medium' | 'large';
 }
@@ -59,7 +59,7 @@ const useStyles = makeStyles(
  *
  * @param type The type of logo desired.
  */
-const Logo: FunctionComponent<LogoType> = ({ type, size }) => {
+const Logo: FunctionComponent<LogoProps> = ({ type, size }) => {
   const classes = useStyles();
   const { pathname } = useLocation();
   const isHomepage = pathname === '/';

@@ -2,11 +2,11 @@ import React, { FunctionComponent } from 'react';
 import { Link as RouterLink } from 'react-router-dom';
 import { Link } from '@material-ui/core';
 
-interface MarkdownLinkType {
+interface MarkdownLinkProps {
   href: string;
 }
 
-const MarkdownLink: FunctionComponent<MarkdownLinkType> = ({
+const MarkdownLink: FunctionComponent<MarkdownLinkProps> = ({
   href,
   ...rest
 }) => {

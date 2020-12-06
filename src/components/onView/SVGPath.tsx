@@ -3,7 +3,7 @@ import { useInView } from 'react-intersection-observer';
 import { makeStyles, Theme } from '@material-ui/core';
 import { motion, useAnimation } from 'framer-motion';
 
-interface SVGPathType {
+interface SVGPathProps {
   className?: string;
 }
 
@@ -24,7 +24,7 @@ const useStyles = makeStyles(
   }
 );
 
-const SVGPath: FunctionComponent<SVGPathType> = ({ className }) => {
+const SVGPath: FunctionComponent<SVGPathProps> = ({ className }) => {
   const classes = useStyles();
   const animation = useAnimation();
   const [viewRef, inView] = useInView({

@@ -5,7 +5,7 @@ import { Typography } from '@material-ui/core';
 import { Variant } from '@material-ui/core/styles/createTypography';
 import clsx from 'clsx';
 
-interface GlitchTextType {
+interface GlitchTextProps {
   text: string;
   variant?: Variant;
   className?: string;
@@ -147,7 +147,7 @@ const useStyles = makeStyles(
   }
 );
 
-const GlitchText: FunctionComponent<GlitchTextType> = ({
+const GlitchText: FunctionComponent<GlitchTextProps> = ({
   text,
   variant,
   className,

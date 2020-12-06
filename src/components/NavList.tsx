@@ -14,7 +14,7 @@ import { LinkedItem } from '../types';
 import WingedBorder from './WingedBorder';
 import { BREAKPOINT_MOBILE } from '../assets/consts';
 
-interface NavListType {
+interface NavListProps {
   title: string;
   items: LinkedItem[];
   className?: string;
@@ -55,7 +55,7 @@ const useStyles = makeStyles(
   }
 );
 
-const NavList: FunctionComponent<NavListType> = observer(
+const NavList: FunctionComponent<NavListProps> = observer(
   ({ title, items, className }) => {
     const classes = useStyles();
 

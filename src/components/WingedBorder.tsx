@@ -11,7 +11,7 @@ interface StyleProps {
   right: boolean;
 }
 
-interface WingedBorderType {
+interface WingedBorderProps {
   direction: 'up' | 'down';
   left?: boolean;
   right?: boolean;
@@ -44,7 +44,7 @@ const useStyles = makeStyles(
   }
 );
 
-const WingedBorder: FunctionComponent<WingedBorderType> = ({
+const WingedBorder: FunctionComponent<WingedBorderProps> = ({
   direction,
   left = false,
   right = false,

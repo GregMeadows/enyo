@@ -4,7 +4,7 @@ import ReactMarkdown from 'markdown-to-jsx';
 import { Typography } from '@material-ui/core';
 import MarkdownLink from './MarkdownLink';
 
-interface MarkdownType {
+interface MarkdownProps {
   children: string;
 }
 
@@ -20,7 +20,7 @@ const useStyles = makeStyles(
   }
 );
 
-const Markdown: FunctionComponent<MarkdownType> = (props) => {
+const Markdown: FunctionComponent<MarkdownProps> = (props) => {
   const classes = useStyles();
 
   const options = {

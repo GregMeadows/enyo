@@ -6,7 +6,7 @@ import clsx from 'clsx';
 import { ReactComponent as TwitchIcon } from '../images/TwitchGlitchWhite.svg';
 import { BREAKPOINT_TABLET } from '../assets/consts';
 
-interface SocialsType {
+interface SocialsProps {
   className?: string;
 }
 
@@ -43,7 +43,7 @@ const useStyles = makeStyles(
   }
 );
 
-const Socials: FunctionComponent<SocialsType> = ({ className }) => {
+const Socials: FunctionComponent<SocialsProps> = ({ className }) => {
   const classes = useStyles();
 
   return (

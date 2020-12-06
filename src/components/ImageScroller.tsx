@@ -3,7 +3,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import clsx from 'clsx';
 import checkIfInView from '../assets/Utils';
 
-interface ImageScrollerType {
+interface ImageScrollerProps {
   image: string;
   offsetX?: number;
   offsetY?: number;
@@ -41,7 +41,7 @@ const useStyles = makeStyles(
   }
 );
 
-const ImageScroller: FunctionComponent<ImageScrollerType> = ({
+const ImageScroller: FunctionComponent<ImageScrollerProps> = ({
   image,
   offsetY = -50,
   offsetX = 50,
