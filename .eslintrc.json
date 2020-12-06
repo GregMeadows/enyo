@@ -36,7 +36,7 @@
     "react-hooks/rules-of-hooks": "error",
     "react-hooks/exhaustive-deps": "warn",
     "i18next/no-literal-string": [
-      "error",
+      "warn",
       {
         "markupOnly": true,
         "ignoreAttribute": [
@@ -59,7 +59,8 @@
           "sm",
           "name",
           "severity",
-          "initial"
+          "initial",
+          "d"
         ]
       }
     ],

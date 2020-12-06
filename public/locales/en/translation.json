@@ -48,25 +48,14 @@
       "title": "Contact Us"
     },
     "homepage": {
-      "decor": {
-        "loading": "Loading <strong>Kit</strong>",
-        "loading2": "Loading <strong>Fabric</strong>"
-      },
       "kit": {
-        "back": "Enyo tee back",
-        "design": {
-          "1": "Each design is bespoke to the customers team.",
-          "title": "Design"
+        "front": "Enyo tee front",
+        "rotated": "Custom Jerseys",
+        "text": {
+          "1": "Our passion is designing and manufacturing unique premium esports performance apparel and merchandise for esports teams, streamers and individuals.",
+          "2": "We collaborate closely with you as a partner to produce marketable products that are unique to your brand, allowing you to diversify your revenue stream, engage with your fans and make your mark in the world of esports."
         },
-        "fabric": {
-          "1": "Performance fits cut to help comfort and improve performace over long periods of competing.",
-          "title": "Fabric"
-        },
-        "fit": {
-          "1": "Lightweight, breathable fabric woven for comfort and practicality, helping you stay cool in the heated moments.",
-          "title": "Fit"
-        },
-        "front": "Enyo tee front"
+        "title": "Make Your Mark"
       }
     },
     "info": {
