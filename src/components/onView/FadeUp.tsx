@@ -2,14 +2,11 @@ import React, { FunctionComponent, useEffect } from 'react';
 import { useInView } from 'react-intersection-observer';
 import { motion, useAnimation } from 'framer-motion';
 
-interface EnterOnViewType {
+interface FadeUpType {
   className?: string;
 }
 
-const EnterOnView: FunctionComponent<EnterOnViewType> = ({
-  className,
-  children,
-}) => {
+const FadeUp: FunctionComponent<FadeUpType> = ({ className, children }) => {
   const animation = useAnimation();
   const [viewRef, inView] = useInView({
     threshold: 0.6,
@@ -48,4 +45,4 @@ const EnterOnView: FunctionComponent<EnterOnViewType> = ({
   );
 };
 
-export default EnterOnView;
+export default FadeUp;

@@ -11,7 +11,7 @@ import bannerTextImg from '../images/banner.text.png';
 import { isLightMode } from '../stores/settings';
 import { BREAKPOINT_MOBILE, BREAKPOINT_TABLET } from '../assets/consts';
 import WingedBorder from '../components/WingedBorder';
-import EnterOnView from '../components/EnterOnView';
+import FadeUp from '../components/onView/FadeUp';
 
 const useStyles = makeStyles(
   (theme: Theme) => ({
@@ -111,12 +111,12 @@ const Homepage: FunctionComponent = () => {
             </Typography>
           </Grid>
           <Grid item xs={12} md={6} className={classes.kitItem}>
-            <EnterOnView>
+            <FadeUp>
               <img
                 src={isLightMode() ? enyoProHomeFrontImg : enyoProAwayFrontImg}
                 alt={t('pages.homepage.kit.front')}
               />
-            </EnterOnView>
+            </FadeUp>
           </Grid>
         </Grid>
       </section>
