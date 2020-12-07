@@ -5,6 +5,7 @@ import { makeStyles } from '@material-ui/core';
 import clsx from 'clsx';
 
 interface TextGlitchProps {
+  rows?: number;
   className?: string;
 }
 
@@ -27,14 +28,10 @@ const useStyles = makeStyles(
 );
 
 const TextGlitch: FunctionComponent<TextGlitchProps> = ({
+  rows = 8,
   children,
   className,
 }) => {
-  const numbers: number[] = [];
-  const directions: number[] = [];
-  const width = 100;
-  const rowNum = 8;
-
   const classes = useStyles();
   const animation = useAnimation();
   const [viewRef, inView] = useInView({
@@ -52,19 +49,12 @@ const TextGlitch: FunctionComponent<TextGlitchProps> = ({
     }
   }, [animation, inView]);
 
-  while (numbers.length < rowNum) {
-    const j = Math.floor(Math.random() * rowNum) + 1;
-    const k = Math.round(Math.random()) * 2 - 1;
-    // Make sure that the number is unique
-    if (numbers.indexOf(j) === -1) {
-      numbers.push(j);
-    }
-    directions.push(k);
-  }
+  const numbers: number[] = [];
+  const startingXValue: number[] = [];
 
   const variants = {
     before: (i: number) => ({
-      x: -width * directions[i],
+      x: startingXValue[i],
       opacity: 0,
     }),
     after: (i: number) => ({
@@ -74,15 +64,24 @@ const TextGlitch: FunctionComponent<TextGlitchProps> = ({
         type: 'spring',
         damping: 2.5,
         mass: 0.1,
-        velocity: 300,
-        delay: 0.2 + numbers[i] * 0.04,
+        velocity: 500,
+        delay: numbers[i],
       },
     }),
   };
 
   const items = [];
-  for (let i = 0; i < rowNum; i++) {
-    const rowHeight = 100 / rowNum;
+  for (let i = 0; i < rows; i++) {
+    // Random Delay
+    const delay = Math.random() * rows + 1;
+    numbers.push(0.3 + delay * 0.03);
+
+    // Random x distance 50-100 with a 50% chance to be negated
+    const xStart =
+      (Math.random() * 50 + 50) * (Math.round(Math.random()) ? 1 : -1);
+    startingXValue.push(xStart);
+
+    const rowHeight = 100 / rows;
     const rowTop = rowHeight * i;
     items.push(
       <motion.div
