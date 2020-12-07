@@ -13,6 +13,9 @@ const useStyles = makeStyles(
       fill: 'none',
       stroke: theme.palette.primary.main,
       strokeWidth: 3,
+      // This currently distorts the SVG due to not being support by Framer Motion
+      // See: https://github.com/framer/motion/issues/521
+      // vectorEffect: 'non-scaling-stroke',
     },
     svg: {
       height: 200,
