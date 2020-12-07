@@ -41,7 +41,7 @@ const TextGlitch: FunctionComponent<TextGlitchProps> = ({
 
   useEffect(() => {
     async function animate() {
-      await animation.start('after');
+      await Promise.all([animation.start('after'), animation.start('post')]);
       setAnimationComplete(true);
     }
     if (inView) {
@@ -56,6 +56,7 @@ const TextGlitch: FunctionComponent<TextGlitchProps> = ({
     before: (i: number) => ({
       x: startingXValue[i],
       opacity: 0,
+      textShadow: '4px 0 magenta, -4px 0 cyan',
     }),
     after: (i: number) => ({
       x: 0,
@@ -68,6 +69,13 @@ const TextGlitch: FunctionComponent<TextGlitchProps> = ({
         delay: numbers[i],
       },
     }),
+    post: {
+      textShadow: '0px 0 magenta, -0px 0 cyan',
+      transition: {
+        delay: 0.3,
+        duration: 0.5,
+      },
+    },
   };
 
   const items = [];
