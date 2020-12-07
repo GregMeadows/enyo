@@ -12,6 +12,7 @@ import { isLightMode } from '../stores/settings';
 import { BREAKPOINT_MOBILE, BREAKPOINT_TABLET } from '../assets/consts';
 import WingedBorder from '../components/WingedBorder';
 import FadeUp from '../components/onView/FadeUp';
+import TextGlitch from '../components/onView/TextGlitch';
 
 const useStyles = makeStyles(
   (theme: Theme) => ({
@@ -46,8 +47,11 @@ const useStyles = makeStyles(
       display: 'flex',
       alignItems: 'center',
     },
-    title: {
+    titleContainer: {
       margin: '2rem 4vw',
+    },
+    title: {
+      lineHeight: '60%',
     },
     kitItem: {
       padding: '4vw',
@@ -90,9 +94,11 @@ const Homepage: FunctionComponent = () => {
         <img src={bannerTextImg} alt={t('company.tag')} />
       </ImageScroller>
       <section className={classes.info}>
-        <Typography variant="h1" className={classes.title}>
-          {t('pages.homepage.kit.title')}
-        </Typography>
+        <TextGlitch className={classes.titleContainer}>
+          <Typography variant="h1" className={classes.title}>
+            {t('pages.homepage.kit.title')}
+          </Typography>
+        </TextGlitch>
         <WingedBorder right direction="down" length={85} />
         <Grid container>
           <Grid item className={classes.rotatedContainer}>
