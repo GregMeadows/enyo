@@ -4,7 +4,7 @@ import { motion, useAnimation } from 'framer-motion';
 import { makeStyles } from '@material-ui/core';
 import clsx from 'clsx';
 
-interface TextGlitchProps {
+interface GlitchProps {
   rows?: number;
   className?: string;
 }
@@ -27,7 +27,7 @@ const useStyles = makeStyles(
   }
 );
 
-const TextGlitch: FunctionComponent<TextGlitchProps> = ({
+const Glitch: FunctionComponent<GlitchProps> = ({
   rows = 8,
   children,
   className,
@@ -121,4 +121,4 @@ const TextGlitch: FunctionComponent<TextGlitchProps> = ({
   );
 };
 
-export default TextGlitch;
+export default Glitch;
