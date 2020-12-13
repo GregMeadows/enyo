@@ -3,7 +3,7 @@ import { observer } from 'mobx-react-lite';
 import { CssBaseline } from '@material-ui/core';
 import { ThemeProvider } from '@material-ui/core/styles';
 import { Route, BrowserRouter, Switch } from 'react-router-dom';
-import Homepage from './pages/Homepage';
+import Homepage from './pages/homepage';
 import Footer from './components/Footer';
 import Layout from './components/Layout';
 import ElevatedAppBar from './components/ElevatedAppBar';
