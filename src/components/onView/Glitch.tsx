@@ -1,10 +1,10 @@
 import React, { FunctionComponent, useEffect, useState } from 'react';
-import { useInView } from 'react-intersection-observer';
 import { motion, useAnimation } from 'framer-motion';
 import { makeStyles } from '@material-ui/core';
 import clsx from 'clsx';
+import { OnViewChildProps } from './OnView';
 
-interface GlitchProps {
+interface GlitchProps extends OnViewChildProps {
   rows?: number;
   className?: string;
 }
@@ -28,15 +28,13 @@ const useStyles = makeStyles(
 );
 
 const Glitch: FunctionComponent<GlitchProps> = ({
+  show,
   rows = 8,
   children,
   className,
 }) => {
   const classes = useStyles();
   const animation = useAnimation();
-  const [viewRef, inView] = useInView({
-    threshold: 0.6,
-  });
   const [animationComplete, setAnimationComplete] = useState(false);
 
   useEffect(() => {
@@ -44,10 +42,10 @@ const Glitch: FunctionComponent<GlitchProps> = ({
       await Promise.all([animation.start('after'), animation.start('post')]);
       setAnimationComplete(true);
     }
-    if (inView) {
+    if (!animationComplete && show) {
       animate();
     }
-  }, [animation, inView]);
+  }, [animation, animationComplete, show]);
 
   const numbers: number[] = [];
   const startingXValue: number[] = [];
@@ -108,7 +106,6 @@ const Glitch: FunctionComponent<GlitchProps> = ({
 
   return (
     <motion.div
-      ref={viewRef}
       animate={animation}
       initial="before"
       className={clsx(classes.root, className)}

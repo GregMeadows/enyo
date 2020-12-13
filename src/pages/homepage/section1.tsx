@@ -7,6 +7,7 @@ import Glitch from '../../components/onView/Glitch';
 import WingedBorder from '../../components/WingedBorder';
 import { isLightMode } from '../../stores/settings';
 import FadeUp from '../../components/onView/FadeUp';
+import OnView from '../../components/onView/OnView';
 import { BREAKPOINT_TABLET } from '../../assets/consts';
 import enyoProHomeFrontImg from '../../images/clothing/enyo/pro/home.front.png';
 import enyoProAwayFrontImg from '../../images/clothing/enyo/pro/away.front.png';
@@ -132,7 +133,7 @@ const Section1: FunctionComponent = () => {
 
   return (
     <section className={classes.info} ref={viewRef}>
-      <Glitch className={classes.titleContainer}>
+      <Glitch show={inView} className={classes.titleContainer}>
         <Typography variant="h1" className={classes.title}>
           {t('pages.homepage.kit.title')}
         </Typography>
@@ -248,12 +249,12 @@ const Section1: FunctionComponent = () => {
         </Grid>
         <Grid item xs={12} md={6} className={classes.kitItem}>
           <Hex className={classes.hex} />
-          <FadeUp>
+          <OnView component={FadeUp}>
             <img
               src={isLightMode() ? enyoProHomeFrontImg : enyoProAwayFrontImg}
               alt={t('pages.homepage.kit.front')}
             />
-          </FadeUp>
+          </OnView>
         </Grid>
       </Grid>
     </section>

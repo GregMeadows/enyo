@@ -1,22 +1,23 @@
 import React, { FunctionComponent, useEffect } from 'react';
-import { useInView } from 'react-intersection-observer';
 import { motion, useAnimation } from 'framer-motion';
+import { OnViewChildProps } from './OnView';
 
-interface FadeUpProps {
+interface FadeUpProps extends OnViewChildProps {
   className?: string;
 }
 
-const FadeUp: FunctionComponent<FadeUpProps> = ({ className, children }) => {
+const FadeUp: FunctionComponent<FadeUpProps> = ({
+  show,
+  className,
+  children,
+}) => {
   const animation = useAnimation();
-  const [viewRef, inView] = useInView({
-    threshold: 0.6,
-  });
 
   useEffect(() => {
-    if (inView) {
+    if (show) {
       animation.start('visible');
     }
-  }, [animation, inView]);
+  }, [animation, show]);
 
   const variants = {
     visible: {
@@ -34,7 +35,6 @@ const FadeUp: FunctionComponent<FadeUpProps> = ({ className, children }) => {
 
   return (
     <motion.div
-      ref={viewRef}
       animate={animation}
       initial="hidden"
       variants={variants}
