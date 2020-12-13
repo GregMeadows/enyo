@@ -6,6 +6,7 @@ import { OnViewChildProps } from './OnView';
 
 interface GlitchProps extends OnViewChildProps {
   rows?: number;
+  delay?: number;
   className?: string;
 }
 
@@ -23,13 +24,14 @@ const useStyles = makeStyles(
     },
   }),
   {
-    classNamePrefix: 'svg-path-on-view',
+    classNamePrefix: 'glitch',
   }
 );
 
 const Glitch: FunctionComponent<GlitchProps> = ({
   show,
   rows = 8,
+  delay,
   children,
   className,
 }) => {
@@ -43,9 +45,14 @@ const Glitch: FunctionComponent<GlitchProps> = ({
       setAnimationComplete(true);
     }
     if (!animationComplete && show) {
-      animate();
+      window.setTimeout(
+        () => {
+          animate();
+        },
+        delay ? delay * 1000 : undefined
+      );
     }
-  }, [animation, animationComplete, show]);
+  }, [animation, animationComplete, delay, show]);
 
   const numbers: number[] = [];
   const startingXValue: number[] = [];
@@ -79,8 +86,8 @@ const Glitch: FunctionComponent<GlitchProps> = ({
   const items = [];
   for (let i = 0; i < rows; i++) {
     // Random Delay
-    const delay = Math.random() * rows + 1;
-    numbers.push(0.3 + delay * 0.03);
+    const randDelay = Math.random() * rows + 1;
+    numbers.push(0.3 + randDelay * 0.03);
 
     // Random x distance 50-100 with a 50% chance to be negated
     const xStart =

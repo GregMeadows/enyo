@@ -6,8 +6,6 @@ import { useTranslation } from 'react-i18next';
 import Glitch from '../../components/onView/Glitch';
 import WingedBorder from '../../components/WingedBorder';
 import { isLightMode } from '../../stores/settings';
-import FadeUp from '../../components/onView/FadeUp';
-import OnView from '../../components/onView/OnView';
 import { BREAKPOINT_TABLET } from '../../assets/consts';
 import enyoProHomeFrontImg from '../../images/clothing/enyo/pro/home.front.png';
 import enyoProAwayFrontImg from '../../images/clothing/enyo/pro/away.front.png';
@@ -78,18 +76,20 @@ const useStyles = makeStyles(
       justifyContent: 'center',
       alignItems: 'center',
     },
-    hex: {
-      display: 'block',
+    hexContainer: {
       position: 'absolute',
-      fill: theme.palette.secondary.main,
-      height: 70,
-      width: 70,
       left: '41%',
       top: '36%',
     },
+    hex: {
+      display: 'block',
+      fill: theme.palette.secondary.main,
+      height: 70,
+      width: 70,
+    },
   }),
   {
-    classNamePrefix: 'svg-path-on-view',
+    classNamePrefix: 'section-1',
   }
 );
 
@@ -107,8 +107,8 @@ const Section1: FunctionComponent = () => {
     }
   }, [animation, inView]);
 
-  const delays = [0.5, 0.7, 1.3, 1.8, 2.4];
-  const durations = [0.2, 0.6, 0.5, 0.6, 0.3];
+  const delays = [1, 1.1, 1.5, 1.8, 2.2];
+  const durations = [0.1, 0.4, 0.3, 0.4, 0.2];
 
   /**
    * This consists of multiple SVG elements so that no parts of the SVG distort as teh screen width changes.
@@ -248,13 +248,18 @@ const Section1: FunctionComponent = () => {
           </div>
         </Grid>
         <Grid item xs={12} md={6} className={classes.kitItem}>
-          <Hex className={classes.hex} />
-          <OnView component={FadeUp}>
-            <img
-              src={isLightMode() ? enyoProHomeFrontImg : enyoProAwayFrontImg}
-              alt={t('pages.homepage.kit.front')}
-            />
-          </OnView>
+          <Glitch
+            show={inView}
+            rows={7}
+            delay={2.8}
+            className={classes.hexContainer}
+          >
+            <Hex className={classes.hex} />
+          </Glitch>
+          <img
+            src={isLightMode() ? enyoProHomeFrontImg : enyoProAwayFrontImg}
+            alt={t('pages.homepage.kit.front')}
+          />
         </Grid>
       </Grid>
     </section>
