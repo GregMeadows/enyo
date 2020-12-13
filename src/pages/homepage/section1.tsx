@@ -106,6 +106,9 @@ const Section1: FunctionComponent = () => {
     }
   }, [animation, inView]);
 
+  const delays = [0.5, 0.7, 1.3, 1.8, 2.4];
+  const durations = [0.2, 0.6, 0.5, 0.6, 0.3];
+
   /**
    * This consists of multiple SVG elements so that no parts of the SVG distort as teh screen width changes.
    * This would usually be done using:
@@ -116,17 +119,15 @@ const Section1: FunctionComponent = () => {
   const pathVariants = {
     hidden: {
       pathLength: 0,
-      opacity: 0,
     },
-    visible: {
+    visible: (i: number) => ({
       pathLength: 1,
-      opacity: 1,
       transition: {
-        delay: 0.6,
-        duration: 1.2,
-        ease: 'easeInOut',
+        delay: delays[i],
+        duration: durations[i],
+        ease: 'linear',
       },
-    },
+    }),
   };
 
   return (
@@ -161,6 +162,7 @@ const Section1: FunctionComponent = () => {
                 initial="hidden"
                 animate={animation}
                 variants={pathVariants}
+                custom={0}
               />
             </svg>
             <svg
@@ -178,6 +180,7 @@ const Section1: FunctionComponent = () => {
                 initial="hidden"
                 animate={animation}
                 variants={pathVariants}
+                custom={1}
               />
             </svg>
             <svg
@@ -192,6 +195,7 @@ const Section1: FunctionComponent = () => {
                 initial="hidden"
                 animate={animation}
                 variants={pathVariants}
+                custom={2}
               />
             </svg>
             <svg
@@ -210,6 +214,7 @@ const Section1: FunctionComponent = () => {
                 initial="hidden"
                 animate={animation}
                 variants={pathVariants}
+                custom={3}
               />
             </svg>
             <svg
@@ -224,6 +229,7 @@ const Section1: FunctionComponent = () => {
                 initial="hidden"
                 animate={animation}
                 variants={pathVariants}
+                custom={4}
               />
             </svg>
             <div className={classes.kitInfoTextContainer}>
