@@ -7,7 +7,10 @@ const light = responsiveFontSizes(
       palette: {
         type: 'light',
         primary: {
-          main: '#401763',
+          main: '#19122E',
+        },
+        secondary: {
+          main: '#009696',
         },
         background: {
           paper: '#ddd',
