@@ -6,7 +6,6 @@ import { OnViewChildProps } from './OnView';
 
 interface GlitchProps extends OnViewChildProps {
   rows?: number;
-  delay?: number;
   className?: string;
 }
 

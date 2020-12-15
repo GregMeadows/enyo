@@ -10,6 +10,7 @@ export enum PathDirection {
 }
 
 export interface SVGParams {
+  id: string;
   direction: PathDirection;
   duration: number;
   style: React.CSSProperties;
@@ -18,7 +19,6 @@ export interface SVGParams {
 
 interface SVGPathProps extends OnViewChildProps {
   paths: SVGParams[];
-  delay?: number;
 }
 
 const PATH_VIEWBOX: { [key in PathDirection]: string } = {
@@ -106,20 +106,18 @@ const SVGPaths: FunctionComponent<SVGPathProps> = ({ show, paths, delay }) => {
   };
 
   const render = paths.map((path: SVGParams, i) => {
+    const { id, direction, style, reverseAnimation } = path;
     return (
       <svg
         xmlns="http://www.w3.org/2000/svg"
-        viewBox={`0 0 ${PATH_VIEWBOX[path.direction]}`}
+        viewBox={`0 0 ${PATH_VIEWBOX[direction]}`}
         preserveAspectRatio="none"
         className={classes.svg}
-        style={path.style}
+        style={style}
+        key={id}
       >
         <motion.path
-          d={
-            path.reverseAnimation
-              ? PATH_D_REVERSED[path.direction]
-              : PATH_D[path.direction]
-          }
+          d={reverseAnimation ? PATH_D_REVERSED[direction] : PATH_D[direction]}
           initial="hidden"
           animate={animation}
           variants={pathVariants}

@@ -3,6 +3,7 @@ import { useInView } from 'react-intersection-observer';
 
 export interface OnViewChildProps {
   show: boolean;
+  delay?: number;
 }
 
 interface OnViewProps {

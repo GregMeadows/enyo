@@ -9,15 +9,21 @@ interface FadeUpProps extends OnViewChildProps {
 const FadeUp: FunctionComponent<FadeUpProps> = ({
   show,
   className,
+  delay,
   children,
 }) => {
   const animation = useAnimation();
 
   useEffect(() => {
     if (show) {
-      animation.start('visible');
+      window.setTimeout(
+        () => {
+          animation.start('visible');
+        },
+        delay ? delay * 1000 : undefined
+      );
     }
-  }, [animation, show]);
+  }, [animation, delay, show]);
 
   const variants = {
     visible: {

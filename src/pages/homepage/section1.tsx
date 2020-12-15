@@ -1,9 +1,10 @@
 import React, { FunctionComponent } from 'react';
 import { useInView } from 'react-intersection-observer';
 import { Grid, makeStyles, Theme, Typography } from '@material-ui/core';
-import { motion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
+import clsx from 'clsx';
 import Glitch from '../../components/onView/Glitch';
+import FadeUp from '../../components/onView/FadeUp';
 import WingedBorder from '../../components/WingedBorder';
 import { isLightMode } from '../../stores/settings';
 import { BREAKPOINT_TABLET } from '../../assets/consts';
@@ -14,6 +15,7 @@ import SVGPaths, {
   SVGParams,
   PathDirection,
 } from '../../components/onView/SVGPaths';
+import { ReactComponent as ArrowSvg } from '../../images/arrow.svg';
 
 const PATH_SIZE = 4;
 
@@ -66,13 +68,6 @@ const useStyles = makeStyles(
     kitInfoText: {
       fontSize: '1.3rem',
     },
-    svg: {
-      display: 'block',
-      position: 'absolute',
-      fill: 'none',
-      stroke: theme.palette.secondary.main,
-      strokeWidth: PATH_SIZE,
-    },
     kitItem: {
       paddingTop: '4vh',
       position: 'relative',
@@ -91,6 +86,25 @@ const useStyles = makeStyles(
       height: 70,
       width: 70,
     },
+    arrows: {
+      position: 'absolute',
+      display: 'flex',
+      flexDirection: 'column',
+      left: 10,
+      bottom: -50,
+      justifyContent: 'space-between',
+      height: 100,
+    },
+    arrow: {
+      height: 40,
+      '&.upper': {
+        fill: theme.palette.text.primary,
+      },
+      '&.lower': {
+        bottom: -50,
+        fill: theme.palette.secondary.main,
+      },
+    },
   }),
   {
     classNamePrefix: 'section-1',
@@ -106,28 +120,33 @@ const Section1: FunctionComponent = () => {
 
   const svgPaths: SVGParams[] = [
     {
+      id: '1_diagonal',
       direction: PathDirection.RIGHT_DOWN,
       duration: 0.2,
       style: { height: 50, left: '85%' },
       reverseAnimation: true,
     },
     {
+      id: '2_horizontal',
       direction: PathDirection.HORIZONTAL,
       duration: 0.3,
       style: { height: PATH_SIZE, width: '85%' },
       reverseAnimation: true,
     },
     {
+      id: '3_vertcal',
       direction: PathDirection.VERTICAL,
       duration: 0.28,
       style: { height: '100%', width: PATH_SIZE },
     },
     {
+      id: '4_horizontal',
       direction: PathDirection.HORIZONTAL,
       duration: 0.3,
       style: { height: PATH_SIZE, width: '100%', bottom: 0 },
     },
     {
+      id: '5_vertical',
       direction: PathDirection.VERTICAL,
       duration: 0.22,
       style: { height: '30%', width: PATH_SIZE, right: 0, bottom: 0 },
@@ -153,6 +172,10 @@ const Section1: FunctionComponent = () => {
         </Grid>
         <Grid item xs={12} md={6} className={classes.kitInfoContainer}>
           <div className={classes.kitInfo}>
+            <FadeUp delay={2.1} show={inView} className={classes.arrows}>
+              <ArrowSvg className={clsx(classes.arrow, 'upper')} />
+              <ArrowSvg className={clsx(classes.arrow, 'lower')} />
+            </FadeUp>
             <SVGPaths show={inView} delay={1.5} paths={svgPaths} />
             <div className={classes.kitInfoTextContainer}>
               <Typography
