@@ -1,7 +1,7 @@
-import React, { FunctionComponent, useEffect } from 'react';
+import React, { FunctionComponent } from 'react';
 import { useInView } from 'react-intersection-observer';
 import { Grid, makeStyles, Theme, Typography } from '@material-ui/core';
-import { motion, useAnimation } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
 import Glitch from '../../components/onView/Glitch';
 import WingedBorder from '../../components/WingedBorder';
@@ -10,6 +10,10 @@ import { BREAKPOINT_TABLET } from '../../assets/consts';
 import enyoProHomeFrontImg from '../../images/clothing/enyo/pro/home.front.png';
 import enyoProAwayFrontImg from '../../images/clothing/enyo/pro/away.front.png';
 import { ReactComponent as Hex } from '../../images/hex.svg';
+import SVGPaths, {
+  SVGParams,
+  PathDirection,
+} from '../../components/onView/SVGPaths';
 
 const PATH_SIZE = 4;
 
@@ -96,40 +100,40 @@ const useStyles = makeStyles(
 const Section1: FunctionComponent = () => {
   const classes = useStyles();
   const { t } = useTranslation();
-  const animation = useAnimation();
   const [viewRef, inView] = useInView({
     threshold: 0.6,
   });
 
-  useEffect(() => {
-    if (inView) {
-      animation.start('visible');
-    }
-  }, [animation, inView]);
-
-  const delays = [1, 1.1, 1.5, 1.8, 2.2];
-  const durations = [0.1, 0.4, 0.3, 0.4, 0.2];
-
-  /**
-   * This consists of multiple SVG elements so that no parts of the SVG distort as teh screen width changes.
-   * This would usually be done using:
-   *   vectorEffect: 'non-scaling-stroke'
-   * However this is not currently supported by Framer Motion and distorts the entrance animation of the SVG.
-   * See: https://github.com/framer/motion/issues/521
-   */
-  const pathVariants = {
-    hidden: {
-      pathLength: 0,
+  const svgPaths: SVGParams[] = [
+    {
+      direction: PathDirection.RIGHT_DOWN,
+      duration: 0.2,
+      style: { height: 50, left: '85%' },
+      reverseAnimation: true,
     },
-    visible: (i: number) => ({
-      pathLength: 1,
-      transition: {
-        delay: delays[i],
-        duration: durations[i],
-        ease: 'linear',
-      },
-    }),
-  };
+    {
+      direction: PathDirection.HORIZONTAL,
+      duration: 0.3,
+      style: { height: PATH_SIZE, width: '85%' },
+      reverseAnimation: true,
+    },
+    {
+      direction: PathDirection.VERTICAL,
+      duration: 0.28,
+      style: { height: '100%', width: PATH_SIZE },
+    },
+    {
+      direction: PathDirection.HORIZONTAL,
+      duration: 0.3,
+      style: { height: PATH_SIZE, width: '100%', bottom: 0 },
+    },
+    {
+      direction: PathDirection.VERTICAL,
+      duration: 0.22,
+      style: { height: '30%', width: PATH_SIZE, right: 0, bottom: 0 },
+      reverseAnimation: true,
+    },
+  ];
 
   return (
     <section className={classes.info} ref={viewRef}>
@@ -149,90 +153,7 @@ const Section1: FunctionComponent = () => {
         </Grid>
         <Grid item xs={12} md={6} className={classes.kitInfoContainer}>
           <div className={classes.kitInfo}>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 40 50"
-              className={classes.svg}
-              style={{
-                height: 50,
-                left: '85%',
-              }}
-            >
-              <motion.path
-                d="M38 48 L 0 0"
-                initial="hidden"
-                animate={animation}
-                variants={pathVariants}
-                custom={0}
-              />
-            </svg>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 100 2"
-              preserveAspectRatio="none"
-              className={classes.svg}
-              style={{
-                height: PATH_SIZE,
-                width: '85%',
-              }}
-            >
-              <motion.path
-                d="M100 0 H 0"
-                initial="hidden"
-                animate={animation}
-                variants={pathVariants}
-                custom={1}
-              />
-            </svg>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 2 100"
-              preserveAspectRatio="none"
-              className={classes.svg}
-              style={{ height: '100%', width: PATH_SIZE }}
-            >
-              <motion.path
-                d="M0 0 V 100"
-                initial="hidden"
-                animate={animation}
-                variants={pathVariants}
-                custom={2}
-              />
-            </svg>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 100 2"
-              preserveAspectRatio="none"
-              className={classes.svg}
-              style={{
-                height: PATH_SIZE,
-                width: '100%',
-                bottom: 0,
-              }}
-            >
-              <motion.path
-                d="M0 0 H 100"
-                initial="hidden"
-                animate={animation}
-                variants={pathVariants}
-                custom={3}
-              />
-            </svg>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 2 100"
-              preserveAspectRatio="none"
-              className={classes.svg}
-              style={{ height: '30%', width: PATH_SIZE, right: 0, bottom: 0 }}
-            >
-              <motion.path
-                d="M0 100 V 0"
-                initial="hidden"
-                animate={animation}
-                variants={pathVariants}
-                custom={4}
-              />
-            </svg>
+            <SVGPaths show={inView} delay={1.5} paths={svgPaths} />
             <div className={classes.kitInfoTextContainer}>
               <Typography
                 variant="body1"
@@ -251,7 +172,7 @@ const Section1: FunctionComponent = () => {
           <Glitch
             show={inView}
             rows={7}
-            delay={2.8}
+            delay={0.5}
             className={classes.hexContainer}
           >
             <Hex className={classes.hex} />
