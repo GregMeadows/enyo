@@ -8,6 +8,7 @@ import useTitle from '../../hooks/useTitle';
 import bannerTextImg from '../../images/banner.text.png';
 import { BREAKPOINT_MOBILE } from '../../assets/consts';
 import Section1 from './section1';
+import Section2 from './section2';
 
 const useStyles = makeStyles(
   (theme: Theme) => ({
@@ -52,6 +53,7 @@ const Homepage: FunctionComponent = () => {
         <img src={bannerTextImg} alt={t('company.tag')} />
       </ImageScroller>
       <Section1 />
+      <Section2 />
     </>
   );
 };

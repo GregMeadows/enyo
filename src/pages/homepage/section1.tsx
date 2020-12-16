@@ -7,7 +7,7 @@ import Glitch from '../../components/onView/Glitch';
 import FadeUp from '../../components/onView/FadeUp';
 import WingedBorder from '../../components/WingedBorder';
 import { isLightMode } from '../../stores/settings';
-import { BREAKPOINT_TABLET } from '../../assets/consts';
+import { BREAKPOINT_LAPTOP, BREAKPOINT_TABLET } from '../../assets/consts';
 import enyoProHomeFrontImg from '../../images/clothing/enyo/pro/home.front.png';
 import enyoProAwayFrontImg from '../../images/clothing/enyo/pro/away.front.png';
 import { ReactComponent as Hex } from '../../images/hex.svg';
@@ -22,7 +22,7 @@ const PATH_SIZE = 4;
 const useStyles = makeStyles(
   (theme: Theme) => ({
     info: {
-      padding: '2rem 0',
+      padding: '5rem 0',
       position: 'relative',
     },
     rotated: {
@@ -39,7 +39,7 @@ const useStyles = makeStyles(
       alignItems: 'center',
     },
     titleContainer: {
-      margin: '2rem 4vw',
+      margin: '1rem 4vw',
     },
     title: {
       lineHeight: '60%',
@@ -66,7 +66,9 @@ const useStyles = makeStyles(
       padding: '50px 6vw 50px 3vw',
     },
     kitInfoText: {
-      fontSize: '1.3rem',
+      [theme.breakpoints.up(BREAKPOINT_LAPTOP)]: {
+        fontSize: '1.3rem',
+      },
     },
     kitItem: {
       paddingTop: '4vh',
@@ -148,7 +150,7 @@ const Section1: FunctionComponent = () => {
     {
       id: '5_vertical',
       direction: PathDirection.VERTICAL,
-      duration: 0.22,
+      duration: 0.3,
       style: { height: '30%', width: PATH_SIZE, right: 0, bottom: 0 },
       reverseAnimation: true,
     },

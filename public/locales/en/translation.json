@@ -56,6 +56,13 @@
           "2": "We collaborate closely with you as a partner to produce marketable products that are unique to your brand, allowing you to diversify your revenue stream, engage with your fans and make your mark in the world of esports."
         },
         "title": "Make Your Mark"
+      },
+      "merch": {
+        "rotated": "Merchadise",
+        "text": {
+          "1": "We understand the value of a strong brand voice in esports. In addition to bespoke jersey design, we will collaborate with you to produce unique, fashion-forward and marketable apparel and accessories for fans and teammembers alike."
+        },
+        "title": "Outfit your Fans"
       }
     },
     "info": {
