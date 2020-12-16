@@ -3,7 +3,11 @@ import { useInView } from 'react-intersection-observer';
 import { Grid, makeStyles, Theme, Typography } from '@material-ui/core';
 import { useTranslation } from 'react-i18next';
 import WingedBorder from '../../components/WingedBorder';
-import { BREAKPOINT_LAPTOP, BREAKPOINT_TABLET } from '../../assets/consts';
+import {
+  BREAKPOINT_LAPTOP,
+  BREAKPOINT_MOBILE,
+  BREAKPOINT_TABLET,
+} from '../../assets/consts';
 import enyoHoodyPurple from '../../images/clothing/enyo/merch/hood.purple.png';
 import SVGPaths, {
   SVGParams,
@@ -44,7 +48,10 @@ const useStyles = makeStyles(
         padding: '4rem 10vw',
       },
       [theme.breakpoints.down(BREAKPOINT_TABLET)]: {
-        padding: '4rem',
+        padding: '3rem 8vw',
+      },
+      [theme.breakpoints.down(BREAKPOINT_MOBILE)]: {
+        padding: '2rem 6vw',
       },
     },
     svgContainer: {
@@ -52,11 +59,18 @@ const useStyles = makeStyles(
     },
     infoContainerInner: {
       padding: '4rem 6vw 3rem 3vw',
+      [theme.breakpoints.down(BREAKPOINT_TABLET)]: {
+        padding: '6vw',
+      },
     },
     infoTextContainer: {
       display: 'flex',
       flexDirection: 'column',
       justifyContent: 'center',
+      [theme.breakpoints.down(BREAKPOINT_TABLET)]: {
+        order: 1,
+        paddingTop: '2rem',
+      },
     },
     infoText: {
       [theme.breakpoints.up(BREAKPOINT_LAPTOP)]: {
@@ -65,6 +79,9 @@ const useStyles = makeStyles(
     },
     imageContainer: {
       textAlign: 'right',
+      [theme.breakpoints.down(BREAKPOINT_TABLET)]: {
+        textAlign: 'center',
+      },
     },
   }),
   {
@@ -141,12 +158,12 @@ const Section2: FunctionComponent = () => {
           <div className={classes.svgContainer}>
             <SVGPaths show={inView} delay={1.5} paths={svgPaths} />
             <Grid container className={classes.infoContainerInner}>
-              <Grid item xs className={classes.infoTextContainer}>
+              <Grid item xs={12} md={6} className={classes.infoTextContainer}>
                 <Typography variant="body1" className={classes.infoText}>
                   {t('pages.homepage.merch.text.1')}
                 </Typography>
               </Grid>
-              <Grid item xs className={classes.imageContainer}>
+              <Grid item xs={12} md={6} className={classes.imageContainer}>
                 <img
                   src={enyoHoodyPurple}
                   alt={t('pages.homepage.kit.front')}
