@@ -45,7 +45,7 @@ const useStyles = makeStyles(
       display: 'block',
       position: 'absolute',
       fill: 'none',
-      stroke: theme.palette.secondary.main,
+      stroke: theme.palette.primary.main,
       strokeWidth: 4,
     },
   }),

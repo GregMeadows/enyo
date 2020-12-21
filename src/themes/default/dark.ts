@@ -10,7 +10,7 @@ const dark = responsiveFontSizes(
           main: '#009696',
         },
         secondary: {
-          main: '#19122E',
+          main: '#412D5D',
         },
         border: {
           light: '#444',

@@ -84,7 +84,7 @@ const useStyles = makeStyles(
     },
     hex: {
       display: 'block',
-      fill: theme.palette.secondary.main,
+      fill: theme.palette.primary.main,
       height: 70,
       width: 70,
     },
@@ -104,7 +104,7 @@ const useStyles = makeStyles(
       },
       '&.lower': {
         bottom: -50,
-        fill: theme.palette.secondary.main,
+        fill: theme.palette.primary.main,
       },
     },
   }),
