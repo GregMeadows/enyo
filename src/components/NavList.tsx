@@ -8,7 +8,6 @@ import {
   Link,
 } from '@material-ui/core';
 import clsx from 'clsx';
-import { observer } from 'mobx-react-lite';
 import { Link as RouterLink } from 'react-router-dom';
 import { LinkedItem } from '../types';
 import WingedBorder from './WingedBorder';
@@ -55,34 +54,36 @@ const useStyles = makeStyles(
   }
 );
 
-const NavList: FunctionComponent<NavListProps> = observer(
-  ({ title, items, className }) => {
-    const classes = useStyles();
+const NavList: FunctionComponent<NavListProps> = ({
+  title,
+  items,
+  className,
+}) => {
+  const classes = useStyles();
 
-    return (
-      <div className={clsx(classes.root, className)}>
-        <Typography variant="h5" className={classes.title}>
-          {title}
-        </Typography>
-        <WingedBorder right direction="up" className={classes.wing} />
-        <List dense>
-          {items.map((item) => (
-            <ListItem key={item.text} className={classes.listItem}>
-              <ListItemText className={classes.listText}>
-                <Link
-                  component={RouterLink}
-                  to={item.link}
-                  className={classes.listLink}
-                >
-                  {item.text}
-                </Link>
-              </ListItemText>
-            </ListItem>
-          ))}
-        </List>
-      </div>
-    );
-  }
-);
+  return (
+    <div className={clsx(classes.root, className)}>
+      <Typography variant="h5" className={classes.title}>
+        {title}
+      </Typography>
+      <WingedBorder right direction="up" className={classes.wing} />
+      <List dense>
+        {items.map((item) => (
+          <ListItem key={item.text} className={classes.listItem}>
+            <ListItemText className={classes.listText}>
+              <Link
+                component={RouterLink}
+                to={item.link}
+                className={classes.listLink}
+              >
+                {item.text}
+              </Link>
+            </ListItemText>
+          </ListItem>
+        ))}
+      </List>
+    </div>
+  );
+};
 
 export default NavList;

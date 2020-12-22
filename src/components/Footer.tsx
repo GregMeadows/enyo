@@ -2,7 +2,6 @@ import React, { FunctionComponent } from 'react';
 import { makeStyles, Theme } from '@material-ui/core/styles';
 import { Typography, Grid } from '@material-ui/core';
 import { useTranslation } from 'react-i18next';
-import { observer } from 'mobx-react-lite';
 import clsx from 'clsx';
 import Logo from './Logo';
 import NavList from './NavList';
@@ -105,7 +104,7 @@ const useStyles = makeStyles(
   }
 );
 
-const Footer: FunctionComponent = observer(() => {
+const Footer: FunctionComponent = () => {
   const classes = useStyles();
   const { t } = useTranslation();
   const company = t('company.long');
@@ -169,6 +168,6 @@ const Footer: FunctionComponent = observer(() => {
       </Grid>
     </footer>
   );
-});
+};
 
 export default Footer;
