@@ -9,10 +9,13 @@ import {
   BREAKPOINT_TABLET,
 } from '../../assets/consts';
 import enyoHoodyPurple from '../../images/clothing/enyo/merch/hood.purple.png';
+import enyoHoodyBlack from '../../images/clothing/enyo/merch/hood.black.png';
+import enyoHoodyWhite from '../../images/clothing/enyo/merch/hood.white.png';
 import SVGPaths, {
   SVGParams,
   PathDirection,
 } from '../../components/onView/SVGPaths';
+import ImageGallery, { ImageProps } from '../../components/ImageGallery';
 
 const PATH_SIZE = 4;
 
@@ -78,10 +81,15 @@ const useStyles = makeStyles(
       },
     },
     imageContainer: {
-      textAlign: 'right',
+      display: 'flex',
+      justifyContent: 'flex-end',
       [theme.breakpoints.down(BREAKPOINT_TABLET)]: {
-        textAlign: 'center',
+        justifyContent: 'center',
       },
+    },
+    images: {
+      height: 456,
+      width: 334,
     },
   }),
   {
@@ -95,6 +103,12 @@ const Section2: FunctionComponent = () => {
   const [viewRef, inView] = useInView({
     threshold: 0.6,
   });
+
+  const images: ImageProps[] = [
+    { src: enyoHoodyBlack, alt: t('pages.homepage.merch.hoody.black') },
+    { src: enyoHoodyWhite, alt: t('pages.homepage.merch.hoody.white') },
+    { src: enyoHoodyPurple, alt: t('pages.homepage.merch.hoody.purple') },
+  ];
 
   const svgPaths: SVGParams[] = [
     {
@@ -164,10 +178,7 @@ const Section2: FunctionComponent = () => {
                 </Typography>
               </Grid>
               <Grid item xs={12} md={6} className={classes.imageContainer}>
-                <img
-                  src={enyoHoodyPurple}
-                  alt={t('pages.homepage.kit.front')}
-                />
+                <ImageGallery images={images} className={classes.images} />
               </Grid>
             </Grid>
           </div>
