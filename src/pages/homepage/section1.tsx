@@ -24,6 +24,7 @@ const useStyles = makeStyles(
     info: {
       padding: '5rem 0',
       position: 'relative',
+      background: theme.palette.background.default,
     },
     rotated: {
       display: 'inline-flex',

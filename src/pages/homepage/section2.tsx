@@ -24,6 +24,7 @@ const useStyles = makeStyles(
     info: {
       padding: '5rem 0',
       position: 'relative',
+      background: theme.palette.background.paper,
     },
     rotated: {
       display: 'inline-flex',
@@ -146,7 +147,7 @@ const Section2: FunctionComponent = () => {
         width: '42%',
         bottom: 'calc(70% + 44px)',
         right: 38,
-        zIndex: -1,
+        zIndex: 0,
       },
       reverseAnimation: true,
     },
