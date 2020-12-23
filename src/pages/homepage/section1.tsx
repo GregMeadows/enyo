@@ -4,7 +4,7 @@ import { Grid, makeStyles, Theme, Typography } from '@material-ui/core';
 import { useTranslation } from 'react-i18next';
 import clsx from 'clsx';
 import Glitch from '../../components/onView/Glitch';
-import FadeUp from '../../components/onView/FadeUp';
+import CenterReveal from '../../components/onView/CenterReveal';
 import WingedBorder from '../../components/WingedBorder';
 import { isLightMode } from '../../stores/settings';
 import { BREAKPOINT_LAPTOP, BREAKPOINT_TABLET } from '../../assets/consts';
@@ -175,10 +175,10 @@ const Section1: FunctionComponent = () => {
         </Grid>
         <Grid item xs={12} md={6} className={classes.kitInfoContainer}>
           <div className={classes.kitInfo}>
-            <FadeUp delay={2.1} show={inView} className={classes.arrows}>
+            <CenterReveal delay={2.3} show={inView} className={classes.arrows}>
               <ArrowSvg className={clsx(classes.arrow, 'upper')} />
               <ArrowSvg className={clsx(classes.arrow, 'lower')} />
-            </FadeUp>
+            </CenterReveal>
             <SVGPaths show={inView} delay={1.5} paths={svgPaths} />
             <div className={classes.kitInfoTextContainer}>
               <Typography
