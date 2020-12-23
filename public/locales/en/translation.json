@@ -26,9 +26,10 @@
   },
   "pages": {
     "about": {
-      "1": "At ENYO (a trading name of Enyo Design LTD.), our conquest is our deep unrelenting commitment to designing and manufacturing the highest quality esports performance wear and merchandise for teams, streamers and individuals, without compromising on comfort, innovation and sustainability.",
-      "2": "We collaborate closely with partners to produce marketable products that are unique to their brand, allowing them to diversify your revenue stream, engage with fans and make their mark in the world of esports.",
-      "title": "Who We Are"
+      "1": "Enyo was established in the summer of 2020. Built on the foundations of our love and passion for Esports and the Esports community. Our aim is to provide the esports community with high end esports performance wear and merchandise; without compromising on comfort. In addition, we endeavour to maintain and promote sustainability within the community while we do this.",
+      "2": "Our mission at Enyo is to bring a bespoke, tailored aspect most commonly found in mainstream kit sponsors to the ever growing esports industry. We want to take the knowledge and experience the team has developed from working within football and rugby to elevate the esports scene. We will achieve this by collaborating closely with with partners to produce marketable products that are unique to their brand.",
+      "3": "Founded by friends based in the East Midlands, England, Enyo is a English brand which predominantly operates from Nottingham and Leicester. However, Enyo is a global business, with clients in mainland Europe and the Americas. Our aim is to provide streamlined worldwide coverage for all the teams we take under our wing.",
+      "title": "Made to Conquer"
     },
     "contact": {
       "form": {
@@ -58,6 +59,11 @@
         "title": "Make Your Mark"
       },
       "merch": {
+        "hoody": {
+          "black": "Enyo black hoody",
+          "purple": "Enyo purple hoody",
+          "white": "Enyo white hoody"
+        },
         "rotated": "Merchadise",
         "text": {
           "1": "We understand the value of a strong brand voice in esports. In addition to bespoke jersey design, we will collaborate with you to produce unique, fashion-forward and marketable apparel and accessories for fans and teammembers alike."

@@ -31,6 +31,9 @@ const About: FunctionComponent = () => {
       <Typography variant="body1" paragraph>
         {t('pages.about.2')}
       </Typography>
+      <Typography variant="body1" paragraph>
+        {t('pages.about.3')}
+      </Typography>
     </Main>
   );
 };
