@@ -2,6 +2,7 @@ import React, { FunctionComponent, useEffect, useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import clsx from 'clsx';
 import { AnimatePresence, motion } from 'framer-motion';
+import { useInView } from 'react-intersection-observer';
 
 export interface ImageProps {
   src: string;
@@ -37,23 +38,36 @@ const ImageGallery: FunctionComponent<ImageGalleryProps> = ({
   className,
 }) => {
   const classes = useStyles();
+  const [viewRef, inView] = useInView({
+    threshold: 0.6,
+  });
   const [imageIndex, setImageIndex] = useState(0);
+  const [intervalState, setIntervalState] = useState<number | null>(null);
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      const length = images.length - 1;
-      setImageIndex((prevIndex) =>
-        prevIndex === length ? prevIndex - length : prevIndex + 1
+    if (!inView && intervalState) {
+      window.clearInterval(intervalState);
+      setIntervalState(null);
+    } else if (inView && !intervalState) {
+      setIntervalState(
+        window.setInterval(() => {
+          const length = images.length - 1;
+          setImageIndex((prevIndex) =>
+            prevIndex === length ? prevIndex - length : prevIndex + 1
+          );
+        }, delay)
       );
-    }, delay);
+    }
+
     return () => {
-      clearInterval(interval);
+      if (intervalState) {
+        window.clearInterval(intervalState);
+      }
     };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [delay, images.length]);
+  }, [delay, images.length, inView, intervalState]);
 
   return (
-    <div className={clsx(classes.root, className)}>
+    <div ref={viewRef} className={clsx(classes.root, className)}>
       <AnimatePresence initial={false}>
         <motion.img
           key={images[imageIndex].src}
