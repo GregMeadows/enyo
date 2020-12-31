@@ -9,6 +9,7 @@ import bannerTextImg from '../../images/banner.text.png';
 import { BREAKPOINT_MOBILE } from '../../assets/consts';
 import Section1 from './section1';
 import Section2 from './section2';
+import Section3 from './section3';
 
 const useStyles = makeStyles(
   (theme: Theme) => ({
@@ -54,6 +55,7 @@ const Homepage: FunctionComponent = () => {
       </ImageScroller>
       <Section1 />
       <Section2 />
+      <Section3 />
     </>
   );
 };

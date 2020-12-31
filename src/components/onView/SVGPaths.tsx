@@ -7,6 +7,7 @@ export enum PathDirection {
   HORIZONTAL = 'HORIZONTAL',
   VERTICAL = 'VERTICAL',
   RIGHT_DOWN = 'RIGHT_DOWN',
+  LEFT_DOWN = 'LEFT_DOWN',
 }
 
 export interface SVGParams {
@@ -25,18 +26,21 @@ const PATH_VIEWBOX: { [key in PathDirection]: string } = {
   HORIZONTAL: '100 2',
   VERTICAL: '2 100',
   RIGHT_DOWN: '40 50',
+  LEFT_DOWN: '40 50',
 };
 
 const PATH_D: { [key in PathDirection]: string } = {
   HORIZONTAL: 'M0 0 H 100',
   VERTICAL: 'M0 0 V 100',
   RIGHT_DOWN: 'M0 0 L 38 48',
+  LEFT_DOWN: 'M40 0 L 2 48',
 };
 
 const PATH_D_REVERSED: { [key in PathDirection]: string } = {
   HORIZONTAL: 'M100 0 H 0',
   VERTICAL: 'M0 100 V 0',
   RIGHT_DOWN: 'M38 48 L 0 0',
+  LEFT_DOWN: 'M2 48 L 40 0',
 };
 
 const useStyles = makeStyles(
