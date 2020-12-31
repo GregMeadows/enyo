@@ -53,10 +53,11 @@
         "front": "Enyo tee front",
         "rotated": "Custom Jerseys",
         "text": {
-          "1": "Our passion is designing and manufacturing unique premium esports performance apparel and merchandise for esports teams, streamers and individuals.",
-          "2": "We collaborate closely with you as a partner to produce marketable products that are unique to your brand, allowing you to diversify your revenue stream, engage with your fans and make your mark in the world of esports."
+          "1": "We believe in making your mark in the world of esports.",
+          "2": "Our main aim is working closely with you to design and manufacture premium esports apparel and merchandise that is truly unique to your esports team, league or brand.",
+          "3": "<contact>Contact us</contact> now to speak to us about bringing your esports team to life!"
         },
-        "title": "Make Your Mark"
+        "title": "Enyo Design"
       },
       "merch": {
         "hoody": {
@@ -66,9 +67,11 @@
         },
         "rotated": "Merchadise",
         "text": {
-          "1": "We understand the value of a strong brand voice in esports. In addition to bespoke jersey design, we will collaborate with you to produce unique, fashion-forward and marketable apparel and accessories for fans and teammembers alike."
+          "1": "We understand the value of a strong brand voice in esports.",
+          "2": "In addition to bespoke jersey design, we will work with you to produce unique, fashionable and marketable apparel and accessories for fans and team members alike.",
+          "3": "<contact>Contact us</contact> to outfit your fans the right way!"
         },
-        "title": "Outfit your Fans"
+        "title": "Fan Merchandise"
       },
       "sustain": {
         "text": {

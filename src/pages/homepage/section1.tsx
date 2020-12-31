@@ -16,6 +16,7 @@ import SVGPaths, {
   PathDirection,
 } from '../../components/onView/SVGPaths';
 import { ReactComponent as ArrowSvg } from '../../images/arrow.svg';
+import ContactLink from '../../components/ContactLink';
 
 const PATH_SIZE = 4;
 
@@ -188,8 +189,15 @@ const Section1: FunctionComponent = () => {
               >
                 {t('pages.homepage.kit.text.1')}
               </Typography>
-              <Typography variant="body1" className={classes.kitInfoText}>
+              <Typography
+                variant="body1"
+                paragraph
+                className={classes.kitInfoText}
+              >
                 {t('pages.homepage.kit.text.2')}
+              </Typography>
+              <Typography variant="body1" className={classes.kitInfoText}>
+                <ContactLink i18nKey="pages.homepage.kit.text.3" />
               </Typography>
             </div>
           </div>

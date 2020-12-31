@@ -16,6 +16,7 @@ import SVGPaths, {
   PathDirection,
 } from '../../components/onView/SVGPaths';
 import ImageGallery, { ImageProps } from '../../components/ImageGallery';
+import ContactLink from '../../components/ContactLink';
 
 const PATH_SIZE = 4;
 
@@ -174,8 +175,22 @@ const Section2: FunctionComponent = () => {
             <SVGPaths show={inView} delay={1.5} paths={svgPaths} />
             <Grid container className={classes.infoContainerInner}>
               <Grid item xs={12} md={6} className={classes.infoTextContainer}>
-                <Typography variant="body1" className={classes.infoText}>
+                <Typography
+                  variant="body1"
+                  paragraph
+                  className={classes.infoText}
+                >
                   {t('pages.homepage.merch.text.1')}
+                </Typography>
+                <Typography
+                  variant="body1"
+                  paragraph
+                  className={classes.infoText}
+                >
+                  {t('pages.homepage.merch.text.2')}
+                </Typography>
+                <Typography variant="body1" className={classes.infoText}>
+                  <ContactLink i18nKey="pages.homepage.merch.text.3" />
                 </Typography>
               </Grid>
               <Grid item xs={12} md={6} className={classes.imageContainer}>
