@@ -15,6 +15,7 @@ import SVGPaths, {
 import { ReactComponent as NetSVG } from '../../images/sustain/net.svg';
 import { ReactComponent as FactorySVG } from '../../images/sustain/factory.svg';
 import { ReactComponent as JerseySVG } from '../../images/sustain/jersey.svg';
+import BottomReveal from '../../components/onView/BottomReveal';
 
 const PATH_SIZE = 4;
 
@@ -99,9 +100,9 @@ const useStyles = makeStyles(
     },
     sustainLine: {
       stroke: theme.palette.primary.main,
-      strokeWidth: 2,
-      height: '8vh',
-      marginTop: '1vh',
+      strokeWidth: 1,
+      height: '7rem',
+      marginTop: '1rem',
       [theme.breakpoints.down(BREAKPOINT_LAPTOP)]: {
         display: 'none',
       },
@@ -181,7 +182,11 @@ const Section3: FunctionComponent = () => {
             <SVGPaths show={inView} delay={1.5} paths={svgPaths} />
             <Grid container>
               <Grid item xs={12} md={6} className={classes.imageContainer}>
-                <div className={classes.sustainIconContainer}>
+                <BottomReveal
+                  delay={3.8}
+                  show={inView}
+                  className={classes.sustainIconContainer}
+                >
                   <NetSVG className={classes.sustainIcons} />
                   <svg
                     viewBox="0 0 2 50"
@@ -190,8 +195,12 @@ const Section3: FunctionComponent = () => {
                   >
                     <line x1="0" y1="0" x2="0" y2="100" />
                   </svg>
-                </div>
-                <div className={classes.sustainIconContainer}>
+                </BottomReveal>
+                <BottomReveal
+                  delay={4.4}
+                  show={inView}
+                  className={classes.sustainIconContainer}
+                >
                   <FactorySVG className={classes.sustainIcons} />
                   <svg
                     viewBox="0 0 2 50"
@@ -200,8 +209,12 @@ const Section3: FunctionComponent = () => {
                   >
                     <line x1="0" y1="0" x2="0" y2="100" />
                   </svg>
-                </div>
-                <div className={classes.sustainIconContainer}>
+                </BottomReveal>
+                <BottomReveal
+                  delay={5}
+                  show={inView}
+                  className={classes.sustainIconContainer}
+                >
                   <JerseySVG className={classes.sustainIcons} />
                   <svg
                     viewBox="0 0 2 50"
@@ -210,7 +223,7 @@ const Section3: FunctionComponent = () => {
                   >
                     <line x1="0" y1="0" x2="0" y2="100" />
                   </svg>
-                </div>
+                </BottomReveal>
               </Grid>
               <Grid item xs={12} md={6} className={classes.infoTextContainer}>
                 <Typography
