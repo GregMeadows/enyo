@@ -1,7 +1,7 @@
 import React, { FunctionComponent } from 'react';
 import { useInView } from 'react-intersection-observer';
 import { Grid, makeStyles, Theme, Typography } from '@material-ui/core';
-import { useTranslation } from 'react-i18next';
+import { Trans, useTranslation } from 'react-i18next';
 import clsx from 'clsx';
 import Glitch from '../../components/onView/Glitch';
 import CenterReveal from '../../components/onView/CenterReveal';
@@ -16,7 +16,8 @@ import SVGPaths, {
   PathDirection,
 } from '../../components/onView/SVGPaths';
 import { ReactComponent as ArrowSvg } from '../../images/arrow.svg';
-import ContactLink from '../../components/ContactLink';
+import RotatedGridText from '../../components/RotatedGridText';
+import { TRANS_COMPONENTS } from '../../components/shared';
 
 const PATH_SIZE = 4;
 
@@ -26,19 +27,6 @@ const useStyles = makeStyles(
       padding: '5rem 0',
       position: 'relative',
       background: theme.palette.background.default,
-    },
-    rotated: {
-      display: 'inline-flex',
-      alignItems: 'baseline',
-      textTransform: 'uppercase',
-      transform: 'rotate(-90deg) translate(-50%, 20%)',
-      transformOrigin: '0 0',
-      position: 'absolute',
-      left: 0,
-    },
-    rotatedContainer: {
-      display: 'flex',
-      alignItems: 'center',
     },
     titleContainer: {
       margin: '1rem 4vw',
@@ -167,13 +155,7 @@ const Section1: FunctionComponent = () => {
       </Glitch>
       <WingedBorder right direction="down" length={85} />
       <Grid container>
-        <Grid item className={classes.rotatedContainer}>
-          <div className={classes.rotated}>
-            <Typography variant="subtitle1">
-              {t('pages.homepage.kit.rotated')}
-            </Typography>
-          </div>
-        </Grid>
+        <RotatedGridText>{t('pages.homepage.kit.rotated')}</RotatedGridText>
         <Grid item xs={12} md={6} className={classes.kitInfoContainer}>
           <div className={classes.kitInfo}>
             <CenterReveal delay={2.3} show={inView} className={classes.arrows}>
@@ -197,7 +179,10 @@ const Section1: FunctionComponent = () => {
                 {t('pages.homepage.kit.text.2')}
               </Typography>
               <Typography variant="body1" className={classes.kitInfoText}>
-                <ContactLink i18nKey="pages.homepage.kit.text.3" />
+                <Trans
+                  i18nKey="pages.homepage.kit.text.3"
+                  components={TRANS_COMPONENTS}
+                />
               </Typography>
             </div>
           </div>

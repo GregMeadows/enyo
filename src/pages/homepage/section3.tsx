@@ -16,6 +16,7 @@ import { ReactComponent as NetSVG } from '../../images/sustain/net.svg';
 import { ReactComponent as FactorySVG } from '../../images/sustain/factory.svg';
 import { ReactComponent as JerseySVG } from '../../images/sustain/jersey.svg';
 import BottomReveal from '../../components/onView/BottomReveal';
+import RotatedGridText from '../../components/RotatedGridText';
 
 const PATH_SIZE = 4;
 
@@ -25,19 +26,6 @@ const useStyles = makeStyles(
       padding: '5rem 0',
       position: 'relative',
       background: theme.palette.background.default,
-    },
-    rotated: {
-      display: 'inline-flex',
-      alignItems: 'baseline',
-      textTransform: 'uppercase',
-      transform: 'rotate(-90deg) translate(-50%, 20%)',
-      transformOrigin: '0 0',
-      position: 'absolute',
-      left: 0,
-    },
-    rotatedContainer: {
-      display: 'flex',
-      alignItems: 'center',
     },
     titleContainer: {
       margin: '1rem 4vw',
@@ -170,13 +158,7 @@ const Section3: FunctionComponent = () => {
       </div>
       <WingedBorder right direction="down" length={50} />
       <Grid container>
-        <Grid item className={classes.rotatedContainer}>
-          <div className={classes.rotated}>
-            <Typography variant="subtitle1">
-              {t('pages.homepage.merch.rotated')}
-            </Typography>
-          </div>
-        </Grid>
+        <RotatedGridText>{t('pages.homepage.sustain.rotated')}</RotatedGridText>
         <Grid item xs className={classes.infoContainer}>
           <div className={classes.svgContainer}>
             <SVGPaths show={inView} delay={1.5} paths={svgPaths} />

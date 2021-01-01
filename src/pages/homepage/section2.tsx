@@ -1,7 +1,7 @@
 import React, { FunctionComponent } from 'react';
 import { useInView } from 'react-intersection-observer';
 import { Grid, makeStyles, Theme, Typography } from '@material-ui/core';
-import { useTranslation } from 'react-i18next';
+import { Trans, useTranslation } from 'react-i18next';
 import WingedBorder from '../../components/WingedBorder';
 import {
   BREAKPOINT_LAPTOP,
@@ -16,7 +16,8 @@ import SVGPaths, {
   PathDirection,
 } from '../../components/onView/SVGPaths';
 import ImageGallery, { ImageProps } from '../../components/ImageGallery';
-import ContactLink from '../../components/ContactLink';
+import RotatedGridText from '../../components/RotatedGridText';
+import { TRANS_COMPONENTS } from '../../components/shared';
 
 const PATH_SIZE = 4;
 
@@ -26,19 +27,6 @@ const useStyles = makeStyles(
       padding: '5rem 0',
       position: 'relative',
       background: theme.palette.background.paper,
-    },
-    rotated: {
-      display: 'inline-flex',
-      alignItems: 'baseline',
-      textTransform: 'uppercase',
-      transform: 'rotate(-90deg) translate(-50%, 20%)',
-      transformOrigin: '0 0',
-      position: 'absolute',
-      left: 0,
-    },
-    rotatedContainer: {
-      display: 'flex',
-      alignItems: 'center',
     },
     titleContainer: {
       textAlign: 'right',
@@ -163,13 +151,7 @@ const Section2: FunctionComponent = () => {
       </div>
       <WingedBorder left direction="up" length={80} />
       <Grid container>
-        <Grid item className={classes.rotatedContainer}>
-          <div className={classes.rotated}>
-            <Typography variant="subtitle1">
-              {t('pages.homepage.merch.rotated')}
-            </Typography>
-          </div>
-        </Grid>
+        <RotatedGridText>{t('pages.homepage.merch.rotated')}</RotatedGridText>
         <Grid item xs className={classes.infoContainer}>
           <div className={classes.svgContainer}>
             <SVGPaths show={inView} delay={1.5} paths={svgPaths} />
@@ -190,7 +172,10 @@ const Section2: FunctionComponent = () => {
                   {t('pages.homepage.merch.text.2')}
                 </Typography>
                 <Typography variant="body1" className={classes.infoText}>
-                  <ContactLink i18nKey="pages.homepage.merch.text.3" />
+                  <Trans
+                    i18nKey="pages.homepage.merch.text.3"
+                    components={TRANS_COMPONENTS}
+                  />
                 </Typography>
               </Grid>
               <Grid item xs={12} md={6} className={classes.imageContainer}>
