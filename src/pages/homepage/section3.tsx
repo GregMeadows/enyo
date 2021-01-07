@@ -75,6 +75,7 @@ const useStyles = makeStyles(
       flexDirection: 'column',
     },
     sustainIcons: {
+      fill: theme.palette.text.primary,
       width: '6.5rem',
       height: '6.5rem',
       [theme.breakpoints.down(BREAKPOINT_TABLET)]: {
