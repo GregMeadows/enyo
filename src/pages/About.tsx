@@ -5,7 +5,11 @@ import { useTranslation } from 'react-i18next';
 import enyoColor from '../images/enyo.color.png';
 import WingedBorder from '../components/WingedBorder';
 import Socials from '../components/Socials';
-import { BREAKPOINT_TABLET } from '../assets/consts';
+import {
+  BREAKPOINT_LAPTOP,
+  BREAKPOINT_MOBILE,
+  BREAKPOINT_TABLET,
+} from '../assets/consts';
 
 const useStyles = makeStyles(
   (theme: Theme) => ({
@@ -16,17 +20,37 @@ const useStyles = makeStyles(
       margin: '4rem 40vw 2rem 5vw',
       marginBottom: '12rem',
       background: fade(theme.palette.background.default, 0.6),
+      [theme.breakpoints.down(BREAKPOINT_LAPTOP)]: {
+        margin: '3rem 4vw',
+      },
     },
     title: {
       marginTop: '2rem',
       marginBottom: '2rem',
     },
     imageContainer: {
+      [theme.breakpoints.down(BREAKPOINT_LAPTOP)]: {
+        textAlign: 'center',
+      },
+    },
+    image: {
       position: 'absolute',
       zIndex: -1,
-      bottom: 3,
+      bottom: 8,
       right: -120,
-      width: '60vw',
+      width: '72rem',
+      [theme.breakpoints.down(BREAKPOINT_LAPTOP)]: {
+        bottom: -10,
+        right: -50,
+        position: 'relative',
+        width: '48rem',
+      },
+      [theme.breakpoints.down(BREAKPOINT_TABLET)]: {
+        width: '36rem',
+      },
+      [theme.breakpoints.down(BREAKPOINT_MOBILE)]: {
+        width: '28rem',
+      },
     },
     socials: {
       marginTop: '8rem',
@@ -83,9 +107,13 @@ const About: FunctionComponent = () => {
           </Typography>
         </div>
         <div className={classes.imageContainer}>
-          <img src={enyoColor} alt={t('company.name')} />
+          <img
+            src={enyoColor}
+            alt={t('company.name')}
+            className={classes.image}
+          />
         </div>
-        <WingedBorder left direction="down" length={70} />
+        <WingedBorder left direction="down" length={80} />
       </div>
       <div className={classes.socials}>
         <Typography variant="h1" className={classes.title}>
