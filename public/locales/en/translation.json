@@ -22,7 +22,8 @@
     "main": {
       "about": "Who We Are",
       "contact": "Get In Touch"
-    }
+    },
+    "top": "Scroll to top of page"
   },
   "pages": {
     "about": {

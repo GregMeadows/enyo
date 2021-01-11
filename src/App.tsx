@@ -21,8 +21,8 @@ const App: FunctionComponent = observer(() => {
     <ThemeProvider theme={getTheme()}>
       <CssBaseline />
       <BrowserRouter>
-        <ScrollToTop />
         <Suspense fallback={<Loading />}>
+          <ScrollToTop />
           <Layout>
             <ElevatedAppBar />
             <Switch>
