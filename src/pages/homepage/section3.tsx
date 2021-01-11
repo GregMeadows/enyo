@@ -166,7 +166,7 @@ const Section3: FunctionComponent = () => {
             <Grid container>
               <Grid item xs={12} md={6} className={classes.imageContainer}>
                 <BottomReveal
-                  delay={3.8}
+                  delay={3.4}
                   show={inView}
                   className={classes.sustainIconContainer}
                 >
@@ -180,7 +180,7 @@ const Section3: FunctionComponent = () => {
                   </svg>
                 </BottomReveal>
                 <BottomReveal
-                  delay={4.4}
+                  delay={3.6}
                   show={inView}
                   className={classes.sustainIconContainer}
                 >
@@ -194,7 +194,7 @@ const Section3: FunctionComponent = () => {
                   </svg>
                 </BottomReveal>
                 <BottomReveal
-                  delay={5}
+                  delay={3.8}
                   show={inView}
                   className={classes.sustainIconContainer}
                 >
