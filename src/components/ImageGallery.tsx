@@ -34,7 +34,7 @@ const useStyles = makeStyles(
 
 const ImageGallery: FunctionComponent<ImageGalleryProps> = ({
   images,
-  delay = 4000,
+  delay = 3000,
   className,
 }) => {
   const classes = useStyles();
