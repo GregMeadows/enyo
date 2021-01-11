@@ -1,6 +1,11 @@
 import { ThemeOptions } from '@material-ui/core/styles';
 
 const root: ThemeOptions = {
+  props: {
+    MuiLink: {
+      underline: 'always',
+    },
+  },
   typography: {
     h1: {
       fontFamily: [
