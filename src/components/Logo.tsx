@@ -5,9 +5,12 @@ import clsx from 'clsx';
 import { ReactComponent as LogoIconSvg } from '../images/logo/icon.svg';
 import { ReactComponent as LogoTextSvg } from '../images/logo/text.svg';
 import { ReactComponent as LogoFullSvg } from '../images/logo/full.svg';
+import { ReactComponent as LogoBlockSvg } from '../images/logo/block.svg';
+import { BREAKPOINT_MOBILE } from '../assets/consts';
 
-interface LogoType {
-  type?: 'icon' | 'text' | 'full';
+interface LogoProps {
+  type?: 'icon' | 'text' | 'full' | 'block';
+  size?: 'small' | 'medium' | 'large';
 }
 
 const useStyles = makeStyles(
@@ -15,7 +18,6 @@ const useStyles = makeStyles(
     svg: {
       transition: 'height 0.5s ease',
       userSelect: 'none',
-      maxHeight: 280,
     },
     container: {
       color: theme.palette.text.primary,
@@ -24,14 +26,27 @@ const useStyles = makeStyles(
     },
     icon: {
       height: theme.spacing(6),
+      [theme.breakpoints.down(BREAKPOINT_MOBILE)]: {
+        height: theme.spacing(5),
+      },
+      '&.large': {
+        height: '8vw',
+      },
     },
     text: {
-      height: '12vw',
-      minHeight: 160,
+      height: '5vw',
+      maxHeight: '3rem',
+      minHeight: '2.6rem',
     },
     full: {
-      height: '12vw',
-      minHeight: 140,
+      height: '6vw',
+      maxHeight: '6rem',
+      minHeight: '4rem',
+    },
+    block: {
+      height: '5vw',
+      maxHeight: '5rem',
+      minHeight: '3rem',
     },
   }),
   {
@@ -44,7 +59,7 @@ const useStyles = makeStyles(
  *
  * @param type The type of logo desired.
  */
-const Logo: FunctionComponent<LogoType> = ({ type }) => {
+const Logo: FunctionComponent<LogoProps> = ({ type, size }) => {
   const classes = useStyles();
   const { pathname } = useLocation();
   const isHomepage = pathname === '/';
@@ -52,16 +67,22 @@ const Logo: FunctionComponent<LogoType> = ({ type }) => {
   let logo;
   switch (type) {
     case 'text': {
-      logo = <LogoTextSvg className={clsx(classes.svg, classes.text)} />;
+      logo = <LogoTextSvg className={clsx(classes.svg, classes.text, size)} />;
       break;
     }
     case 'full': {
-      logo = <LogoFullSvg className={clsx(classes.svg, classes.full)} />;
+      logo = <LogoFullSvg className={clsx(classes.svg, classes.full, size)} />;
+      break;
+    }
+    case 'block': {
+      logo = (
+        <LogoBlockSvg className={clsx(classes.svg, classes.block, size)} />
+      );
       break;
     }
     case 'icon':
     default: {
-      logo = <LogoIconSvg className={clsx(classes.svg, classes.icon)} />;
+      logo = <LogoIconSvg className={clsx(classes.svg, classes.icon, size)} />;
       break;
     }
   }

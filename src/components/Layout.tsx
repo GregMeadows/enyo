@@ -1,16 +1,13 @@
 import React, { FunctionComponent } from 'react';
-import { makeStyles, Theme } from '@material-ui/core/styles';
+import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles(
-  (theme: Theme) => ({
+  () => ({
     root: {
-      background: theme.palette.background.default,
       width: '100%',
       overflowX: 'hidden',
       minHeight: '100%',
-      marginTop: 0,
-      marginBottom: 300,
-      paddingBottom: '8rem',
+      paddingBottom: '6rem',
     },
   }),
   {

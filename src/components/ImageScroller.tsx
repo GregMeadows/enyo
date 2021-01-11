@@ -3,15 +3,21 @@ import { makeStyles } from '@material-ui/core/styles';
 import clsx from 'clsx';
 import checkIfInView from '../assets/Utils';
 
-interface ImageScrollerType {
+interface ImageScrollerProps {
   image: string;
-  offset?: number;
+  offsetX?: number;
+  offsetY?: number;
   className?: string;
+  classes?: {
+    foreground?: string;
+  };
+  invert?: boolean;
 }
 
 interface StyleProps {
   image: string;
-  offset?: number;
+  offsetX: number;
+  offsetY: number;
 }
 
 const useStyles = makeStyles(
@@ -19,11 +25,15 @@ const useStyles = makeStyles(
     background: {
       height: '100%',
       width: '100%',
-      backgroundSize: '100% auto',
       backgroundRepeat: 'no-repeat',
       overflow: 'hidden',
       backgroundImage: (props: StyleProps) => `url(${props.image})`,
-      backgroundPositionY: (props: StyleProps) => props.offset,
+      backgroundPositionY: (props: StyleProps) => props.offsetY,
+      backgroundPositionX: (props: StyleProps) => `${props.offsetX}%`,
+      transition: 'background-position 0.2s ease-out',
+    },
+    foreground: {
+      transition: 'margin 0.2s ease-out',
     },
   }),
   {
@@ -31,18 +41,21 @@ const useStyles = makeStyles(
   }
 );
 
-const ImageScroller: FunctionComponent<ImageScrollerType> = ({
+const ImageScroller: FunctionComponent<ImageScrollerProps> = ({
   image,
-  offset,
+  offsetY = -50,
+  offsetX = 50,
   className,
   children,
+  classes,
+  invert,
 }) => {
-  const startingOffset = offset || -50;
   const styleProps: StyleProps = {
     image,
-    offset: startingOffset,
+    offsetY,
+    offsetX,
   };
-  const classes = useStyles(styleProps);
+  const classesInternal = useStyles(styleProps);
   const backgroundRef = useRef<HTMLDivElement>(null);
   const foregroundRef = useRef<HTMLDivElement>(null);
 
@@ -52,12 +65,12 @@ const ImageScroller: FunctionComponent<ImageScrollerType> = ({
         // Only animate if image is on screen
         if (checkIfInView(backgroundRef)) {
           backgroundRef.current.style.backgroundPositionY = `${
-            startingOffset + Math.round(window.pageYOffset / 6)
+            offsetY + (window.pageYOffset * (invert ? 1 : -1)) / 10
           }px`;
           if (foregroundRef.current) {
-            foregroundRef.current.style.marginTop = `${Math.round(
-              window.pageYOffset / 2
-            )}px`;
+            foregroundRef.current.style.marginTop = `${
+              (window.pageYOffset * (invert ? -1 : 1)) / 5
+            }px`;
           }
         }
       }
@@ -67,11 +80,21 @@ const ImageScroller: FunctionComponent<ImageScrollerType> = ({
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
-  }, [startingOffset]);
+  }, [invert, offsetY]);
 
   return (
-    <div ref={backgroundRef} className={clsx(classes.background, className)}>
-      {children && <div ref={foregroundRef}>{children}</div>}
+    <div
+      ref={backgroundRef}
+      className={clsx(classesInternal.background, className)}
+    >
+      {children && (
+        <div
+          ref={foregroundRef}
+          className={clsx(classesInternal.foreground, classes?.foreground)}
+        >
+          {children}
+        </div>
+      )}
     </div>
   );
 };

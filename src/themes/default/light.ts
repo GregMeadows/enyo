@@ -1,20 +1,32 @@
-import { createMuiTheme } from '@material-ui/core/styles';
+import { createMuiTheme, responsiveFontSizes } from '@material-ui/core/styles';
 import root from '../root';
 
-const light = createMuiTheme(
-  {
-    palette: {
-      type: 'light',
-      primary: {
-        main: '#401763',
-      },
-      border: {
-        light: '#eee',
-        dark: '#444',
+const light = responsiveFontSizes(
+  createMuiTheme(
+    {
+      palette: {
+        type: 'light',
+        primary: {
+          main: '#412D5D',
+        },
+        secondary: {
+          main: '#009696',
+        },
+        background: {
+          paper: '#ddd',
+        },
+        border: {
+          light: '#eee',
+          main: '#ccc',
+          dark: '#444',
+        },
+        text: {
+          primary: '#000',
+        },
       },
     },
-  },
-  root
+    root
+  )
 );
 
 export default light;

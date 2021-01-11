@@ -1,49 +1,105 @@
 {
   "company": {
     "info": "Company No. 12918773",
-    "long": "Enyo Design Ltd"
+    "long": "Enyo Design Ltd",
+    "name": "Enyo",
+    "tag": "Made to Conquer"
   },
   "copyright": "Copyright © {{year}}. {{company}}.",
-  "homepage": {
-    "header": "TeaCF range now out!"
-  },
   "nav": {
     "about": {
-      "about": "About Us",
-      "access": "Accessibility",
+      "about": "Who We Are",
       "privacy": "Privacy",
       "terms": "Terms",
-      "title": "About Us"
+      "title": "About"
     },
     "help": {
-      "contact": "Contact Us",
+      "contact": "Get In Touch",
       "delivery": "Delivery & Returns",
-      "faqs": "FAQs",
-      "help": "Help",
+      "faq": "FAQ",
       "title": "Help"
     },
     "main": {
-      "about": "About Us",
-      "create": "Create",
-      "games": "Games",
-      "kits": "Kits",
-      "leagues": "Leagues"
+      "about": "Who We Are",
+      "contact": "Get In Touch"
     },
-    "social": {
-      "insta": "Instagram",
-      "title": "Find Us",
-      "twitch": "Twitch",
-      "twitter": "Twitter"
-    }
+    "top": "Scroll to top of page"
   },
   "pages": {
-    "landing": {
-      "about": {
-        "1": "ENYO (a trading name of ENYO Design LTD.) was created to bring a new level of performance to esports apparel.",
-        "2": "Our passion is designing and manufacturing premium esports performance apparel and merchandise for esports teams, streamers and individuals.",
-        "3": "Enyo (Ancient Greek: Ἐνυώ Enȳō) was a goddess of conquest in Greek mythology. At ENYO, our conquest is our deep unrelenting commitment to creating the highest quality esports performance wear, without compromising on comfort, innovation and sustainability."
+    "about": {
+      "1": "Enyo was established in the summer of 2020. Built on the foundations of our love and passion for Esports and the Esports community. Our aim is to provide the esports community with high end esports performance wear and merchandise; without compromising on comfort. In addition, we endeavour to maintain and promote sustainability within the community while we do this.",
+      "2": "Our mission at Enyo is to bring a bespoke, tailored aspect most commonly found in mainstream kit sponsors to the ever growing esports industry. We want to take the knowledge and experience the team has developed from working within football and rugby to elevate the esports scene. We will achieve this by collaborating closely with with partners to produce marketable products that are unique to their brand.",
+      "3": "Founded by friends based in the East Midlands, England, Enyo is a English brand which predominantly operates from Nottingham and Leicester. However, Enyo is a global business, with clients in mainland Europe and the Americas. Our aim is to provide streamlined worldwide coverage for all the teams we take under our wing.",
+      "socials": "Find Us",
+      "title": "Made to Conquer"
+    },
+    "contact": {
+      "form": {
+        "default": "Get in touch with us by filling our the form below. We'll get back to you as soon as possible!",
+        "error": "There was an issue sending your message.",
+        "honey": "Could not verify request.",
+        "reason": "Reason:",
+        "sent": "Message Sent!",
+        "thanks": "Thanks for the message! We'll get back to you shortly."
       },
-      "coming": "Coming Soon..."
+      "labels": {
+        "email": "Email",
+        "message": "Your Message",
+        "name": "Name"
+      },
+      "send": "Send Message",
+      "title": "Contact Us"
+    },
+    "homepage": {
+      "kit": {
+        "front": "Enyo tee front",
+        "rotated": "Custom Jerseys",
+        "text": {
+          "1": "We believe in making your mark in the world of esports.",
+          "2": "Our main aim is working closely with you to design and manufacture premium esports apparel and merchandise that is truly unique to your esports team, league or brand.",
+          "3": "<contact>Contact us</contact> now to speak to us about bringing your esports team to life!"
+        },
+        "title": "Enyo Design"
+      },
+      "merch": {
+        "hoody": {
+          "black": "Enyo black hoody",
+          "purple": "Enyo purple hoody",
+          "white": "Enyo white hoody"
+        },
+        "rotated": "Merchandise",
+        "text": {
+          "1": "We understand the value of a strong brand voice in esports.",
+          "2": "In addition to bespoke jersey design, we will work with you to produce unique, fashionable and marketable apparel and accessories for fans and team members alike.",
+          "3": "<contact>Contact us</contact> to outfit your fans the right way!"
+        },
+        "title": "Fan Merchandise"
+      },
+      "sustain": {
+        "rotated": "Recycled",
+        "text": {
+          "1": "We recognise the importance of sustainability within fashion and sportswear and are committed to the responsible production of everything we make.",
+          "2": "We aim to source all of our production - from fabrics to labels - as close to the UK as possible to minimise our carbon footprint.",
+          "3": "We also actively work with our suppliers to ensure our garments are made from part or fully recycled materials, where we can."
+        },
+        "title": "Sustainability"
+      }
+    },
+    "info": {
+      "error": "There doesn't seem to be any content here.",
+      "faq": {
+        "title": "Frequently Asked Questions"
+      },
+      "privacy": {
+        "title": "Privacy Policy"
+      },
+      "shipping": {
+        "title": "Delivery and Returns"
+      },
+      "terms": {
+        "title": "Terms of Service"
+      },
+      "updated": "Last Updated:"
     }
   },
   "theme": {

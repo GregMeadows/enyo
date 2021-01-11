@@ -36,7 +36,7 @@
     "react-hooks/rules-of-hooks": "error",
     "react-hooks/exhaustive-deps": "warn",
     "i18next/no-literal-string": [
-      "error",
+      "warn",
       {
         "markupOnly": true,
         "ignoreAttribute": [
@@ -52,7 +52,16 @@
           "variant",
           "fontSize",
           "position",
-          "wrap"
+          "wrap",
+          "path",
+          "key",
+          "md",
+          "sm",
+          "name",
+          "severity",
+          "initial",
+          "d",
+          "i18nKey"
         ]
       }
     ],
@@ -61,7 +70,14 @@
       {
         "patterns": ["@material-ui/*/*/*", "!@material-ui/core/test-utils/*"]
       }
-    ]
+    ],
+    "no-use-before-define": "off",
+    "@typescript-eslint/no-use-before-define": ["error"],
+    "no-undef": "off",
+    "no-shadow": "off",
+    "@typescript-eslint/no-shadow": "error",
+    "no-unused-vars": "off",
+    "no-plusplus": ["error", { "allowForLoopAfterthoughts": true }]
   },
   "settings": {
     "import/resolver": {

@@ -9,12 +9,13 @@ import {
   Tooltip,
   useScrollTrigger,
 } from '@material-ui/core';
-import { makeStyles, Theme } from '@material-ui/core/styles';
+import { fade, makeStyles, Theme } from '@material-ui/core/styles';
 import { useTranslation } from 'react-i18next';
 import Brightness4Icon from '@material-ui/icons/Brightness4';
 import TranslateIcon from '@material-ui/icons/Translate';
 import { isLightMode, switchThemeType } from '../stores/settings';
 import Logo from './Logo';
+import MainNav from './MainNav';
 
 interface ElevationScrollProps {
   children: React.ReactElement;
@@ -23,7 +24,7 @@ interface ElevationScrollProps {
 const useStyles = makeStyles(
   (theme: Theme) => ({
     root: {
-      background: theme.palette.background.default,
+      background: fade(theme.palette.background.default, 0.98),
       borderBottom: `1px solid ${theme.palette.border.light}`,
     },
     logo: {
@@ -37,6 +38,9 @@ const useStyles = makeStyles(
     divider: {
       marginTop: theme.spacing(1),
       marginBottom: theme.spacing(1),
+    },
+    background: {
+      background: theme.palette.background.default,
     },
   }),
   {
@@ -75,6 +79,7 @@ export default function ElevatedAppBar(): JSX.Element {
         <AppBar color="transparent" className={classes.root}>
           <Toolbar>
             <Logo />
+            <MainNav />
             <div className={classes.spacer} />
             <Tooltip title={translateLabel}>
               <IconButton
@@ -113,7 +118,7 @@ export default function ElevatedAppBar(): JSX.Element {
           </Toolbar>
         </AppBar>
       </ElevationScroll>
-      <Toolbar />
+      <Toolbar className={classes.background} />
     </>
   );
 }

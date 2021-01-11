@@ -5,35 +5,38 @@ import clsx from 'clsx';
 const WING_SIZE = 15;
 
 interface StyleProps {
-  reverseRow: boolean;
   alignTop: boolean;
+  length: number;
+  left: boolean;
+  right: boolean;
 }
 
-interface WingedBorderType {
-  position: 'left' | 'right';
+interface WingedBorderProps {
   direction: 'up' | 'down';
+  left?: boolean;
+  right?: boolean;
   className?: string;
+  length?: number;
 }
 
 const useStyles = makeStyles(
   (theme: Theme) => ({
     root: {
       display: 'flex',
-      flexDirection: (props: StyleProps) =>
-        props.reverseRow ? 'row-reverse' : 'row',
-      paddingRight: (props: StyleProps) => (props.reverseRow ? 0 : '2%'),
-      paddingLeft: (props: StyleProps) => (props.reverseRow ? '2%' : 0),
+      paddingRight: (props: StyleProps) =>
+        props.right ? `${props.length}%` : 0,
+      paddingLeft: (props: StyleProps) => (props.left ? `${props.length}%` : 0),
       alignItems: (props: StyleProps) =>
         props.alignTop ? 'flex-start' : 'flex-end',
     },
     line: {
       height: 2,
       flexGrow: 1,
-      background: theme.palette.border.dark,
+      background: theme.palette.border.main,
     },
     wing: {
       strokeWidth: 2,
-      stroke: theme.palette.border.dark,
+      stroke: theme.palette.border.main,
     },
   }),
   {
@@ -41,37 +44,56 @@ const useStyles = makeStyles(
   }
 );
 
-const WingedBorder: FunctionComponent<WingedBorderType> = ({
-  position,
+const WingedBorder: FunctionComponent<WingedBorderProps> = ({
   direction,
+  left = false,
+  right = false,
   className,
+  length = 98,
 }) => {
-  const leftSide = position === 'left';
   const wingDown = direction === 'down';
   const styleProps: StyleProps = {
-    reverseRow: leftSide,
     alignTop: wingDown,
+    length: 100 - length,
+    left,
+    right,
   };
   const classes = useStyles(styleProps);
 
-  let y1;
-  let y2;
-  if ((wingDown && !leftSide) || (!wingDown && leftSide)) {
+  // Wing diagonal up
+  let wingStart = WING_SIZE;
+  let wingEnd = 0;
+  if (wingDown) {
     // Wing diagonal down
-    y1 = 0;
-    y2 = WING_SIZE;
-  } else {
-    // Wing diagonal up
-    y1 = WING_SIZE;
-    y2 = 0;
+    wingStart = 0;
+    wingEnd = WING_SIZE;
   }
 
   return (
     <div className={clsx(classes.root, className)}>
+      {left && (
+        <svg height={WING_SIZE} width={WING_SIZE}>
+          <line
+            x1={0}
+            y1={wingEnd}
+            x2={WING_SIZE}
+            y2={wingStart}
+            className={classes.wing}
+          />
+        </svg>
+      )}
       <div className={classes.line} />
-      <svg height={WING_SIZE} width={WING_SIZE}>
-        <line x1={0} y1={y1} x2={WING_SIZE} y2={y2} className={classes.wing} />
-      </svg>
+      {right && (
+        <svg height={WING_SIZE} width={WING_SIZE}>
+          <line
+            x1={0}
+            y1={wingStart}
+            x2={WING_SIZE}
+            y2={wingEnd}
+            className={classes.wing}
+          />
+        </svg>
+      )}
     </div>
   );
 };
