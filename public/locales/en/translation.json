@@ -6,7 +6,6 @@
     "tag": "Made to Conquer"
   },
   "copyright": "Copyright © {{year}}. {{company}}.",
-  "i18nKey": "",
   "nav": {
     "about": {
       "about": "Who We Are",
@@ -30,6 +29,7 @@
       "1": "Enyo was established in the summer of 2020. Built on the foundations of our love and passion for Esports and the Esports community. Our aim is to provide the esports community with high end esports performance wear and merchandise; without compromising on comfort. In addition, we endeavour to maintain and promote sustainability within the community while we do this.",
       "2": "Our mission at Enyo is to bring a bespoke, tailored aspect most commonly found in mainstream kit sponsors to the ever growing esports industry. We want to take the knowledge and experience the team has developed from working within football and rugby to elevate the esports scene. We will achieve this by collaborating closely with with partners to produce marketable products that are unique to their brand.",
       "3": "Founded by friends based in the East Midlands, England, Enyo is a English brand which predominantly operates from Nottingham and Leicester. However, Enyo is a global business, with clients in mainland Europe and the Americas. Our aim is to provide streamlined worldwide coverage for all the teams we take under our wing.",
+      "socials": "Find Us",
       "title": "Made to Conquer"
     },
     "contact": {
