@@ -4,7 +4,7 @@ import en from './privacy_en.md';
 const privacy: InfoPage = {
   // t('pages.info.privacy.title')
   title: 'pages.info.privacy.title',
-  updated: new Date(2020, 11, 25),
+  updated: new Date(2021, 0, 16),
   translations: {
     en,
   },
