@@ -39,7 +39,7 @@ const root: ThemeOptions = {
       fontSize: '1rem',
     },
     body1: {
-      fontSize: '1.1rem',
+      fontSize: '1.09rem',
     },
     body2: {
       fontSize: '1rem',

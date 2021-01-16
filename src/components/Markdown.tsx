@@ -3,6 +3,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import ReactMarkdown from 'markdown-to-jsx';
 import { Typography } from '@material-ui/core';
 import MarkdownLink from './MarkdownLink';
+import Expand from './Expand';
 
 interface MarkdownProps {
   children: string;
@@ -47,6 +48,7 @@ const Markdown: FunctionComponent<MarkdownProps> = (props) => {
       },
       p: { component: Typography, props: { paragraph: true } },
       a: { component: MarkdownLink },
+      Expand: { component: Expand },
     },
   };
 
