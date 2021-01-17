@@ -155,7 +155,7 @@ const Section1: FunctionComponent = () => {
       </Glitch>
       <WingedBorder right direction="down" length={85} />
       <Grid container>
-        <RotatedGridText>{t('pages.homepage.kit.rotated')}</RotatedGridText>
+        <RotatedGridText show={inView} text={t('pages.homepage.kit.rotated')} />
         <Grid item xs={12} md={6} className={classes.kitInfoContainer}>
           <div className={classes.kitInfo}>
             <CenterReveal delay={2.3} show={inView} className={classes.arrows}>
