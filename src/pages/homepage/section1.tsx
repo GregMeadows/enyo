@@ -8,8 +8,8 @@ import CenterReveal from '../../components/onView/CenterReveal';
 import WingedBorder from '../../components/WingedBorder';
 import { isLightMode } from '../../stores/settings';
 import { BREAKPOINT_LAPTOP, BREAKPOINT_TABLET } from '../../assets/consts';
-import enyoProHomeFrontImg from '../../images/clothing/enyo/pro/home.front.png';
-import enyoProAwayFrontImg from '../../images/clothing/enyo/pro/away.front.png';
+import enyoProWhiteFrontImg from '../../images/clothing/enyo/pro/white.front.png';
+import enyoProBlackFrontImg from '../../images/clothing/enyo/pro/black.front.png';
 import { ReactComponent as Hex } from '../../images/hex.svg';
 import SVGPaths, {
   SVGParams,
@@ -24,7 +24,7 @@ const PATH_SIZE = 4;
 const useStyles = makeStyles(
   (theme: Theme) => ({
     info: {
-      padding: '5rem 0',
+      padding: '5rem 0 3rem',
       position: 'relative',
       background: theme.palette.background.default,
     },
@@ -42,7 +42,7 @@ const useStyles = makeStyles(
       paddingRight: '3vw',
       [theme.breakpoints.down(BREAKPOINT_TABLET)]: {
         order: 1,
-        padding: '2rem 6vw',
+        padding: '1rem 6vw 2rem',
       },
     },
     kitInfo: {
@@ -61,11 +61,16 @@ const useStyles = makeStyles(
       },
     },
     kitItem: {
-      paddingTop: '4vh',
       position: 'relative',
       display: 'flex',
       justifyContent: 'center',
       alignItems: 'center',
+      marginTop: -50,
+      paddingRight: '4vw',
+      [theme.breakpoints.down(BREAKPOINT_TABLET)]: {
+        marginTop: '1rem',
+        padding: '0 10vw',
+      },
     },
     hexContainer: {
       position: 'absolute',
@@ -153,7 +158,7 @@ const Section1: FunctionComponent = () => {
           {t('pages.homepage.kit.title')}
         </Typography>
       </Glitch>
-      <WingedBorder right direction="down" length={85} />
+      <WingedBorder right direction="down" length={90} />
       <Grid container>
         <RotatedGridText show={inView} text={t('pages.homepage.kit.rotated')} />
         <Grid item xs={12} md={6} className={classes.kitInfoContainer}>
@@ -197,7 +202,7 @@ const Section1: FunctionComponent = () => {
             <Hex className={classes.hex} />
           </Glitch>
           <img
-            src={isLightMode() ? enyoProHomeFrontImg : enyoProAwayFrontImg}
+            src={isLightMode() ? enyoProWhiteFrontImg : enyoProBlackFrontImg}
             alt={t('pages.homepage.kit.front')}
           />
         </Grid>
