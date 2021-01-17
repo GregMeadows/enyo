@@ -27,6 +27,7 @@ const useStyles = makeStyles(
       padding: '5rem 0',
       position: 'relative',
       background: theme.palette.background.paper,
+      clipPath: `polygon(100% 0, 100% 94%, 95% 100%, 0 100%, 0 9%, 7% 0)`,
     },
     titleContainer: {
       textAlign: 'right',
