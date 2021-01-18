@@ -1,5 +1,5 @@
 import { createContext } from 'react';
-import { observable } from 'mobx';
+import { observable, runInAction } from 'mobx';
 import { Theme } from '@material-ui/core/styles';
 import themes, { ThemeType } from '../themes';
 
@@ -24,6 +24,8 @@ const settings: settingsTypes = observable.object({
   language: 'en',
 });
 
+// GETTERS
+
 export function getTheme(): Theme {
   return themes[settings.theme][settings.themeType];
 }
@@ -32,18 +34,26 @@ export function isLightMode(): boolean {
   return settings.themeType === ThemeType.LIGHT;
 }
 
+// SETTERS
+
 export function switchThemeType(): void {
-  const newType = isLightMode() ? ThemeType.DARK : ThemeType.LIGHT;
-  settings.themeType = newType;
-  localStorage.setItem('settings.themeType', newType);
+  runInAction(() => {
+    const newType = isLightMode() ? ThemeType.DARK : ThemeType.LIGHT;
+    settings.themeType = newType;
+    localStorage.setItem('settings.themeType', newType);
+  });
 }
 
 export function setPageTitle(title: string | null): void {
-  settings.pageTitle = title;
+  runInAction(() => {
+    settings.pageTitle = title;
+  });
 }
 
 export function setPageSubtitle(subtitle: JSX.Element | null): void {
-  settings.pageSubtitle = subtitle;
+  runInAction(() => {
+    settings.pageSubtitle = subtitle;
+  });
 }
 
 export default createContext(settings);

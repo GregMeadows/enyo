@@ -159,7 +159,10 @@ const Section3: FunctionComponent = () => {
       </div>
       <WingedBorder right direction="down" length={50} />
       <Grid container>
-        <RotatedGridText>{t('pages.homepage.sustain.rotated')}</RotatedGridText>
+        <RotatedGridText
+          show={inView}
+          text={t('pages.homepage.sustain.rotated')}
+        />
         <Grid item xs className={classes.infoContainer}>
           <div className={classes.svgContainer}>
             <SVGPaths show={inView} delay={1.5} paths={svgPaths} />

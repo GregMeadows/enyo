@@ -19,6 +19,7 @@ const useStyles = makeStyles(
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'center',
+      clipPath: `polygon(100% 0, 100% 89%, 92% 100%, 0 100%, 0 0)`,
       [theme.breakpoints.down(BREAKPOINT_MOBILE)]: {
         height: 600,
       },

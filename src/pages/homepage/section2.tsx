@@ -27,6 +27,7 @@ const useStyles = makeStyles(
       padding: '5rem 0',
       position: 'relative',
       background: theme.palette.background.paper,
+      clipPath: `polygon(100% 0, 100% 94%, 95% 100%, 0 100%, 0 9%, 7% 0)`,
     },
     titleContainer: {
       textAlign: 'right',
@@ -151,7 +152,10 @@ const Section2: FunctionComponent = () => {
       </div>
       <WingedBorder left direction="up" length={80} />
       <Grid container>
-        <RotatedGridText>{t('pages.homepage.merch.rotated')}</RotatedGridText>
+        <RotatedGridText
+          show={inView}
+          text={t('pages.homepage.merch.rotated')}
+        />
         <Grid item xs className={classes.infoContainer}>
           <div className={classes.svgContainer}>
             <SVGPaths show={inView} delay={1.5} paths={svgPaths} />
