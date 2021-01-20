@@ -23,6 +23,7 @@ const useStyles = makeStyles(
       '& > a': {
         color: theme.palette.text.primary,
         display: 'inline-flex',
+        transition: 'color 0.1s linear',
         '&:hover': {
           color: theme.palette.primary.main,
         },

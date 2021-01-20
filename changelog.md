@@ -1,5 +1,13 @@
 # Changelog
 
+## v1.0.3 -
+
+### Misc
+
+- Add banners to social links
+
+---
+
 ## v1.0.2 - 2021-01-18
 
 ### Homepage
