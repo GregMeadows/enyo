@@ -1,4 +1,4 @@
-import React, { FunctionComponent } from 'react';
+import React, { FunctionComponent, useEffect, useState } from 'react';
 import { makeStyles, Theme, withStyles } from '@material-ui/core/styles';
 import { Button } from '@material-ui/core';
 import { motion, useAnimation } from 'framer-motion';
@@ -52,6 +52,15 @@ const StyledButton: FunctionComponent<StyledButtonProps> = ({
 }) => {
   const classes = useStyles();
   const animation = useAnimation();
+  const [hover, setHover] = useState(false);
+
+  useEffect(() => {
+    if (hover) {
+      animation.start('visible');
+    } else {
+      animation.start('hidden');
+    }
+  }, [animation, hover]);
 
   const pathVariants = {
     hidden: {
@@ -105,10 +114,10 @@ const StyledButton: FunctionComponent<StyledButtonProps> = ({
           color="primary"
           disabled={disabled}
           fullWidth
-          onMouseOver={() => animation.start('visible')}
-          onMouseOut={() => animation.start('hidden')}
-          onFocus={() => animation.start('visible')}
-          onBlur={() => animation.start('hidden')}
+          onMouseOver={() => setHover(true)}
+          onMouseOut={() => setHover(false)}
+          onFocus={() => setHover(true)}
+          onBlur={() => setHover(false)}
         >
           {children}
         </StyledMuiButton>
