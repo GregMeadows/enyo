@@ -61,7 +61,10 @@
           "severity",
           "initial",
           "d",
-          "i18nKey"
+          "i18nKey",
+          "xmlns",
+          "viewBox",
+          "preserveAspectRatio"
         ]
       }
     ],

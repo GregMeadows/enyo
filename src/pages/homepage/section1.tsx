@@ -18,6 +18,7 @@ import SVGPaths, {
 import { ReactComponent as ArrowSvg } from '../../images/arrow.svg';
 import RotatedGridText from '../../components/RotatedGridText';
 import { TRANS_COMPONENTS } from '../../components/shared';
+import StyledButton from '../../components/StyledButton';
 
 const PATH_SIZE = 4;
 
@@ -189,6 +190,9 @@ const Section1: FunctionComponent = () => {
                   components={TRANS_COMPONENTS}
                 />
               </Typography>
+              <div>
+                <StyledButton>Contact us</StyledButton>
+              </div>
             </div>
           </div>
         </Grid>
