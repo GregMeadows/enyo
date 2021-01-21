@@ -106,7 +106,7 @@ const StyledButton: FunctionComponent<StyledButtonProps> = ({
         >
           <path
             vectorEffect="non-scaling-stroke"
-            d="M2 2 L 84 2 L 98 30 L 98 98 L 2 98 L 2 0"
+            d="M1 2 L 84 2 L 99 30 L 99 98 L 1 98 L 1 0"
           />
         </svg>
         <StyledMuiButton
