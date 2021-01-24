@@ -18,6 +18,7 @@ import SVGPaths, {
 import { ReactComponent as ArrowSvg } from '../../images/arrow.svg';
 import RotatedGridText from '../../components/RotatedGridText';
 import StyledButton from '../../components/StyledButton';
+import { ROUTE_CONTACT } from '../../assets/routes';
 
 const PATH_SIZE = 4;
 
@@ -187,7 +188,9 @@ const Section1: FunctionComponent = () => {
                 {t('pages.homepage.kit.text.2')}
               </Typography>
               <div className={classes.contactButton}>
-                <StyledButton>{t('pages.homepage.contact')}</StyledButton>
+                <StyledButton href={ROUTE_CONTACT}>
+                  {t('pages.homepage.contact')}
+                </StyledButton>
               </div>
             </div>
           </div>

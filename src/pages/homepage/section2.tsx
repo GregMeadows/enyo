@@ -18,6 +18,7 @@ import SVGPaths, {
 import ImageGallery, { ImageProps } from '../../components/ImageGallery';
 import RotatedGridText from '../../components/RotatedGridText';
 import StyledButton from '../../components/StyledButton';
+import { ROUTE_CONTACT } from '../../assets/routes';
 
 const PATH_SIZE = 4;
 
@@ -180,7 +181,9 @@ const Section2: FunctionComponent = () => {
                   {t('pages.homepage.merch.text.2')}
                 </Typography>
                 <div className={classes.contactButton}>
-                  <StyledButton>{t('pages.homepage.contact')}</StyledButton>
+                  <StyledButton href={ROUTE_CONTACT}>
+                    {t('pages.homepage.contact')}
+                  </StyledButton>
                 </div>
               </Grid>
               <Grid item xs={12} md={6} className={classes.imageContainer}>

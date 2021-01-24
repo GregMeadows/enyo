@@ -1,41 +1,18 @@
 import React, { FunctionComponent, useEffect, useState } from 'react';
-import { makeStyles, Theme, withStyles } from '@material-ui/core/styles';
+import { makeStyles, Theme } from '@material-ui/core/styles';
 import { Button } from '@material-ui/core';
 import { motion, useAnimation } from 'framer-motion';
+import { Link as RouterLink } from 'react-router-dom';
 import {
   BREAKPOINT_LAPTOP,
   BREAKPOINT_MOBILE,
   BREAKPOINT_TABLET,
 } from '../assets/consts';
 
-const StyledMuiButton = withStyles((theme: Theme) => ({
-  root: {
-    borderRadius: 0,
-    margin: '1px 4px',
-    clipPath: 'polygon(0 0, 84% 0, 100% 30%, 100% 100%, 0 100%)',
-    padding: '0.6rem 3.2rem',
-    fontSize: '1.1rem',
-    [theme.breakpoints.down(BREAKPOINT_LAPTOP)]: {
-      fontSize: '1rem',
-      padding: '0.6rem 3rem',
-    },
-    [theme.breakpoints.down(BREAKPOINT_TABLET)]: {
-      fontSize: '1rem',
-      padding: '0.6rem 2.8rem',
-    },
-    [theme.breakpoints.down(BREAKPOINT_MOBILE)]: {
-      fontSize: '0.9rem',
-      padding: '0.5rem 2.5rem',
-    },
-  },
-  label: {
-    pointerEvents: 'none',
-    color: theme.palette.text.primary,
-  },
-}))(Button);
-
 interface StyledButtonProps {
   disabled?: boolean;
+  href?: string;
+  onClick?: () => void;
 }
 
 const useStyles = makeStyles(
@@ -57,6 +34,29 @@ const useStyles = makeStyles(
       height: '100%',
       width: '100%',
     },
+    button: {
+      borderRadius: 0,
+      margin: '1px 4px',
+      clipPath: 'polygon(0 0, 84% 0, 100% 30%, 100% 100%, 0 100%)',
+      padding: '0.6rem 3.2rem',
+      fontSize: '1.1rem',
+      [theme.breakpoints.down(BREAKPOINT_LAPTOP)]: {
+        fontSize: '1rem',
+        padding: '0.6rem 3rem',
+      },
+      [theme.breakpoints.down(BREAKPOINT_TABLET)]: {
+        fontSize: '1rem',
+        padding: '0.6rem 2.8rem',
+      },
+      [theme.breakpoints.down(BREAKPOINT_MOBILE)]: {
+        fontSize: '0.9rem',
+        padding: '0.5rem 2.5rem',
+      },
+    },
+    label: {
+      pointerEvents: 'none',
+      color: theme.palette.text.primary,
+    },
   }),
   {
     classNamePrefix: 'styled-button',
@@ -65,11 +65,21 @@ const useStyles = makeStyles(
 
 const StyledButton: FunctionComponent<StyledButtonProps> = ({
   disabled,
+  onClick,
+  href,
   children,
 }) => {
   const classes = useStyles();
   const animation = useAnimation();
   const [hover, setHover] = useState(false);
+
+  let linkProps;
+  if (href) {
+    linkProps = {
+      component: RouterLink,
+      to: href,
+    };
+  }
 
   useEffect(() => {
     if (hover) {
@@ -126,7 +136,11 @@ const StyledButton: FunctionComponent<StyledButtonProps> = ({
             d="M1 2 L 84 2 L 99 30 L 99 98 L 1 98 L 1 0"
           />
         </svg>
-        <StyledMuiButton
+        <Button
+          classes={{
+            root: classes.button,
+            label: classes.label,
+          }}
           variant="text"
           color="primary"
           disabled={disabled}
@@ -135,9 +149,12 @@ const StyledButton: FunctionComponent<StyledButtonProps> = ({
           onMouseOut={() => setHover(false)}
           onFocus={() => setHover(true)}
           onBlur={() => setHover(false)}
+          onClick={onClick}
+          // eslint-disable-next-line react/jsx-props-no-spreading
+          {...linkProps}
         >
           {children}
-        </StyledMuiButton>
+        </Button>
       </div>
     </div>
   );
