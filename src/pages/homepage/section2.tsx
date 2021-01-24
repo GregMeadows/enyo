@@ -1,7 +1,7 @@
 import React, { FunctionComponent } from 'react';
 import { useInView } from 'react-intersection-observer';
 import { Grid, makeStyles, Theme, Typography } from '@material-ui/core';
-import { Trans, useTranslation } from 'react-i18next';
+import { useTranslation } from 'react-i18next';
 import WingedBorder from '../../components/WingedBorder';
 import {
   BREAKPOINT_LAPTOP,
@@ -17,7 +17,6 @@ import SVGPaths, {
 } from '../../components/onView/SVGPaths';
 import ImageGallery, { ImageProps } from '../../components/ImageGallery';
 import RotatedGridText from '../../components/RotatedGridText';
-import { TRANS_COMPONENTS } from '../../components/shared';
 import StyledButton from '../../components/StyledButton';
 
 const PATH_SIZE = 4;
