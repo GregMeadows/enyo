@@ -54,11 +54,18 @@ const useStyles = makeStyles(
       flexDirection: 'column',
       justifyContent: 'center',
       height: '100%',
-      padding: '50px 6vw 50px 3vw',
+      padding: '50px 6vw 40px 3vw',
     },
     kitInfoText: {
       [theme.breakpoints.up(BREAKPOINT_LAPTOP)]: {
         fontSize: '1.3rem',
+      },
+    },
+    contactButton: {
+      textAlign: 'center',
+      paddingTop: '2rem',
+      [theme.breakpoints.down(BREAKPOINT_TABLET)]: {
+        paddingTop: '1rem',
       },
     },
     kitItem: {
@@ -177,21 +184,11 @@ const Section1: FunctionComponent = () => {
               >
                 {t('pages.homepage.kit.text.1')}
               </Typography>
-              <Typography
-                variant="body1"
-                paragraph
-                className={classes.kitInfoText}
-              >
+              <Typography variant="body1" className={classes.kitInfoText}>
                 {t('pages.homepage.kit.text.2')}
               </Typography>
-              <Typography variant="body1" className={classes.kitInfoText}>
-                <Trans
-                  i18nKey="pages.homepage.kit.text.3"
-                  components={TRANS_COMPONENTS}
-                />
-              </Typography>
-              <div>
-                <StyledButton>Contact us</StyledButton>
+              <div className={classes.contactButton}>
+                <StyledButton>{t('pages.homepage.contact')}</StyledButton>
               </div>
             </div>
           </div>

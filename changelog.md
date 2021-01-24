@@ -2,6 +2,10 @@
 
 ## v1.0.3 -
 
+### Homepage
+
+- Add styled buttons for contact link
+
 ### Misc
 
 - Add banners to social links

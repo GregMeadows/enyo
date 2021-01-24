@@ -51,13 +51,13 @@
       "title": "Contact Us"
     },
     "homepage": {
+      "contact": "Contact Us Now",
       "kit": {
         "front": "Enyo tee front",
         "rotated": "Custom Jerseys",
         "text": {
           "1": "We believe in making your mark in the world of esports.",
-          "2": "Our main aim is working closely with you to design and manufacture premium esports apparel and merchandise that is truly unique to your esports team, league or brand.",
-          "3": "<contact>Contact us</contact> now to speak to us about bringing your esports team to life!"
+          "2": "Our main aim is working closely with you to design and manufacture premium esports apparel and merchandise that is truly unique to your esports team, league or brand."
         },
         "title": "Enyo Design"
       },
@@ -70,8 +70,7 @@
         "rotated": "Merchandise",
         "text": {
           "1": "We understand the value of a strong brand voice in esports.",
-          "2": "In addition to bespoke jersey design, we will work with you to produce unique, fashionable and marketable apparel and accessories for fans and team members alike.",
-          "3": "<contact>Contact us</contact> to outfit your fans the right way!"
+          "2": "In addition to bespoke jersey design, we will work with you to produce unique, fashionable and marketable apparel and accessories for fans and team members alike."
         },
         "title": "Fan Merchandise"
       },
