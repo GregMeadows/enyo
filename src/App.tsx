@@ -16,32 +16,30 @@ import { ROUTES_INFO, ROUTE_ABOUT, ROUTE_CONTACT } from './assets/routes';
 import Contact from './pages/Contact';
 import About from './pages/About';
 
-const App: FunctionComponent = observer(() => {
-  return (
-    <ThemeProvider theme={getTheme()}>
-      <CssBaseline />
-      <BrowserRouter>
-        <Suspense fallback={<Loading />}>
-          <ScrollToTop />
-          <Layout>
-            <ElevatedAppBar />
-            <Switch>
-              <Route path="/" exact component={Homepage} />
-              <Route path={ROUTE_ABOUT} exact component={About} />
-              <>
-                <PageTitle />
-                <Switch>
-                  <Route path={ROUTES_INFO} exact component={Info} />
-                  <Route path={ROUTE_CONTACT} exact component={Contact} />
-                </Switch>
-              </>
-            </Switch>
-          </Layout>
-          <Footer />
-        </Suspense>
-      </BrowserRouter>
-    </ThemeProvider>
-  );
-});
+const App: FunctionComponent = observer(() => (
+  <ThemeProvider theme={getTheme()}>
+    <CssBaseline />
+    <BrowserRouter>
+      <Suspense fallback={<Loading />}>
+        <ScrollToTop />
+        <Layout>
+          <ElevatedAppBar />
+          <Switch>
+            <Route path="/" exact component={Homepage} />
+            <Route path={ROUTE_ABOUT} exact component={About} />
+            <>
+              <PageTitle />
+              <Switch>
+                <Route path={ROUTES_INFO} exact component={Info} />
+                <Route path={ROUTE_CONTACT} exact component={Contact} />
+              </Switch>
+            </>
+          </Switch>
+        </Layout>
+        <Footer />
+      </Suspense>
+    </BrowserRouter>
+  </ThemeProvider>
+));
 
 export default App;

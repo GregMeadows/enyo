@@ -1,5 +1,17 @@
 # Changelog
 
+## v1.0.3 - 2021-01-25
+
+### Homepage
+
+- Add styled buttons for contact link
+
+### Misc
+
+- Add banners to social links
+
+---
+
 ## v1.0.2 - 2021-01-18
 
 ### Homepage

@@ -60,23 +60,34 @@ const useStyles = makeStyles(
     socialIcons: {
       display: 'flex',
       justifyContent: 'center',
-      padding: '4rem 0',
-      [theme.breakpoints.down(BREAKPOINT_TABLET)]: {
-        padding: '2rem 0',
-      },
       '& :not(:last-child)': {
-        marginRight: '4vw',
+        marginRight: '1vw',
         [theme.breakpoints.down(BREAKPOINT_TABLET)]: {
-          marginRight: '6vw',
+          marginRight: '2vw',
         },
       },
-      '& > a > svg': {
-        height: '5vw',
-        maxHeight: '5rem',
-        minHeight: '3rem',
-        width: '5vw',
-        maxWidth: '5rem',
-        minWidth: '3rem',
+      '& > a': {
+        background: `linear-gradient(rgba(0,0,0,0), ${theme.palette.background.paper})`,
+        padding: '6.5rem 3rem',
+        clipPath: 'polygon(0 0, 100% 0, 100% 92%, 86% 100%, 14% 100%, 0 92%)',
+        '&:hover': {
+          color: theme.palette.primary.main,
+          background: `linear-gradient(rgba(0,0,0,0), ${fade(
+            theme.palette.background.paper,
+            0.7
+          )})`,
+        },
+        [theme.breakpoints.down(BREAKPOINT_TABLET)]: {
+          padding: '4.5rem 2rem',
+        },
+        '& > svg': {
+          height: '5vw',
+          maxHeight: '5rem',
+          minHeight: '3rem',
+          width: '5vw',
+          maxWidth: '5rem',
+          minWidth: '3rem',
+        },
       },
     },
   }),

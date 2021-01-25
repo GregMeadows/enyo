@@ -1,7 +1,7 @@
 import React, { FunctionComponent } from 'react';
 import { useInView } from 'react-intersection-observer';
 import { Grid, makeStyles, Theme, Typography } from '@material-ui/core';
-import { Trans, useTranslation } from 'react-i18next';
+import { useTranslation } from 'react-i18next';
 import WingedBorder from '../../components/WingedBorder';
 import {
   BREAKPOINT_LAPTOP,
@@ -17,7 +17,8 @@ import SVGPaths, {
 } from '../../components/onView/SVGPaths';
 import ImageGallery, { ImageProps } from '../../components/ImageGallery';
 import RotatedGridText from '../../components/RotatedGridText';
-import { TRANS_COMPONENTS } from '../../components/shared';
+import StyledButton from '../../components/StyledButton';
+import { ROUTE_CONTACT } from '../../assets/routes';
 
 const PATH_SIZE = 4;
 
@@ -61,6 +62,7 @@ const useStyles = makeStyles(
       display: 'flex',
       flexDirection: 'column',
       justifyContent: 'center',
+      paddingTop: '3rem',
       [theme.breakpoints.down(BREAKPOINT_TABLET)]: {
         order: 1,
         paddingTop: '2rem',
@@ -69,6 +71,13 @@ const useStyles = makeStyles(
     infoText: {
       [theme.breakpoints.up(BREAKPOINT_LAPTOP)]: {
         fontSize: '1.3rem',
+      },
+    },
+    contactButton: {
+      textAlign: 'center',
+      paddingTop: '2rem',
+      [theme.breakpoints.down(BREAKPOINT_TABLET)]: {
+        paddingTop: '1rem',
       },
     },
     imageContainer: {
@@ -168,19 +177,14 @@ const Section2: FunctionComponent = () => {
                 >
                   {t('pages.homepage.merch.text.1')}
                 </Typography>
-                <Typography
-                  variant="body1"
-                  paragraph
-                  className={classes.infoText}
-                >
+                <Typography variant="body1" className={classes.infoText}>
                   {t('pages.homepage.merch.text.2')}
                 </Typography>
-                <Typography variant="body1" className={classes.infoText}>
-                  <Trans
-                    i18nKey="pages.homepage.merch.text.3"
-                    components={TRANS_COMPONENTS}
-                  />
-                </Typography>
+                <div className={classes.contactButton}>
+                  <StyledButton href={ROUTE_CONTACT}>
+                    {t('pages.homepage.contact')}
+                  </StyledButton>
+                </div>
               </Grid>
               <Grid item xs={12} md={6} className={classes.imageContainer}>
                 <ImageGallery images={images} className={classes.images} />
