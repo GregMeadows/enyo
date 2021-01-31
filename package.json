@@ -2,7 +2,10 @@
   "name": "enyo.gg",
   "version": "1.0.3",
   "private": true,
-  "dependencies": {},
+  "dependencies": {
+    "@aws-amplify/ui-react": "^0.2.35",
+    "aws-amplify": "^3.3.15"
+  },
   "devDependencies": {
     "@material-ui/core": "^4.11.3",
     "@material-ui/icons": "^4.11.2",
