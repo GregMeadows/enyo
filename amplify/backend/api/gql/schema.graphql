@@ -1,0 +1,17 @@
+type Product @model {
+  id: ID!
+  name: String!
+  description: String
+  price: Int!
+  createdAt: AWSDateTime!
+  createdBy: String!
+  images: [Image] @connection(keyName: "byProduct", fields: ["id"])
+}
+
+type Image @model @key(name: "byProduct", fields: ["productID"]) {
+  id: ID!
+  productID: ID!
+  url: String!
+  description: String!
+  product: Product @connection(fields: ["productID"])
+}

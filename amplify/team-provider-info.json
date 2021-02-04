@@ -10,6 +10,26 @@
       "StackName": "amplify-enyogg-dev-154830",
       "StackId": "arn:aws:cloudformation:eu-west-1:125989325146:stack/amplify-enyogg-dev-154830/c496b1d0-63db-11eb-b5f5-0a747e777a75",
       "AmplifyAppId": "dhx7iyju9lro1"
+    },
+    "categories": {
+      "function": {
+        "enyogg12f8bccfDefineAuthChallenge": {},
+        "enyogg12f8bccfCreateAuthChallenge": {},
+        "enyogg12f8bccfVerifyAuthChallengeResponse": {
+          "RECAPTCHASECRET": "6LcndEQaAAAAAPlm63O2Lf6ktiaXHzVB1BMR5AXA"
+        },
+        "enyogg12f8bccfCustomMessage": {
+          "REDIRECTURL": "https://enyo.gg/account",
+          "EMAILSUBJECT": "Enyo.gg Account Creation",
+          "EMAILMESSAGE": "Please complete your account creation by following the link below."
+        },
+        "enyogg12f8bccfPostConfirmation": {
+          "GROUP": "Users"
+        }
+      },
+      "auth": {
+        "enyogg12f8bccf": {}
+      }
     }
   }
 }

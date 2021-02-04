@@ -1,0 +1,18 @@
+{
+  "trigger": true,
+  "modules": [
+    "captcha-verify"
+  ],
+  "parentResource": "enyogg12f8bccf",
+  "functionName": "enyogg12f8bccfVerifyAuthChallengeResponse",
+  "resourceName": "enyogg12f8bccfVerifyAuthChallengeResponse",
+  "parentStack": "auth",
+  "triggerEnvs": "[]",
+  "triggerDir": "C:\\Users\\GregM\\AppData\\Roaming\\npm\\node_modules\\@aws-amplify\\cli\\node_modules\\amplify-category-auth\\provider-utils\\awscloudformation\\triggers\\VerifyAuthChallengeResponse",
+  "triggerTemplate": "VerifyAuthChallengeResponse.json.ejs",
+  "roleName": "enyogg12f8bccfVerifyAuthChallengeResponse",
+  "skipEdit": true,
+  "RECAPTCHASECRET": "6LcndEQaAAAAAPlm63O2Lf6ktiaXHzVB1BMR5AXA",
+  "enableCors": false,
+  "triggerEventPath": "VerifyAuthChallengeResponse.event.json"
+}

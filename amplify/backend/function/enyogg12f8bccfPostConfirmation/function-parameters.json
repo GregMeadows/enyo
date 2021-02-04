@@ -1,0 +1,18 @@
+{
+  "trigger": true,
+  "modules": [
+    "add-to-group"
+  ],
+  "parentResource": "enyogg12f8bccf",
+  "functionName": "enyogg12f8bccfPostConfirmation",
+  "resourceName": "enyogg12f8bccfPostConfirmation",
+  "parentStack": "auth",
+  "triggerEnvs": "[]",
+  "triggerDir": "C:\\Users\\GregM\\AppData\\Roaming\\npm\\node_modules\\@aws-amplify\\cli\\node_modules\\amplify-category-auth\\provider-utils\\awscloudformation\\triggers\\PostConfirmation",
+  "triggerTemplate": "PostConfirmation.json.ejs",
+  "roleName": "enyogg12f8bccfPostConfirmation",
+  "skipEdit": true,
+  "GROUP": "Users",
+  "enableCors": false,
+  "triggerEventPath": "PostConfirmation.event.json"
+}
