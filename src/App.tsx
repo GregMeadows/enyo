@@ -12,9 +12,17 @@ import { getTheme } from './stores/settings';
 import ScrollToTop from './components/ScrollToTop';
 import PageTitle from './components/PageTitle';
 import Info from './pages/info';
-import { ROUTES_INFO, ROUTE_ABOUT, ROUTE_CONTACT } from './assets/routes';
+import {
+  ROUTES_INFO,
+  ROUTE_ABOUT,
+  ROUTE_ACCOUNT,
+  ROUTE_CONTACT,
+  ROUTE_STORE,
+} from './assets/routes';
 import Contact from './pages/Contact';
 import About from './pages/About';
+import Store from './pages/Store';
+import Account from './pages/Account';
 
 const App: FunctionComponent = observer(() => (
   <ThemeProvider theme={getTheme()}>
@@ -32,6 +40,8 @@ const App: FunctionComponent = observer(() => (
               <Switch>
                 <Route path={ROUTES_INFO} exact component={Info} />
                 <Route path={ROUTE_CONTACT} exact component={Contact} />
+                <Route path={ROUTE_STORE} exact component={Store} />
+                <Route path={ROUTE_ACCOUNT} exact component={Account} />
               </Switch>
             </>
           </Switch>

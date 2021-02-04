@@ -33,6 +33,10 @@
       "socials": "Find Us",
       "title": "Made to Conquer"
     },
+    "account": {
+      "intro": "Manage your account from here.",
+      "title": "Account"
+    },
     "contact": {
       "form": {
         "default": "Get in touch with us by filling our the form below. We'll get back to you as soon as possible!",
@@ -99,6 +103,10 @@
         "title": "Terms of Service"
       },
       "updated": "Last Updated:"
+    },
+    "store": {
+      "intro": "Check out our latest range below.",
+      "title": "Enyo Store"
     }
   },
   "theme": {
