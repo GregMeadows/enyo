@@ -34,7 +34,7 @@ const Store: FunctionComponent = () => {
       ListProducts
     );
     if (listProductsQuery.data?.listProducts?.items) {
-      setProducts(listProductsQuery.data?.listProducts?.items as Product[]);
+      setProducts(listProductsQuery.data.listProducts.items as Product[]);
     }
   }
 
@@ -48,9 +48,24 @@ const Store: FunctionComponent = () => {
         {t('pages.store.intro')}
       </Typography>
       {products.map((product) => (
-        <Typography variant="body1" className={classes.title} key={product.id}>
-          {product.name}
-        </Typography>
+        <>
+          <Typography
+            variant="body1"
+            className={classes.title}
+            key={product.id}
+          >
+            {product.name}
+          </Typography>
+          {product.images?.items?.map((image) => (
+            <Typography
+              variant="subtitle1"
+              className={classes.title}
+              key={image?.id}
+            >
+              {image?.description}
+            </Typography>
+          ))}
+        </>
       ))}
     </Main>
   );

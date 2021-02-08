@@ -20,6 +20,15 @@ export const createProduct = /* GraphQL */ `
           productID
           url
           description
+          product {
+            id
+            name
+            description
+            price
+            createdAt
+            createdBy
+            updatedAt
+          }
           createdAt
           updatedAt
         }
@@ -47,6 +56,15 @@ export const updateProduct = /* GraphQL */ `
           productID
           url
           description
+          product {
+            id
+            name
+            description
+            price
+            createdAt
+            createdBy
+            updatedAt
+          }
           createdAt
           updatedAt
         }
@@ -74,6 +92,15 @@ export const deleteProduct = /* GraphQL */ `
           productID
           url
           description
+          product {
+            id
+            name
+            description
+            price
+            createdAt
+            createdBy
+            updatedAt
+          }
           createdAt
           updatedAt
         }
@@ -101,6 +128,14 @@ export const createImage = /* GraphQL */ `
         createdAt
         createdBy
         images {
+          items {
+            id
+            productID
+            url
+            description
+            createdAt
+            updatedAt
+          }
           nextToken
         }
         updatedAt
@@ -128,6 +163,14 @@ export const updateImage = /* GraphQL */ `
         createdAt
         createdBy
         images {
+          items {
+            id
+            productID
+            url
+            description
+            createdAt
+            updatedAt
+          }
           nextToken
         }
         updatedAt
@@ -155,6 +198,14 @@ export const deleteImage = /* GraphQL */ `
         createdAt
         createdBy
         images {
+          items {
+            id
+            productID
+            url
+            description
+            createdAt
+            updatedAt
+          }
           nextToken
         }
         updatedAt

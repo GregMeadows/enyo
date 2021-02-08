@@ -17,6 +17,15 @@ export const getProduct = /* GraphQL */ `
           productID
           url
           description
+          product {
+            id
+            name
+            description
+            price
+            createdAt
+            createdBy
+            updatedAt
+          }
           createdAt
           updatedAt
         }
@@ -41,6 +50,14 @@ export const listProducts = /* GraphQL */ `
         createdAt
         createdBy
         images {
+          items {
+            id
+            productID
+            url
+            description
+            createdAt
+            updatedAt
+          }
           nextToken
         }
         updatedAt
@@ -64,6 +81,14 @@ export const getImage = /* GraphQL */ `
         createdAt
         createdBy
         images {
+          items {
+            id
+            productID
+            url
+            description
+            createdAt
+            updatedAt
+          }
           nextToken
         }
         updatedAt
@@ -92,6 +117,9 @@ export const listImages = /* GraphQL */ `
           price
           createdAt
           createdBy
+          images {
+            nextToken
+          }
           updatedAt
         }
         createdAt
