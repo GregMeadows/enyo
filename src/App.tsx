@@ -16,6 +16,7 @@ import {
   ROUTES_INFO,
   ROUTE_ABOUT,
   ROUTE_ACCOUNT,
+  ROUTE_ACTION,
   ROUTE_CONTACT,
   ROUTE_STORE,
 } from './assets/routes';
@@ -23,6 +24,7 @@ import Contact from './pages/Contact';
 import About from './pages/About';
 import Store from './pages/Store';
 import Account from './pages/Account';
+import Action from './pages/Action';
 
 const App: FunctionComponent = observer(() => (
   <ThemeProvider theme={getTheme()}>
@@ -42,6 +44,7 @@ const App: FunctionComponent = observer(() => (
                 <Route path={ROUTE_CONTACT} exact component={Contact} />
                 <Route path={ROUTE_STORE} exact component={Store} />
                 <Route path={ROUTE_ACCOUNT} exact component={Account} />
+                <Route path={ROUTE_ACTION} exact component={Action} />
               </Switch>
             </>
           </Switch>

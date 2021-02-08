@@ -1,4 +1,9 @@
 {
+  "button": {
+    "back": "Back",
+    "finish": "Finish",
+    "next": "Next"
+  },
   "company": {
     "info": "Company No. 12918773",
     "long": "Enyo Design Ltd",
@@ -36,6 +41,21 @@
     "account": {
       "intro": "Manage your account from here.",
       "title": "Account"
+    },
+    "action": {
+      "createproduct": {
+        "details": {
+          "description": "Description",
+          "name": "Name",
+          "price": "Price",
+          "title": "Product Details"
+        },
+        "images": {
+          "description": "Description",
+          "title": "Product Images"
+        },
+        "title": "Create Product"
+      }
     },
     "contact": {
       "form": {

@@ -48,7 +48,7 @@ const Store: FunctionComponent = () => {
         {t('pages.store.intro')}
       </Typography>
       {products.map((product) => (
-        <>
+        <div key={product.id}>
           <Typography
             variant="body1"
             className={classes.title}
@@ -65,7 +65,7 @@ const Store: FunctionComponent = () => {
               {image?.description}
             </Typography>
           ))}
-        </>
+        </div>
       ))}
     </Main>
   );
