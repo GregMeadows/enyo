@@ -3,6 +3,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import { Typography } from '@material-ui/core';
 import { useTranslation } from 'react-i18next';
 import useTitle from '../hooks/useTitle';
+import Main from '../components/Main';
 
 const useStyles = makeStyles(
   () => ({
@@ -22,11 +23,11 @@ const Account: FunctionComponent = () => {
   useTitle(t('pages.account.title'));
 
   return (
-    <div>
+    <Main>
       <Typography variant="body1" className={classes.title}>
         {t('pages.account.intro')}
       </Typography>
-    </div>
+    </Main>
   );
 };
 export default Account;

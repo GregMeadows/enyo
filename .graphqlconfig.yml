@@ -1,6 +1,6 @@
 projects:
   gql:
-    schemaPath: src/graphql/schema.json
+    schemaPath: amplify/backend/api/gql/build/schema.graphql
     includes:
       - src/graphql/**/*.ts
     excludes:
@@ -8,5 +8,8 @@ projects:
     extensions:
       amplify:
         codeGenTarget: typescript
-        generatedFileName: src/API.ts
+        generatedFileName: src/graphql/API.ts
         docsFilePath: src/graphql
+extensions:
+  amplify:
+    version: 3
