@@ -37,6 +37,11 @@
           "title": "Fit"
         }
       }
+    },
+    "action": {
+      "createproduct": {
+        "title": "Create Product"
+      }
     }
   },
   "homepage": {
@@ -63,5 +68,8 @@
     }
   },
   "key": "",
-  "i18nKey": ""
+  "i18nKey": "",
+  "button": {
+    "finish": "Finish"
+  }
 }

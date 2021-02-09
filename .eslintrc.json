@@ -65,7 +65,9 @@
           "xmlns",
           "viewBox",
           "preserveAspectRatio",
-          "orientation"
+          "orientation",
+          "aria-labelledby",
+          "maxWidth"
         ]
       }
     ],

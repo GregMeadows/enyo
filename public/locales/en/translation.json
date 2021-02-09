@@ -1,7 +1,8 @@
 {
   "button": {
     "back": "Back",
-    "finish": "Finish",
+    "cancel": "Cancel",
+    "create": "Create",
     "next": "Next"
   },
   "company": {
@@ -44,6 +45,9 @@
     },
     "action": {
       "createproduct": {
+        "confirm": {
+          "title": "Confirm"
+        },
         "details": {
           "description": "Description",
           "name": "Name",
@@ -53,8 +57,7 @@
         "images": {
           "description": "Description",
           "title": "Product Images"
-        },
-        "title": "Create Product"
+        }
       }
     },
     "contact": {
