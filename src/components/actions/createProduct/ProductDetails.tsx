@@ -9,6 +9,10 @@ const useStyles = makeStyles(
       display: 'flex',
       flexDirection: 'column',
     },
+    field: {
+      marginTop: '0.5rem',
+      marginBottom: '0.5rem',
+    },
   }),
   {
     classNamePrefix: 'product-details',
@@ -24,15 +28,26 @@ const ProductDetails: FunctionComponent = () => {
       <TextField
         label={t('pages.action.createproduct.details.name')}
         variant="outlined"
-      />
-      <TextField
-        label={t('pages.action.createproduct.details.description')}
-        variant="outlined"
+        required
+        size="small"
+        className={classes.field}
       />
       <TextField
         label={t('pages.action.createproduct.details.price')}
         variant="outlined"
         type="number"
+        required
+        size="small"
+        className={classes.field}
+      />
+      <TextField
+        label={t('pages.action.createproduct.details.description')}
+        variant="outlined"
+        required
+        size="small"
+        className={classes.field}
+        multiline
+        rows={4}
       />
     </div>
   );

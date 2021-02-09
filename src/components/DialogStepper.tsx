@@ -70,10 +70,10 @@ const DialogStepper: FunctionComponent<DialogStepperProps> = ({
       open={open}
       onClose={onClose}
       fullWidth
-      maxWidth="md"
-      aria-labelledby="form-dialog-title"
+      maxWidth="sm"
+      disableBackdropClick
     >
-      <DialogTitle id="form-dialog-title">
+      <DialogTitle>
         <Stepper activeStep={activeStep} alternativeLabel>
           {steps.map((step: StepProps) => (
             <Step key={step.nameKey}>
