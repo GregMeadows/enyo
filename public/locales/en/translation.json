@@ -56,7 +56,8 @@
         },
         "images": {
           "description": "Description",
-          "title": "Product Images"
+          "title": "Product Images",
+          "upload": "Select Image…"
         }
       }
     },
