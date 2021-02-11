@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-props-no-spreading */
 import React, { FunctionComponent } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import { TextField } from '@material-ui/core';
@@ -8,6 +9,7 @@ export interface FormItem {
   type: 'text' | 'multiline' | 'file';
   required?: boolean;
   labelKey: string;
+  props?: Record<string, unknown>;
 }
 
 interface FormBuilderProps {
@@ -39,7 +41,7 @@ const FormBuilder: FunctionComponent<FormBuilderProps> = ({ items }) => {
       {items.map((item: FormItem) => {
         switch (item.type) {
           case 'file': {
-            return <FileInput key={item.labelKey} />;
+            return <FileInput key={item.labelKey} {...item.props} />;
           }
           case 'multiline': {
             return (
@@ -52,6 +54,7 @@ const FormBuilder: FunctionComponent<FormBuilderProps> = ({ items }) => {
                 className={classes.text}
                 multiline
                 rows={4}
+                {...item.props}
               />
             );
           }
@@ -65,6 +68,7 @@ const FormBuilder: FunctionComponent<FormBuilderProps> = ({ items }) => {
                 required={item.required}
                 size="small"
                 className={classes.text}
+                {...item.props}
               />
             );
           }

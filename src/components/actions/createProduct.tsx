@@ -29,12 +29,7 @@ const PRODUCT_IMAGES: FormItem[] = [
     required: true,
     // t('pages.action.createproduct.images.upload')
     labelKey: 'pages.action.createproduct.images.upload',
-  },
-  {
-    type: 'text',
-    required: true,
-    // t('pages.action.createproduct.images.description')
-    labelKey: 'pages.action.createproduct.images.description',
+    props: { acceptedTypes: ['image/*'] },
   },
 ];
 

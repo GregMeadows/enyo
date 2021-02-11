@@ -30,6 +30,9 @@ const useStyles = makeStyles(
       paddingTop: theme.spacing(1),
       paddingBottom: theme.spacing(1),
     },
+    stepper: {
+      paddingBottom: 0,
+    },
   }),
   {
     classNamePrefix: 'dialog-stepper',
@@ -74,7 +77,11 @@ const DialogStepper: FunctionComponent<DialogStepperProps> = ({
       disableBackdropClick
     >
       <DialogTitle>
-        <Stepper activeStep={activeStep} alternativeLabel>
+        <Stepper
+          activeStep={activeStep}
+          alternativeLabel
+          className={classes.stepper}
+        >
           {steps.map((step: StepProps) => (
             <Step key={step.nameKey}>
               <StepLabel>{t(step.nameKey)}</StepLabel>

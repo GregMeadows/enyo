@@ -55,9 +55,12 @@
           "title": "Product Details"
         },
         "images": {
-          "description": "Description",
+          "count": "{{count}} image selected.",
+          "count_plural": "{{count}} images selected.",
+          "description": "Image description",
+          "none": "No images currently selected.",
           "title": "Product Images",
-          "upload": "Select Image…"
+          "upload": "Select Images…"
         }
       }
     },

@@ -1,7 +1,7 @@
 import React, { FunctionComponent, useEffect, useRef } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import clsx from 'clsx';
-import checkIfInView from '../assets/Utils';
+import { checkIfInView } from '../assets/Utils';
 
 interface ImageScrollerProps {
   image: string;
