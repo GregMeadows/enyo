@@ -1,16 +1,22 @@
-import React, { FunctionComponent, useState } from 'react';
-import { makeStyles } from '@material-ui/core/styles';
+import React, { FunctionComponent, ReactNode, useState } from 'react';
+import { makeStyles, Theme } from '@material-ui/core/styles';
 import { useTranslation } from 'react-i18next';
 import CloudUploadIcon from '@material-ui/icons/CloudUpload';
 import { Button, TextField, Typography } from '@material-ui/core';
+import clsx from 'clsx';
 import { formatBytes } from '../assets/Utils';
 
 interface FileInputProps {
   acceptedTypes?: string[];
+  name?: string;
+  id?: string;
+  value?: FileList | null;
+  error?: boolean;
+  helperText?: ReactNode;
 }
 
 const useStyles = makeStyles(
-  () => ({
+  (theme: Theme) => ({
     root: {
       marginTop: '0.5rem',
       marginBottom: '0.5rem',
@@ -45,16 +51,31 @@ const useStyles = makeStyles(
     itemInput: {
       flexGrow: 1,
     },
+    errorButton: {
+      border: `1px solid ${theme.palette.error.main}`,
+    },
+    errorText: {
+      color: theme.palette.error.main,
+    },
   }),
   {
     classNamePrefix: 'product-details',
   }
 );
 
-const FileInput: FunctionComponent<FileInputProps> = ({ acceptedTypes }) => {
+const FileInput: FunctionComponent<FileInputProps> = ({
+  acceptedTypes,
+  name,
+  id,
+  value,
+  error,
+  helperText,
+}) => {
   const classes = useStyles();
   const { t } = useTranslation();
-  const [selectedFiles, setSelectedFiles] = useState<FileList | null>(null);
+  const [selectedFiles, setSelectedFiles] = useState<FileList | null>(
+    value || null
+  );
 
   function handleChange(event: React.ChangeEvent<HTMLInputElement>) {
     const {
@@ -90,6 +111,15 @@ const FileInput: FunctionComponent<FileInputProps> = ({ acceptedTypes }) => {
     ));
   }
 
+  let text;
+  if (selectedFiles && selectedFiles.length > 0) {
+    text = t('pages.action.createproduct.images.count', {
+      count: selectedFiles?.length,
+    });
+  } else {
+    text = helperText || t('pages.action.createproduct.images.none');
+  }
+
   return (
     <div className={classes.root}>
       <div className={classes.upload}>
@@ -97,6 +127,8 @@ const FileInput: FunctionComponent<FileInputProps> = ({ acceptedTypes }) => {
         <label className={classes.label}>
           <input
             type="file"
+            name={name}
+            id={id}
             className={classes.input}
             multiple
             onChange={handleChange}
@@ -106,16 +138,17 @@ const FileInput: FunctionComponent<FileInputProps> = ({ acceptedTypes }) => {
             variant="outlined"
             startIcon={<CloudUploadIcon />}
             component="div"
+            className={clsx(error && classes.errorButton)}
           >
             {t('pages.action.createproduct.images.upload')}
           </Button>
         </label>
-        <Typography variant="h6" noWrap>
-          {selectedFiles && selectedFiles.length > 0
-            ? t('pages.action.createproduct.images.count', {
-                count: selectedFiles?.length,
-              })
-            : t('pages.action.createproduct.images.none')}
+        <Typography
+          variant="h6"
+          noWrap
+          className={clsx(error && classes.errorText)}
+        >
+          {text}
         </Typography>
       </div>
       <div className={classes.fileElements}>{fileElements}</div>

@@ -2,7 +2,10 @@
   "name": "enyo.gg",
   "version": "1.0.3",
   "private": true,
-  "dependencies": {},
+  "dependencies": {
+    "formik": "^2.2.6",
+    "yup": "^0.32.8"
+  },
   "devDependencies": {
     "@aws-amplify/api": "^3.2.20",
     "@aws-amplify/ui-react": "^0.2.37",

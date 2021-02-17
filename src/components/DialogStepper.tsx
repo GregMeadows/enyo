@@ -12,16 +12,22 @@ import {
   Theme,
 } from '@material-ui/core';
 import { useTranslation } from 'react-i18next';
+import { Form, Formik, FormikHelpers, FormikProps } from 'formik';
+import { AnyObjectSchema } from 'yup';
+
+type Values = Record<string, unknown>;
 
 export interface StepProps {
-  nameKey: string;
-  Content: JSX.Element;
+  stepLabel: string;
+  content: JSX.Element;
+  validationSchema?: AnyObjectSchema;
 }
 
 interface DialogStepperProps {
   steps: StepProps[];
   open: boolean;
   onClose: () => void;
+  onSubmit: (vales: Values) => void;
 }
 
 const useStyles = makeStyles(
@@ -29,6 +35,8 @@ const useStyles = makeStyles(
     stepsContainer: {
       paddingTop: theme.spacing(1),
       paddingBottom: theme.spacing(1),
+      display: 'flex',
+      flexDirection: 'column',
     },
     stepper: {
       paddingBottom: 0,
@@ -43,11 +51,13 @@ const DialogStepper: FunctionComponent<DialogStepperProps> = ({
   steps,
   open,
   onClose,
+  onSubmit,
 }) => {
   const classes = useStyles();
   const { t } = useTranslation();
 
   const [activeStep, setActiveStep] = useState(0);
+  const [snapshot, setSnapshot] = useState({});
 
   useEffect(() => {
     // Reset stepper if reopening
@@ -56,16 +66,30 @@ const DialogStepper: FunctionComponent<DialogStepperProps> = ({
     }
   }, [open]);
 
-  const handleNext = () => {
-    if (activeStep === Object.keys(steps).length - 1) {
-      onClose();
-    } else {
-      setActiveStep((prevActiveStep) => prevActiveStep + 1);
-    }
-  };
+  const step = steps[activeStep];
+  const totalSteps = steps.length;
+  const isLastStep = activeStep === totalSteps - 1;
 
-  const handleBack = () => {
+  function handleNext(values: Values) {
+    setSnapshot(values);
+    setActiveStep((prevActiveStep) => prevActiveStep + 1);
+  }
+
+  function handleBack(values: Values) {
+    setSnapshot(values);
     setActiveStep((prevActiveStep) => prevActiveStep - 1);
+  }
+
+  const handleSubmit = async (
+    values: Values,
+    formikHelpers: FormikHelpers<Values>
+  ) => {
+    if (isLastStep) {
+      onSubmit(values);
+      onClose();
+    }
+    formikHelpers.setTouched({});
+    handleNext(values);
   };
 
   return (
@@ -82,29 +106,43 @@ const DialogStepper: FunctionComponent<DialogStepperProps> = ({
           alternativeLabel
           className={classes.stepper}
         >
-          {steps.map((step: StepProps) => (
-            <Step key={step.nameKey}>
-              <StepLabel>{t(step.nameKey)}</StepLabel>
+          {steps.map((singleStep) => (
+            <Step key={singleStep.stepLabel}>
+              <StepLabel>{t(singleStep.stepLabel)}</StepLabel>
             </Step>
           ))}
         </Stepper>
       </DialogTitle>
-      <DialogContent>
-        <div className={classes.stepsContainer}>
-          {steps[activeStep].Content}
-        </div>
-      </DialogContent>
-      <DialogActions>
-        <Button onClick={onClose}>{t('button.cancel')}</Button>
-        <Button disabled={activeStep === 0} onClick={handleBack}>
-          {t('button.back')}
-        </Button>
-        <Button variant="contained" color="primary" onClick={handleNext}>
-          {activeStep === Object.keys(steps).length - 1
-            ? t('button.create')
-            : t('button.next')}
-        </Button>
-      </DialogActions>
+      <Formik<Values>
+        initialValues={snapshot}
+        onSubmit={handleSubmit}
+        validationSchema={step.validationSchema}
+      >
+        {(props: FormikProps<Values>) => (
+          <Form>
+            <DialogContent className={classes.stepsContainer}>
+              {step.content}
+            </DialogContent>
+            <DialogActions>
+              <Button onClick={onClose}>{t('button.cancel')}</Button>
+              <Button
+                disabled={activeStep === 0}
+                onClick={() => handleBack(props.values)}
+              >
+                {t('button.back')}
+              </Button>
+              <Button
+                variant="contained"
+                color="primary"
+                type="submit"
+                disabled={props.isSubmitting}
+              >
+                {isLastStep ? t('button.create') : t('button.next')}
+              </Button>
+            </DialogActions>
+          </Form>
+        )}
+      </Formik>
     </Dialog>
   );
 };

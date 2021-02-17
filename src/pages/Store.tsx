@@ -9,7 +9,7 @@ import { listProducts as ListProducts } from '../graphql/queries';
 import callGraphQL from '../graphql';
 import { ListProductsQuery } from '../graphql/API';
 import { Product } from '../graphql/types';
-import STEPS_CREATE_PRODUCT from '../components/actions/createProduct';
+import { STEPS_CREATE_PRODUCT } from '../components/forms/products/create';
 import DialogStepper from '../components/DialogStepper';
 
 const useStyles = makeStyles(
@@ -60,6 +60,10 @@ const Store: FunctionComponent = () => {
     setCreateProductDialogOpen(true);
   };
 
+  const handleCreateProductDialogSubmit = () => {
+    // Do nothing
+  };
+
   // Query the API and save them to the state
   async function listProducts() {
     const listProductsQuery = await callGraphQL<ListProductsQuery>(
@@ -104,6 +108,7 @@ const Store: FunctionComponent = () => {
       <DialogStepper
         open={createProductDialogOpen}
         onClose={handleCreateProductDialogClose}
+        onSubmit={handleCreateProductDialogSubmit}
         steps={STEPS_CREATE_PRODUCT}
       />
     </>
