@@ -22,7 +22,7 @@ export const FORM_DETAILS: FormItem[] = [
   },
   {
     name: 'price',
-    type: 'text',
+    type: 'number',
     // t('pages.action.createproduct.details.price')
     labelKey: 'pages.action.createproduct.details.price',
   },
@@ -64,7 +64,10 @@ export const STEPS_CREATE_PRODUCT: StepProps[] = [
     content: <FormBuilder items={FORM_DETAILS} />,
     validationSchema: yup.object({
       name: yup.string().required('Product name is required'),
-      price: yup.number().required('Product price is required'),
+      price: yup
+        .number()
+        .positive('Price must be positive')
+        .required('Product price is required'),
       description: yup
         .string()
         .min(10, 'Description should be a min of 10 characters length')

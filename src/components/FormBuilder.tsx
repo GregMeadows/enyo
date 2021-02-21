@@ -1,7 +1,7 @@
 /* eslint-disable react/jsx-props-no-spreading */
 import React, { FunctionComponent } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import { TextField } from '@material-ui/core';
+import { InputAdornment, TextField } from '@material-ui/core';
 import { useTranslation } from 'react-i18next';
 import { useFormikContext } from 'formik';
 import FileInput from './FileInput';
@@ -43,6 +43,9 @@ const FormBuilder: FunctionComponent<FormBuilderProps> = ({ items }) => {
   return (
     <div className={classes.root}>
       {items.map((item: FormItem) => {
+        const isMultiline = item.type === 'multiline';
+        const isNumber = item.type === 'number';
+
         switch (item.type) {
           case 'file': {
             let files;
@@ -63,27 +66,9 @@ const FormBuilder: FunctionComponent<FormBuilderProps> = ({ items }) => {
               />
             );
           }
-          case 'multiline': {
-            return (
-              <TextField
-                key={item.labelKey}
-                label={t(item.labelKey)}
-                variant="outlined"
-                size="small"
-                className={classes.text}
-                onChange={handleChange}
-                multiline
-                rows={4}
-                name={item.name}
-                id={item.name}
-                value={values[item.name]}
-                error={touched[item.name] && Boolean(errors[item.name])}
-                helperText={touched[item.name] && errors[item.name]}
-                {...item.props}
-              />
-            );
-          }
           default:
+          case 'number':
+          case 'multiline':
           case 'text': {
             return (
               <TextField
@@ -93,6 +78,18 @@ const FormBuilder: FunctionComponent<FormBuilderProps> = ({ items }) => {
                 size="small"
                 className={classes.text}
                 onChange={handleChange}
+                type={isNumber ? 'number' : undefined}
+                multiline={isMultiline}
+                rows={isMultiline ? 4 : undefined}
+                InputProps={
+                  isNumber
+                    ? {
+                        startAdornment: (
+                          <InputAdornment position="start">£</InputAdornment>
+                        ),
+                      }
+                    : undefined
+                }
                 name={item.name}
                 id={item.name}
                 value={values[item.name]}
