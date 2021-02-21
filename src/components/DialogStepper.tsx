@@ -26,6 +26,7 @@ export interface StepProps {
 interface DialogStepperProps {
   steps: StepProps[];
   open: boolean;
+  initialValues: Values;
   onClose: () => void;
   onSubmit: (vales: Values) => void;
 }
@@ -50,6 +51,7 @@ const useStyles = makeStyles(
 const DialogStepper: FunctionComponent<DialogStepperProps> = ({
   steps,
   open,
+  initialValues,
   onClose,
   onSubmit,
 }) => {
@@ -57,7 +59,7 @@ const DialogStepper: FunctionComponent<DialogStepperProps> = ({
   const { t } = useTranslation();
 
   const [activeStep, setActiveStep] = useState(0);
-  const [snapshot, setSnapshot] = useState({});
+  const [snapshot, setSnapshot] = useState<Values>(initialValues);
 
   useEffect(() => {
     // Reset stepper if reopening
@@ -80,17 +82,14 @@ const DialogStepper: FunctionComponent<DialogStepperProps> = ({
     setActiveStep((prevActiveStep) => prevActiveStep - 1);
   }
 
-  const handleSubmit = async (
-    values: Values,
-    formikHelpers: FormikHelpers<Values>
-  ) => {
+  function handleSubmit(values: Values, formikHelpers: FormikHelpers<Values>) {
     if (isLastStep) {
       onSubmit(values);
       onClose();
     }
     formikHelpers.setTouched({});
     handleNext(values);
-  };
+  }
 
   return (
     <Dialog

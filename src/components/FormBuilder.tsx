@@ -38,7 +38,7 @@ const FormBuilder: FunctionComponent<FormBuilderProps> = ({ items }) => {
   const classes = useStyles();
   const { t } = useTranslation();
 
-  const { values, touched, errors } = useFormikContext<Values>();
+  const { values, touched, errors, handleChange } = useFormikContext<Values>();
 
   return (
     <div className={classes.root}>
@@ -71,6 +71,7 @@ const FormBuilder: FunctionComponent<FormBuilderProps> = ({ items }) => {
                 variant="outlined"
                 size="small"
                 className={classes.text}
+                onChange={handleChange}
                 multiline
                 rows={4}
                 name={item.name}
@@ -91,6 +92,7 @@ const FormBuilder: FunctionComponent<FormBuilderProps> = ({ items }) => {
                 variant="outlined"
                 size="small"
                 className={classes.text}
+                onChange={handleChange}
                 name={item.name}
                 id={item.name}
                 value={values[item.name]}

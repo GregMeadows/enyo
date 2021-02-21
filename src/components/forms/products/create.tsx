@@ -45,6 +45,15 @@ const PRODUCT_IMAGES: FormItem[] = [
 ];
 
 /**
+ * Initial Values
+ */
+export const INITIAL_CREATE_PRODUCT = {
+  name: '',
+  price: '',
+  description: '',
+};
+
+/**
  * Steps
  */
 

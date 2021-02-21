@@ -9,7 +9,10 @@ import { listProducts as ListProducts } from '../graphql/queries';
 import callGraphQL from '../graphql';
 import { ListProductsQuery } from '../graphql/API';
 import { Product } from '../graphql/types';
-import { STEPS_CREATE_PRODUCT } from '../components/forms/products/create';
+import {
+  INITIAL_CREATE_PRODUCT,
+  STEPS_CREATE_PRODUCT,
+} from '../components/forms/products/create';
 import DialogStepper from '../components/DialogStepper';
 
 const useStyles = makeStyles(
@@ -106,10 +109,11 @@ const Store: FunctionComponent = () => {
         </div>
       </Main>
       <DialogStepper
+        steps={STEPS_CREATE_PRODUCT}
+        initialValues={INITIAL_CREATE_PRODUCT}
         open={createProductDialogOpen}
         onClose={handleCreateProductDialogClose}
         onSubmit={handleCreateProductDialogSubmit}
-        steps={STEPS_CREATE_PRODUCT}
       />
     </>
   );
