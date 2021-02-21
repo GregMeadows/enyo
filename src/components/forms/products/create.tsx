@@ -1,5 +1,6 @@
 import React from 'react';
 import * as yup from 'yup';
+import { SUPPORTED_IMAGE_FORMATS } from '../../../assets/consts';
 import { StepProps } from '../../DialogStepper';
 import FormBuilder, { FormItem } from '../../FormBuilder';
 
@@ -40,7 +41,7 @@ const PRODUCT_IMAGES: FormItem[] = [
     type: 'file',
     // t('pages.action.createproduct.images.upload')
     labelKey: 'pages.action.createproduct.images.upload',
-    props: { acceptedTypes: ['image/*'] },
+    props: { acceptedTypes: SUPPORTED_IMAGE_FORMATS },
   },
 ];
 
@@ -78,6 +79,16 @@ export const STEPS_CREATE_PRODUCT: StepProps[] = [
     // t('pages.action.createproduct.images.title')
     stepLabel: 'pages.action.createproduct.images.title',
     content: <FormBuilder items={PRODUCT_IMAGES} />,
+    validationSchema: yup.object({
+      file: yup
+        .mixed()
+        .required('At least 1 product image is required.')
+        .test(
+          'fileFormat',
+          'This file format is unsupported.',
+          (value) => value && SUPPORTED_IMAGE_FORMATS.includes(value.type)
+        ),
+    }),
   },
   {
     // t('pages.action.createproduct.confirm.title')
