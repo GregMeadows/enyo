@@ -14,8 +14,7 @@ import {
 import { useTranslation } from 'react-i18next';
 import { Form, Formik, FormikHelpers, FormikProps } from 'formik';
 import { AnyObjectSchema } from 'yup';
-
-type Values = Record<string, unknown>;
+import { FormikValues } from '../types';
 
 export interface StepProps {
   stepLabel: string;
@@ -26,9 +25,9 @@ export interface StepProps {
 interface DialogStepperProps {
   steps: StepProps[];
   open: boolean;
-  initialValues: Values;
+  initialValues: FormikValues;
   onClose: () => void;
-  onSubmit: (vales: Values) => void;
+  onSubmit: (vales: FormikValues) => void;
 }
 
 const useStyles = makeStyles(
@@ -59,7 +58,7 @@ const DialogStepper: FunctionComponent<DialogStepperProps> = ({
   const { t } = useTranslation();
 
   const [activeStep, setActiveStep] = useState(0);
-  const [snapshot, setSnapshot] = useState<Values>(initialValues);
+  const [snapshot, setSnapshot] = useState<FormikValues>(initialValues);
 
   useEffect(() => {
     // Reset stepper if reopening
@@ -72,22 +71,26 @@ const DialogStepper: FunctionComponent<DialogStepperProps> = ({
   const totalSteps = steps.length;
   const isLastStep = activeStep === totalSteps - 1;
 
-  function handleNext(values: Values) {
+  function handleNext(values: FormikValues) {
     setSnapshot(values);
     setActiveStep((prevActiveStep) => prevActiveStep + 1);
   }
 
-  function handleBack(values: Values) {
+  function handleBack(values: FormikValues) {
     setSnapshot(values);
     setActiveStep((prevActiveStep) => prevActiveStep - 1);
   }
 
-  function handleSubmit(values: Values, formikHelpers: FormikHelpers<Values>) {
+  function handleSubmit(
+    values: FormikValues,
+    formikHelpers: FormikHelpers<FormikValues>
+  ) {
     if (isLastStep) {
       onSubmit(values);
       onClose();
     }
     formikHelpers.setTouched({});
+    formikHelpers.setSubmitting(false);
     handleNext(values);
   }
 
@@ -112,12 +115,12 @@ const DialogStepper: FunctionComponent<DialogStepperProps> = ({
           ))}
         </Stepper>
       </DialogTitle>
-      <Formik<Values>
+      <Formik<FormikValues>
         initialValues={snapshot}
         onSubmit={handleSubmit}
         validationSchema={step.validationSchema}
       >
-        {(props: FormikProps<Values>) => (
+        {(props: FormikProps<FormikValues>) => (
           <Form>
             <DialogContent className={classes.stepsContainer}>
               {step.content}

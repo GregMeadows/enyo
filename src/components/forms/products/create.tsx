@@ -1,14 +1,24 @@
 import React from 'react';
 import * as yup from 'yup';
 import { SUPPORTED_IMAGE_FORMATS } from '../../../assets/consts';
+import { FileWithDescription } from '../../../types';
 import { StepProps } from '../../DialogStepper';
 import FormBuilder, { FormItem } from '../../FormBuilder';
 
 export interface CreateProductForm {
+  [key: string]: unknown;
   name: string;
-  price: number;
+  price: number | null;
   description: string;
+  files: FileWithDescription[];
 }
+
+export const INITIAL_CREATE_PRODUCT: CreateProductForm = {
+  name: '',
+  price: null,
+  description: '',
+  files: [],
+};
 
 /**
  * Form Objects
@@ -37,22 +47,13 @@ export const FORM_DETAILS: FormItem[] = [
 
 const PRODUCT_IMAGES: FormItem[] = [
   {
-    name: 'upload',
-    type: 'file',
+    name: 'files',
+    type: 'files',
     // t('pages.action.createproduct.images.upload')
     labelKey: 'pages.action.createproduct.images.upload',
     props: { acceptedTypes: SUPPORTED_IMAGE_FORMATS },
   },
 ];
-
-/**
- * Initial Values
- */
-export const INITIAL_CREATE_PRODUCT = {
-  name: '',
-  price: '',
-  description: '',
-};
 
 /**
  * Steps
@@ -80,13 +81,24 @@ export const STEPS_CREATE_PRODUCT: StepProps[] = [
     stepLabel: 'pages.action.createproduct.images.title',
     content: <FormBuilder items={PRODUCT_IMAGES} />,
     validationSchema: yup.object({
-      file: yup
-        .mixed()
-        .required('At least 1 product image is required.')
-        .test(
-          'fileFormat',
-          'This file format is unsupported.',
-          (value) => value && SUPPORTED_IMAGE_FORMATS.includes(value.type)
+      files: yup
+        .array()
+        .min(1, 'At least 1 image is required.')
+        .of(
+          yup.object({
+            file: yup
+              .mixed()
+              .required()
+              .test(
+                'fileFormat',
+                'This file format is unsupported.',
+                (value) => value && SUPPORTED_IMAGE_FORMATS.includes(value.type)
+              ),
+            description: yup
+              .string()
+              .min(10, 'Description should be a min of 10 characters length')
+              .required('Product description is required'),
+          })
         ),
     }),
   },

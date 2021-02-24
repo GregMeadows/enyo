@@ -1,18 +1,16 @@
-import React, { FunctionComponent, ReactNode, useState } from 'react';
+import React, { FunctionComponent } from 'react';
 import { makeStyles, Theme } from '@material-ui/core/styles';
 import { useTranslation } from 'react-i18next';
 import CloudUploadIcon from '@material-ui/icons/CloudUpload';
 import { Button, TextField, Typography } from '@material-ui/core';
 import clsx from 'clsx';
+import { FieldArray, useFormikContext } from 'formik';
 import { formatBytes } from '../assets/Utils';
+import { FileWithDescription, FormikValues } from '../types';
 
 interface FileInputProps {
   acceptedTypes?: string[];
-  name?: string;
-  id?: string;
-  value?: FileList | null;
-  error?: boolean;
-  helperText?: ReactNode;
+  name: string;
 }
 
 const useStyles = makeStyles(
@@ -66,55 +64,44 @@ const useStyles = makeStyles(
 const FileInput: FunctionComponent<FileInputProps> = ({
   acceptedTypes,
   name,
-  id,
-  value,
-  error,
-  helperText,
 }) => {
   const classes = useStyles();
   const { t } = useTranslation();
-  const [selectedFiles, setSelectedFiles] = useState<FileList | null>(
-    value || null
-  );
 
-  function handleChange(event: React.ChangeEvent<HTMLInputElement>) {
+  const {
+    values,
+    touched,
+    errors,
+    handleChange,
+    setFieldValue,
+  } = useFormikContext<FormikValues>();
+  const filesValue = values[name] as FileWithDescription[];
+
+  function handleFileInputChange(event: React.ChangeEvent<HTMLInputElement>) {
     const {
       target: { files },
     } = event;
-    setSelectedFiles(files && files.length > 0 ? files : null);
+    const newValue: FileWithDescription[] = [];
+    if (files) {
+      Array.from(files).forEach((file) => {
+        newValue.push({
+          file,
+          description: '',
+        });
+      });
+    }
+    setFieldValue(name, newValue);
   }
 
-  let fileElements;
-  if (selectedFiles) {
-    fileElements = Array.from(selectedFiles).map((file) => (
-      <div className={classes.item} key={file.name}>
-        <div className={classes.itemText}>
-          <Typography variant="h6" noWrap>
-            {file.name}
-          </Typography>
-          <Typography variant="subtitle2" noWrap>
-            {formatBytes(file.size)}
-          </Typography>
-        </div>
-        <div className={classes.itemInput}>
-          <TextField
-            label={t('pages.action.createproduct.images.description')}
-            variant="outlined"
-            required
-            size="small"
-            multiline
-            rows={2}
-            fullWidth
-          />
-        </div>
-      </div>
-    ));
-  }
+  const error =
+    touched[name] && typeof errors[name] === 'string' && Boolean(errors[name]);
+  const helperText =
+    touched[name] && typeof errors[name] === 'string' && errors[name];
 
   let text;
-  if (selectedFiles && selectedFiles.length > 0) {
+  if (filesValue.length > 0) {
     text = t('pages.action.createproduct.images.count', {
-      count: selectedFiles?.length,
+      count: filesValue.length,
     });
   } else {
     text = helperText || t('pages.action.createproduct.images.none');
@@ -128,10 +115,9 @@ const FileInput: FunctionComponent<FileInputProps> = ({
           <input
             type="file"
             name={name}
-            id={id}
             className={classes.input}
             multiple
-            onChange={handleChange}
+            onChange={handleFileInputChange}
             accept={acceptedTypes?.join(',')}
           />
           <Button
@@ -151,7 +137,59 @@ const FileInput: FunctionComponent<FileInputProps> = ({
           {text}
         </Typography>
       </div>
-      <div className={classes.fileElements}>{fileElements}</div>
+      <FieldArray name={name}>
+        {() => (
+          <div className={classes.fileElements}>
+            {filesValue.length > 0 &&
+              filesValue.map(({ file, description }, index) => {
+                const itemName = `${name}.${index}.description`;
+
+                const itemTouchedArray = (touched[
+                  name
+                ] as unknown) as FormikValues[];
+                const itemTouched =
+                  itemTouchedArray &&
+                  (itemTouchedArray[index]?.description as boolean | undefined);
+                const itemErrorArray = (errors[
+                  name
+                ] as unknown) as FormikValues[];
+                const itemError =
+                  itemErrorArray &&
+                  (itemErrorArray[index]?.description as string | undefined);
+
+                return (
+                  <div className={classes.item} key={file.name}>
+                    <div className={classes.itemText}>
+                      <Typography variant="h6" noWrap>
+                        {file.name}
+                      </Typography>
+                      <Typography variant="subtitle2" noWrap>
+                        {formatBytes(file.size)}
+                      </Typography>
+                    </div>
+                    <div className={classes.itemInput}>
+                      <TextField
+                        label={t(
+                          'pages.action.createproduct.images.description'
+                        )}
+                        variant="outlined"
+                        size="small"
+                        multiline
+                        rows={2}
+                        fullWidth
+                        onChange={handleChange}
+                        name={itemName}
+                        value={description}
+                        error={itemTouched && Boolean(itemError)}
+                        helperText={itemTouched && itemError}
+                      />
+                    </div>
+                  </div>
+                );
+              })}
+          </div>
+        )}
+      </FieldArray>
     </div>
   );
 };

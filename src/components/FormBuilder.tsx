@@ -5,10 +5,10 @@ import { InputAdornment, TextField } from '@material-ui/core';
 import { useTranslation } from 'react-i18next';
 import { useFormikContext } from 'formik';
 import FileInput from './FileInput';
+import { FormikValues } from '../types';
 
-type Values = Record<string, unknown>;
 export interface FormItem {
-  type: 'text' | 'multiline' | 'file' | 'number';
+  type: 'text' | 'multiline' | 'files' | 'number';
   name: string;
   labelKey: string;
   props?: Record<string, unknown>;
@@ -38,7 +38,12 @@ const FormBuilder: FunctionComponent<FormBuilderProps> = ({ items }) => {
   const classes = useStyles();
   const { t } = useTranslation();
 
-  const { values, touched, errors, handleChange } = useFormikContext<Values>();
+  const {
+    values,
+    touched,
+    errors,
+    handleChange,
+  } = useFormikContext<FormikValues>();
 
   return (
     <div className={classes.root}>
@@ -47,23 +52,9 @@ const FormBuilder: FunctionComponent<FormBuilderProps> = ({ items }) => {
         const isNumber = item.type === 'number';
 
         switch (item.type) {
-          case 'file': {
-            let files;
-            // Sort of safely cast to FileList
-            const castValue = values[item.name] as FileList;
-            if (castValue.length > 0 && castValue[0].size) {
-              files = castValue;
-            }
+          case 'files': {
             return (
-              <FileInput
-                key={item.labelKey}
-                name={item.name}
-                id={item.name}
-                value={files}
-                error={touched[item.name] && Boolean(errors[item.name])}
-                helperText={touched[item.name] && errors[item.name]}
-                {...item.props}
-              />
+              <FileInput key={item.labelKey} name={item.name} {...item.props} />
             );
           }
           default:
@@ -91,8 +82,7 @@ const FormBuilder: FunctionComponent<FormBuilderProps> = ({ items }) => {
                     : undefined
                 }
                 name={item.name}
-                id={item.name}
-                value={values[item.name]}
+                value={values[item.name] || ''}
                 error={touched[item.name] && Boolean(errors[item.name])}
                 helperText={touched[item.name] && errors[item.name]}
                 {...item.props}
