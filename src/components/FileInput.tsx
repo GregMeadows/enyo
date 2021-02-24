@@ -2,7 +2,8 @@ import React, { FunctionComponent } from 'react';
 import { makeStyles, Theme } from '@material-ui/core/styles';
 import { useTranslation } from 'react-i18next';
 import CloudUploadIcon from '@material-ui/icons/CloudUpload';
-import { Button, TextField, Typography } from '@material-ui/core';
+import { Button, IconButton, TextField, Typography } from '@material-ui/core';
+import ClearIcon from '@material-ui/icons/Clear';
 import clsx from 'clsx';
 import { FieldArray, useFormikContext } from 'formik';
 import { formatBytes } from '../assets/Utils';
@@ -45,6 +46,10 @@ const useStyles = makeStyles(
       flexDirection: 'column',
       justifyContent: 'center',
       marginRight: '0.5rem',
+    },
+    itemClear: {
+      display: 'flex',
+      flexDirection: 'column',
     },
     itemInput: {
       flexGrow: 1,
@@ -138,7 +143,7 @@ const FileInput: FunctionComponent<FileInputProps> = ({
         </Typography>
       </div>
       <FieldArray name={name}>
-        {() => (
+        {({ remove }) => (
           <div className={classes.fileElements}>
             {filesValue.length > 0 &&
               filesValue.map(({ file, description }, index) => {
@@ -159,6 +164,11 @@ const FileInput: FunctionComponent<FileInputProps> = ({
 
                 return (
                   <div className={classes.item} key={file.name}>
+                    <div className={classes.itemClear}>
+                      <IconButton size="small" onClick={() => remove(index)}>
+                        <ClearIcon fontSize="small" />
+                      </IconButton>
+                    </div>
                     <div className={classes.itemText}>
                       <Typography variant="h6" noWrap>
                         {file.name}
