@@ -50,6 +50,8 @@ const useStyles = makeStyles(
     itemClear: {
       display: 'flex',
       flexDirection: 'column',
+      justifyContent: 'center',
+      marginRight: '0.4rem',
     },
     itemInput: {
       flexGrow: 1,
