@@ -29,20 +29,20 @@ export const FORM_DETAILS: FormItem[] = [
   {
     name: 'name',
     type: 'text',
-    // t('pages.action.createproduct.details.name')
-    labelKey: 'pages.action.createproduct.details.name',
+    // t('forms.products.create.details.name')
+    labelKey: 'forms.products.create.details.name',
   },
   {
     name: 'price',
     type: 'number',
-    // t('pages.action.createproduct.details.price')
-    labelKey: 'pages.action.createproduct.details.price',
+    // t('forms.products.create.details.price')
+    labelKey: 'forms.products.create.details.price',
   },
   {
     name: 'description',
     type: 'multiline',
-    // t('pages.action.createproduct.details.description')
-    labelKey: 'pages.action.createproduct.details.description',
+    // t('forms.products.create.details.description')
+    labelKey: 'forms.products.create.details.description',
   },
 ];
 
@@ -50,8 +50,8 @@ const PRODUCT_IMAGES: FormItem[] = [
   {
     name: 'files',
     type: 'files',
-    // t('pages.action.createproduct.images.upload')
-    labelKey: 'pages.action.createproduct.images.upload',
+    // t('forms.products.create.images.upload')
+    labelKey: 'forms.products.create.images.upload',
     props: { acceptedTypes: SUPPORTED_IMAGE_FORMATS },
   },
 ];
@@ -62,50 +62,70 @@ const PRODUCT_IMAGES: FormItem[] = [
 
 export const STEPS_CREATE_PRODUCT: StepProps[] = [
   {
-    // t('pages.action.createproduct.details.title')
-    stepLabel: 'pages.action.createproduct.details.title',
+    // t('forms.products.create.details.title')
+    stepLabel: 'forms.products.create.details.title',
     content: <FormBuilder items={FORM_DETAILS} />,
     validationSchema: yup.object({
-      name: yup.string().required('Product name is required'),
+      // t('forms.products.create.details.validation.name.required')
+      name: yup
+        .string()
+        .required('forms.products.create.details.validation.name.required'),
+      // t('forms.products.create.details.validation.price.positive')
+      // t('forms.products.create.details.validation.price.type')
+      // t('forms.products.create.details.validation.price.required')
       price: yup
         .number()
-        .positive('Price must be positive')
-        .required('Product price is required'),
+        .typeError('forms.products.create.details.validation.price.type')
+        .positive('forms.products.create.details.validation.price.type')
+        .required('forms.products.create.details.validation.price.required'),
+      // t('forms.products.create.details.validation.description.min')
+      // t('forms.products.create.details.validation.description.required')
       description: yup
         .string()
-        .min(10, 'Description should be a min of 10 characters length')
-        .required('Product description is required'),
+        .min(10, 'forms.products.create.details.validation.description.min')
+        .required(
+          'forms.products.create.details.validation.description.required'
+        ),
     }),
   },
   {
-    // t('pages.action.createproduct.images.title')
-    stepLabel: 'pages.action.createproduct.images.title',
+    // t('forms.products.create.images.title')
+    stepLabel: 'forms.products.create.images.title',
     content: <FormBuilder items={PRODUCT_IMAGES} />,
     validationSchema: yup.object({
+      // t('forms.products.create.images.validation.files.min')
       files: yup
         .array()
-        .min(1, 'At least 1 image is required.')
+        .min(1, 'forms.products.create.images.validation.files.min')
         .of(
           yup.object({
+            // t('forms.products.create.images.validation.files.unsupported')
             file: yup
               .mixed()
               .required()
               .test(
                 'fileFormat',
-                'This file format is unsupported.',
+                'forms.products.create.images.validation.files.unsupported',
                 (value) => value && SUPPORTED_IMAGE_FORMATS.includes(value.type)
               ),
+            // t('forms.products.create.images.validation.description.min')
+            // t('forms.products.create.images.validation.description.required')
             description: yup
               .string()
-              .min(10, 'Description should be a min of 10 characters length')
-              .required('Product description is required'),
+              .min(
+                10,
+                'forms.products.create.images.validation.description.min'
+              )
+              .required(
+                'forms.products.create.images.validation.description.required'
+              ),
           })
         ),
     }),
   },
   {
-    // t('pages.action.createproduct.confirm.title')
-    stepLabel: 'pages.action.createproduct.confirm.title',
+    // t('forms.products.create.confirm.title')
+    stepLabel: 'forms.products.create.confirm.title',
     content: <Confirmation />,
   },
 ];

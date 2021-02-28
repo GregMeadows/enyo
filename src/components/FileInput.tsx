@@ -103,15 +103,17 @@ const FileInput: FunctionComponent<FileInputProps> = ({
   const error =
     touched[name] && typeof errors[name] === 'string' && Boolean(errors[name]);
   const helperText =
-    touched[name] && typeof errors[name] === 'string' && errors[name];
+    touched[name] &&
+    typeof errors[name] === 'string' &&
+    t(errors[name] as string);
 
   let text;
   if (filesValue.length > 0) {
-    text = t('pages.action.createproduct.images.count', {
+    text = t('forms.products.create.images.count', {
       count: filesValue.length,
     });
   } else {
-    text = helperText || t('pages.action.createproduct.images.none');
+    text = helperText || t('forms.products.create.images.none');
   }
 
   return (
@@ -133,7 +135,7 @@ const FileInput: FunctionComponent<FileInputProps> = ({
             component="div"
             className={clsx(error && classes.errorButton)}
           >
-            {t('pages.action.createproduct.images.upload')}
+            {t('forms.products.create.images.upload')}
           </Button>
         </label>
         <Typography
@@ -151,18 +153,40 @@ const FileInput: FunctionComponent<FileInputProps> = ({
               filesValue.map(({ file, description }, index) => {
                 const itemName = `${name}.${index}.description`;
 
-                const itemTouchedArray = (touched[
+                const itemFileTouchedArray = (touched[
                   name
                 ] as unknown) as FormikValues[];
-                const itemTouched =
-                  itemTouchedArray &&
-                  (itemTouchedArray[index]?.description as boolean | undefined);
-                const itemErrorArray = (errors[
+                const itemFileTouched =
+                  itemFileTouchedArray &&
+                  (itemFileTouchedArray[index]?.file as boolean | undefined);
+                const itemfileErrorArray = (errors[
                   name
                 ] as unknown) as FormikValues[];
-                const itemError =
-                  itemErrorArray &&
-                  (itemErrorArray[index]?.description as string | undefined);
+                const itemFileError =
+                  itemfileErrorArray &&
+                  (itemfileErrorArray[index]?.file as string | undefined);
+                const itemFileErrorClass = clsx(
+                  itemFileTouched && Boolean(itemFileError) && classes.errorText
+                );
+                const itemFileHelperText =
+                  itemFileTouched && itemFileError && t(itemFileError);
+
+                const itemDescriptionTouchedArray = (touched[
+                  name
+                ] as unknown) as FormikValues[];
+                const itemDescriptionTouched =
+                  itemDescriptionTouchedArray &&
+                  (itemDescriptionTouchedArray[index]?.description as
+                    | boolean
+                    | undefined);
+                const itemDescriptionErrorArray = (errors[
+                  name
+                ] as unknown) as FormikValues[];
+                const itemDescriptionError =
+                  itemDescriptionErrorArray &&
+                  (itemDescriptionErrorArray[index]?.description as
+                    | string
+                    | undefined);
 
                 return (
                   <div className={classes.item} key={file.name}>
@@ -172,18 +196,24 @@ const FileInput: FunctionComponent<FileInputProps> = ({
                       </IconButton>
                     </div>
                     <div className={classes.itemText}>
-                      <Typography variant="h6" noWrap>
+                      <Typography
+                        variant="h6"
+                        noWrap
+                        className={itemFileErrorClass}
+                      >
                         {file.name}
                       </Typography>
-                      <Typography variant="subtitle2" noWrap>
-                        {formatBytes(file.size)}
+                      <Typography
+                        variant="subtitle2"
+                        noWrap
+                        className={itemFileErrorClass}
+                      >
+                        {itemFileHelperText || formatBytes(file.size)}
                       </Typography>
                     </div>
                     <div className={classes.itemInput}>
                       <TextField
-                        label={t(
-                          'pages.action.createproduct.images.description'
-                        )}
+                        label={t('forms.products.create.images.description')}
                         variant="outlined"
                         size="small"
                         multiline
@@ -192,8 +222,15 @@ const FileInput: FunctionComponent<FileInputProps> = ({
                         onChange={handleChange}
                         name={itemName}
                         value={description}
-                        error={itemTouched && Boolean(itemError)}
-                        helperText={itemTouched && itemError}
+                        error={
+                          itemDescriptionTouched &&
+                          Boolean(itemDescriptionError)
+                        }
+                        helperText={
+                          itemDescriptionTouched &&
+                          itemDescriptionError &&
+                          t(itemDescriptionError)
+                        }
                       />
                     </div>
                   </div>

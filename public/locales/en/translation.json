@@ -15,6 +15,53 @@
   "currency": {
     "gbp": "£"
   },
+  "forms": {
+    "products": {
+      "create": {
+        "confirm": {
+          "title": "Confirm"
+        },
+        "details": {
+          "description": "Description",
+          "name": "Name",
+          "price": "Price",
+          "title": "Product Details",
+          "validation": {
+            "description": {
+              "min": "Product description should be a min of 10 characters",
+              "required": "Product description is required"
+            },
+            "name": {
+              "required": "Product name is required"
+            },
+            "price": {
+              "positive": "Product price must be positive",
+              "required": "A price must be set for the product",
+              "type": "Must be a positive numeric value"
+            }
+          }
+        },
+        "images": {
+          "count": "{{count}} image selected.",
+          "count_plural": "{{count}} images selected.",
+          "description": "Image description",
+          "none": "No images currently selected.",
+          "title": "Product Images",
+          "upload": "Select Images…",
+          "validation": {
+            "description": {
+              "min": "Image description must be a min of 10 characters",
+              "required": "Image description is required"
+            },
+            "files": {
+              "min": "At least 1 image is required",
+              "unsupported": "File type is not supported"
+            }
+          }
+        }
+      }
+    }
+  },
   "nav": {
     "about": {
       "about": "Who We Are",
@@ -45,27 +92,6 @@
     "account": {
       "intro": "Manage your account from here.",
       "title": "Account"
-    },
-    "action": {
-      "createproduct": {
-        "confirm": {
-          "title": "Confirm"
-        },
-        "details": {
-          "description": "Description",
-          "name": "Name",
-          "price": "Price",
-          "title": "Product Details"
-        },
-        "images": {
-          "count": "{{count}} image selected.",
-          "count_plural": "{{count}} images selected.",
-          "description": "Image description",
-          "none": "No images currently selected.",
-          "title": "Product Images",
-          "upload": "Select Images…"
-        }
-      }
     },
     "contact": {
       "form": {

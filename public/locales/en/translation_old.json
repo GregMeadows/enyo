@@ -40,7 +40,24 @@
     },
     "action": {
       "createproduct": {
-        "title": "Create Product"
+        "title": "Create Product",
+        "confirm": {
+          "title": "Confirm"
+        },
+        "details": {
+          "title": "Product Details",
+          "description": "Description",
+          "name": "Name",
+          "price": "Price"
+        },
+        "images": {
+          "title": "Product Images",
+          "count": "{{count}} image selected.",
+          "count_plural": "{{count}} images selected.",
+          "description": "Image description",
+          "none": "No images currently selected.",
+          "upload": "Select Images…"
+        }
       }
     }
   },

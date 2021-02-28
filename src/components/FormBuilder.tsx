@@ -76,7 +76,9 @@ const FormBuilder: FunctionComponent<FormBuilderProps> = ({ items }) => {
                   isNumber
                     ? {
                         startAdornment: (
-                          <InputAdornment position="start">£</InputAdornment>
+                          <InputAdornment position="start">
+                            {t('currency.gbp')}
+                          </InputAdornment>
                         ),
                       }
                     : undefined
@@ -84,7 +86,9 @@ const FormBuilder: FunctionComponent<FormBuilderProps> = ({ items }) => {
                 name={item.name}
                 value={values[item.name] || ''}
                 error={touched[item.name] && Boolean(errors[item.name])}
-                helperText={touched[item.name] && errors[item.name]}
+                helperText={
+                  touched[item.name] && t(errors[item.name] as string)
+                }
                 {...item.props}
               />
             );

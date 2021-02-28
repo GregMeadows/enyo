@@ -70,41 +70,43 @@ const Confirmation: FunctionComponent = () => {
   return (
     <div>
       <table className={classes.table}>
-        <tr>
-          <th>
-            <Typography variant="h6">
-              {t('pages.action.createproduct.details.name')}
-            </Typography>
-          </th>
-          <td>
-            <Typography variant="body2">{values.name}</Typography>
-          </td>
-        </tr>
-        <tr>
-          <th>
-            <Typography variant="h6">
-              {t('pages.action.createproduct.details.price')}
-            </Typography>
-          </th>
-          <td>
-            <Typography variant="body1">
-              <CurrencyCharacter />
-              {values.price}
-            </Typography>
-          </td>
-        </tr>
-        <tr>
-          <th colSpan={2}>
-            <Typography variant="h6">
-              {t('pages.action.createproduct.details.description')}
-            </Typography>
-          </th>
-        </tr>
-        <tr>
-          <td colSpan={2}>
-            <Typography variant="body1">{values.description}</Typography>
-          </td>
-        </tr>
+        <tbody>
+          <tr>
+            <th>
+              <Typography variant="h6">
+                {t('forms.products.create.details.name')}
+              </Typography>
+            </th>
+            <td>
+              <Typography variant="body2">{values.name}</Typography>
+            </td>
+          </tr>
+          <tr>
+            <th>
+              <Typography variant="h6">
+                {t('forms.products.create.details.price')}
+              </Typography>
+            </th>
+            <td>
+              <Typography variant="body1">
+                <CurrencyCharacter />
+                {values.price}
+              </Typography>
+            </td>
+          </tr>
+          <tr>
+            <th colSpan={2}>
+              <Typography variant="h6">
+                {t('forms.products.create.details.description')}
+              </Typography>
+            </th>
+          </tr>
+          <tr>
+            <td colSpan={2}>
+              <Typography variant="body1">{values.description}</Typography>
+            </td>
+          </tr>
+        </tbody>
       </table>
 
       <div className={classes.images}>{imagePreviews}</div>
