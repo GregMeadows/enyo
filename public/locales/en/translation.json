@@ -12,6 +12,9 @@
     "tag": "Made to Conquer"
   },
   "copyright": "Copyright © {{year}}. {{company}}.",
+  "currency": {
+    "gbp": "£"
+  },
   "nav": {
     "about": {
       "about": "Who We Are",

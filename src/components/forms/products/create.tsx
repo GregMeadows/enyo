@@ -4,6 +4,7 @@ import { SUPPORTED_IMAGE_FORMATS } from '../../../assets/consts';
 import { FileWithDescription } from '../../../types';
 import { StepProps } from '../../DialogStepper';
 import FormBuilder, { FormItem } from '../../FormBuilder';
+import Confirmation from '../../Confirmation';
 
 export interface CreateProductForm {
   [key: string]: unknown;
@@ -105,6 +106,6 @@ export const STEPS_CREATE_PRODUCT: StepProps[] = [
   {
     // t('pages.action.createproduct.confirm.title')
     stepLabel: 'pages.action.createproduct.confirm.title',
-    content: <></>,
+    content: <Confirmation />,
   },
 ];
