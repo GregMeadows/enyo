@@ -56,7 +56,7 @@ const Confirmation: FunctionComponent = () => {
   const imagePreviews = values.files.map((image) => {
     const url = URL.createObjectURL(image.file);
     return (
-      <div className={classes.imageContainer}>
+      <div className={classes.imageContainer} key={image.file.name}>
         <img src={url} alt={image.description} className={classes.image} />
         <div className={classes.imageInfo}>
           <Typography variant="caption" noWrap>

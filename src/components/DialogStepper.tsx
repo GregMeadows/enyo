@@ -88,10 +88,11 @@ const DialogStepper: FunctionComponent<DialogStepperProps> = ({
     if (isLastStep) {
       onSubmit(values);
       onClose();
+    } else {
+      formikHelpers.setTouched({});
+      formikHelpers.setSubmitting(false);
+      handleNext(values);
     }
-    formikHelpers.setTouched({});
-    formikHelpers.setSubmitting(false);
-    handleNext(values);
   }
 
   return (
