@@ -64,8 +64,9 @@ const DialogStepper: FunctionComponent<DialogStepperProps> = ({
     // Reset stepper if reopening
     if (open) {
       setActiveStep(0);
+      setSnapshot(initialValues);
     }
-  }, [open]);
+  }, [initialValues, open]);
 
   const step = steps[activeStep];
   const totalSteps = steps.length;
