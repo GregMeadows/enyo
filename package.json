@@ -60,7 +60,8 @@
     "prettier": "prettier --write src",
     "prettier:check": "prettier --check src",
     "lang:extract": "i18next src/**/*.{ts,tsx}",
-    "deploy:check": "npm run lint && npm run prettier:check && npm run test:deploy"
+    "deploy:check": "npm run lint && npm run prettier:check && npm run test:deploy",
+    "mock": "amplify mock"
   },
   "browserslist": {
     "production": [
