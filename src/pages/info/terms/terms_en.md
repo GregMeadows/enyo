@@ -30,4 +30,4 @@ The contents of these pages are the copyright trademark or registered trademark 
 
 # Contact Enyo
 
-Please use our [contact page](/contact).
+Any enquiries into our terms can be sent to terms@enyo.gg.
