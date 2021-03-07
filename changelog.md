@@ -1,5 +1,18 @@
 # Changelog
 
+## v1.0.4 - 2021-03-07
+
+### Contact
+
+- Add address and email
+
+### Misc
+
+- Add VAT number to footer
+- Use privacy & terms email on info pages
+
+---
+
 ## v1.0.3 - 2021-01-25
 
 ### Homepage

@@ -5,7 +5,7 @@ import React, {
   useState,
 } from 'react';
 import { makeStyles, Theme } from '@material-ui/core/styles';
-import { useTranslation } from 'react-i18next';
+import { Trans, useTranslation } from 'react-i18next';
 import {
   Button,
   CircularProgress,
@@ -50,6 +50,10 @@ const useStyles = makeStyles(
     },
     text: {
       marginTop: '1rem',
+      whiteSpace: 'pre-line',
+    },
+    form: {
+      marginTop: '3rem',
       marginBottom: '2rem',
     },
     progress: {
@@ -162,7 +166,12 @@ const Contact: FunctionComponent = () => {
           {t('pages.contact.form.default')}
         </Typography>
       </div>
-      <form name="contact" method="post" onSubmit={handleSubmit}>
+      <form
+        name="contact"
+        method="post"
+        onSubmit={handleSubmit}
+        className={classes.form}
+      >
         <Grid container spacing={2}>
           <Grid item xs={12} sm>
             <TextField
@@ -241,6 +250,17 @@ const Contact: FunctionComponent = () => {
           </Grid>
         </Grid>
       </form>
+      <div className={classes.text}>
+        <Typography variant="body2">
+          <strong>{t('pages.contact.office')}</strong>
+        </Typography>
+        <Typography variant="body2" paragraph>
+          {t('company.address')}
+        </Typography>
+        <Typography variant="body2">
+          <Trans i18nKey="company.legal" />
+        </Typography>
+      </div>
     </Main>
   );
 };
