@@ -10,10 +10,12 @@ import callGraphQL from '../graphql';
 import { ListProductsQuery } from '../graphql/API';
 import { Product } from '../graphql/types';
 import {
+  CreateProductForm,
   INITIAL_CREATE_PRODUCT,
   STEPS_CREATE_PRODUCT,
 } from '../components/forms/products/create';
 import DialogStepper from '../components/DialogStepper';
+import { FormikValues } from '../types';
 
 const useStyles = makeStyles(
   (theme: Theme) => ({
@@ -63,8 +65,9 @@ const Store: FunctionComponent = () => {
     setCreateProductDialogOpen(true);
   };
 
-  const handleCreateProductDialogSubmit = () => {
-    // Do nothing
+  const handleCreateProductDialogSubmit = async (values: FormikValues) => {
+    const typedValues = values as CreateProductForm;
+    console.log(values);
   };
 
   // Query the API and save them to the state
