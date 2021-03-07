@@ -3,6 +3,11 @@ import { initReactI18next } from 'react-i18next';
 import Backend from 'i18next-http-backend';
 import LanguageDetector from 'i18next-browser-languagedetector';
 
+// Nested Keys
+// Added here to allow extract script to detect their use
+// t('company.numbers.company')
+// t('company.numbers.vat')
+
 i18n
   .use(Backend)
   .use(LanguageDetector)

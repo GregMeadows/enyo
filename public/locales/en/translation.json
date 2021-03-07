@@ -6,9 +6,15 @@
     "next": "Next"
   },
   "company": {
-    "info": "Company No. 12918773",
+    "address": "$t(company.long)\nOffice 2277,\n109 Vernon House,\nFriar Lane,\nNottingham,\nNG1 6DQ",
+    "info": "Company No. $t(company.numbers.company). VAT No. $t(company.numbers.vat)",
+    "legal": "<strong>Registered</strong> in England and Wales\n<strong>Company Number:</strong> $t(company.numbers.company)\n<strong>VAT Number:</strong> $t(company.numbers.vat)",
     "long": "Enyo Design Ltd",
     "name": "Enyo",
+    "numbers": {
+      "company": "12918773",
+      "vat": "GB372642491"
+    },
     "tag": "Made to Conquer"
   },
   "copyright": "Copyright © {{year}}. {{company}}.",
@@ -95,7 +101,7 @@
     },
     "contact": {
       "form": {
-        "default": "Get in touch with us by filling our the form below. We'll get back to you as soon as possible!",
+        "default": "Get in touch with us by filling out the form below. We'll get back to you as soon as possible!",
         "error": "There was an issue sending your message.",
         "honey": "Could not verify request.",
         "reason": "Reason:",
@@ -107,6 +113,7 @@
         "message": "Your Message",
         "name": "Name"
       },
+      "office": "Registered Office",
       "send": "Send Message",
       "title": "Contact Us"
     },
