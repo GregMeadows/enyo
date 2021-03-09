@@ -29,6 +29,7 @@
         },
         "details": {
           "description": "Description",
+          "id": "Unique ID",
           "name": "Name",
           "price": "Price",
           "title": "Product Details",
@@ -36,6 +37,9 @@
             "description": {
               "min": "Product description should be a min of 10 characters",
               "required": "Product description is required"
+            },
+            "id": {
+              "required": "A unique product ID is required"
             },
             "name": {
               "required": "Product name is required"

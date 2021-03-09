@@ -16,6 +16,7 @@ export interface CreateProductForm {
 
 export const INITIAL_CREATE_PRODUCT: CreateProductForm = {
   name: '',
+  id: '',
   price: null,
   description: '',
   files: [],
@@ -31,6 +32,12 @@ export const FORM_DETAILS: FormItem[] = [
     type: 'text',
     // t('forms.products.create.details.name')
     labelKey: 'forms.products.create.details.name',
+  },
+  {
+    name: 'id',
+    type: 'text',
+    // t('forms.products.create.details.id')
+    labelKey: 'forms.products.create.details.id',
   },
   {
     name: 'price',
@@ -70,6 +77,10 @@ export const STEPS_CREATE_PRODUCT: StepProps[] = [
       name: yup
         .string()
         .required('forms.products.create.details.validation.name.required'),
+      // t('forms.products.create.details.validation.id.required')
+      id: yup
+        .string()
+        .required('forms.products.create.details.validation.id.required'),
       // t('forms.products.create.details.validation.price.positive')
       // t('forms.products.create.details.validation.price.type')
       // t('forms.products.create.details.validation.price.required')
