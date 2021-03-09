@@ -45,3 +45,6 @@ amplify-build-config.json
 amplify-gradle-config.json
 amplifytools.xcconfig
 .secret-*
+
+# Ignore resolvers until they are needed
+amplify/backend/api/gql/resolvers/
