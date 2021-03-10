@@ -3,11 +3,16 @@ import { makeStyles, Theme } from '@material-ui/core/styles';
 import { Button, Typography } from '@material-ui/core';
 import { useTranslation } from 'react-i18next';
 import AddIcon from '@material-ui/icons/Add';
+import { API, Auth, graphqlOperation, Storage } from 'aws-amplify';
 import useTitle from '../hooks/useTitle';
 import Main from '../components/Main';
 import { listProducts as ListProducts } from '../graphql/queries';
 import callGraphQL from '../graphql';
-import { ListProductsQuery } from '../graphql/API';
+import {
+  CreateImageInput,
+  CreateProductInput,
+  ListProductsQuery,
+} from '../graphql/API';
 import { Product } from '../graphql/types';
 import {
   CreateProductForm,
@@ -16,6 +21,16 @@ import {
 } from '../components/forms/products/create';
 import DialogStepper from '../components/DialogStepper';
 import { FormikValues } from '../types';
+import config from '../aws-exports.js';
+import {
+  createImage as CreateImage,
+  createProduct as CreateProduct,
+} from '../graphql/mutations';
+
+const {
+  aws_user_files_s3_bucket_region: region,
+  aws_user_files_s3_bucket: bucket,
+} = config;
 
 const useStyles = makeStyles(
   (theme: Theme) => ({
@@ -67,7 +82,61 @@ const Store: FunctionComponent = () => {
 
   const handleCreateProductDialogSubmit = async (values: FormikValues) => {
     const typedValues = values as CreateProductForm;
-    console.log(values);
+
+    if (!typedValues.price) {
+      // eslint-disable-next-line no-console
+      console.error('Price was not set');
+      return;
+    }
+
+    // User object cannot be properly typed
+    // See: https://github.com/aws-amplify/amplify-js/issues/4927
+    const user = await Auth.currentAuthenticatedUser();
+    const userName = user.name;
+
+    // Store product images
+    typedValues.files.forEach(async (fileWithDescription, index) => {
+      const extension = fileWithDescription.file.name.split('.').pop();
+      const { type: mimeType } = fileWithDescription.file;
+
+      // Add image to upload array
+      const key = `${typedValues.id}.${index}.${Date.now()}.${extension}`;
+      const url = `https://${bucket}.s3.${region}.amazonaws.com/public/products/images/${key}`;
+
+      const imageInput: CreateImageInput = {
+        id: key,
+        productID: typedValues.id,
+        url,
+        description: fileWithDescription.description,
+      };
+
+      try {
+        await Storage.put(key, fileWithDescription, {
+          contentType: mimeType,
+        });
+        await API.graphql(graphqlOperation(CreateImage, { input: imageInput }));
+      } catch (e) {
+        // eslint-disable-next-line no-console
+        console.error('Error storing file:', e);
+      }
+    });
+
+    // Add Product API call
+    const productInput: CreateProductInput = {
+      id: typedValues.id,
+      name: typedValues.name,
+      description: typedValues.description,
+      price: typedValues.price,
+      createdBy: userName,
+    };
+    try {
+      await API.graphql(
+        graphqlOperation(CreateProduct, { input: productInput })
+      );
+    } catch (e) {
+      // eslint-disable-next-line no-console
+      console.error('Error on mutation:', e);
+    }
   };
 
   // Query the API and save them to the state

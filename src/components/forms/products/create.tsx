@@ -9,6 +9,7 @@ import Confirmation from '../../Confirmation';
 export interface CreateProductForm {
   [key: string]: unknown;
   name: string;
+  id: string;
   price: number | null;
   description: string;
   files: FileWithDescription[];
