@@ -72,6 +72,20 @@ const Store: FunctionComponent = () => {
   const [products, setProducts] = useState<Product[]>([]);
   const [createProductDialogOpen, setCreateProductDialogOpen] = useState(false);
 
+  // Query the API and save them to the state
+  async function listProducts() {
+    const listProductsQuery = await callGraphQL<ListProductsQuery>(
+      ListProducts
+    );
+    if (listProductsQuery.data?.listProducts?.items) {
+      setProducts(listProductsQuery.data.listProducts.items as Product[]);
+    }
+  }
+
+  useEffect(() => {
+    listProducts();
+  }, []);
+
   const handleCreateProductDialogClose = () => {
     setCreateProductDialogOpen(false);
   };
@@ -91,8 +105,8 @@ const Store: FunctionComponent = () => {
 
     // User object cannot be properly typed
     // See: https://github.com/aws-amplify/amplify-js/issues/4927
-    const user = await Auth.currentAuthenticatedUser();
-    const userName = user.name;
+    // const user = await Auth.currentAuthenticatedUser();
+    // const userName = user.name;
 
     // Store product images
     typedValues.files.forEach(async (fileWithDescription, index) => {
@@ -127,7 +141,7 @@ const Store: FunctionComponent = () => {
       name: typedValues.name,
       description: typedValues.description,
       price: typedValues.price,
-      createdBy: userName,
+      createdBy: 'Test User', // userName,
     };
     try {
       await API.graphql(
@@ -137,21 +151,9 @@ const Store: FunctionComponent = () => {
       // eslint-disable-next-line no-console
       console.error('Error on mutation:', e);
     }
-  };
 
-  // Query the API and save them to the state
-  async function listProducts() {
-    const listProductsQuery = await callGraphQL<ListProductsQuery>(
-      ListProducts
-    );
-    if (listProductsQuery.data?.listProducts?.items) {
-      setProducts(listProductsQuery.data.listProducts.items as Product[]);
-    }
-  }
-
-  useEffect(() => {
     listProducts();
-  }, []);
+  };
 
   return (
     <>
