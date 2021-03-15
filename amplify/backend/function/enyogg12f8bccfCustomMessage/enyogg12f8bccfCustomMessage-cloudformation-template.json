@@ -119,7 +119,7 @@
         "Timeout": "25",
         "Code": {
           "S3Bucket": "amplify-enyogg-dev-154830-deployment",
-          "S3Key": "amplify-builds/enyogg12f8bccfCustomMessage-597a706e313168386379-build.zip"
+          "S3Key": "amplify-builds/enyogg12f8bccfCustomMessage-7970555a5a38647a696b-build.zip"
         }
       }
     },
