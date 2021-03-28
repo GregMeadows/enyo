@@ -28,7 +28,8 @@
         }
       },
       "auth": {
-        "enyogg12f8bccf": {}
+        "enyogg12f8bccf": {},
+        "userPoolGroups": {}
       }
     }
   }

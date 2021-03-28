@@ -1,4 +1,4 @@
-type Product @model {
+type Product @model @auth(rules: [{allow: public}]) {
   id: ID!
   name: String!
   description: String
@@ -8,10 +8,11 @@ type Product @model {
   images: [Image] @connection(keyName: "byProduct", fields: ["id"])
 }
 
-type Image @model @key(name: "byProduct", fields: ["productID"]) {
+type Image @model @key(name: "byProduct", fields: ["productID"]) @auth(rules: [{allow: public}]) {
   id: ID!
   productID: ID!
   url: String!
   description: String!
   product: Product @connection(fields: ["productID"])
 }
+ 
