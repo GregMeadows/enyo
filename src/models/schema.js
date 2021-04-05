@@ -56,7 +56,7 @@ export const schema = {
                     "isArrayNullable": true,
                     "association": {
                         "connectionType": "HAS_MANY",
-                        "associatedWith": "product"
+                        "associatedWith": "productID"
                     }
                 }
             },
@@ -74,11 +74,9 @@ export const schema = {
                             {
                                 "allow": "public",
                                 "operations": [
-                                    "create",
-                                    "update",
-                                    "delete",
                                     "read"
-                                ]
+                                ],
+                                "provider": "iam"
                             }
                         ]
                     }
@@ -93,6 +91,13 @@ export const schema = {
                     "isArray": false,
                     "type": "ID",
                     "isRequired": true,
+                    "attributes": []
+                },
+                "productID": {
+                    "name": "productID",
+                    "isArray": false,
+                    "type": "ID",
+                    "isRequired": false,
                     "attributes": []
                 },
                 "url": {
@@ -119,7 +124,7 @@ export const schema = {
                     "attributes": [],
                     "association": {
                         "connectionType": "BELONGS_TO",
-                        "targetName": "productID"
+                        "targetName": "imageProductId"
                     }
                 }
             },
@@ -146,11 +151,9 @@ export const schema = {
                             {
                                 "allow": "public",
                                 "operations": [
-                                    "create",
-                                    "update",
-                                    "delete",
                                     "read"
-                                ]
+                                ],
+                                "provider": "iam"
                             }
                         ]
                     }
@@ -160,5 +163,5 @@ export const schema = {
     },
     "enums": {},
     "nonModels": {},
-    "version": "e435f9141dffe309f0209a541783d85d"
+    "version": "eeca05a3b42450a930600cef7298b340"
 };
