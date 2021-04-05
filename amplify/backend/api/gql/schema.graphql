@@ -1,4 +1,7 @@
-type Product @model @auth(rules: [{allow: groups, groups: ["Admins"], operations: [read, create, update, delete]}]) {
+type Product @model @auth(rules: [
+  { allow: public, operations: [read] },
+  { allow: groups, groups: ["Admins"], operations: [read, create, update, delete] }
+]) {
   id: ID!
   name: String!
   description: String
@@ -8,9 +11,12 @@ type Product @model @auth(rules: [{allow: groups, groups: ["Admins"], operations
   images: [Image] @connection(keyName: "byProduct", fields: ["id"])
 }
 
-type Image @model @key(name: "byProduct", fields: ["productID"]) @auth(rules: [{allow: groups, groups: ["Admins"], operations: [read, create, update, delete]}]) {
+type Image @model @key(name: "byProduct", fields: ["productID"]) @auth(rules: [
+  { allow: public, operations: [read] },
+  { allow: groups, groups: ["Admins"], operations: [read, create, update, delete] }
+]) {
   id: ID!
-  productID: ID
+  productID: ID!
   url: String!
   description: String!
   product: Product @connection

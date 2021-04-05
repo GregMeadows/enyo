@@ -18,7 +18,7 @@ export declare class Product {
 
 export declare class Image {
   readonly id: string;
-  readonly productID?: string;
+  readonly productID: string;
   readonly url: string;
   readonly description: string;
   readonly product?: Product;

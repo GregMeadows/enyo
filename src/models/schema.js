@@ -72,6 +72,12 @@ export const schema = {
                     "properties": {
                         "rules": [
                             {
+                                "allow": "public",
+                                "operations": [
+                                    "read"
+                                ]
+                            },
+                            {
                                 "groupClaim": "cognito:groups",
                                 "provider": "userPools",
                                 "allow": "groups",
@@ -104,7 +110,7 @@ export const schema = {
                     "name": "productID",
                     "isArray": false,
                     "type": "ID",
-                    "isRequired": false,
+                    "isRequired": true,
                     "attributes": []
                 },
                 "url": {
@@ -156,6 +162,12 @@ export const schema = {
                     "properties": {
                         "rules": [
                             {
+                                "allow": "public",
+                                "operations": [
+                                    "read"
+                                ]
+                            },
+                            {
                                 "groupClaim": "cognito:groups",
                                 "provider": "userPools",
                                 "allow": "groups",
@@ -177,5 +189,5 @@ export const schema = {
     },
     "enums": {},
     "nonModels": {},
-    "version": "814288a744ffb8d5c359eeaf8bd0547f"
+    "version": "52333e48682a2a01787d66fd0b6dbad8"
 };

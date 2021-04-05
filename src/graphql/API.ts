@@ -9,6 +9,7 @@ export type CreateProductInput = {
   price: number,
   createdAt?: string | null,
   createdBy: string,
+  _version?: number | null,
 };
 
 export type ModelProductConditionInput = {
@@ -74,6 +75,42 @@ export type ModelIntInput = {
   attributeType?: ModelAttributeTypes | null,
 };
 
+export type Product = {
+  __typename: "Product",
+  id?: string,
+  name?: string,
+  description?: string | null,
+  price?: number,
+  createdAt?: string,
+  createdBy?: string,
+  _version?: number,
+  _deleted?: boolean | null,
+  _lastChangedAt?: number,
+  updatedAt?: string,
+  images?: ModelImageConnection,
+};
+
+export type ModelImageConnection = {
+  __typename: "ModelImageConnection",
+  items?:  Array<Image | null > | null,
+  nextToken?: string | null,
+  startedAt?: number | null,
+};
+
+export type Image = {
+  __typename: "Image",
+  id?: string,
+  productID?: string,
+  url?: string,
+  description?: string,
+  _version?: number,
+  _deleted?: boolean | null,
+  _lastChangedAt?: number,
+  createdAt?: string,
+  updatedAt?: string,
+  product?: Product,
+};
+
 export type UpdateProductInput = {
   id: string,
   name?: string | null,
@@ -81,10 +118,12 @@ export type UpdateProductInput = {
   price?: number | null,
   createdAt?: string | null,
   createdBy?: string | null,
+  _version?: number | null,
 };
 
 export type DeleteProductInput = {
   id?: string | null,
+  _version?: number | null,
 };
 
 export type CreateImageInput = {
@@ -92,6 +131,8 @@ export type CreateImageInput = {
   productID: string,
   url: string,
   description: string,
+  _version?: number | null,
+  imageProductId?: string | null,
 };
 
 export type ModelImageConditionInput = {
@@ -124,10 +165,13 @@ export type UpdateImageInput = {
   productID?: string | null,
   url?: string | null,
   description?: string | null,
+  _version?: number | null,
+  imageProductId?: string | null,
 };
 
 export type DeleteImageInput = {
   id?: string | null,
+  _version?: number | null,
 };
 
 export type ModelProductFilterInput = {
@@ -142,6 +186,13 @@ export type ModelProductFilterInput = {
   not?: ModelProductFilterInput | null,
 };
 
+export type ModelProductConnection = {
+  __typename: "ModelProductConnection",
+  items?:  Array<Product | null > | null,
+  nextToken?: string | null,
+  startedAt?: number | null,
+};
+
 export type ModelImageFilterInput = {
   id?: ModelIDInput | null,
   productID?: ModelIDInput | null,
@@ -153,285 +204,305 @@ export type ModelImageFilterInput = {
 };
 
 export type CreateProductMutationVariables = {
-  input: CreateProductInput,
+  input?: CreateProductInput,
   condition?: ModelProductConditionInput | null,
 };
 
 export type CreateProductMutation = {
-  createProduct:  {
+  createProduct?:  {
     __typename: "Product",
     id: string,
     name: string,
-    description: string | null,
+    description?: string | null,
     price: number,
     createdAt: string,
     createdBy: string,
-    images:  {
+    _version: number,
+    _deleted?: boolean | null,
+    _lastChangedAt: number,
+    updatedAt: string,
+    images?:  {
       __typename: "ModelImageConnection",
-      items:  Array< {
+      items?:  Array< {
         __typename: "Image",
         id: string,
         productID: string,
         url: string,
         description: string,
-        product:  {
+        _version: number,
+        _deleted?: boolean | null,
+        _lastChangedAt: number,
+        createdAt: string,
+        updatedAt: string,
+        product?:  {
           __typename: "Product",
           id: string,
           name: string,
-          description: string | null,
+          description?: string | null,
           price: number,
           createdAt: string,
           createdBy: string,
+          _version: number,
+          _deleted?: boolean | null,
+          _lastChangedAt: number,
           updatedAt: string,
         } | null,
-        createdAt: string,
-        updatedAt: string,
       } | null > | null,
-      nextToken: string | null,
+      nextToken?: string | null,
+      startedAt?: number | null,
     } | null,
-    updatedAt: string,
   } | null,
 };
 
 export type UpdateProductMutationVariables = {
-  input: UpdateProductInput,
+  input?: UpdateProductInput,
   condition?: ModelProductConditionInput | null,
 };
 
 export type UpdateProductMutation = {
-  updateProduct:  {
+  updateProduct?:  {
     __typename: "Product",
     id: string,
     name: string,
-    description: string | null,
+    description?: string | null,
     price: number,
     createdAt: string,
     createdBy: string,
-    images:  {
+    _version: number,
+    _deleted?: boolean | null,
+    _lastChangedAt: number,
+    updatedAt: string,
+    images?:  {
       __typename: "ModelImageConnection",
-      items:  Array< {
+      items?:  Array< {
         __typename: "Image",
         id: string,
         productID: string,
         url: string,
         description: string,
-        product:  {
+        _version: number,
+        _deleted?: boolean | null,
+        _lastChangedAt: number,
+        createdAt: string,
+        updatedAt: string,
+        product?:  {
           __typename: "Product",
           id: string,
           name: string,
-          description: string | null,
+          description?: string | null,
           price: number,
           createdAt: string,
           createdBy: string,
+          _version: number,
+          _deleted?: boolean | null,
+          _lastChangedAt: number,
           updatedAt: string,
         } | null,
-        createdAt: string,
-        updatedAt: string,
       } | null > | null,
-      nextToken: string | null,
+      nextToken?: string | null,
+      startedAt?: number | null,
     } | null,
-    updatedAt: string,
   } | null,
 };
 
 export type DeleteProductMutationVariables = {
-  input: DeleteProductInput,
+  input?: DeleteProductInput,
   condition?: ModelProductConditionInput | null,
 };
 
 export type DeleteProductMutation = {
-  deleteProduct:  {
+  deleteProduct?:  {
     __typename: "Product",
     id: string,
     name: string,
-    description: string | null,
+    description?: string | null,
     price: number,
     createdAt: string,
     createdBy: string,
-    images:  {
+    _version: number,
+    _deleted?: boolean | null,
+    _lastChangedAt: number,
+    updatedAt: string,
+    images?:  {
       __typename: "ModelImageConnection",
-      items:  Array< {
+      items?:  Array< {
         __typename: "Image",
         id: string,
         productID: string,
         url: string,
         description: string,
-        product:  {
+        _version: number,
+        _deleted?: boolean | null,
+        _lastChangedAt: number,
+        createdAt: string,
+        updatedAt: string,
+        product?:  {
           __typename: "Product",
           id: string,
           name: string,
-          description: string | null,
+          description?: string | null,
           price: number,
           createdAt: string,
           createdBy: string,
+          _version: number,
+          _deleted?: boolean | null,
+          _lastChangedAt: number,
           updatedAt: string,
         } | null,
-        createdAt: string,
-        updatedAt: string,
       } | null > | null,
-      nextToken: string | null,
+      nextToken?: string | null,
+      startedAt?: number | null,
     } | null,
-    updatedAt: string,
   } | null,
 };
 
 export type CreateImageMutationVariables = {
-  input: CreateImageInput,
+  input?: CreateImageInput,
   condition?: ModelImageConditionInput | null,
 };
 
 export type CreateImageMutation = {
-  createImage:  {
+  createImage?:  {
     __typename: "Image",
     id: string,
     productID: string,
     url: string,
     description: string,
-    product:  {
+    _version: number,
+    _deleted?: boolean | null,
+    _lastChangedAt: number,
+    createdAt: string,
+    updatedAt: string,
+    product?:  {
       __typename: "Product",
       id: string,
       name: string,
-      description: string | null,
+      description?: string | null,
       price: number,
       createdAt: string,
       createdBy: string,
-      images:  {
+      _version: number,
+      _deleted?: boolean | null,
+      _lastChangedAt: number,
+      updatedAt: string,
+      images?:  {
         __typename: "ModelImageConnection",
-        items:  Array< {
+        items?:  Array< {
           __typename: "Image",
           id: string,
           productID: string,
           url: string,
           description: string,
+          _version: number,
+          _deleted?: boolean | null,
+          _lastChangedAt: number,
           createdAt: string,
           updatedAt: string,
         } | null > | null,
-        nextToken: string | null,
+        nextToken?: string | null,
+        startedAt?: number | null,
       } | null,
-      updatedAt: string,
     } | null,
-    createdAt: string,
-    updatedAt: string,
   } | null,
 };
 
 export type UpdateImageMutationVariables = {
-  input: UpdateImageInput,
+  input?: UpdateImageInput,
   condition?: ModelImageConditionInput | null,
 };
 
 export type UpdateImageMutation = {
-  updateImage:  {
+  updateImage?:  {
     __typename: "Image",
     id: string,
     productID: string,
     url: string,
     description: string,
-    product:  {
+    _version: number,
+    _deleted?: boolean | null,
+    _lastChangedAt: number,
+    createdAt: string,
+    updatedAt: string,
+    product?:  {
       __typename: "Product",
       id: string,
       name: string,
-      description: string | null,
+      description?: string | null,
       price: number,
       createdAt: string,
       createdBy: string,
-      images:  {
+      _version: number,
+      _deleted?: boolean | null,
+      _lastChangedAt: number,
+      updatedAt: string,
+      images?:  {
         __typename: "ModelImageConnection",
-        items:  Array< {
+        items?:  Array< {
           __typename: "Image",
           id: string,
           productID: string,
           url: string,
           description: string,
+          _version: number,
+          _deleted?: boolean | null,
+          _lastChangedAt: number,
           createdAt: string,
           updatedAt: string,
         } | null > | null,
-        nextToken: string | null,
+        nextToken?: string | null,
+        startedAt?: number | null,
       } | null,
-      updatedAt: string,
     } | null,
-    createdAt: string,
-    updatedAt: string,
   } | null,
 };
 
 export type DeleteImageMutationVariables = {
-  input: DeleteImageInput,
+  input?: DeleteImageInput,
   condition?: ModelImageConditionInput | null,
 };
 
 export type DeleteImageMutation = {
-  deleteImage:  {
+  deleteImage?:  {
     __typename: "Image",
     id: string,
     productID: string,
     url: string,
     description: string,
-    product:  {
+    _version: number,
+    _deleted?: boolean | null,
+    _lastChangedAt: number,
+    createdAt: string,
+    updatedAt: string,
+    product?:  {
       __typename: "Product",
       id: string,
       name: string,
-      description: string | null,
+      description?: string | null,
       price: number,
       createdAt: string,
       createdBy: string,
-      images:  {
+      _version: number,
+      _deleted?: boolean | null,
+      _lastChangedAt: number,
+      updatedAt: string,
+      images?:  {
         __typename: "ModelImageConnection",
-        items:  Array< {
+        items?:  Array< {
           __typename: "Image",
           id: string,
           productID: string,
           url: string,
           description: string,
+          _version: number,
+          _deleted?: boolean | null,
+          _lastChangedAt: number,
           createdAt: string,
           updatedAt: string,
         } | null > | null,
-        nextToken: string | null,
+        nextToken?: string | null,
+        startedAt?: number | null,
       } | null,
-      updatedAt: string,
     } | null,
-    createdAt: string,
-    updatedAt: string,
-  } | null,
-};
-
-export type GetProductQueryVariables = {
-  id: string,
-};
-
-export type GetProductQuery = {
-  getProduct:  {
-    __typename: "Product",
-    id: string,
-    name: string,
-    description: string | null,
-    price: number,
-    createdAt: string,
-    createdBy: string,
-    images:  {
-      __typename: "ModelImageConnection",
-      items:  Array< {
-        __typename: "Image",
-        id: string,
-        productID: string,
-        url: string,
-        description: string,
-        product:  {
-          __typename: "Product",
-          id: string,
-          name: string,
-          description: string | null,
-          price: number,
-          createdAt: string,
-          createdBy: string,
-          updatedAt: string,
-        } | null,
-        createdAt: string,
-        updatedAt: string,
-      } | null > | null,
-      nextToken: string | null,
-    } | null,
-    updatedAt: string,
   } | null,
 };
 
@@ -442,71 +513,184 @@ export type ListProductsQueryVariables = {
 };
 
 export type ListProductsQuery = {
-  listProducts:  {
+  listProducts?:  {
     __typename: "ModelProductConnection",
-    items:  Array< {
+    items?:  Array< {
       __typename: "Product",
       id: string,
       name: string,
-      description: string | null,
+      description?: string | null,
       price: number,
       createdAt: string,
       createdBy: string,
-      images:  {
+      _version: number,
+      _deleted?: boolean | null,
+      _lastChangedAt: number,
+      updatedAt: string,
+      images?:  {
         __typename: "ModelImageConnection",
-        items:  Array< {
+        items?:  Array< {
           __typename: "Image",
           id: string,
           productID: string,
           url: string,
           description: string,
+          _version: number,
+          _deleted?: boolean | null,
+          _lastChangedAt: number,
           createdAt: string,
           updatedAt: string,
         } | null > | null,
-        nextToken: string | null,
+        nextToken?: string | null,
+        startedAt?: number | null,
       } | null,
-      updatedAt: string,
     } | null > | null,
-    nextToken: string | null,
+    nextToken?: string | null,
+    startedAt?: number | null,
+  } | null,
+};
+
+export type GetProductQueryVariables = {
+  id?: string,
+};
+
+export type GetProductQuery = {
+  getProduct?:  {
+    __typename: "Product",
+    id: string,
+    name: string,
+    description?: string | null,
+    price: number,
+    createdAt: string,
+    createdBy: string,
+    _version: number,
+    _deleted?: boolean | null,
+    _lastChangedAt: number,
+    updatedAt: string,
+    images?:  {
+      __typename: "ModelImageConnection",
+      items?:  Array< {
+        __typename: "Image",
+        id: string,
+        productID: string,
+        url: string,
+        description: string,
+        _version: number,
+        _deleted?: boolean | null,
+        _lastChangedAt: number,
+        createdAt: string,
+        updatedAt: string,
+        product?:  {
+          __typename: "Product",
+          id: string,
+          name: string,
+          description?: string | null,
+          price: number,
+          createdAt: string,
+          createdBy: string,
+          _version: number,
+          _deleted?: boolean | null,
+          _lastChangedAt: number,
+          updatedAt: string,
+        } | null,
+      } | null > | null,
+      nextToken?: string | null,
+      startedAt?: number | null,
+    } | null,
+  } | null,
+};
+
+export type SyncProductsQueryVariables = {
+  filter?: ModelProductFilterInput | null,
+  limit?: number | null,
+  nextToken?: string | null,
+  lastSync?: number | null,
+};
+
+export type SyncProductsQuery = {
+  syncProducts?:  {
+    __typename: "ModelProductConnection",
+    items?:  Array< {
+      __typename: "Product",
+      id: string,
+      name: string,
+      description?: string | null,
+      price: number,
+      createdAt: string,
+      createdBy: string,
+      _version: number,
+      _deleted?: boolean | null,
+      _lastChangedAt: number,
+      updatedAt: string,
+      images?:  {
+        __typename: "ModelImageConnection",
+        items?:  Array< {
+          __typename: "Image",
+          id: string,
+          productID: string,
+          url: string,
+          description: string,
+          _version: number,
+          _deleted?: boolean | null,
+          _lastChangedAt: number,
+          createdAt: string,
+          updatedAt: string,
+        } | null > | null,
+        nextToken?: string | null,
+        startedAt?: number | null,
+      } | null,
+    } | null > | null,
+    nextToken?: string | null,
+    startedAt?: number | null,
   } | null,
 };
 
 export type GetImageQueryVariables = {
-  id: string,
+  id?: string,
 };
 
 export type GetImageQuery = {
-  getImage:  {
+  getImage?:  {
     __typename: "Image",
     id: string,
     productID: string,
     url: string,
     description: string,
-    product:  {
+    _version: number,
+    _deleted?: boolean | null,
+    _lastChangedAt: number,
+    createdAt: string,
+    updatedAt: string,
+    product?:  {
       __typename: "Product",
       id: string,
       name: string,
-      description: string | null,
+      description?: string | null,
       price: number,
       createdAt: string,
       createdBy: string,
-      images:  {
+      _version: number,
+      _deleted?: boolean | null,
+      _lastChangedAt: number,
+      updatedAt: string,
+      images?:  {
         __typename: "ModelImageConnection",
-        items:  Array< {
+        items?:  Array< {
           __typename: "Image",
           id: string,
           productID: string,
           url: string,
           description: string,
+          _version: number,
+          _deleted?: boolean | null,
+          _lastChangedAt: number,
           createdAt: string,
           updatedAt: string,
         } | null > | null,
-        nextToken: string | null,
+        nextToken?: string | null,
+        startedAt?: number | null,
       } | null,
-      updatedAt: string,
     } | null,
-    createdAt: string,
-    updatedAt: string,
   } | null,
 };
 
@@ -517,244 +701,357 @@ export type ListImagesQueryVariables = {
 };
 
 export type ListImagesQuery = {
-  listImages:  {
+  listImages?:  {
     __typename: "ModelImageConnection",
-    items:  Array< {
+    items?:  Array< {
       __typename: "Image",
       id: string,
       productID: string,
       url: string,
       description: string,
-      product:  {
+      _version: number,
+      _deleted?: boolean | null,
+      _lastChangedAt: number,
+      createdAt: string,
+      updatedAt: string,
+      product?:  {
         __typename: "Product",
         id: string,
         name: string,
-        description: string | null,
+        description?: string | null,
         price: number,
         createdAt: string,
         createdBy: string,
-        images:  {
-          __typename: "ModelImageConnection",
-          nextToken: string | null,
-        } | null,
+        _version: number,
+        _deleted?: boolean | null,
+        _lastChangedAt: number,
         updatedAt: string,
+        images?:  {
+          __typename: "ModelImageConnection",
+          nextToken?: string | null,
+          startedAt?: number | null,
+        } | null,
       } | null,
+    } | null > | null,
+    nextToken?: string | null,
+    startedAt?: number | null,
+  } | null,
+};
+
+export type SyncImagesQueryVariables = {
+  filter?: ModelImageFilterInput | null,
+  limit?: number | null,
+  nextToken?: string | null,
+  lastSync?: number | null,
+};
+
+export type SyncImagesQuery = {
+  syncImages?:  {
+    __typename: "ModelImageConnection",
+    items?:  Array< {
+      __typename: "Image",
+      id: string,
+      productID: string,
+      url: string,
+      description: string,
+      _version: number,
+      _deleted?: boolean | null,
+      _lastChangedAt: number,
       createdAt: string,
       updatedAt: string,
+      product?:  {
+        __typename: "Product",
+        id: string,
+        name: string,
+        description?: string | null,
+        price: number,
+        createdAt: string,
+        createdBy: string,
+        _version: number,
+        _deleted?: boolean | null,
+        _lastChangedAt: number,
+        updatedAt: string,
+        images?:  {
+          __typename: "ModelImageConnection",
+          nextToken?: string | null,
+          startedAt?: number | null,
+        } | null,
+      } | null,
     } | null > | null,
-    nextToken: string | null,
+    nextToken?: string | null,
+    startedAt?: number | null,
   } | null,
 };
 
 export type OnCreateProductSubscription = {
-  onCreateProduct:  {
+  onCreateProduct?:  {
     __typename: "Product",
     id: string,
     name: string,
-    description: string | null,
+    description?: string | null,
     price: number,
     createdAt: string,
     createdBy: string,
-    images:  {
+    _version: number,
+    _deleted?: boolean | null,
+    _lastChangedAt: number,
+    updatedAt: string,
+    images?:  {
       __typename: "ModelImageConnection",
-      items:  Array< {
+      items?:  Array< {
         __typename: "Image",
         id: string,
         productID: string,
         url: string,
         description: string,
-        product:  {
+        _version: number,
+        _deleted?: boolean | null,
+        _lastChangedAt: number,
+        createdAt: string,
+        updatedAt: string,
+        product?:  {
           __typename: "Product",
           id: string,
           name: string,
-          description: string | null,
+          description?: string | null,
           price: number,
           createdAt: string,
           createdBy: string,
+          _version: number,
+          _deleted?: boolean | null,
+          _lastChangedAt: number,
           updatedAt: string,
         } | null,
-        createdAt: string,
-        updatedAt: string,
       } | null > | null,
-      nextToken: string | null,
+      nextToken?: string | null,
+      startedAt?: number | null,
     } | null,
-    updatedAt: string,
   } | null,
 };
 
 export type OnUpdateProductSubscription = {
-  onUpdateProduct:  {
+  onUpdateProduct?:  {
     __typename: "Product",
     id: string,
     name: string,
-    description: string | null,
+    description?: string | null,
     price: number,
     createdAt: string,
     createdBy: string,
-    images:  {
+    _version: number,
+    _deleted?: boolean | null,
+    _lastChangedAt: number,
+    updatedAt: string,
+    images?:  {
       __typename: "ModelImageConnection",
-      items:  Array< {
+      items?:  Array< {
         __typename: "Image",
         id: string,
         productID: string,
         url: string,
         description: string,
-        product:  {
+        _version: number,
+        _deleted?: boolean | null,
+        _lastChangedAt: number,
+        createdAt: string,
+        updatedAt: string,
+        product?:  {
           __typename: "Product",
           id: string,
           name: string,
-          description: string | null,
+          description?: string | null,
           price: number,
           createdAt: string,
           createdBy: string,
+          _version: number,
+          _deleted?: boolean | null,
+          _lastChangedAt: number,
           updatedAt: string,
         } | null,
-        createdAt: string,
-        updatedAt: string,
       } | null > | null,
-      nextToken: string | null,
+      nextToken?: string | null,
+      startedAt?: number | null,
     } | null,
-    updatedAt: string,
   } | null,
 };
 
 export type OnDeleteProductSubscription = {
-  onDeleteProduct:  {
+  onDeleteProduct?:  {
     __typename: "Product",
     id: string,
     name: string,
-    description: string | null,
+    description?: string | null,
     price: number,
     createdAt: string,
     createdBy: string,
-    images:  {
+    _version: number,
+    _deleted?: boolean | null,
+    _lastChangedAt: number,
+    updatedAt: string,
+    images?:  {
       __typename: "ModelImageConnection",
-      items:  Array< {
+      items?:  Array< {
         __typename: "Image",
         id: string,
         productID: string,
         url: string,
         description: string,
-        product:  {
+        _version: number,
+        _deleted?: boolean | null,
+        _lastChangedAt: number,
+        createdAt: string,
+        updatedAt: string,
+        product?:  {
           __typename: "Product",
           id: string,
           name: string,
-          description: string | null,
+          description?: string | null,
           price: number,
           createdAt: string,
           createdBy: string,
+          _version: number,
+          _deleted?: boolean | null,
+          _lastChangedAt: number,
           updatedAt: string,
         } | null,
-        createdAt: string,
-        updatedAt: string,
       } | null > | null,
-      nextToken: string | null,
+      nextToken?: string | null,
+      startedAt?: number | null,
     } | null,
-    updatedAt: string,
   } | null,
 };
 
 export type OnCreateImageSubscription = {
-  onCreateImage:  {
+  onCreateImage?:  {
     __typename: "Image",
     id: string,
     productID: string,
     url: string,
     description: string,
-    product:  {
+    _version: number,
+    _deleted?: boolean | null,
+    _lastChangedAt: number,
+    createdAt: string,
+    updatedAt: string,
+    product?:  {
       __typename: "Product",
       id: string,
       name: string,
-      description: string | null,
+      description?: string | null,
       price: number,
       createdAt: string,
       createdBy: string,
-      images:  {
+      _version: number,
+      _deleted?: boolean | null,
+      _lastChangedAt: number,
+      updatedAt: string,
+      images?:  {
         __typename: "ModelImageConnection",
-        items:  Array< {
+        items?:  Array< {
           __typename: "Image",
           id: string,
           productID: string,
           url: string,
           description: string,
+          _version: number,
+          _deleted?: boolean | null,
+          _lastChangedAt: number,
           createdAt: string,
           updatedAt: string,
         } | null > | null,
-        nextToken: string | null,
+        nextToken?: string | null,
+        startedAt?: number | null,
       } | null,
-      updatedAt: string,
     } | null,
-    createdAt: string,
-    updatedAt: string,
   } | null,
 };
 
 export type OnUpdateImageSubscription = {
-  onUpdateImage:  {
+  onUpdateImage?:  {
     __typename: "Image",
     id: string,
     productID: string,
     url: string,
     description: string,
-    product:  {
+    _version: number,
+    _deleted?: boolean | null,
+    _lastChangedAt: number,
+    createdAt: string,
+    updatedAt: string,
+    product?:  {
       __typename: "Product",
       id: string,
       name: string,
-      description: string | null,
+      description?: string | null,
       price: number,
       createdAt: string,
       createdBy: string,
-      images:  {
+      _version: number,
+      _deleted?: boolean | null,
+      _lastChangedAt: number,
+      updatedAt: string,
+      images?:  {
         __typename: "ModelImageConnection",
-        items:  Array< {
+        items?:  Array< {
           __typename: "Image",
           id: string,
           productID: string,
           url: string,
           description: string,
+          _version: number,
+          _deleted?: boolean | null,
+          _lastChangedAt: number,
           createdAt: string,
           updatedAt: string,
         } | null > | null,
-        nextToken: string | null,
+        nextToken?: string | null,
+        startedAt?: number | null,
       } | null,
-      updatedAt: string,
     } | null,
-    createdAt: string,
-    updatedAt: string,
   } | null,
 };
 
 export type OnDeleteImageSubscription = {
-  onDeleteImage:  {
+  onDeleteImage?:  {
     __typename: "Image",
     id: string,
     productID: string,
     url: string,
     description: string,
-    product:  {
+    _version: number,
+    _deleted?: boolean | null,
+    _lastChangedAt: number,
+    createdAt: string,
+    updatedAt: string,
+    product?:  {
       __typename: "Product",
       id: string,
       name: string,
-      description: string | null,
+      description?: string | null,
       price: number,
       createdAt: string,
       createdBy: string,
-      images:  {
+      _version: number,
+      _deleted?: boolean | null,
+      _lastChangedAt: number,
+      updatedAt: string,
+      images?:  {
         __typename: "ModelImageConnection",
-        items:  Array< {
+        items?:  Array< {
           __typename: "Image",
           id: string,
           productID: string,
           url: string,
           description: string,
+          _version: number,
+          _deleted?: boolean | null,
+          _lastChangedAt: number,
           createdAt: string,
           updatedAt: string,
         } | null > | null,
-        nextToken: string | null,
+        nextToken?: string | null,
+        startedAt?: number | null,
       } | null,
-      updatedAt: string,
     } | null,
-    createdAt: string,
-    updatedAt: string,
   } | null,
 };

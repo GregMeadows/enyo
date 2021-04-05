@@ -127,12 +127,16 @@
           "defaultAuthentication": {
             "authenticationType": "AMAZON_COGNITO_USER_POOLS",
             "userPoolConfig": {
-              "userPoolId": "authenyogg12f8bccf_userpool_12f8bccf"
+              "userPoolId": "authenyogg12f8bccf"
             }
           },
           "additionalAuthenticationProviders": [
             {
-              "authenticationType": "AWS_IAM"
+              "authenticationType": "API_KEY",
+              "apiKeyConfig": {
+                "apiKeyExpirationDays": 365,
+                "description": "Public API"
+              }
             }
           ]
         }
