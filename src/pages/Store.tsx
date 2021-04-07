@@ -26,6 +26,7 @@ import {
   createImage as CreateImage,
   createProduct as CreateProduct,
 } from '../graphql/mutations';
+import useAuth from '../hooks/useAuth';
 
 const {
   aws_user_files_s3_bucket_region: region,
@@ -71,6 +72,8 @@ const Store: FunctionComponent = () => {
 
   const [products, setProducts] = useState<Product[]>([]);
   const [createProductDialogOpen, setCreateProductDialogOpen] = useState(false);
+
+  const { currentUser } = useAuth();
 
   // Query the API and save them to the state
   async function listProducts() {
@@ -125,13 +128,19 @@ const Store: FunctionComponent = () => {
       };
 
       try {
-        await Storage.put(key, fileWithDescription, {
-          contentType: mimeType,
-        });
-        await API.graphql(graphqlOperation(CreateImage, { input: imageInput }));
+        if (currentUser) {
+          await Storage.put(key, fileWithDescription, {
+            contentType: mimeType,
+          });
+          await API.graphql(
+            graphqlOperation(CreateImage, { input: imageInput })
+          );
+        } else {
+          throw new Error('User not authenticated');
+        }
       } catch (e) {
         // eslint-disable-next-line no-console
-        console.error('Error storing file:', e);
+        console.error('Error creating product:', e);
       }
     });
 
@@ -162,33 +171,38 @@ const Store: FunctionComponent = () => {
           {t('pages.store.intro')}
         </Typography>
         <div className={classes.list}>
-          <Button
-            className={classes.product}
-            onClick={handleCreateProductDialogOpen}
-          >
-            <AddIcon fontSize="large" />
-          </Button>
-          {products.map((product) => (
-            <div key={product.id} className={classes.product}>
-              <div className={classes.productImage} />
-              <Typography
-                variant="body1"
-                className={classes.productName}
-                key={product.id}
-              >
-                {product.name}
-              </Typography>
-            </div>
-          ))}
+          {currentUser && (
+            <Button
+              className={classes.product}
+              onClick={handleCreateProductDialogOpen}
+            >
+              <AddIcon fontSize="large" />
+            </Button>
+          )}
+          {products.map((product) => {
+            if (product) {
+              return (
+                <div key={product.id} className={classes.product}>
+                  <div className={classes.productImage} />
+                  <Typography variant="body1" className={classes.productName}>
+                    {product.name}
+                  </Typography>
+                </div>
+              );
+            }
+            return null;
+          })}
         </div>
       </Main>
-      <DialogStepper
-        steps={STEPS_CREATE_PRODUCT}
-        initialValues={INITIAL_CREATE_PRODUCT}
-        open={createProductDialogOpen}
-        onClose={handleCreateProductDialogClose}
-        onSubmit={handleCreateProductDialogSubmit}
-      />
+      {currentUser && (
+        <DialogStepper
+          steps={STEPS_CREATE_PRODUCT}
+          initialValues={INITIAL_CREATE_PRODUCT}
+          open={createProductDialogOpen}
+          onClose={handleCreateProductDialogClose}
+          onSubmit={handleCreateProductDialogSubmit}
+        />
+      )}
     </>
   );
 };
