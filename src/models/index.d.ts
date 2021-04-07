@@ -21,6 +21,7 @@ export declare class Image {
   readonly productID: string;
   readonly url: string;
   readonly description: string;
+  readonly ordinal?: number;
   readonly product?: Product;
   constructor(init: ModelInit<Image>);
   static copyOf(source: Image, mutator: (draft: MutableModel<Image>) => MutableModel<Image> | void): Image;

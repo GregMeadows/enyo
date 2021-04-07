@@ -26,6 +26,7 @@ export const listProducts = /* GraphQL */ `
             productID
             url
             description
+            ordinal
             _version
             _deleted
             _lastChangedAt
@@ -60,6 +61,7 @@ export const getProduct = /* GraphQL */ `
           productID
           url
           description
+          ordinal
           _version
           _deleted
           _lastChangedAt
@@ -114,6 +116,7 @@ export const syncProducts = /* GraphQL */ `
             productID
             url
             description
+            ordinal
             _version
             _deleted
             _lastChangedAt
@@ -136,6 +139,7 @@ export const getImage = /* GraphQL */ `
       productID
       url
       description
+      ordinal
       _version
       _deleted
       _lastChangedAt
@@ -158,6 +162,7 @@ export const getImage = /* GraphQL */ `
             productID
             url
             description
+            ordinal
             _version
             _deleted
             _lastChangedAt
@@ -183,6 +188,7 @@ export const listImages = /* GraphQL */ `
         productID
         url
         description
+        ordinal
         _version
         _deleted
         _lastChangedAt
@@ -228,6 +234,7 @@ export const syncImages = /* GraphQL */ `
         productID
         url
         description
+        ordinal
         _version
         _deleted
         _lastChangedAt

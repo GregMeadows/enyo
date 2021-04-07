@@ -19,6 +19,7 @@ type Image @model @key(name: "byProduct", fields: ["productID"]) @auth(rules: [
   productID: ID!
   url: String!
   description: String!
+  ordinal: Int
   product: Product @connection
 }
  

@@ -24,6 +24,7 @@ export const createProduct = /* GraphQL */ `
           productID
           url
           description
+          ordinal
           _version
           _deleted
           _lastChangedAt
@@ -70,6 +71,7 @@ export const updateProduct = /* GraphQL */ `
           productID
           url
           description
+          ordinal
           _version
           _deleted
           _lastChangedAt
@@ -116,6 +118,7 @@ export const deleteProduct = /* GraphQL */ `
           productID
           url
           description
+          ordinal
           _version
           _deleted
           _lastChangedAt
@@ -150,6 +153,7 @@ export const createImage = /* GraphQL */ `
       productID
       url
       description
+      ordinal
       _version
       _deleted
       _lastChangedAt
@@ -172,6 +176,7 @@ export const createImage = /* GraphQL */ `
             productID
             url
             description
+            ordinal
             _version
             _deleted
             _lastChangedAt
@@ -195,6 +200,7 @@ export const updateImage = /* GraphQL */ `
       productID
       url
       description
+      ordinal
       _version
       _deleted
       _lastChangedAt
@@ -217,6 +223,7 @@ export const updateImage = /* GraphQL */ `
             productID
             url
             description
+            ordinal
             _version
             _deleted
             _lastChangedAt
@@ -240,6 +247,7 @@ export const deleteImage = /* GraphQL */ `
       productID
       url
       description
+      ordinal
       _version
       _deleted
       _lastChangedAt
@@ -262,6 +270,7 @@ export const deleteImage = /* GraphQL */ `
             productID
             url
             description
+            ordinal
             _version
             _deleted
             _lastChangedAt

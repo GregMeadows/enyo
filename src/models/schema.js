@@ -127,6 +127,13 @@ export const schema = {
                     "isRequired": true,
                     "attributes": []
                 },
+                "ordinal": {
+                    "name": "ordinal",
+                    "isArray": false,
+                    "type": "Int",
+                    "isRequired": false,
+                    "attributes": []
+                },
                 "product": {
                     "name": "product",
                     "isArray": false,
@@ -189,5 +196,5 @@ export const schema = {
     },
     "enums": {},
     "nonModels": {},
-    "version": "52333e48682a2a01787d66fd0b6dbad8"
+    "version": "73d041e7057084cfc27027803f40f959"
 };
