@@ -4,7 +4,7 @@ import en from './terms_en.md';
 const terms: InfoPage = {
   // t('pages.info.terms.title')
   title: 'pages.info.terms.title',
-  updated: new Date(2021, 0, 16),
+  updated: new Date(2021, 4, 16),
   translations: {
     en,
   },

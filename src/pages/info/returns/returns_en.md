@@ -1,5 +1,3 @@
-# Refund Policy
-
 We have a 14-day return policy, which means you have 14 days after receiving your item to request a return.
 
 To be eligible for a return, your item must be in the same condition that you received it, unworn or unused, with tags, and in its original packaging. You’ll also need the receipt or proof of purchase.
