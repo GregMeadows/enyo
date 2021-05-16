@@ -111,7 +111,8 @@ const Footer: FunctionComponent = () => {
 
   const itemsHelp: LinkedItem[] = [
     { text: t('nav.help.faq'), link: ROUTES_INFO[3] },
-    { text: t('nav.help.delivery'), link: ROUTES_INFO[2] },
+    { text: t('nav.help.shipping'), link: ROUTES_INFO[2] },
+    { text: t('nav.help.returns'), link: ROUTES_INFO[4] },
     { text: t('nav.help.contact'), link: ROUTE_CONTACT },
   ];
 

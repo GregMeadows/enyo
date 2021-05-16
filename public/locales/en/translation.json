@@ -15,14 +15,15 @@
   "nav": {
     "about": {
       "about": "Who We Are",
-      "privacy": "Privacy",
-      "terms": "Terms",
+      "privacy": "Privacy Policy",
+      "terms": "Terms of Service",
       "title": "About"
     },
     "help": {
       "contact": "Get In Touch",
-      "delivery": "Delivery & Returns",
+      "shipping": "Shipping",
       "faq": "FAQ",
+      "returns": "Returns",
       "title": "Help"
     },
     "main": {
@@ -99,8 +100,11 @@
       "privacy": {
         "title": "Privacy Policy"
       },
+      "returns": {
+        "title": "Returns Policy"
+      },
       "shipping": {
-        "title": "Delivery and Returns"
+        "title": "Shipping"
       },
       "terms": {
         "title": "Terms of Service"
