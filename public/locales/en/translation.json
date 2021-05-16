@@ -99,8 +99,11 @@
       "privacy": {
         "title": "Privacy Policy"
       },
+      "returns": {
+        "title": "Returns Policy"
+      },
       "shipping": {
-        "title": "Delivery and Returns"
+        "title": "Shipping"
       },
       "terms": {
         "title": "Terms of Service"

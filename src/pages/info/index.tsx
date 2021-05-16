@@ -12,6 +12,7 @@ import terms from './terms';
 import faq from './faq/index';
 import privacy from './privacy';
 import shipping from './shipping';
+import returns from './returns';
 import { InfoPage } from './types';
 import Main from '../../components/Main';
 import Markdown from '../../components/Markdown';
@@ -22,6 +23,7 @@ const infoPages: { [key: string]: InfoPage } = {
   faq,
   privacy,
   shipping,
+  returns,
 };
 
 const Info: FunctionComponent = () => {
