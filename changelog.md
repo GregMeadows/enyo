@@ -1,5 +1,15 @@
 # Changelog
 
+## v1.0.5 - 2021-05-16
+
+### Pages
+
+- Updated legal pages to align with Shopify
+
+### Misc
+
+- Update packages
+
 ## v1.0.4 - 2021-03-07
 
 ### Contact
