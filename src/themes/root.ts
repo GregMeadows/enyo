@@ -19,9 +19,17 @@ const root: ThemeOptions = {
       textTransform: 'uppercase',
       letterSpacing: 1,
     },
+    h2: {
+      marginTop: '2rem',
+      fontSize: '2.1rem',
+    },
+    h3: {
+      marginTop: '1.6rem',
+      fontSize: '1.75rem',
+    },
     h4: {
-      fontSize: '1.55rem',
-      fontWeight: 500,
+      marginTop: '0.8rem',
+      fontSize: '1.5rem',
     },
     h5: {
       fontSize: '2rem',

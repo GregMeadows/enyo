@@ -42,9 +42,9 @@ For more information about how targeted advertising works, you can visit the Net
 
 You can opt out of targeted advertising by:
 
-- **FACEBOOK** - [https://www.facebook.com/settings/?tab=ads](https://www.facebook.com/settings/?tab=ads)
-- **GOOGLE** - [https://www.google.com/settings/ads/anonymous](https://www.google.com/settings/ads/anonymous)
-- **BING** - [https://advertise.bingads.microsoft.com/en-us/resources/policies/personalized-ads](https://advertise.bingads.microsoft.com/en-us/resources/policies/personalized-ads)
+- **FACEBOOK** \- [https://www.facebook.com/settings/?tab=ads](https://www.facebook.com/settings/?tab=ads)
+- **GOOGLE** \- [https://www.google.com/settings/ads/anonymous](https://www.google.com/settings/ads/anonymous)
+- **BING** \- [https://advertise.bingads.microsoft.com/en-us/resources/policies/personalized-ads](https://advertise.bingads.microsoft.com/en-us/resources/policies/personalized-ads)
 
 Additionally, you can opt out of some of these services by visiting the Digital Advertising Alliance’s opt-out portal at: [http://optout.aboutads.info/](http://optout.aboutads.info/).
 
@@ -260,11 +260,11 @@ We may update this Privacy Policy from time to time in order to reflect, for exa
 
 For more information about our privacy practices, if you have questions, or if you would like to make a complaint, please contact us by e-mail at privacy@enyo.gg or by mail using the details provided below:
 
-**Enyo Design Ltd.** \
-Office 2277 \
-109 Vernon House, Friar Lane \
-Nottingham \
-NG1 6DQ \
+**Enyo Design Ltd.**  
+Office 2277  
+109 Vernon House, Friar Lane  
+Nottingham  
+NG1 6DQ  
 United Kingdom
 
 **Last updated:** 2021-05-16

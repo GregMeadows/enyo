@@ -162,11 +162,11 @@ We reserve the right, at our sole discretion, to update, change or replace any p
 
 Enyo Design Ltd registered office:
 
-**Enyo Design Ltd.** \
-Office 2277 \
-109 Vernon House, Friar Lane \
-Nottingham \
-NG1 6DQ \
+**Enyo Design Ltd.**  
+Office 2277  
+109 Vernon House, Friar Lane  
+Nottingham  
+NG1 6DQ  
 United Kingdom
 
 ## SECTION 22 - Contact Information
