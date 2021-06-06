@@ -1,5 +1,13 @@
 # Changelog
 
+## v1.0.6 - 2021-06-06
+
+### FAQs
+
+- Update returns page link
+
+---
+
 ## v1.0.5 - 2021-05-16
 
 ### Pages
