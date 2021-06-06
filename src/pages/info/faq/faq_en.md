@@ -20,7 +20,7 @@ You can machine wash (30°C or lower) your jerseys with similar colours. Do not 
 
 <Expand title="What is your Returns Policy?">
 
-You can find our full returns policy on our [shipping and returns page](/shipping).
+You can find our full returns policy on our [returns page](/returns).
 
 </Expand>
 
