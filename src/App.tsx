@@ -6,7 +6,7 @@ import { Route, BrowserRouter, Switch } from 'react-router-dom';
 import Homepage from './pages/homepage';
 import Footer from './components/Footer';
 import Layout from './components/Layout';
-import ElevatedAppBar from './components/ElevatedAppBar';
+import MainAppBar from './components/MainAppBar';
 import Loading from './components/Loading';
 import { getTheme } from './stores/settings';
 import ScrollToTop from './components/ScrollToTop';
@@ -23,7 +23,7 @@ const App: FunctionComponent = observer(() => (
       <Suspense fallback={<Loading />}>
         <ScrollToTop />
         <Layout>
-          <ElevatedAppBar />
+          <MainAppBar />
           <Switch>
             <Route path="/" exact component={Homepage} />
             <Route path={ROUTE_ABOUT} exact component={About} />

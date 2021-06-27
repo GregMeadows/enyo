@@ -21,13 +21,13 @@ const useStyles = makeStyles(
     },
     container: {
       color: theme.palette.text.primary,
-      padding: theme.spacing(0.5),
       display: 'inline-flex',
+      alignItems: 'center',
     },
     icon: {
-      height: theme.spacing(6),
+      height: theme.spacing(8),
       [theme.breakpoints.down(BREAKPOINT_MOBILE)]: {
-        height: theme.spacing(5),
+        height: theme.spacing(7),
       },
       '&.large': {
         height: '8vw',

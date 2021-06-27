@@ -1,5 +1,14 @@
 # Changelog
 
+## v1.1.0 - 2021-06-27
+
+### Partner Restructure
+
+- Align header with Shopify
+- Add shop link to header
+
+---
+
 ## v1.0.7 - 2021-06-27
 
 ### Misc

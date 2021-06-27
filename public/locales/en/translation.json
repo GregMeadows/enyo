@@ -21,15 +21,17 @@
     },
     "help": {
       "contact": "Get In Touch",
-      "shipping": "Shipping",
       "faq": "FAQ",
       "returns": "Returns",
+      "shipping": "Shipping",
       "title": "Help"
     },
     "main": {
       "about": "Who We Are",
-      "contact": "Get In Touch"
+      "contact": "Get In Touch",
+      "shop": "Shop"
     },
+    "title": "Partner",
     "top": "Scroll to top of page"
   },
   "pages": {
@@ -115,10 +117,5 @@
   "theme": {
     "dark": "Switch to dark mode",
     "light": "Switch to light mode"
-  },
-  "translate": {
-    "en": "English",
-    "help": "Help translate",
-    "title": "Change language"
   }
 }

@@ -63,5 +63,10 @@
     }
   },
   "key": "",
-  "i18nKey": ""
+  "i18nKey": "",
+  "translate": {
+    "en": "English",
+    "help": "Help translate",
+    "title": "Change language"
+  }
 }

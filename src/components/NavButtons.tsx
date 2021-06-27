@@ -34,12 +34,15 @@ const NavButtons: FunctionComponent<NavButtonsProps> = ({ items }) => {
   return (
     <nav className={classes.root}>
       {items.map((item) => {
+        const isLink = item.link.startsWith('http');
+
         if (item.fallbackIcon && isMobile) {
           return (
             <Tooltip title={item.text} key={item.text}>
               <IconButton
-                component={Link}
-                to={item.link}
+                component={isLink ? 'button' : Link}
+                to={isLink ? undefined : item.link}
+                href={isLink ? item.link : undefined}
                 aria-label={item.text}
               >
                 {item.fallbackIcon}
@@ -49,9 +52,10 @@ const NavButtons: FunctionComponent<NavButtonsProps> = ({ items }) => {
         }
         return (
           <Button
-            component={Link}
+            component={isLink ? 'button' : Link}
             variant="text"
-            to={item.link}
+            to={isLink ? undefined : item.link}
+            href={isLink ? item.link : undefined}
             key={item.text}
             size="large"
           >

@@ -6,6 +6,16 @@ const root: ThemeOptions = {
       underline: 'always',
     },
   },
+  overrides: {
+    MuiButton: {
+      root: {
+        textTransform: 'capitalize',
+      },
+      textSizeLarge: {
+        fontSize: '1rem',
+      },
+    },
+  },
   typography: {
     h1: {
       fontFamily: [
