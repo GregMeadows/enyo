@@ -1,5 +1,13 @@
 # Changelog
 
+## v1.0.7 - 2021-06-27
+
+### Misc
+
+- Update packages
+
+---
+
 ## v1.0.6 - 2021-06-06
 
 ### FAQs
