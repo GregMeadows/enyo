@@ -1,38 +1,21 @@
+import { IconButton, Tooltip, useMediaQuery } from '@material-ui/core';
+import { useTheme } from '@material-ui/core/styles';
 import React, { FunctionComponent } from 'react';
-import { makeStyles, Theme, useTheme } from '@material-ui/core/styles';
-import { Button, IconButton, Tooltip, useMediaQuery } from '@material-ui/core';
 import { Link } from 'react-router-dom';
-import { LinkedItem } from '../types';
 import { BREAKPOINT_MOBILE } from '../assets/consts';
+import { LinkedItem } from '../types';
+import BorderLink from './BorderLink';
 
 interface NavButtonsProps {
   items: LinkedItem[];
 }
 
-const useStyles = makeStyles(
-  (theme: Theme) => ({
-    root: {
-      display: 'inline-flex',
-      '& > :not(:last-child)': {
-        marginRight: theme.spacing(1),
-        [theme.breakpoints.down(BREAKPOINT_MOBILE)]: {
-          marginRight: 0,
-        },
-      },
-    },
-  }),
-  {
-    classNamePrefix: 'nav-buttons',
-  }
-);
-
 const NavButtons: FunctionComponent<NavButtonsProps> = ({ items }) => {
-  const classes = useStyles();
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down(BREAKPOINT_MOBILE));
 
   return (
-    <nav className={classes.root}>
+    <nav>
       {items.map((item) => {
         const isLink = item.link.startsWith('http');
 
@@ -50,18 +33,7 @@ const NavButtons: FunctionComponent<NavButtonsProps> = ({ items }) => {
             </Tooltip>
           );
         }
-        return (
-          <Button
-            component={isLink ? 'button' : Link}
-            variant="text"
-            to={isLink ? undefined : item.link}
-            href={isLink ? item.link : undefined}
-            key={item.text}
-            size="large"
-          >
-            {item.text}
-          </Button>
-        );
+        return <BorderLink key={item.link} text={item.text} link={item.link} />;
       })}
     </nav>
   );

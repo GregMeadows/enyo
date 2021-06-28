@@ -6,16 +6,6 @@ const root: ThemeOptions = {
       underline: 'always',
     },
   },
-  overrides: {
-    MuiButton: {
-      root: {
-        textTransform: 'capitalize',
-      },
-      textSizeLarge: {
-        fontSize: '1rem',
-      },
-    },
-  },
   typography: {
     h1: {
       fontFamily: [
@@ -51,7 +41,7 @@ const root: ThemeOptions = {
         'sans-serif',
       ].join(','),
       textTransform: 'uppercase',
-      letterSpacing: 0.5,
+      letterSpacing: 0.6,
     },
     h6: {
       fontSize: '1rem',
