@@ -29,8 +29,10 @@
     "main": {
       "about": "Who We Are",
       "contact": "Get In Touch",
-      "shop": "Shop"
+      "shop": "Shop",
+      "what": "What We Do"
     },
+    "menu": "Open Menu",
     "title": "Partner",
     "top": "Scroll to top of page"
   },

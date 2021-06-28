@@ -37,6 +37,11 @@ const useStyles = makeStyles(
       height: '5vw',
       maxHeight: '3rem',
       minHeight: '2.6rem',
+      '&.small': {
+        height: '1.8rem',
+        maxHeight: '1.8rem',
+        minHeight: '1.8rem',
+      },
     },
     full: {
       height: '6vw',

@@ -10,7 +10,7 @@ import Brightness4Icon from '@material-ui/icons/Brightness4';
 import clsx from 'clsx';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import { BREAKPOINT_MOBILE, BREAKPOINT_TABLET } from '../assets/consts';
+import { BREAKPOINT_TABLET } from '../assets/consts';
 import { isLightMode, switchThemeType } from '../stores/settings';
 import Logo from './Logo';
 import MainNav from './MainNav';
@@ -48,7 +48,7 @@ const useStyles = makeStyles(
       flexGrow: 1,
     },
     mobile: {
-      [theme.breakpoints.down(BREAKPOINT_MOBILE)]: {
+      [theme.breakpoints.down(BREAKPOINT_TABLET)]: {
         display: 'none',
       },
     },

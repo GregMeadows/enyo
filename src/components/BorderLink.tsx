@@ -2,11 +2,7 @@ import { ButtonBase } from '@material-ui/core';
 import { makeStyles, Theme } from '@material-ui/core/styles';
 import React, { FunctionComponent } from 'react';
 import { Link } from 'react-router-dom';
-
-interface BorderLinkProps {
-  text: string;
-  link: string;
-}
+import { LinkedItem } from '../types';
 
 const useStyles = makeStyles(
   (theme: Theme) => ({
@@ -37,7 +33,7 @@ const useStyles = makeStyles(
   }
 );
 
-const BorderLink: FunctionComponent<BorderLinkProps> = ({ text, link }) => {
+const BorderLink: FunctionComponent<LinkedItem> = ({ text, link }) => {
   const classes = useStyles();
   const isLink = link.startsWith('http');
 
