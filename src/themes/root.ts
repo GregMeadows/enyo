@@ -52,6 +52,9 @@ const root: ThemeOptions = {
     body2: {
       fontSize: '1rem',
     },
+    subtitle2: {
+      fontSize: '0.75rem',
+    },
   },
 };
 

@@ -27,9 +27,6 @@ const useStyles = makeStyles(
     list: {
       width: 300,
     },
-    background: {
-      background: theme.palette.background.default,
-    },
     logo: {
       display: 'flex',
       justifyContent: ' center',
@@ -69,7 +66,6 @@ const NavButtons: FunctionComponent<NavButtonsProps> = ({ items }) => {
           anchor="right"
           open={menuOpen}
           onClose={() => setMenuOpen(false)}
-          classes={{ paper: classes.background }}
         >
           <div
             role="presentation"

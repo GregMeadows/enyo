@@ -13,18 +13,13 @@
   },
   "copyright": "Copyright © {{year}}. {{company}}.",
   "nav": {
-    "about": {
+    "footer": {
       "about": "Who We Are",
+      "contact": "Get In Touch",
       "privacy": "Privacy Policy",
       "terms": "Terms of Service",
-      "title": "About"
-    },
-    "help": {
-      "contact": "Get In Touch",
-      "faq": "FAQ",
-      "returns": "Returns",
-      "shipping": "Shipping",
-      "title": "Help"
+      "title": "Links",
+      "what": "What We Do"
     },
     "main": {
       "about": "Who We Are",

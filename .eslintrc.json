@@ -62,7 +62,8 @@
           "i18nKey",
           "xmlns",
           "viewBox",
-          "preserveAspectRatio"
+          "preserveAspectRatio",
+          "anchor"
         ]
       }
     ],
