@@ -13,7 +13,12 @@ import {
 } from '../assets/consts';
 import Socials from './Socials';
 import WingedBorder from './WingedBorder';
-import { ROUTES_INFO, ROUTE_ABOUT, ROUTE_CONTACT } from '../assets/routes';
+import {
+  ROUTE_ABOUT,
+  ROUTE_CONTACT,
+  ROUTE_PRIVACY,
+  ROUTE_TERMS,
+} from '../assets/routes';
 import enyoOutlineLightSvg from '../images/enyo.outline.light.svg';
 import enyoOutlineDarkSvg from '../images/enyo.outline.dark.svg';
 
@@ -115,8 +120,8 @@ const Footer: FunctionComponent = () => {
     { text: t('nav.footer.what'), link: '/' },
     { text: t('nav.footer.about'), link: ROUTE_ABOUT },
     { text: t('nav.footer.contact'), link: ROUTE_CONTACT },
-    { text: t('nav.footer.terms'), link: ROUTES_INFO[0] },
-    { text: t('nav.footer.privacy'), link: ROUTES_INFO[1] },
+    { text: t('nav.footer.terms'), link: ROUTE_TERMS },
+    { text: t('nav.footer.privacy'), link: ROUTE_PRIVACY },
   ];
 
   return (

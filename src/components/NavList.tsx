@@ -57,25 +57,29 @@ const NavList: FunctionComponent<NavListProps> = ({
 
   const navList = (
     <List dense component="nav">
-      {items.map((item) => (
-        <ListItem
-          button
-          key={item.text}
-          component={RouterLink}
-          to={item.link}
-          disableGutters
-        >
-          <ListItemText className={classes.listText} disableTypography>
-            <Typography
-              variant="body2"
-              className={classes.text}
-              component="span"
-            >
-              {item.text}
-            </Typography>
-          </ListItemText>
-        </ListItem>
-      ))}
+      {items.map((item) => {
+        const isLink = item.link.startsWith('http');
+        return (
+          <ListItem
+            button
+            key={item.text}
+            component={isLink ? 'a' : RouterLink}
+            to={isLink ? undefined : item.link}
+            href={isLink ? item.link : undefined}
+            disableGutters
+          >
+            <ListItemText className={classes.listText} disableTypography>
+              <Typography
+                variant="body2"
+                className={classes.text}
+                component="span"
+              >
+                {item.text}
+              </Typography>
+            </ListItemText>
+          </ListItem>
+        );
+      })}
     </List>
   );
 

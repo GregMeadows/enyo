@@ -11,8 +11,7 @@ import Loading from './components/Loading';
 import { getTheme } from './stores/settings';
 import ScrollToTop from './components/ScrollToTop';
 import PageTitle from './components/PageTitle';
-import Info from './pages/info';
-import { ROUTES_INFO, ROUTE_ABOUT, ROUTE_CONTACT } from './assets/routes';
+import { ROUTE_ABOUT, ROUTE_CONTACT } from './assets/routes';
 import Contact from './pages/Contact';
 import About from './pages/About';
 
@@ -30,7 +29,6 @@ const App: FunctionComponent = observer(() => (
             <>
               <PageTitle />
               <Switch>
-                <Route path={ROUTES_INFO} exact component={Info} />
                 <Route path={ROUTE_CONTACT} exact component={Contact} />
               </Switch>
             </>

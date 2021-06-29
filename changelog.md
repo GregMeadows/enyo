@@ -7,6 +7,7 @@
 - Align header with Shopify
 - Add shop link to header
 - Align footer with Shopify
+- Link policy pages to Shopify store policies
 
 ---
 
