@@ -25,7 +25,9 @@ interface FormElements {
   name: string;
   email: string;
   message: string;
-  website: string; // Honeypot
+  team: string;
+  website: string;
+  contact: string; // Honeypot
 }
 
 enum FormState {
@@ -75,6 +77,8 @@ const Contact: FunctionComponent = () => {
     name: sessionStorage.getItem('contact.name') || undefined,
     email: sessionStorage.getItem('contact.email') || undefined,
     message: sessionStorage.getItem('contact.message') || undefined,
+    team: sessionStorage.getItem('contact.team') || undefined,
+    website: sessionStorage.getItem('contact.website') || undefined,
   };
 
   const hasFilledForm =
@@ -84,7 +88,9 @@ const Contact: FunctionComponent = () => {
     name: '',
     email: '',
     message: '',
+    team: '',
     website: '',
+    contact: '',
   });
   const [apiErrorText, setApiErrorText] = useState('');
   const [formState, setFormState] = useState<FormState>(
@@ -97,7 +103,7 @@ const Contact: FunctionComponent = () => {
     if (!hasFilledForm) {
       setSending(true);
 
-      if (values.website !== '') {
+      if (values.contact !== '') {
         // Honeypot capture
         setApiErrorText(t('pages.contact.form.honey'));
         setFormState(FormState.error);
@@ -112,6 +118,8 @@ const Contact: FunctionComponent = () => {
             sessionStorage.setItem('contact.name', values.name);
             sessionStorage.setItem('contact.email', values.email);
             sessionStorage.setItem('contact.message', values.message);
+            sessionStorage.setItem('contact.team', values.team);
+            sessionStorage.setItem('contact.website', values.website);
             setFormState(FormState.sent);
             setSending(false);
           })
@@ -173,7 +181,7 @@ const Contact: FunctionComponent = () => {
         className={classes.form}
       >
         <Grid container spacing={2}>
-          <Grid item xs={12} sm>
+          <Grid item xs={12} sm={6}>
             <TextField
               name="name"
               label={t('pages.contact.labels.name')}
@@ -187,7 +195,7 @@ const Contact: FunctionComponent = () => {
               value={storedValues.name}
             />
           </Grid>
-          <Grid item xs={12} sm>
+          <Grid item xs={12} sm={6}>
             <TextField
               name="email"
               label={t('pages.contact.labels.email')}
@@ -199,6 +207,32 @@ const Contact: FunctionComponent = () => {
               disabled={disableControls}
               className={classes.width}
               value={storedValues.email}
+            />
+          </Grid>
+          <Grid item xs={12} sm={6}>
+            <TextField
+              name="team"
+              label={t('pages.contact.labels.team')}
+              variant="outlined"
+              type="text"
+              error={formState === FormState.error}
+              onChange={(e) => handleChange(e)}
+              disabled={disableControls}
+              className={classes.width}
+              value={storedValues.name}
+            />
+          </Grid>
+          <Grid item xs={12} sm={6}>
+            <TextField
+              name="website"
+              label={t('pages.contact.labels.website')}
+              variant="outlined"
+              type="text"
+              error={formState === FormState.error}
+              onChange={(e) => handleChange(e)}
+              disabled={disableControls}
+              className={classes.width}
+              value={storedValues.name}
             />
           </Grid>
           <Grid item xs={12}>
@@ -220,7 +254,7 @@ const Contact: FunctionComponent = () => {
             />
             <input
               type="text"
-              name="website"
+              name="contact"
               tabIndex={-1}
               autoComplete="off"
               onChange={(e) => handleChange(e)}

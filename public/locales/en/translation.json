@@ -41,7 +41,7 @@
     },
     "contact": {
       "form": {
-        "default": "Get in touch with us by filling out the form below. We'll get back to you as soon as possible!",
+        "default": "Get in touch with us by filling out the form below.",
         "error": "There was an issue sending your message.",
         "honey": "Could not verify request.",
         "reason": "Reason:",
@@ -51,7 +51,9 @@
       "labels": {
         "email": "Email",
         "message": "Your Message",
-        "name": "Name"
+        "name": "Name",
+        "team": "Team / Business Name",
+        "website": "Website"
       },
       "office": "Registered Office",
       "send": "Send Message",
@@ -90,25 +92,6 @@
         },
         "title": "Sustainability"
       }
-    },
-    "info": {
-      "error": "There doesn't seem to be any content here.",
-      "faq": {
-        "title": "Frequently Asked Questions"
-      },
-      "privacy": {
-        "title": "Privacy Policy"
-      },
-      "returns": {
-        "title": "Returns Policy"
-      },
-      "shipping": {
-        "title": "Shipping"
-      },
-      "terms": {
-        "title": "Terms of Service"
-      },
-      "updated": "Last Updated:"
     }
   },
   "theme": {

@@ -15,7 +15,24 @@
     "info": {
       "access": {
         "title": "Accessibility"
-      }
+      },
+      "error": "There doesn't seem to be any content here.",
+      "faq": {
+        "title": "Frequently Asked Questions"
+      },
+      "privacy": {
+        "title": "Privacy Policy"
+      },
+      "returns": {
+        "title": "Returns Policy"
+      },
+      "shipping": {
+        "title": "Shipping"
+      },
+      "terms": {
+        "title": "Terms of Service"
+      },
+      "updated": "Last Updated:"
     },
     "homepage": {
       "decor": {
