@@ -54,6 +54,9 @@
           "title": "Fit"
         }
       }
+    },
+    "notfound": {
+      "home": "Click here to retrun home"
     }
   },
   "homepage": {

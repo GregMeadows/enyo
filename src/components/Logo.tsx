@@ -7,6 +7,7 @@ import { ReactComponent as LogoTextSvg } from '../images/logo/text.svg';
 import { ReactComponent as LogoFullSvg } from '../images/logo/full.svg';
 import { ReactComponent as LogoBlockSvg } from '../images/logo/block.svg';
 import { BREAKPOINT_MOBILE } from '../assets/consts';
+import { ROUTE_HOME } from '../assets/routes';
 
 interface LogoProps {
   type?: 'icon' | 'text' | 'full' | 'block';
@@ -67,7 +68,7 @@ const useStyles = makeStyles(
 const Logo: FunctionComponent<LogoProps> = ({ type, size }) => {
   const classes = useStyles();
   const { pathname } = useLocation();
-  const isHomepage = pathname === '/';
+  const isHomepage = pathname === ROUTE_HOME;
 
   let logo;
   switch (type) {

@@ -14,6 +14,7 @@ import PageTitle from './components/PageTitle';
 import { ROUTE_ABOUT, ROUTE_CONTACT } from './assets/routes';
 import Contact from './pages/Contact';
 import About from './pages/About';
+import NotFound from './pages/NotFound';
 
 const App: FunctionComponent = observer(() => (
   <ThemeProvider theme={getTheme()}>
@@ -30,6 +31,7 @@ const App: FunctionComponent = observer(() => (
               <PageTitle />
               <Switch>
                 <Route path={ROUTE_CONTACT} exact component={Contact} />
+                <Route component={NotFound} />
               </Switch>
             </>
           </Switch>

@@ -16,6 +16,7 @@ import WingedBorder from './WingedBorder';
 import {
   ROUTE_ABOUT,
   ROUTE_CONTACT,
+  ROUTE_HOME,
   ROUTE_PRIVACY,
   ROUTE_TERMS,
 } from '../assets/routes';
@@ -117,7 +118,7 @@ const Footer: FunctionComponent = () => {
   const company = t('company.long');
 
   const itemsAbout: LinkedItem[] = [
-    { text: t('nav.footer.what'), link: '/' },
+    { text: t('nav.footer.what'), link: ROUTE_HOME },
     { text: t('nav.footer.about'), link: ROUTE_ABOUT },
     { text: t('nav.footer.contact'), link: ROUTE_CONTACT },
     { text: t('nav.footer.terms'), link: ROUTE_TERMS },

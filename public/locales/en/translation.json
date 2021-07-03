@@ -92,6 +92,14 @@
         },
         "title": "Sustainability"
       }
+    },
+    "notfound": {
+      "body": {
+        "1": "Sorry, this page does not seem to exist.",
+        "2": "It might have been moved, or the link you clicked was incorrect.",
+        "3": "<0>Return to the home page</0> or <1>take a look at our store</1>."
+      },
+      "title": "Page Not Found"
     }
   },
   "theme": {

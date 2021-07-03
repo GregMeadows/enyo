@@ -1,6 +1,6 @@
 # Changelog
 
-## v1.1.0 - 2021-07-02
+## v1.1.0 - 2021-07-03
 
 ### Partner Restructure
 
@@ -9,6 +9,7 @@
 - Align footer with Shopify
 - Link policy pages to Shopify store policies
 - Add team/business name to contact form
+- Add 404 Page
 
 ---
 

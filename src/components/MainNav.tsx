@@ -1,6 +1,11 @@
 import React, { FunctionComponent } from 'react';
 import { useTranslation } from 'react-i18next';
-import { ROUTE_ABOUT, ROUTE_CONTACT, ROUTE_SHOP } from '../assets/routes';
+import {
+  ROUTE_ABOUT,
+  ROUTE_CONTACT,
+  ROUTE_HOME,
+  ROUTE_SHOP,
+} from '../assets/routes';
 import { LinkedItem } from '../types';
 import NavButtons from './NavButtons';
 
@@ -10,7 +15,7 @@ const MainNav: FunctionComponent = () => {
   const mainNavItems: LinkedItem[] = [
     {
       text: t('nav.main.what'),
-      link: '/',
+      link: ROUTE_HOME,
     },
     {
       text: t('nav.main.about'),
