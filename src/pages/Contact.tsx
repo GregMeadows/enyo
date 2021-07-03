@@ -27,7 +27,7 @@ interface FormElements {
   message: string;
   team: string;
   website: string;
-  contact: string; // Honeypot
+  password: string; // Honeypot
 }
 
 enum FormState {
@@ -90,7 +90,7 @@ const Contact: FunctionComponent = () => {
     message: '',
     team: '',
     website: '',
-    contact: '',
+    password: '',
   });
   const [apiErrorText, setApiErrorText] = useState('');
   const [formState, setFormState] = useState<FormState>(
@@ -103,7 +103,7 @@ const Contact: FunctionComponent = () => {
     if (!hasFilledForm) {
       setSending(true);
 
-      if (values.contact !== '') {
+      if (values.password !== '') {
         // Honeypot capture
         setApiErrorText(t('pages.contact.form.honey'));
         setFormState(FormState.error);
@@ -254,7 +254,7 @@ const Contact: FunctionComponent = () => {
             />
             <input
               type="text"
-              name="contact"
+              name="password"
               tabIndex={-1}
               autoComplete="off"
               onChange={(e) => handleChange(e)}
