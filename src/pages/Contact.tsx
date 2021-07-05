@@ -192,7 +192,7 @@ const Contact: FunctionComponent = () => {
               required
               disabled={disableControls}
               className={classes.width}
-              value={storedValues.name}
+              defaultValue={storedValues.name}
             />
           </Grid>
           <Grid item xs={12} sm={6}>
@@ -206,7 +206,7 @@ const Contact: FunctionComponent = () => {
               required
               disabled={disableControls}
               className={classes.width}
-              value={storedValues.email}
+              defaultValue={storedValues.email}
             />
           </Grid>
           <Grid item xs={12} sm={6}>
@@ -219,7 +219,7 @@ const Contact: FunctionComponent = () => {
               onChange={(e) => handleChange(e)}
               disabled={disableControls}
               className={classes.width}
-              value={storedValues.team}
+              defaultValue={storedValues.team}
             />
           </Grid>
           <Grid item xs={12} sm={6}>
@@ -232,7 +232,7 @@ const Contact: FunctionComponent = () => {
               onChange={(e) => handleChange(e)}
               disabled={disableControls}
               className={classes.width}
-              value={storedValues.website}
+              defaultValue={storedValues.website}
             />
           </Grid>
           <Grid item xs={12}>
@@ -250,7 +250,7 @@ const Contact: FunctionComponent = () => {
               required
               disabled={disableControls}
               className={classes.width}
-              value={storedValues.message}
+              defaultValue={storedValues.message}
             />
             <input
               type="text"
