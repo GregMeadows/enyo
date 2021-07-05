@@ -219,7 +219,7 @@ const Contact: FunctionComponent = () => {
               onChange={(e) => handleChange(e)}
               disabled={disableControls}
               className={classes.width}
-              value={storedValues.name}
+              value={storedValues.team}
             />
           </Grid>
           <Grid item xs={12} sm={6}>
@@ -232,7 +232,7 @@ const Contact: FunctionComponent = () => {
               onChange={(e) => handleChange(e)}
               disabled={disableControls}
               className={classes.width}
-              value={storedValues.name}
+              value={storedValues.website}
             />
           </Grid>
           <Grid item xs={12}>
