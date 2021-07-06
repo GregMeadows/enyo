@@ -41,7 +41,7 @@ const root: ThemeOptions = {
         'sans-serif',
       ].join(','),
       textTransform: 'uppercase',
-      letterSpacing: 0.5,
+      letterSpacing: 0.6,
     },
     h6: {
       fontSize: '1rem',
@@ -51,6 +51,9 @@ const root: ThemeOptions = {
     },
     body2: {
       fontSize: '1rem',
+    },
+    subtitle2: {
+      fontSize: '0.75rem',
     },
   },
 };

@@ -1,40 +1,37 @@
 import React, { FunctionComponent } from 'react';
-import { makeStyles } from '@material-ui/core/styles';
 import { useTranslation } from 'react-i18next';
-import InfoIcon from '@material-ui/icons/Info';
-import ChatBubbleIcon from '@material-ui/icons/ChatBubble';
-import NavButtons from './NavButtons';
+import {
+  ROUTE_ABOUT,
+  ROUTE_CONTACT,
+  ROUTE_HOME,
+  ROUTE_SHOP,
+} from '../assets/routes';
 import { LinkedItem } from '../types';
-
-const useStyles = makeStyles(
-  () => ({
-    mainNav: {
-      marginLeft: '3vw',
-    },
-  }),
-  {
-    classNamePrefix: 'main-nav',
-  }
-);
+import NavButtons from './NavButtons';
 
 const MainNav: FunctionComponent = () => {
-  const classes = useStyles();
   const { t } = useTranslation();
 
   const mainNavItems: LinkedItem[] = [
-    { text: t('nav.main.about'), link: '/about', fallbackIcon: <InfoIcon /> },
+    {
+      text: t('nav.main.what'),
+      link: ROUTE_HOME,
+    },
+    {
+      text: t('nav.main.about'),
+      link: ROUTE_ABOUT,
+    },
     {
       text: t('nav.main.contact'),
-      link: '/contact',
-      fallbackIcon: <ChatBubbleIcon />,
+      link: ROUTE_CONTACT,
+    },
+    {
+      text: t('nav.main.shop'),
+      link: ROUTE_SHOP,
     },
   ];
 
-  return (
-    <div className={classes.mainNav}>
-      <NavButtons items={mainNavItems} />
-    </div>
-  );
+  return <NavButtons items={mainNavItems} />;
 };
 
 export default MainNav;

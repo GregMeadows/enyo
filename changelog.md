@@ -1,5 +1,26 @@
 # Changelog
 
+## v1.1.0 - 2021-07-03
+
+### Partner Restructure
+
+- Align header with Shopify
+- Add shop link to header
+- Align footer with Shopify
+- Link policy pages to Shopify store policies
+- Add team/business name to contact form
+- Add 404 Page
+
+---
+
+## v1.0.7 - 2021-06-27
+
+### Misc
+
+- Update packages
+
+---
+
 ## v1.0.6 - 2021-06-06
 
 ### FAQs

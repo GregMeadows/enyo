@@ -6,15 +6,15 @@ import { Route, BrowserRouter, Switch } from 'react-router-dom';
 import Homepage from './pages/homepage';
 import Footer from './components/Footer';
 import Layout from './components/Layout';
-import ElevatedAppBar from './components/ElevatedAppBar';
+import MainAppBar from './components/MainAppBar';
 import Loading from './components/Loading';
 import { getTheme } from './stores/settings';
 import ScrollToTop from './components/ScrollToTop';
 import PageTitle from './components/PageTitle';
-import Info from './pages/info';
-import { ROUTES_INFO, ROUTE_ABOUT, ROUTE_CONTACT } from './assets/routes';
+import { ROUTE_ABOUT, ROUTE_CONTACT } from './assets/routes';
 import Contact from './pages/Contact';
 import About from './pages/About';
+import NotFound from './pages/NotFound';
 
 const App: FunctionComponent = observer(() => (
   <ThemeProvider theme={getTheme()}>
@@ -23,15 +23,15 @@ const App: FunctionComponent = observer(() => (
       <Suspense fallback={<Loading />}>
         <ScrollToTop />
         <Layout>
-          <ElevatedAppBar />
+          <MainAppBar />
           <Switch>
             <Route path="/" exact component={Homepage} />
             <Route path={ROUTE_ABOUT} exact component={About} />
             <>
               <PageTitle />
               <Switch>
-                <Route path={ROUTES_INFO} exact component={Info} />
                 <Route path={ROUTE_CONTACT} exact component={Contact} />
+                <Route component={NotFound} />
               </Switch>
             </>
           </Switch>

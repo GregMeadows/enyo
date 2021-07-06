@@ -7,6 +7,7 @@ import { ReactComponent as LogoTextSvg } from '../images/logo/text.svg';
 import { ReactComponent as LogoFullSvg } from '../images/logo/full.svg';
 import { ReactComponent as LogoBlockSvg } from '../images/logo/block.svg';
 import { BREAKPOINT_MOBILE } from '../assets/consts';
+import { ROUTE_HOME } from '../assets/routes';
 
 interface LogoProps {
   type?: 'icon' | 'text' | 'full' | 'block';
@@ -21,13 +22,13 @@ const useStyles = makeStyles(
     },
     container: {
       color: theme.palette.text.primary,
-      padding: theme.spacing(0.5),
       display: 'inline-flex',
+      alignItems: 'center',
     },
     icon: {
-      height: theme.spacing(6),
+      height: theme.spacing(8),
       [theme.breakpoints.down(BREAKPOINT_MOBILE)]: {
-        height: theme.spacing(5),
+        height: theme.spacing(7),
       },
       '&.large': {
         height: '8vw',
@@ -35,8 +36,13 @@ const useStyles = makeStyles(
     },
     text: {
       height: '5vw',
-      maxHeight: '3rem',
-      minHeight: '2.6rem',
+      maxHeight: '2.8rem',
+      minHeight: '2rem',
+      '&.small': {
+        height: '1.8rem',
+        maxHeight: '1.8rem',
+        minHeight: '1.8rem',
+      },
     },
     full: {
       height: '6vw',
@@ -62,7 +68,7 @@ const useStyles = makeStyles(
 const Logo: FunctionComponent<LogoProps> = ({ type, size }) => {
   const classes = useStyles();
   const { pathname } = useLocation();
-  const isHomepage = pathname === '/';
+  const isHomepage = pathname === ROUTE_HOME;
 
   let logo;
   switch (type) {

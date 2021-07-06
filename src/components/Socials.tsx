@@ -15,9 +15,9 @@ const useStyles = makeStyles(
     root: {
       display: 'flex',
       '& :not(:last-child)': {
-        marginRight: theme.spacing(3),
+        marginRight: theme.spacing(1.5),
         [theme.breakpoints.down(BREAKPOINT_TABLET)]: {
-          marginRight: theme.spacing(2),
+          marginRight: theme.spacing(1),
         },
       },
       '& > a': {
@@ -29,12 +29,12 @@ const useStyles = makeStyles(
         },
         '& > svg': {
           transition: 'height 0.5s ease, width 0.5s ease',
-          height: '5vw',
-          maxHeight: '2.5rem',
-          minHeight: '2.2rem',
-          width: '5vw',
-          maxWidth: '2.5rem',
-          minWidth: '2.2rem',
+          height: '3vw',
+          maxHeight: '2rem',
+          minHeight: '1.8rem',
+          width: '3vw',
+          maxWidth: '2rem',
+          minWidth: '1.8rem',
         },
       },
     },
@@ -49,11 +49,11 @@ const Socials: FunctionComponent<SocialsProps> = ({ className }) => {
 
   return (
     <div className={clsx(classes.root, className)}>
-      <a href="https://twitter.com/enyoGG">
-        <TwitterIcon fontSize="large" />
-      </a>
       <a href="https://www.instagram.com/enyo.gg/">
         <InstagramIcon fontSize="large" />
+      </a>
+      <a href="https://twitter.com/enyoGG">
+        <TwitterIcon fontSize="large" />
       </a>
       <a href="https://www.twitch.tv/enyogg">
         <TwitchIcon />

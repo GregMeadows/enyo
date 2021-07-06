@@ -10,6 +10,7 @@ import {
   BREAKPOINT_MOBILE,
   BREAKPOINT_TABLET,
 } from '../assets/consts';
+import useTitle from '../hooks/useTitle';
 
 const useStyles = makeStyles(
   (theme: Theme) => ({
@@ -99,6 +100,7 @@ const useStyles = makeStyles(
 const About: FunctionComponent = () => {
   const classes = useStyles();
   const { t } = useTranslation();
+  useTitle(t('pages.about.title'));
 
   return (
     <div>

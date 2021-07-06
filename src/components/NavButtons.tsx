@@ -1,9 +1,22 @@
-import React, { FunctionComponent } from 'react';
+import {
+  Drawer,
+  IconButton,
+  List,
+  ListItem,
+  ListItemText,
+  Tooltip,
+  useMediaQuery,
+} from '@material-ui/core';
 import { makeStyles, Theme, useTheme } from '@material-ui/core/styles';
-import { Button, IconButton, Tooltip, useMediaQuery } from '@material-ui/core';
+import CloseIcon from '@material-ui/icons/Close';
+import MenuIcon from '@material-ui/icons/Menu';
+import React, { FunctionComponent, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
+import { BREAKPOINT_TABLET } from '../assets/consts';
 import { LinkedItem } from '../types';
-import { BREAKPOINT_MOBILE } from '../assets/consts';
+import BorderLink from './BorderLink';
+import Logo from './Logo';
 
 interface NavButtonsProps {
   items: LinkedItem[];
@@ -11,14 +24,19 @@ interface NavButtonsProps {
 
 const useStyles = makeStyles(
   (theme: Theme) => ({
-    root: {
-      display: 'inline-flex',
-      '& > :not(:last-child)': {
-        marginRight: theme.spacing(1),
-        [theme.breakpoints.down(BREAKPOINT_MOBILE)]: {
-          marginRight: 0,
-        },
-      },
+    list: {
+      width: 300,
+    },
+    logo: {
+      display: 'flex',
+      justifyContent: ' center',
+      paddingTop: '1.2rem',
+      paddingBottom: '1rem',
+    },
+    close: {
+      position: 'absolute',
+      top: theme.spacing(1.5),
+      right: theme.spacing(1.5),
     },
   }),
   {
@@ -29,36 +47,62 @@ const useStyles = makeStyles(
 const NavButtons: FunctionComponent<NavButtonsProps> = ({ items }) => {
   const classes = useStyles();
   const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down(BREAKPOINT_MOBILE));
+  const { t } = useTranslation();
+  const isMobile = useMediaQuery(theme.breakpoints.down(BREAKPOINT_TABLET));
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  if (isMobile) {
+    return (
+      <>
+        <Tooltip title={t('nav.menu') || ''}>
+          <IconButton
+            aria-label={t('nav.menu')}
+            onClick={() => setMenuOpen(true)}
+          >
+            <MenuIcon />
+          </IconButton>
+        </Tooltip>
+        <Drawer
+          anchor="right"
+          open={menuOpen}
+          onClose={() => setMenuOpen(false)}
+        >
+          <div
+            role="presentation"
+            onClick={() => setMenuOpen(false)}
+            onKeyDown={() => setMenuOpen(false)}
+          >
+            <CloseIcon className={classes.close} />
+            <div className={classes.logo}>
+              <Logo size="small" type="text" />
+            </div>
+            <List className={classes.list}>
+              {items.map((item) => {
+                const isLink = item.link.startsWith('http');
+                return (
+                  <ListItem
+                    button
+                    component={isLink ? 'div' : Link}
+                    to={isLink ? undefined : item.link}
+                    href={isLink ? item.link : undefined}
+                    key={item.text}
+                  >
+                    <ListItemText primary={item.text} />
+                  </ListItem>
+                );
+              })}
+            </List>
+          </div>
+        </Drawer>
+      </>
+    );
+  }
 
   return (
-    <nav className={classes.root}>
-      {items.map((item) => {
-        if (item.fallbackIcon && isMobile) {
-          return (
-            <Tooltip title={item.text} key={item.text}>
-              <IconButton
-                component={Link}
-                to={item.link}
-                aria-label={item.text}
-              >
-                {item.fallbackIcon}
-              </IconButton>
-            </Tooltip>
-          );
-        }
-        return (
-          <Button
-            component={Link}
-            variant="text"
-            to={item.link}
-            key={item.text}
-            size="large"
-          >
-            {item.text}
-          </Button>
-        );
-      })}
+    <nav>
+      {items.map((item) => (
+        <BorderLink key={item.link} text={item.text} link={item.link} />
+      ))}
     </nav>
   );
 };

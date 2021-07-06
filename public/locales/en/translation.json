@@ -8,28 +8,26 @@
     "numbers": {
       "company": "12918773",
       "vat": "GB372642491"
-    },
-    "tag": "Made to Conquer"
+    }
   },
   "copyright": "Copyright © {{year}}. {{company}}.",
   "nav": {
-    "about": {
+    "footer": {
       "about": "Who We Are",
+      "contact": "Get In Touch",
       "privacy": "Privacy Policy",
       "terms": "Terms of Service",
-      "title": "About"
-    },
-    "help": {
-      "contact": "Get In Touch",
-      "shipping": "Shipping",
-      "faq": "FAQ",
-      "returns": "Returns",
-      "title": "Help"
+      "title": "Links",
+      "what": "What We Do"
     },
     "main": {
       "about": "Who We Are",
-      "contact": "Get In Touch"
+      "contact": "Get In Touch",
+      "shop": "Shop",
+      "what": "What We Do"
     },
+    "menu": "Open Menu",
+    "title": "Partner",
     "top": "Scroll to top of page"
   },
   "pages": {
@@ -42,7 +40,7 @@
     },
     "contact": {
       "form": {
-        "default": "Get in touch with us by filling out the form below. We'll get back to you as soon as possible!",
+        "default": "Get in touch with us by filling out the form below.",
         "error": "There was an issue sending your message.",
         "honey": "Could not verify request.",
         "reason": "Reason:",
@@ -52,7 +50,9 @@
       "labels": {
         "email": "Email",
         "message": "Your Message",
-        "name": "Name"
+        "name": "Name",
+        "team": "Team / Business Name",
+        "website": "Website"
       },
       "office": "Registered Office",
       "send": "Send Message",
@@ -92,33 +92,17 @@
         "title": "Sustainability"
       }
     },
-    "info": {
-      "error": "There doesn't seem to be any content here.",
-      "faq": {
-        "title": "Frequently Asked Questions"
+    "notfound": {
+      "body": {
+        "1": "Sorry, this page does not seem to exist.",
+        "2": "It might have been moved, or the link you clicked was incorrect.",
+        "3": "<0>Return to the home page</0> or <1>take a look at our store</1>."
       },
-      "privacy": {
-        "title": "Privacy Policy"
-      },
-      "returns": {
-        "title": "Returns Policy"
-      },
-      "shipping": {
-        "title": "Shipping"
-      },
-      "terms": {
-        "title": "Terms of Service"
-      },
-      "updated": "Last Updated:"
+      "title": "Page Not Found"
     }
   },
   "theme": {
     "dark": "Switch to dark mode",
     "light": "Switch to light mode"
-  },
-  "translate": {
-    "en": "English",
-    "help": "Help translate",
-    "title": "Change language"
   }
 }

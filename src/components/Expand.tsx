@@ -1,5 +1,5 @@
 import React, { FunctionComponent } from 'react';
-import { makeStyles, Theme } from '@material-ui/core/styles';
+import { fade, makeStyles, Theme } from '@material-ui/core/styles';
 import {
   Accordion,
   AccordionDetails,
@@ -19,13 +19,31 @@ const useStyles = makeStyles(
       boxShadow: 'none',
       marginTop: theme.spacing(1),
       marginBottom: theme.spacing(1),
+      background: fade(theme.palette.background.paper, 0.8),
+      '&$expanded': {
+        minHeight: 56,
+      },
     },
     TitleContent: {
       order: 1,
+      '&$expanded': {
+        margin: '12px 0',
+      },
     },
     expandIcon: {
       marginRight: 0,
       marginLeft: -12,
+    },
+    accordianSummary: {
+      '&$expanded': {
+        minHeight: 48,
+      },
+    },
+    accordianDetails: {
+      paddingTop: 0,
+    },
+    childrenContainer: {
+      width: '100%',
     },
   }),
   {
@@ -54,6 +72,7 @@ const Expand: FunctionComponent<ExpandProps> = ({ title, children }) => {
         IconButtonProps={{
           color: 'primary',
         }}
+        className={classes.accordianSummary}
         classes={{
           content: classes.TitleContent,
           expandIcon: classes.expandIcon,
@@ -61,8 +80,8 @@ const Expand: FunctionComponent<ExpandProps> = ({ title, children }) => {
       >
         <Typography variant="h6">{title}</Typography>
       </AccordionSummary>
-      <AccordionDetails>
-        <div>{parsedChildren}</div>
+      <AccordionDetails className={classes.accordianDetails}>
+        <div className={classes.childrenContainer}>{parsedChildren}</div>
       </AccordionDetails>
     </Accordion>
   );

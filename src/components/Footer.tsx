@@ -13,13 +13,21 @@ import {
 } from '../assets/consts';
 import Socials from './Socials';
 import WingedBorder from './WingedBorder';
-import { ROUTES_INFO, ROUTE_ABOUT, ROUTE_CONTACT } from '../assets/routes';
+import {
+  ROUTE_ABOUT,
+  ROUTE_CONTACT,
+  ROUTE_HOME,
+  ROUTE_PRIVACY,
+  ROUTE_TERMS,
+} from '../assets/routes';
 import enyoOutlineLightSvg from '../images/enyo.outline.light.svg';
 import enyoOutlineDarkSvg from '../images/enyo.outline.dark.svg';
 
 const useStyles = makeStyles(
   (theme: Theme) => ({
     root: {
+      position: 'relative',
+      borderTop: `1px solid ${theme.palette.border.light}`,
       background: theme.palette.background.paper,
       backgroundImage: `url(${
         theme.palette.type === 'light'
@@ -27,48 +35,48 @@ const useStyles = makeStyles(
           : enyoOutlineDarkSvg
       })`,
       backgroundRepeat: 'no-repeat',
-      backgroundPosition: 'right top',
+      backgroundPosition: ' right calc(100% + 45px)',
       backgroundSize: '44rem',
-      clipPath: `polygon(90% 0, 100% 15%, 100% 100%, 0 100%, 0 0)`,
-      paddingTop: '1rem',
-      height: '22rem',
+      clipPath: `polygon(95% 0, 100% 9%, 100% 100%, 0 100%, 0 0)`,
+      paddingTop: 50,
+      paddingBottom: 12,
       [theme.breakpoints.down(BREAKPOINT_LAPTOP)]: {
-        backgroundPosition: 'calc(100% + 10rem) top',
+        backgroundPosition: 'calc(100% + 8rem) calc(100% + 45px)',
       },
       [theme.breakpoints.down(BREAKPOINT_TABLET)]: {
-        backgroundPosition: 'calc(100% + 15rem) 115%',
+        backgroundPosition: 'calc(100% + 14rem) calc(100% + 4rem)',
       },
       [theme.breakpoints.down(BREAKPOINT_MOBILE)]: {
-        clipPath: `polygon(92% 0, 100% 8%, 100% 100%, 0 100%, 0 0)`,
-        height: '31rem',
+        paddingTop: theme.spacing(2),
+        paddingBottom: 0,
+        backgroundPosition: 'calc(100% + 19rem) calc(100% + 4rem)',
+        clipPath: `polygon(97% 0, 100% 7%, 100% 100%, 0 100%, 0 0)`,
       },
     },
-    grid: {
-      height: '100%',
+    wing: {
+      position: 'absolute',
+      width: '100%',
+      top: theme.spacing(1),
     },
-    top: {
-      flexGrow: 1,
-      padding: '1.4rem 2.5vw 0',
-      [theme.breakpoints.down(BREAKPOINT_MOBILE)]: {
-        padding: '2.5rem 2vw 0',
-      },
-    },
-    navList: {
-      paddingLeft: '1rem',
-      paddingRight: '1rem',
-      maxWidth: '20rem',
-      [theme.breakpoints.down(BREAKPOINT_MOBILE)]: {
-        maxWidth: 'none',
+    width: {
+      width: '100%',
+      maxWidth: 1500,
+      margin: '0 auto',
+      padding: '0 40px',
+      [theme.breakpoints.down(BREAKPOINT_TABLET)]: {
+        padding: '0 17px',
       },
     },
     bottom: {
-      background: theme.palette.background.default,
-      borderTop: `1px solid ${theme.palette.border.main}`,
-      minHeight: '5rem',
-      paddingLeft: '2vw',
-      paddingRight: '2vw',
+      marginTop: 32,
       [theme.breakpoints.down(BREAKPOINT_MOBILE)]: {
-        background: 'none',
+        marginTop: 16,
+      },
+    },
+    links: {
+      maxWidth: '16rem',
+      [theme.breakpoints.down(BREAKPOINT_MOBILE)]: {
+        maxWidth: 'none',
       },
     },
     bottomItem: {
@@ -109,31 +117,26 @@ const Footer: FunctionComponent = () => {
   const { t } = useTranslation();
   const company = t('company.long');
 
-  const itemsHelp: LinkedItem[] = [
-    { text: t('nav.help.faq'), link: ROUTES_INFO[3] },
-    { text: t('nav.help.shipping'), link: ROUTES_INFO[2] },
-    { text: t('nav.help.returns'), link: ROUTES_INFO[4] },
-    { text: t('nav.help.contact'), link: ROUTE_CONTACT },
-  ];
-
   const itemsAbout: LinkedItem[] = [
-    { text: t('nav.about.about'), link: ROUTE_ABOUT },
-    { text: t('nav.about.terms'), link: ROUTES_INFO[0] },
-    { text: t('nav.about.privacy'), link: ROUTES_INFO[1] },
+    { text: t('nav.footer.what'), link: ROUTE_HOME },
+    { text: t('nav.footer.about'), link: ROUTE_ABOUT },
+    { text: t('nav.footer.contact'), link: ROUTE_CONTACT },
+    { text: t('nav.footer.terms'), link: ROUTE_TERMS },
+    { text: t('nav.footer.privacy'), link: ROUTE_PRIVACY },
   ];
 
   return (
     <footer className={`${classes.root} mui-fixed`}>
-      <Grid container direction="column" className={classes.grid}>
-        <WingedBorder direction="down" right length={86} />
-        <Grid container item className={classes.top}>
-          <Grid item xs className={classes.navList}>
-            <NavList title={t('nav.help.title')} items={itemsHelp} />
-          </Grid>
-          <Grid item xs className={classes.navList}>
-            <NavList title={t('nav.about.title')} items={itemsAbout} />
-          </Grid>
-        </Grid>
+      <WingedBorder
+        direction="down"
+        right
+        length={92}
+        className={classes.wing}
+      />
+      <div className={classes.width}>
+        <div className={classes.links}>
+          <NavList title={t('nav.footer.title')} items={itemsAbout} />
+        </div>
         <Grid container item alignItems="center" className={classes.bottom}>
           <Grid
             item
@@ -149,13 +152,13 @@ const Footer: FunctionComponent = () => {
             sm
             className={clsx(classes.bottomItem, classes.info)}
           >
-            <Typography variant="subtitle2">{t('company.info')}</Typography>
             <Typography variant="subtitle2">
               {t('copyright', {
                 year: new Date().getFullYear(),
                 company,
               })}
             </Typography>
+            <Typography variant="subtitle2">{t('company.info')}</Typography>
           </Grid>
           <Grid
             item
@@ -166,7 +169,7 @@ const Footer: FunctionComponent = () => {
             <Logo type="text" />
           </Grid>
         </Grid>
-      </Grid>
+      </div>
     </footer>
   );
 };

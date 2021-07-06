@@ -15,7 +15,24 @@
     "info": {
       "access": {
         "title": "Accessibility"
-      }
+      },
+      "error": "There doesn't seem to be any content here.",
+      "faq": {
+        "title": "Frequently Asked Questions"
+      },
+      "privacy": {
+        "title": "Privacy Policy"
+      },
+      "returns": {
+        "title": "Returns Policy"
+      },
+      "shipping": {
+        "title": "Shipping"
+      },
+      "terms": {
+        "title": "Terms of Service"
+      },
+      "updated": "Last Updated:"
     },
     "homepage": {
       "decor": {
@@ -37,6 +54,9 @@
           "title": "Fit"
         }
       }
+    },
+    "notfound": {
+      "home": "Click here to retrun home"
     }
   },
   "homepage": {
@@ -60,8 +80,21 @@
     },
     "help": {
       "help": "Help"
+    },
+    "footer": {
+      "faq": "FAQ",
+      "shipping": "Shipping",
+      "returns": "Returns"
     }
   },
   "key": "",
-  "i18nKey": ""
+  "i18nKey": "",
+  "translate": {
+    "en": "English",
+    "help": "Help translate",
+    "title": "Change language"
+  },
+  "company": {
+    "tag": "Made to Conquer"
+  }
 }
