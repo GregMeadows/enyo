@@ -93,5 +93,8 @@
     "en": "English",
     "help": "Help translate",
     "title": "Change language"
+  },
+  "company": {
+    "tag": "Made to Conquer"
   }
 }

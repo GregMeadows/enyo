@@ -8,8 +8,7 @@
     "numbers": {
       "company": "12918773",
       "vat": "GB372642491"
-    },
-    "tag": "Made to Conquer"
+    }
   },
   "copyright": "Copyright © {{year}}. {{company}}.",
   "nav": {
