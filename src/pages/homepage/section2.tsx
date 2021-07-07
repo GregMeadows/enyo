@@ -8,9 +8,9 @@ import {
   BREAKPOINT_MOBILE,
   BREAKPOINT_TABLET,
 } from '../../assets/consts';
-import enyoHoodyPurple from '../../images/clothing/enyo/merch/hood.purple.png';
+import enyoHoodyOrchid from '../../images/clothing/enyo/merch/hood.orchid.png';
 import enyoHoodyBlack from '../../images/clothing/enyo/merch/hood.black.png';
-import enyoHoodyWhite from '../../images/clothing/enyo/merch/hood.white.png';
+import enyoHoodyMarl from '../../images/clothing/enyo/merch/hood.marl.png';
 import SVGPaths, {
   SVGParams,
   PathDirection,
@@ -82,18 +82,20 @@ const useStyles = makeStyles(
     },
     imageContainer: {
       display: 'flex',
-      justifyContent: 'flex-end',
+      position: 'relative',
+      height: 460,
+      paddingTop: 180,
       [theme.breakpoints.down(BREAKPOINT_TABLET)]: {
         justifyContent: 'center',
       },
     },
     images: {
-      height: 456,
-      width: 334,
+      width: '140%',
+      position: 'absolute',
     },
   }),
   {
-    classNamePrefix: 'section-1',
+    classNamePrefix: 'section-2',
   }
 );
 
@@ -106,8 +108,8 @@ const Section2: FunctionComponent = () => {
 
   const images: ImageProps[] = [
     { src: enyoHoodyBlack, alt: t('pages.homepage.merch.hoody.black') },
-    { src: enyoHoodyWhite, alt: t('pages.homepage.merch.hoody.white') },
-    { src: enyoHoodyPurple, alt: t('pages.homepage.merch.hoody.purple') },
+    { src: enyoHoodyMarl, alt: t('pages.homepage.merch.hoody.white') },
+    { src: enyoHoodyOrchid, alt: t('pages.homepage.merch.hoody.purple') },
   ];
 
   const svgPaths: SVGParams[] = [

@@ -82,8 +82,8 @@ const useStyles = makeStyles(
     },
     hexContainer: {
       position: 'absolute',
-      left: '41%',
-      top: '36%',
+      left: '36%',
+      top: '35%',
     },
     hex: {
       display: 'block',
