@@ -28,13 +28,13 @@ const useStyles = makeStyles(
     },
   }),
   {
-    classNamePrefix: 'nav-list',
+    classNamePrefix: 'image-gallery',
   }
 );
 
 const ImageGallery: FunctionComponent<ImageGalleryProps> = ({
   images,
-  delay = 3000,
+  delay = 6000,
   className,
 }) => {
   const classes = useStyles();
@@ -79,11 +79,11 @@ const ImageGallery: FunctionComponent<ImageGalleryProps> = ({
           }}
           animate={{
             clipPath: 'polygon(50% -100%, 200% 50%, 50% 200%, -100% 50%)',
-            transition: { duration: 3, delay: 0.18 },
+            transition: { duration: 4, delay: 0.1 },
           }}
           exit={{
             clipPath: 'polygon(200% 50%, 200% 50%, 50% 200%, 50% 200%)',
-            transition: { duration: 3 },
+            transition: { duration: 4 },
           }}
         />
       </AnimatePresence>

@@ -1,5 +1,11 @@
 # Changelog
 
+## v1.1.1 - 2021-07-07
+
+### Misc
+
+- Use real images on Homepage
+
 ## v1.1.0 - 2021-07-03
 
 ### Partner Restructure
