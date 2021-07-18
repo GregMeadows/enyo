@@ -1,5 +1,16 @@
 # Changelog
 
+## v1.1.2 - 2021-07-18
+
+### Homepage
+
+- Add section about store hosting
+
+### Contact
+
+- Update wording on contact form
+- Remove physical address
+
 ## v1.1.1 - 2021-07-07
 
 ### Misc

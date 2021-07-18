@@ -79,6 +79,15 @@
         },
         "title": "Fan Merchandise"
       },
+      "store": {
+        "image": "Enyo store",
+        "rotated": "Direct to Customer",
+        "text": {
+          "1": "Along side the custom merchandise comes the option for store hosting.",
+          "2": "You can have a branded section of our store for your merchandise. We take on all the effort, dealing with stock and logistics. Allowing you to sit back and receive commision on everything that's sold, hassle free."
+        },
+        "title": "Enyo Store"
+      },
       "sustain": {
         "rotated": "Recycled",
         "text": {

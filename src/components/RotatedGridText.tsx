@@ -18,7 +18,7 @@ const useStyles = makeStyles(
       display: 'inline-flex',
       alignItems: 'baseline',
       textTransform: 'uppercase',
-      transform: 'rotate(-90deg) translate(-50%, 20%)',
+      transform: 'rotate(-90deg) translate(-58%, 20%)',
       transformOrigin: '0 0',
       position: 'absolute',
       left: 0,
