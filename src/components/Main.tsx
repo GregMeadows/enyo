@@ -1,7 +1,5 @@
-import React, { FunctionComponent } from 'react';
 import { makeStyles, Theme } from '@material-ui/core/styles';
-import { useTranslation } from 'react-i18next';
-import useTitle from '../hooks/useTitle';
+import React, { FunctionComponent } from 'react';
 import {
   BREAKPOINT_LAPTOP,
   BREAKPOINT_MOBILE,
@@ -30,9 +28,6 @@ const useStyles = makeStyles(
 
 const Main: FunctionComponent = ({ children }) => {
   const classes = useStyles();
-  const { t } = useTranslation();
-  useTitle(t('pages.contact.title'));
-
   return <main className={classes.root}>{children}</main>;
 };
 export default Main;

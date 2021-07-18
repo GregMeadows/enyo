@@ -57,6 +57,9 @@
     },
     "notfound": {
       "home": "Click here to retrun home"
+    },
+    "contact": {
+      "office": "Registered Office"
     }
   },
   "homepage": {
@@ -95,6 +98,8 @@
     "title": "Change language"
   },
   "company": {
-    "tag": "Made to Conquer"
+    "tag": "Made to Conquer",
+    "address": "$t(company.long)\nOffice 2277,\n109 Vernon House,\nFriar Lane,\nNottingham,\nNG1 6DQ",
+    "legal": "<strong>Registered</strong> in England and Wales\n<strong>Company Number:</strong> $t(company.numbers.company)\n<strong>VAT Number:</strong> $t(company.numbers.vat)"
   }
 }
