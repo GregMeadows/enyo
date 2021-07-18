@@ -19,6 +19,7 @@ import ImageGallery, { ImageProps } from '../../components/ImageGallery';
 import RotatedGridText from '../../components/RotatedGridText';
 import StyledButton from '../../components/StyledButton';
 import { ROUTE_CONTACT } from '../../assets/routes';
+import Glitch from '../../components/onView/Glitch';
 
 const PATH_SIZE = 4;
 
@@ -31,8 +32,9 @@ const useStyles = makeStyles(
       clipPath: `polygon(100% 0, 100% 94%, 95% 100%, 0 100%, 0 9%, 7% 0)`,
     },
     titleContainer: {
-      textAlign: 'right',
       margin: '1rem 4vw 0 0',
+      display: 'flex',
+      justifyContent: 'flex-end',
     },
     title: {
       lineHeight: '60%',
@@ -92,6 +94,12 @@ const useStyles = makeStyles(
     images: {
       width: '140%',
       position: 'absolute',
+      [theme.breakpoints.down(BREAKPOINT_TABLET)]: {
+        width: '120%',
+      },
+      [theme.breakpoints.down(BREAKPOINT_MOBILE)]: {
+        width: '150%',
+      },
     },
   }),
   {
@@ -156,11 +164,11 @@ const Section2: FunctionComponent = () => {
 
   return (
     <section className={classes.info} ref={viewRef}>
-      <div className={classes.titleContainer}>
+      <Glitch show={inView} className={classes.titleContainer}>
         <Typography variant="h1" className={classes.title}>
           {t('pages.homepage.merch.title')}
         </Typography>
-      </div>
+      </Glitch>
       <WingedBorder left direction="up" length={80} />
       <Grid container>
         <RotatedGridText

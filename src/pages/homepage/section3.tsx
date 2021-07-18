@@ -17,6 +17,7 @@ import { ReactComponent as FactorySVG } from '../../images/sustain/factory.svg';
 import { ReactComponent as JerseySVG } from '../../images/sustain/jersey.svg';
 import BottomReveal from '../../components/onView/BottomReveal';
 import RotatedGridText from '../../components/RotatedGridText';
+import Glitch from '../../components/onView/Glitch';
 
 const PATH_SIZE = 4;
 
@@ -152,11 +153,11 @@ const Section3: FunctionComponent = () => {
 
   return (
     <section className={classes.info} ref={viewRef}>
-      <div className={classes.titleContainer}>
+      <Glitch show={inView} className={classes.titleContainer}>
         <Typography variant="h1" className={classes.title}>
           {t('pages.homepage.sustain.title')}
         </Typography>
-      </div>
+      </Glitch>
       <WingedBorder right direction="down" length={50} />
       <Grid container>
         <RotatedGridText

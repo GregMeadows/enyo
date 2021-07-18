@@ -5,7 +5,7 @@ import React, {
   useState,
 } from 'react';
 import { makeStyles, Theme } from '@material-ui/core/styles';
-import { Trans, useTranslation } from 'react-i18next';
+import { useTranslation } from 'react-i18next';
 import {
   Button,
   CircularProgress,
@@ -284,17 +284,6 @@ const Contact: FunctionComponent = () => {
           </Grid>
         </Grid>
       </form>
-      <div className={classes.text}>
-        <Typography variant="body2">
-          <strong>{t('pages.contact.office')}</strong>
-        </Typography>
-        <Typography variant="body2" paragraph>
-          {t('company.address')}
-        </Typography>
-        <Typography variant="body2">
-          <Trans i18nKey="company.legal" />
-        </Typography>
-      </div>
     </Main>
   );
 };

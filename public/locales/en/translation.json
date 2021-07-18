@@ -1,8 +1,6 @@
 {
   "company": {
-    "address": "$t(company.long)\nOffice 2277,\n109 Vernon House,\nFriar Lane,\nNottingham,\nNG1 6DQ",
     "info": "Company No. $t(company.numbers.company). VAT No. $t(company.numbers.vat)",
-    "legal": "<strong>Registered</strong> in England and Wales\n<strong>Company Number:</strong> $t(company.numbers.company)\n<strong>VAT Number:</strong> $t(company.numbers.vat)",
     "long": "Enyo Design Ltd",
     "name": "Enyo",
     "numbers": {
@@ -14,7 +12,7 @@
   "nav": {
     "footer": {
       "about": "Who We Are",
-      "contact": "Get In Touch",
+      "contact": "Get in Touch",
       "privacy": "Privacy Policy",
       "terms": "Terms of Service",
       "title": "Links",
@@ -22,7 +20,7 @@
     },
     "main": {
       "about": "Who We Are",
-      "contact": "Get In Touch",
+      "contact": "Get in Touch",
       "shop": "Shop",
       "what": "What We Do"
     },
@@ -49,14 +47,13 @@
       },
       "labels": {
         "email": "Email",
-        "message": "Your Message",
+        "message": "Tell us what you are after",
         "name": "Name",
         "team": "Team / Business Name",
         "website": "Website"
       },
-      "office": "Registered Office",
       "send": "Send Message",
-      "title": "Contact Us"
+      "title": "Get in Touch"
     },
     "homepage": {
       "contact": "Contact Us Now",
@@ -81,6 +78,15 @@
           "2": "In addition to bespoke jersey design, we will work with you to produce unique, fashionable and marketable apparel and accessories for fans and team members alike."
         },
         "title": "Fan Merchandise"
+      },
+      "store": {
+        "image": "Enyo store",
+        "rotated": "Direct to Customer",
+        "text": {
+          "1": "Along side the custom merchandise comes the option for store hosting.",
+          "2": "You can have a branded section of our store for your merchandise. We take on all the effort, dealing with stock and logistics. Allowing you to sit back and receive commision on everything that's sold, hassle free."
+        },
+        "title": "Enyo Store"
       },
       "sustain": {
         "rotated": "Recycled",
